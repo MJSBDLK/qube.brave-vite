@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': 'http://localhost:3001' // Future backend integration
+      '/api': 'http://localhost:3002' // Future backend integration (avoid 3001 used by Docker)
     }
   },
   resolve: {
