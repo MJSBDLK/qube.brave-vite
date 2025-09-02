@@ -1,9 +1,11 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import IPFSIndicator from './IPFSIndicator'
+import { useSpicyMode } from '../contexts/SpicyModeContext'
 
 export default function Header({ onMenuToggle, sidebarOpen }) {
   const location = useLocation()
+  const { isSpicyMode, toggleSpicyMode } = useSpicyMode()
   
   // Get the page title based on the current route
   // Always shows qube.brave regardless of IPFS hash in actual URL
@@ -40,6 +42,18 @@ export default function Header({ onMenuToggle, sidebarOpen }) {
         {/* Right side - Actions */}
         <div className="header-actions">
           <IPFSIndicator />
+          
+          {/* TODO: Re-enable spicy mode toggle when user authentication is implemented */}
+          {/* Spicy Mode Toggle - Hidden until auth is ready
+          <button 
+            className={`header-btn ${isSpicyMode ? 'spicy-active' : ''}`}
+            onClick={toggleSpicyMode}
+            aria-label={`Toggle spicy mode ${isSpicyMode ? 'off' : 'on'}`}
+            title={`Spicy mode ${isSpicyMode ? 'ON' : 'OFF'}`}
+          >
+            🌶️
+          </button>
+          */}
           
           <button className="header-btn" aria-label="Search">
             <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">

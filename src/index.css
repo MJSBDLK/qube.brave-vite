@@ -300,6 +300,11 @@ body {
 	outline-offset: 2px;
 }
 
+.header-btn.spicy-active {
+	background-color: var(--color-accent);
+	color: var(--bg-primary);
+}
+
 /*#region IPFS Indicator */
 .ipfs-indicator {
   position: relative;

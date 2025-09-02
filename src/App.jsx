@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
+import { SpicyModeProvider } from './contexts/SpicyModeContext'
 
 function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -95,7 +96,9 @@ function AppLayout() {
 function App() {
   return (
     <HashRouter>
-      <AppLayout />
+      <SpicyModeProvider>
+        <AppLayout />
+      </SpicyModeProvider>
     </HashRouter>
   )
 }

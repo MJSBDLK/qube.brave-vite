@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useSpicyMode } from '../contexts/SpicyModeContext'
 
 const workSafeTaglines = [
 	'Ayo chill',
@@ -89,7 +90,8 @@ function markTaglineAsUsed(tagline, spicyMode) {
 	localStorage.setItem(storageKey, JSON.stringify(updatedUsedHashes))
 }
 
-export default function Tagline({ spicyMode = localDebug.forceSpicy }) {
+export default function Tagline() {
+	const { isSpicyMode } = useSpicyMode()
 	const [currentTagline, setCurrentTagline] = useState('')
 
 	// Function to select and set a random tagline
@@ -110,16 +112,16 @@ export default function Tagline({ spicyMode = localDebug.forceSpicy }) {
 
 	// Set initial tagline on mount
 	useEffect(() => {
-		selectRandomTagline(spicyMode)
+		selectRandomTagline(isSpicyMode)
 	}, [])
 
 	// Update tagline when spicyMode changes
 	useEffect(() => {
 		if (currentTagline !== '') {
 			// Only run after initial mount
-			selectRandomTagline(spicyMode)
+			selectRandomTagline(isSpicyMode)
 		}
-	}, [spicyMode])
+	}, [isSpicyMode])
 
 	// Don't render anything until we have a tagline (avoids hydration mismatch)
 	if (currentTagline === '') {

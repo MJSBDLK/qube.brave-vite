@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Update from '../components/Update'
 import Tagline from '../components/Tagline'
+import SpicyWord from '../components/SpicyWord'
 
 const HomePage = () => {
 	const updates = [
@@ -31,8 +32,11 @@ const HomePage = () => {
         <div className="hero-content">
 					<Tagline />
           <h1 className="text-display u-mb-lg">Quinn Davis</h1>
-          <p className="text-body text-secondary" title="I'll replace this when I think of a good description, chill">
-            Description goes here lol
+          <p
+						className="text-body text-secondary"
+						// title="I'll replace this when I think of a good description, chill"
+						>
+            "You must accept inconvenience on principle or you get to live in a <SpicyWord worksafe="degraded" spicy="shit" /> world"
           </p>
         </div>
       </section>
