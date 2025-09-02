@@ -1,0 +1,15 @@
+services:
+  qube-brave-vite:
+    build: .
+    container_name: qube-brave-vite-app
+    restart: unless-stopped
+    ports:
+      - "3001:80"  # External port 3001 maps to nginx port 80
+    environment:
+      - NODE_ENV=production
+    networks:
+      - qube-vite-network
+
+networks:
+  qube-vite-network:
+    driver: bridge

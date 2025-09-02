@@ -1,0 +1,4234 @@
+<!--Original HTML from gradient-ramps-->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Gradient Color Sampler v6.6.2</title>
+		<style id="globalStyles">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+					'Helvetica Neue', Arial, sans-serif;
+				background: #1a1a1a;
+				color: #e0e0e0;
+				padding: 10px;
+				min-height: 100vh;
+				position: relative;
+			}
+
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				position: relative;
+			}
+
+			h1 {
+				color: #ffffff;
+				margin-bottom: 15px;
+				text-align: center;
+				font-size: 28px;
+			}
+
+			/* Performance indicator */
+			.performance-indicator {
+				position: fixed;
+				top: 10px;
+				left: 10px;
+				background: rgba(0, 0, 0, 0.8);
+				color: #4a9eff;
+				padding: 2.5px 5px;
+				border-radius: 4px;
+				font-size: 10px;
+				font-family: monospace;
+				z-index: 2001;
+				opacity: 0;
+				transition: opacity 0.3s;
+			}
+
+			.performance-indicator.show {
+				opacity: 1;
+			}
+
+			/* Move indicator down on small screens to avoid overlap with saved ramps panel */
+			@media (max-width: 600px) {
+				.performance-indicator {
+					top: 50px;
+				}
+			}
+
+			/* Saved Ramps Panel */
+			.saved-ramps-panel {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				width: 280px;
+				max-height: calc(100vh - 40px);
+				background: #2a2a2a;
+				border-radius: 12px;
+				border: 1px solid #444;
+				z-index: 1000;
+				overflow: hidden;
+				transition: all 0.3s ease;
+			}
+
+			.saved-ramps-panel.collapsed {
+				width: 60px;
+				height: 60px;
+			}
+
+			.panel-header {
+				padding: 7.5px;
+				background: #333;
+				border-bottom: 1px solid #444;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				cursor: pointer;
+			}
+
+			.panel-title {
+				font-size: 14px;
+				font-weight: 600;
+				color: #e0e0e0;
+			}
+
+			.collapse-btn {
+				background: none;
+				border: none;
+				color: #888;
+				font-size: 16px;
+				cursor: pointer;
+				padding: 2px;
+				border-radius: 4px;
+				transition: all 0.2s;
+			}
+
+			.collapse-btn:hover {
+				background: #444;
+				color: #e0e0e0;
+			}
+
+			.panel-content {
+				max-height: calc(100vh - 120px);
+				overflow-y: auto;
+				padding: 5px;
+			}
+
+			.saved-ramps-panel.collapsed .panel-content {
+				display: none;
+			}
+
+			.saved-ramps-panel.collapsed .panel-title {
+				display: none;
+			}
+
+			.saved-ramp-item {
+				background: #1a1a1a;
+				border-radius: 8px;
+				margin-bottom: 2px;
+				border: 1px solid #333;
+				cursor: move;
+				transition: all 0.2s;
+			}
+
+			.saved-ramp-item:hover {
+				border-color: #4a9eff;
+				transform: translateY(-1px);
+			}
+
+			.saved-ramp-item.dragging {
+				opacity: 0.5;
+				transform: rotate(5deg);
+			}
+
+			.ramp-preview {
+				height: 30px;
+				border-radius: 6px 6px 0 0;
+				position: relative;
+				overflow: hidden;
+				background: #333;
+			}
+
+			.ramp-info {
+				padding: 2px;
+			}
+
+			.ramp-name {
+				font-size: 12px;
+				color: #e0e0e0;
+				background: transparent;
+				border: none;
+				width: 100%;
+				margin-bottom: 2px;
+				padding: 2px 4px;
+				border-radius: 3px;
+				transition: background 0.2s;
+			}
+
+			.ramp-name:focus {
+				outline: none;
+				background: #333;
+			}
+
+			.ramp-colors-count {
+				color: #4a9eff;
+			}
+
+			.ramp-actions {
+				display: flex;
+				gap: 4px;
+				margin-bottom: 2px;
+			}
+
+			.ramp-action-btn {
+				background: none;
+				border: none;
+				color: #888;
+				font-size: 12px;
+				cursor: pointer;
+				padding: 2px 4px;
+				border-radius: 3px;
+				transition: all 0.2s;
+			}
+
+			.ramp-action-btn:hover {
+				background: #333;
+				color: #e0e0e0;
+			}
+
+			.ramp-action-btn.delete:hover {
+				color: #ff6b6b;
+			}
+
+			.export-all-btn {
+				width: 100%;
+				padding: 5px;
+				background: #4a9eff;
+				color: white;
+				border: none;
+				border-radius: 6px;
+				font-size: 14px;
+				font-weight: 600;
+				cursor: pointer;
+				margin-top: 5px;
+				transition: background 0.2s;
+			}
+
+			.export-all-btn:hover {
+				background: #3a8eef;
+			}
+
+			.export-all-btn.png-export {
+				background: #28a745;
+			}
+
+			.export-all-btn.png-export:hover {
+				background: #22943e;
+			}
+
+			.export-all-btn:disabled {
+				background: #333;
+				color: #666;
+				cursor: not-allowed;
+			}
+
+			.empty-state {
+				text-align: center;
+				color: #666;
+				font-size: 12px;
+				padding: 10px;
+				font-style: italic;
+			}
+
+			/* Push content away from panel on smaller screens */
+			@media (max-width: 1450px) {
+				.container {
+					margin-right: 300px;
+				}
+			}
+
+			.upload-section {
+				background: #2a2a2a;
+				border-radius: 12px;
+				padding: 15px;
+				margin-bottom: 10px;
+				border: 2px dashed #444;
+				transition: border-color 0.3s;
+			}
+
+			.upload-section.drag-over {
+				border-color: #4a9eff;
+				background: #2a3a4a;
+			}
+
+			.file-input-wrapper {
+				position: relative;
+				overflow: hidden;
+				display: inline-block;
+			}
+
+			.file-input-button {
+				display: inline-block;
+				padding: 6px 12px;
+				background: #4a9eff;
+				color: white;
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 16px;
+				font-weight: 600;
+				transition: background 0.3s;
+			}
+
+			.file-input-button:hover {
+				background: #3a8eef;
+			}
+
+			input[type='file'] {
+				position: absolute;
+				left: -9999px;
+			}
+
+			.gradient-preview {
+				margin-top: 10px;
+				position: relative;
+				background: #1a1a1a;
+				border-radius: 8px;
+				overflow: hidden;
+				min-height: 100px;
+			}
+
+			#gradientCanvas {
+				width: 100%;
+				height: 100px;
+				display: block;
+				border-radius: 8px;
+			}
+
+			.range-overlay {
+				position: absolute;
+				top: 0;
+				height: 100%;
+				background: rgba(74, 158, 255, 0.2);
+				border-left: 2px solid #4a9eff;
+				border-right: 2px solid #4a9eff;
+				pointer-events: none;
+			}
+
+			.sample-point {
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				border-radius: 50%;
+				border: 2px solid #fff;
+				background: rgba(255, 255, 255, 0.3);
+				top: 50%;
+				transform: translate(-50%, -50%);
+				pointer-events: none;
+				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+				z-index: 10;
+			}
+
+			.sample-point::after {
+				content: attr(data-index);
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 10px;
+				color: #fff;
+				text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+			}
+
+			.controls {
+				background: #2a2a2a;
+				border-radius: 12px;
+				padding: 15px;
+				margin-bottom: 10px;
+			}
+
+			.control-group {
+				margin-bottom: 12px;
+			}
+
+			.control-group label {
+				display: block;
+				margin-bottom: 4px;
+				font-size: 14px;
+				color: #b0b0b0;
+				font-weight: 600;
+				text-transform: uppercase;
+				letter-spacing: 0.5px;
+			}
+
+			.range-container {
+				display: flex;
+				gap: 20px;
+				align-items: center;
+			}
+
+			.range-input-group {
+				flex: 1;
+			}
+
+			input[type='range'] {
+				width: 100%;
+				margin-bottom: 5px;
+			}
+
+			.range-value {
+				font-size: 14px;
+				color: #4a9eff;
+				font-weight: 600;
+			}
+
+			.function-selector {
+				width: 100%;
+				padding: 5px;
+				background: #1a1a1a;
+				color: #e0e0e0;
+				border: 1px solid #444;
+				border-radius: 6px;
+				font-size: 14px;
+				cursor: pointer;
+			}
+
+			.function-selector option {
+				background: #1a1a1a;
+				color: #e0e0e0;
+			}
+
+			.power-slider-group {
+				margin-top: 8px;
+				padding: 8px;
+				background: #1a1a1a;
+				border-radius: 6px;
+				display: none;
+			}
+
+			.power-slider-group.show {
+				display: block;
+			}
+
+			.curve-preview {
+				width: 100%;
+				height: 60px;
+				background: #1a1a1a;
+				border-radius: 6px;
+				margin-top: 5px;
+			}
+
+			.output-section {
+				background: #2a2a2a;
+				border-radius: 12px;
+				padding: 15px;
+			}
+
+			.swatch-container {
+				display: grid;
+				grid-template-columns: repeat(11, 1fr);
+				gap: 10px;
+				margin-bottom: 10px;
+			}
+
+			.color-tile {
+				aspect-ratio: 1;
+				border-radius: 8px;
+				position: relative;
+				cursor: pointer;
+				transition: transform 0.2s;
+				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+			}
+
+			.color-tile:hover {
+				transform: scale(1.1);
+				z-index: 10;
+			}
+
+			.color-tile .color-code {
+				position: absolute;
+				bottom: -25px;
+				left: 50%;
+				transform: translateX(-50%);
+				font-size: 10px;
+				color: #888;
+				white-space: nowrap;
+				opacity: 0;
+				transition: opacity 0.2s;
+			}
+
+			.color-tile:hover .color-code {
+				opacity: 1;
+			}
+
+			.color-index {
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				font-size: 9px;
+				color: rgba(255, 255, 255, 0.7);
+				background: rgba(0, 0, 0, 0.5);
+				padding: 1px 3px;
+				border-radius: 2px;
+			}
+
+			.save-ramp-section {
+				margin-top: 10px;
+				padding-top: 10px;
+				border-top: 1px solid #444;
+			}
+
+			.save-ramp-controls {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+			}
+
+			.save-ramp-name {
+				flex: 1;
+				padding: 5px;
+				background: #1a1a1a;
+				color: #e0e0e0;
+				border: 1px solid #444;
+				border-radius: 6px;
+				font-size: 14px;
+			}
+
+			.save-ramp-btn {
+				padding: 5px 10px;
+				background: #28a745;
+				color: white;
+				border: none;
+				border-radius: 6px;
+				font-size: 14px;
+				font-weight: 600;
+				cursor: pointer;
+				transition: background 0.3s;
+			}
+
+			.save-ramp-btn:hover {
+				background: #22943e;
+			}
+
+			.save-ramp-btn:disabled {
+				background: #333;
+				color: #666;
+				cursor: not-allowed;
+			}
+
+			.export-section {
+				margin-top: 15px;
+				padding-top: 15px;
+				border-top: 1px solid #444;
+			}
+
+			.export-buttons {
+				display: flex;
+				gap: 10px;
+				flex-wrap: wrap;
+			}
+
+			.export-button {
+				min-width: 150px;
+				padding: 5px 5px;
+				margin: 2px;
+				background: #3a3a3a;
+				color: #e0e0e0;
+				border: 1px solid #555;
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 14px;
+				transition: background 0.3s;
+			}
+
+			.export-button:hover {
+				background: #4a4a4a;
+			}
+
+			.export-button.png-export {
+				background: #28a745;
+				border-color: #1e7e34;
+			}
+
+			.export-button.png-export:hover {
+				background: #22943e;
+			}
+
+			.code-output {
+				margin-top: 10px;
+				background: #1a1a1a;
+				border-radius: 8px;
+				padding: 7.5px;
+				font-family: 'Courier New', monospace;
+				font-size: 12px;
+				line-height: 1.5;
+				color: #a0a0a0;
+				max-height: 200px;
+				overflow-y: auto;
+				display: none;
+			}
+
+			.code-output.show {
+				display: block;
+			}
+
+			.info-text {
+				color: #888;
+				font-size: 14px;
+				margin-top: 5px;
+			}
+
+			/* Drag and drop visual feedback */
+			.drag-over-target {
+				border: 2px dashed #4a9eff !important;
+				background: rgba(74, 158, 255, 0.1) !important;
+			}
+
+			/* Notification */
+			.notification {
+				position: fixed;
+				top: 20px;
+				left: 50%;
+				transform: translateX(-50%);
+				background: #28a745;
+				color: white;
+				padding: 5px 10px;
+				border-radius: 6px;
+				font-size: 14px;
+				z-index: 2000;
+				opacity: 0;
+				transition: opacity 0.3s;
+			}
+
+			.notification.show {
+				opacity: 1;
+			}
+
+			.notification.error {
+				background: #dc3545;
+			}
+
+			/*#region Comparison*/
+
+			/* Comparison swatch - appears directly below main swatch */
+			.swatch-container.comparison-swatch {
+				margin-top: 5px;
+				margin-bottom: 10px;
+				opacity: 0.9;
+				position: relative;
+			}
+
+			/* Compare Against Section - now just controls */
+			.compare-section {
+				margin-top: 15px;
+				background: #2a2a2a;
+				border-radius: 12px;
+				border: 1px solid #444;
+				overflow: hidden;
+			}
+
+			.compare-header {
+				padding: 8px 15px;
+				background: #333;
+				border-bottom: 1px solid #444;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				cursor: pointer;
+				transition: background 0.2s;
+			}
+
+			.compare-header:hover {
+				background: #3a3a3a;
+			}
+
+			.compare-title {
+				font-size: 14px;
+				font-weight: 600;
+				color: #e0e0e0;
+			}
+
+			.compare-content {
+				padding: 15px;
+				transition: max-height 0.3s ease;
+			}
+
+			.compare-content.collapsed {
+				max-height: 0;
+				padding: 0 15px;
+				overflow: hidden;
+			}
+
+			.compare-drop-zone {
+				border: 2px dashed #444;
+				border-radius: 8px;
+				padding: 20px;
+				text-align: center;
+				transition: all 0.3s ease;
+			}
+
+			.compare-drop-zone.drag-over {
+				border-color: #4a9eff;
+				background: rgba(74, 158, 255, 0.1);
+			}
+
+			.drop-hint {
+				color: #888;
+				font-style: italic;
+				margin: 0 0 15px 0;
+			}
+
+			.compare-controls {
+				display: flex;
+				gap: 10px;
+				justify-content: center;
+			}
+
+			.compare-control-btn {
+				padding: 6px 12px;
+				background: #444;
+				color: #e0e0e0;
+				border: none;
+				border-radius: 6px;
+				font-size: 12px;
+				cursor: pointer;
+				transition: background 0.2s;
+			}
+
+			.compare-control-btn:hover {
+				background: #555;
+			}
+
+			.brightness-toggle {
+				background: #4a9eff;
+			}
+
+			.brightness-toggle:hover {
+				background: #3a8eef;
+			}
+
+			.brightness-toggle.active {
+				background: #28a745;
+			}
+
+			.brightness-toggle.active:hover {
+				background: #22943e;
+			}
+
+			/* Brightness overlay */
+			.brightness-overlay {
+				position: absolute;
+				bottom: 2px;
+				right: 2px;
+				background: rgba(0, 0, 0, 0.7);
+				color: white;
+				font-size: 8px;
+				padding: 1px 3px;
+				border-radius: 2px;
+				font-family: monospace;
+				opacity: 0;
+				transition: opacity 0.2s;
+			}
+
+			.brightness-overlay.show {
+				opacity: 1;
+			}
+
+			.color-tile:hover .brightness-overlay.show {
+				opacity: 1;
+			}
+
+			/*#endregion /Comparison*/
+
+			/*#region Compact Control Grid*/
+
+			/* Compact control grid */
+			.ramp-controls-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, 32px);
+				justify-content: start;
+				gap: 4px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				padding: 6px;
+				background: #1a1a1a;
+				border-radius: 6px;
+				border: 1px solid #333;
+			}
+
+			.control-icon-btn {
+				width: 32px;
+				height: 32px;
+				background: #333;
+				border: 1px solid #444;
+				border-radius: 4px;
+				color: #e0e0e0;
+				font-size: 14px;
+				cursor: pointer;
+				transition: all 0.2s;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0;
+			}
+
+			.control-icon-btn:hover:not(:disabled) {
+				background: #444;
+				border-color: #555;
+				transform: translateY(-1px);
+			}
+
+			.control-icon-btn:active {
+				transform: translateY(0);
+			}
+
+			.control-icon-btn:disabled {
+				background: #222;
+				color: #666;
+				cursor: not-allowed;
+				border-color: #333;
+			}
+
+			.control-icon-btn:disabled:hover {
+				transform: none;
+			}
+
+			/*#endregion /Compact Control Grid*/
+		</style>
+		<style id="colorPickerStyles">
+			/* Color Picker Styles */
+			.color-picker-container {
+				display: none;
+				margin-top: 10px;
+				padding: 15px;
+				background: #1a1a1a;
+				border-radius: 8px;
+				border: 1px solid #444;
+			}
+
+			.hsv-picker {
+				display: flex;
+				gap: 15px;
+				align-items: flex-start;
+				margin-bottom: 15px;
+			}
+
+			.hue-slider-container,
+			.luminance-slider-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 5px;
+			}
+
+			.hue-slider {
+				width: 20px;
+				height: 200px;
+				background: linear-gradient(
+					to bottom,
+					#ff0000 0%,
+					/* Red */ #ffff00 16.67%,
+					/* Yellow */ #00ff00 33.33%,
+					/* Green */ #00ffff 50%,
+					/* Cyan */ #0000ff 66.67%,
+					/* Blue */ #ff00ff 83.33%,
+					/* Magenta */ #ff0000 100% /* Back to Red */
+				);
+				border-radius: 3px;
+				position: relative;
+				cursor: pointer;
+				margin-right: 20px;
+			}
+
+			.luminance-slider {
+				width: 20px;
+				height: 200px;
+				background: linear-gradient(to bottom, white 0%, gray 50%, black 100%);
+				border-radius: 3px;
+				position: relative;
+				cursor: pointer;
+				margin-right: 20px;
+			}
+
+			.hue-slider::after {
+				content: 'HUE';
+				font-size: 10px;
+				color: #888;
+				margin: 5px 25px;
+			}
+
+			.luminance-slider::after {
+				content: 'L*';
+				font-size: 10px;
+				color: #888;
+				margin: 5px 25px;
+			}
+
+			.sv-picker {
+				width: 200px;
+				height: 200px;
+				position: relative;
+				cursor: crosshair;
+				margin-right: 10px;
+			}
+
+			.sv-picker::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(to right, white, transparent);
+				pointer-events: none;
+			}
+
+			.sv-picker::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(to bottom, transparent, black);
+				mix-blend-mode: multiply;
+				pointer-events: none;
+			}
+
+			.color-preview-large {
+				width: 60px;
+				height: 60px;
+				border-radius: 6px;
+				border: 2px solid #444;
+				cursor: pointer;
+			}
+
+			.picker-handle {
+				width: 12px;
+				height: 12px;
+				border: 2px solid white;
+				border-radius: 50%;
+				position: absolute;
+				pointer-events: none;
+				box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+				transform: translate(-50%, -50%);
+			}
+
+			.color-input-row {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				margin-bottom: 10px;
+			}
+
+			.color-values-display {
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+				font-size: 11px;
+				color: #888;
+				margin-top: 8px;
+			}
+
+			.color-actions {
+				display: flex;
+				gap: 8px;
+			}
+
+			.picker-btn {
+				padding: 6px 12px;
+				background: #4a9eff;
+				color: white;
+				border: none;
+				border-radius: 4px;
+				font-size: 12px;
+				cursor: pointer;
+				transition: background 0.2s;
+			}
+
+			.picker-btn:hover {
+				background: #3a8eef;
+			}
+
+			.picker-btn.add {
+				background: #28a745;
+			}
+
+			.picker-btn.add:hover {
+				background: #22943e;
+			}
+
+			.selected-colors-list {
+				display: flex;
+				gap: 5px;
+				flex-wrap: wrap;
+				margin-top: 10px;
+				padding: 8px;
+				background: #2a2a2a;
+				border-radius: 6px;
+				min-height: 20px;
+			}
+
+			.selected-color-chip {
+				width: 32px;
+				height: 32px;
+				border-radius: 4px;
+				border: 1px solid #444;
+				cursor: pointer;
+				position: relative;
+				transition: transform 0.2s;
+			}
+
+			.selected-color-chip:hover {
+				transform: scale(1.1);
+			}
+
+			.selected-color-chip .remove-btn {
+				position: absolute;
+				top: -6px;
+				right: -6px;
+				width: 16px;
+				height: 16px;
+				background: #ff4444;
+				color: white;
+				border: none;
+				border-radius: 50%;
+				font-size: 10px;
+				cursor: pointer;
+				display: none;
+			}
+
+			.selected-color-chip:hover .remove-btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Performance indicator -->
+		<div class="performance-indicator" id="perfIndicator">Processing...</div>
+
+		<div class="container">
+			<h1>🎨 Gradient Color Sampler v6.6.2</h1>
+
+			<div class="upload-section" id="uploadSection">
+				<div class="file-input-wrapper">
+					<div id="gradientInputWrapper">
+						<label for="gradientInput" class="file-input-button">
+							Choose Gradient Image
+						</label>
+						<input type="file" id="gradientInput" accept="image/*" />
+						<p class="info-text">
+							Or drag and drop an image here (large images will be automatically
+							resized for performance)
+						</p>
+					</div>
+					<div
+						id="gplImportWrapper"
+						style="margin: 10px 0; padding: 10px 0; border-top: 1px solid #444"
+					>
+						<p
+							style="
+								margin-bottom: 5px;
+								color: #b0b0b0;
+								font-size: 14px;
+								font-weight: 600;
+							"
+						>
+							OR IMPORT SAVED RAMPS
+						</p>
+						<div
+							style="
+								display: flex;
+								gap: 10px;
+								align-items: center;
+								flex-wrap: wrap;
+							"
+						>
+							<div class="file-input-wrapper">
+								<label
+									for="gplInput"
+									class="file-input-button"
+									style="background: #28a745"
+								>
+									Import .gpl File
+								</label>
+								<input type="file" id="gplInput" accept=".gpl,.txt" />
+							</div>
+						</div>
+						<p class="info-text" style="margin-top: 2.5px; font-size: 12px">
+							Import a .gpl palette file with multiple ramps.
+							<span style="color: #ff6b6b; font-weight: 600"
+								>Warning: This will replace all current saved ramps!</span
+							>
+						</p>
+					</div>
+				</div>
+				<!--#region Custom Gradient-->
+				<div style="margin: 5px 0; padding: 10px 0; border-top: 1px solid #444">
+					<p
+						style="
+							margin-bottom: 5px;
+							color: #b0b0b0;
+							font-size: 14px;
+							font-weight: 600;
+						"
+					>
+						OR CREATE A GRADIENT FROM COLORS
+					</p>
+
+					<!-- Enhanced input section -->
+					<div
+						style="
+							display: flex;
+							gap: 10px;
+							align-items: center;
+							flex-wrap: wrap;
+							margin-bottom: 10px;
+						"
+					>
+						<input
+							type="text"
+							id="hexInput"
+							placeholder="#ff0000, #00ff00, #0000ff"
+							style="
+								flex: 1;
+								min-width: 200px;
+								padding: 5px;
+								background: #1a1a1a;
+								color: #e0e0e0;
+								border: 1px solid #444;
+								border-radius: 6px;
+							"
+						/>
+						<button class="picker-btn" onclick="toggleColorPicker()">
+							🎨 Visual Picker
+						</button>
+						<button class="picker-btn" onclick="clearSelectedColors()">
+							Clear All
+						</button>
+						<div style="display: flex; gap: 5px; align-items: center">
+							<label style="font-size: 12px; color: #888">Luminance:</label>
+							<select
+								id="luminanceModeSelector"
+								onchange="changeLuminanceMode()"
+								style="
+									padding: 4px;
+									background: #1a1a1a;
+									color: #e0e0e0;
+									border: 1px solid #444;
+									border-radius: 4px;
+									font-size: 12px;
+								"
+							>
+								<option value="ciel">CIE L*</option>
+								<option value="hsv">HSV</option>
+							</select>
+						</div>
+					</div>
+
+					<!--#region Visual Color Picker -->
+					<div class="color-picker-container" id="colorPickerContainer">
+						<div class="hsv-picker">
+							<div class="hue-slider-container">
+								<div class="hue-slider" id="hueSlider">
+									<div
+										class="picker-handle"
+										id="hueHandle"
+										style="left: 50%; top: 0%"
+									></div>
+								</div>
+							</div>
+
+							<div class="luminance-slider-container">
+								<div class="luminance-slider" id="luminanceSlider">
+									<div
+										class="picker-handle"
+										id="luminanceHandle"
+										style="left: 50%; top: 50%"
+									></div>
+								</div>
+							</div>
+
+							<div class="sv-picker" id="svPicker">
+								<div
+									class="picker-handle"
+									id="svHandle"
+									style="left: 100%; top: 0%"
+								></div>
+							</div>
+
+							<div style="display: flex; flex-direction: column; gap: 10px">
+								<div class="color-preview-large" id="colorPreviewLarge"></div>
+
+								<div class="color-input-row">
+									<input
+										type="text"
+										id="currentHexValue"
+										style="
+											width: 80px;
+											padding: 4px;
+											background: #2a2a2a;
+											color: #e0e0e0;
+											border: 1px solid #444;
+											border-radius: 4px;
+											text-align: center;
+										"
+										placeholder="#ffffff"
+									/>
+								</div>
+
+								<div class="color-values-display" id="colorValuesDisplay">
+									<div>HSV: <span id="hsvDisplay">0°, 100%, 100%</span></div>
+									<div>L*: <span id="luminanceDisplay">50</span></div>
+								</div>
+
+								<div class="color-actions">
+									<button class="picker-btn add" onclick="addCurrentColor()">
+										Add Color
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="selected-colors-list" id="selectedColorsList">
+							<div style="color: #888; font-size: 12px; align-self: center">
+								Selected colors will appear here...
+							</div>
+						</div>
+					</div>
+					<!--#endregion /Visual Color Picker -->
+
+					<p class="info-text" style="margin-top: 2.5px; font-size: 12px">
+						Type hex colors OR use the visual picker above • 2-8 colors
+						supported
+					</p>
+				</div>
+				<!--#endregion /Custom Gradient-->
+
+				<div
+					class="gradient-preview"
+					style="display: none"
+					id="previewContainer"
+				>
+					<canvas id="gradientCanvas"></canvas>
+					<div class="range-overlay" id="leftOverlay"></div>
+					<div class="range-overlay" id="rightOverlay"></div>
+					<div id="samplePointsContainer"></div>
+				</div>
+			</div>
+
+			<div class="controls">
+				<div class="control-group">
+					<label>Sampling Range</label>
+					<div class="range-container">
+						<div class="range-input-group">
+							<input
+								type="range"
+								id="startRange"
+								min="0"
+								max="100"
+								value="0"
+								step="0.1"
+							/>
+							<div style="display: flex; gap: 10px; align-items: center">
+								<span class="range-value">Start:</span>
+								<input
+									type="number"
+									id="startText"
+									min="0"
+									max="100"
+									value="0"
+									step="0.1"
+									style="
+										width: 80px;
+										padding: 4px;
+										background: #1a1a1a;
+										color: #4a9eff;
+										border: 1px solid #444;
+										border-radius: 4px;
+									"
+								/>
+								<span style="color: #4a9eff">%</span>
+							</div>
+						</div>
+						<div class="range-input-group">
+							<input
+								type="range"
+								id="endRange"
+								min="0"
+								max="100"
+								value="100"
+								step="0.1"
+							/>
+							<div style="display: flex; gap: 10px; align-items: center">
+								<span class="range-value">End:</span>
+								<input
+									type="number"
+									id="endText"
+									min="0"
+									max="100"
+									value="100"
+									step="0.1"
+									style="
+										width: 80px;
+										padding: 4px;
+										background: #1a1a1a;
+										color: #4a9eff;
+										border: 1px solid #444;
+										border-radius: 4px;
+									"
+								/>
+								<span style="color: #4a9eff">%</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label>Sampling Function</label>
+					<select class="function-selector" id="functionSelector">
+						<option value="linear">Linear</option>
+						<option value="customExponent">Custom Power</option>
+						<option value="customParametric">Custom Parametric</option>
+					</select>
+
+					<div class="power-slider-group" id="powerSliderGroup">
+						<label style="font-size: 12px"
+							>Power: <span id="powerValue">2.0</span></label
+						>
+						<input
+							type="range"
+							id="powerSlider"
+							min="0.1"
+							max="5"
+							value="2"
+							step="0.1"
+						/>
+						<div
+							style="
+								display: flex;
+								align-items: center;
+								gap: 8px;
+								margin-top: 5px;
+							"
+						>
+							<label style="font-size: 11px; color: #888">Step:</label>
+							<input
+								type="number"
+								id="stepInput"
+								min="0.001"
+								max="1"
+								value="0.1"
+								step="0.001"
+								style="
+									width: 60px;
+									padding: 2px 4px;
+									background: #1a1a1a;
+									color: #4a9eff;
+									border: 1px solid #444;
+									border-radius: 4px;
+									font-size: 11px;
+								"
+							/>
+						</div>
+					</div>
+
+					<canvas class="curve-preview" id="curvePreview"></canvas>
+				</div>
+			</div>
+
+			<div class="output-section" id="outputSection" style="display: none">
+				<div style="display: flex; justify-content: space-between">
+					<h2 style="margin-bottom: 10px">Current Swatch</h2>
+					<button
+						class="control-icon-btn"
+						id="reverseAllColorsBtn"
+						onclick="reverseCurrentSwatch()"
+						title="Reverse Colors"
+					>
+						🔄
+					</button>
+				</div>
+
+				<div class="swatch-container" id="swatchContainer"></div>
+				<!--#region Comparison-->
+				<div
+					class="swatch-container comparison-swatch"
+					id="comparisonSwatchContainer"
+					style="display: none"
+				></div>
+
+				<div class="compare-section" id="compareSection" style="display: none">
+					<div class="compare-header" onclick="toggleCompareSection()">
+						<span class="compare-title"
+							>Compare Against: <span id="comparisonName">None</span></span
+						>
+						<button class="collapse-btn" id="compareCollapseBtn">↑</button>
+					</div>
+					<div class="compare-content" id="compareContent">
+						<div class="compare-drop-zone" id="compareDropZone">
+							<p class="drop-hint">Drag a saved ramp here to compare</p>
+							<div
+								class="compare-controls"
+								id="compareControls"
+								style="display: none"
+							>
+								<button class="compare-control-btn" onclick="clearComparison()">
+									Clear Comparison
+								</button>
+								<button
+									class="compare-control-btn brightness-toggle"
+									id="brightnessToggle"
+									onclick="toggleBrightnessOverlay()"
+								>
+									Show CIE L*
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--#endregion /Comparison-->
+
+				<div class="save-ramp-section">
+					<div class="save-ramp-controls">
+						<input
+							type="text"
+							id="saveRampName"
+							class="save-ramp-name"
+							placeholder="Enter ramp name..."
+							value=""
+						/>
+						<button
+							class="save-ramp-btn"
+							id="saveRampBtn"
+							onclick="saveCurrentRamp()"
+						>
+							Save Ramp
+						</button>
+					</div>
+				</div>
+
+				<div class="export-section">
+					<h3 style="margin-bottom: 7.5px">Export Current</h3>
+					<div class="export-buttons">
+						<button class="export-button" onclick="downloadGPL()">
+							Download .gpl
+						</button>
+						<button class="export-button png-export" onclick="downloadPNG()">
+							Download .png
+						</button>
+						<button class="export-button" onclick="copyGPLToClipboard()">
+							Copy to Clipboard
+						</button>
+					</div>
+					<div class="code-output" id="codeOutput"></div>
+				</div>
+			</div>
+
+			<!-- #region Changelog Panel -->
+			<div class="changelog-section">
+				<div class="panel-header" onclick="toggleChangelog()">
+					<span class="panel-title">Changelog</span>
+					<button class="collapse-btn" id="changelogBtn">↑</button>
+				</div>
+				<div class="panel-content" id="changelogContent">
+					<div class="changelog-entry">
+						<div class="changelog-entry">
+							<div class="version">v6.6.2</div>
+							<ul>
+								<li>
+									Fixed brightness toggle - now properly shows/hides on both
+									swatches
+								</li>
+								<li>Fixed comparison swatch brightness overlay display</li>
+								<li>Improved brightness overlay toggle logic</li>
+								<li>
+									editing the hex output value in the hue cube now updates the
+									other selectors/previews
+								</li>
+								<li>one million bug fixes with the color picker</li>
+							</ul>
+						</div>
+						<div class="changelog-entry">
+							<div class="version">v6.6.1</div>
+							<ul>
+								<li>Added project-wide luminance algorithm selector</li>
+								<li>Fixed color picker gray/black issue</li>
+								<li>Fixed SV picker display mismatch</li>
+								<li>Fixed brightness overlay toggle functionality</li>
+								<li>Brightness overlays now respect selected algorithm</li>
+								<li>Clarified HSV luminance slider behavior (color→black)</li>
+							</ul>
+						</div>
+						<div class="changelog-entry">
+							<div class="version">v6.6</div>
+							<ul>
+								<li>Added hue cube</li>
+								<li>Added luminance algorithm picker (HSV vs CIE L*)</li>
+								<li>Fixed color picker luminance slider behavior</li>
+							</ul>
+						</div>
+						<div class="version">v6.5.1</div>
+						<ul>
+							<li>Replaced luminance algorithm with CIE L*</li>
+							<li>Removed redundant comparison section</li>
+							<li>Tweaks to CSS</li>
+							<li>
+								Condensed the hideous ramp controls into a grid with
+								buttons/tooltips
+							</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.5</div>
+						<ul>
+							<li>Added comparison</li>
+							<li>Added luminance overlay</li>
+							<li>The UI is garbage, I'll fix it later</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.4.1</div>
+						<ul>
+							<li>Added step input for custom exponent slider</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.4</div>
+						<ul>
+							<li>Put my thing down flip it and reverse it</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.3.1</div>
+						<ul>
+							<li>
+								Fixed sample overlay to cover excluded rather than included zone
+							</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.3</div>
+						<ul>
+							<li>Added custom parametric algorithm</li>
+							<li>Removed preset algorithms other than linear</li>
+							<li>Tightened up margins and padding</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.2.5</div>
+						<ul>
+							<li>Tightened up saved ramps section CSS</li>
+							<li>Added this changelog</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.2.4</div>
+						<ul>
+							<li>Improved performance when sampling</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.2.3</div>
+						<ul>
+							<li>Added .gpl import</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.2.2</div>
+						<ul>
+							<li>Added alpha values to .gpl export</li>
+						</ul>
+					</div>
+					<div class="changelog-entry">
+						<div class="version">v6.2.1</div>
+						<ul>
+							<li>Added ability to export all ramps as .gpl palette</li>
+							<li>Added ability to export all ramps as 11×X .png</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<style id="changelogStyles">
+				.changelog-section {
+					margin-top: 10px;
+					background: #2a2a2a;
+					border-radius: 8px;
+					border: 1px solid #444;
+					overflow: hidden;
+				}
+
+				.changelog-entry {
+					padding: 5px;
+					border-bottom: 1px solid #333;
+				}
+
+				.changelog-entry:last-child {
+					border-bottom: none;
+				}
+
+				.version {
+					color: #4a9eff;
+					font-weight: 600;
+					font-size: 14px;
+					margin-bottom: 2.5px;
+				}
+
+				.changelog-entry ul {
+					margin-left: 10px;
+					font-size: 12px;
+					color: #b0b0b0;
+				}
+
+				.changelog-entry li {
+					margin-bottom: 1.5px;
+				}
+
+				#changelogContent {
+					/* max-height: 200px; */
+					overflow-y: auto;
+					transition: max-height 0.3s ease;
+				}
+
+				#changelogContent.collapsed {
+					max-height: 0;
+				}
+			</style>
+
+			<script>
+				function toggleChangelog() {
+					const content = document.getElementById('changelogContent')
+					const btn = document.getElementById('changelogBtn')
+					content.classList.toggle('collapsed')
+					btn.textContent = content.classList.contains('collapsed') ? '↓' : '↑'
+				}
+			</script>
+			<!-- #endregion Changelog -->
+		</div>
+
+		<!--#region Saved Ramps Panel -->
+		<div class="saved-ramps-panel" id="savedRampsPanel">
+			<div class="panel-header" onclick="togglePanel()">
+				<span class="panel-title">Saved Ramps</span>
+				<button class="collapse-btn" id="collapseBtn">←</button>
+			</div>
+			<div class="panel-content" id="panelContent">
+				<div class="empty-state" id="emptyState">
+					No saved ramps yet.<br />
+					Generate and save a ramp to get started!
+				</div>
+				<div id="savedRampsList"></div>
+
+				<!-- Compact control grid -->
+				<div
+					class="ramp-controls-grid"
+					id="rampControlsGrid"
+					style="display: none"
+				>
+					<button
+						class="control-icon-btn"
+						id="reverseAllColorsBtn"
+						onclick="reverseAllRampColors()"
+						title="Reverse All Colors"
+						disabled
+					>
+						🔄
+					</button>
+					<button
+						class="control-icon-btn"
+						id="reverseRampOrderBtn"
+						onclick="reverseRampOrder()"
+						title="Reverse Ramp Order"
+						disabled
+					>
+						↕️
+					</button>
+				</div>
+
+				<!-- Keep export buttons the same -->
+				<button
+					class="export-all-btn"
+					id="exportAllBtn"
+					onclick="exportAllRamps()"
+					disabled
+					style="margin-top: 10px"
+				>
+					Export All (.gpl)
+				</button>
+				<button
+					class="export-all-btn png-export"
+					id="exportAllPngBtn"
+					onclick="exportAllRampsPNG()"
+					disabled
+					style="margin-top: 2.5px"
+				>
+					Export Combined PNG
+				</button>
+			</div>
+		</div>
+		<!--#endregion /Saved Ramps Panel-->
+
+		<!-- Notification -->
+		<div class="notification" id="notification"></div>
+
+		<script>
+			// ========================================
+			// PERFORMANCE OPTIMIZATION SYSTEM
+			// ========================================
+
+			// Performance monitoring
+			let performanceStats = {
+				lastUpdate: Date.now(),
+				updateCount: 0,
+				debounceCount: 0,
+			}
+
+			function showPerformanceIndicator(message) {
+				const indicator = document.getElementById('perfIndicator')
+				indicator.textContent = message
+				indicator.classList.add('show')
+				setTimeout(() => indicator.classList.remove('show'), 1000)
+			}
+
+			// Debounce utility with different rates for different operations
+			const debounceTimers = new Map()
+
+			function debounce(key, func, delay = 250) {
+				if (debounceTimers.has(key)) {
+					clearTimeout(debounceTimers.get(key))
+				}
+
+				debounceTimers.set(
+					key,
+					setTimeout(() => {
+						func()
+						debounceTimers.delete(key)
+					}, delay)
+				)
+			}
+
+			// Throttle for very frequent operations (like slider drags)
+			function throttle(key, func, limit = 100) {
+				const now = Date.now()
+				const lastRun = throttle.lastRun || new Map()
+
+				if (!lastRun.has(key) || now - lastRun.get(key) >= limit) {
+					func()
+					lastRun.set(key, now)
+				}
+
+				throttle.lastRun = lastRun
+			}
+
+			// ========================================
+			// CORE VARIABLES
+			// ========================================
+
+			let gradientImage = null
+			let generatedColors = []
+			let samplePositions = []
+			let savedRamps = []
+			let draggedRampIndex = null
+
+			// Luminance algorithm preference
+			let luminanceMode = 'ciel' // 'ciel' or 'hsv'
+
+			// Image optimization settings
+			const MAX_IMAGE_WIDTH = 1200
+			const MAX_IMAGE_HEIGHT = 400
+			const SAMPLE_SIZE = 2 // Reduced from 3 for better performance
+
+			// File input handling
+			const fileInput = document.getElementById('gradientInput')
+			const uploadSection = document.getElementById('uploadSection')
+			const previewContainer = document.getElementById('previewContainer')
+			const canvas = document.getElementById('gradientCanvas')
+			const ctx = canvas.getContext('2d')
+
+			// Range controls
+			const startRange = document.getElementById('startRange')
+			const endRange = document.getElementById('endRange')
+			const startText = document.getElementById('startText')
+			const endText = document.getElementById('endText')
+
+			// Function controls
+			const functionSelector = document.getElementById('functionSelector')
+			const powerSliderGroup = document.getElementById('powerSliderGroup')
+			const powerSlider = document.getElementById('powerSlider')
+			const powerValue = document.getElementById('powerValue')
+			const curvePreview = document.getElementById('curvePreview')
+			const curveCtx = curvePreview.getContext('2d')
+
+			// Sampling functions (unchanged)
+			const samplingFunctions = {
+				linear: (t) => t,
+				customExponent: (t) => {
+					const power = parseFloat(powerSlider.value)
+					return 1 - Math.pow(1 - t, power)
+				},
+				customParametric: (t) => {
+					const power = parseFloat(powerSlider.value)
+					if (t < 0.5) {
+						return 0.5 * Math.pow(2 * t, power)
+					} else {
+						return 1 - 0.5 * Math.pow(2 * (1 - t), power)
+					}
+				},
+			}
+
+			/**
+			 * Convert RGB values to CIE L* (perceptual lightness)
+			 */
+			function rgbToLStar(r, g, b) {
+				// Normalize RGB values to 0-1 range
+				r = r / 255.0
+				g = g / 255.0
+				b = b / 255.0
+
+				// Apply gamma correction (sRGB to linear RGB)
+				function gammaCorrect(c) {
+					return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)
+				}
+
+				const rLinear = gammaCorrect(r)
+				const gLinear = gammaCorrect(g)
+				const bLinear = gammaCorrect(b)
+
+				// Convert linear RGB to XYZ (using sRGB matrix)
+				// We only need the Y component for lightness
+				const y = 0.2126 * rLinear + 0.7152 * gLinear + 0.0722 * bLinear
+
+				// Convert Y to L* using CIE formula
+				function f(t) {
+					const delta = 6.0 / 29.0
+					return t > Math.pow(delta, 3)
+						? Math.pow(t, 1.0 / 3.0)
+						: t / (3 * delta * delta) + 4.0 / 29.0
+				}
+
+				const lStar = 116 * f(y) - 16
+				return Math.max(0, Math.min(100, lStar))
+			}
+
+			/**
+			 * Convert RGB values to HSV-based luminance (0-100)
+			 */
+			function rgbToHSVLuminance(r, g, b) {
+				const max = Math.max(r, g, b) / 255.0
+				return max * 100
+			}
+
+			/**
+			 * Calculate luminance using the selected algorithm
+			 */
+			function calculateLuminance(r, g, b) {
+				if (luminanceMode === 'hsv') {
+					return Math.round(rgbToHSVLuminance(r, g, b))
+				} else {
+					return Math.round(rgbToLStar(r, g, b))
+				}
+			}
+
+			/**
+			 * Load luminance mode from localStorage
+			 */
+			function loadLuminanceMode() {
+				try {
+					const saved = localStorage.getItem('gradientSamplerLuminanceMode')
+					if (saved && (saved === 'hsv' || saved === 'ciel')) {
+						luminanceMode = saved
+					}
+					document.getElementById('luminanceModeSelector').value = luminanceMode
+				} catch (e) {
+					console.warn('Failed to load luminance mode:', e)
+				}
+			}
+
+			/**
+			 * Save luminance mode to localStorage
+			 */
+			function saveLuminanceMode() {
+				try {
+					localStorage.setItem('gradientSamplerLuminanceMode', luminanceMode)
+				} catch (e) {
+					console.warn('Failed to save luminance mode:', e)
+				}
+			}
+
+			/**
+			 * Change luminance mode and update displays
+			 */
+			function changeLuminanceMode() {
+				const selector = document.getElementById('luminanceModeSelector')
+				luminanceMode = selector.value
+				saveLuminanceMode()
+
+				// Recalculate luminance for current color using new mode
+				const currentRgb = hsvToRgb(currentHue, currentSaturation, currentValue)
+				currentLuminance = calculateLuminance(
+					currentRgb.r,
+					currentRgb.g,
+					currentRgb.b
+				)
+
+				// Update picker if visible
+				if (isPickerVisible) {
+					updateColorPickerDisplay()
+				}
+
+				// Update brightness overlays if enabled
+				if (brightnessOverlayEnabled) {
+					updateBrightnessOverlay()
+				}
+
+				const label = luminanceMode === 'hsv' ? 'HSV' : 'CIE L*'
+				showNotification(`Luminance mode: ${label}`)
+			}
+
+			// ========================================
+			// INITIALIZATION
+			// ========================================
+
+			// Initialize
+			loadSavedRamps()
+			loadLuminanceMode()
+			updateSavedRampsDisplay()
+			setupComparisonDropZone()
+			initHexInput()
+
+			// ========================================
+			// OPTIMIZED EVENT LISTENERS
+			// ========================================
+
+			// Function selector with debouncing
+			functionSelector.addEventListener('change', () => {
+				const isCustom =
+					functionSelector.value === 'customExponent' ||
+					functionSelector.value === 'customParametric'
+				powerSliderGroup.classList.toggle('show', isCustom)
+
+				// Fast operations first
+				throttle('curve-preview', drawCurvePreview, 50)
+
+				// Expensive operations debounced
+				if (gradientImage) {
+					debounce('generate-swatch-function', generateSwatch, 200)
+				}
+			})
+
+			// Power slider with throttling and debouncing
+			powerSlider.addEventListener('input', () => {
+				powerValue.textContent = powerSlider.value
+
+				// Fast visual feedback
+				throttle('curve-preview-power', drawCurvePreview, 50)
+
+				// Expensive operations debounced
+				if (gradientImage) {
+					debounce('generate-swatch-power', generateSwatch, 250)
+				}
+			})
+
+			// Step input control
+			const stepInput = document.getElementById('stepInput')
+
+			stepInput.addEventListener('input', () => {
+				debounce(
+					'step-input',
+					() => {
+						let stepValue = parseFloat(stepInput.value)
+
+						// Validate step value
+						if (isNaN(stepValue) || stepValue <= 0 || stepValue > 1) {
+							stepValue = 0.1
+							stepInput.value = stepValue
+							showNotification('Invalid step value, reset to 0.1', 'error')
+						}
+
+						// Clamp to reasonable bounds
+						stepValue = Math.max(0.001, Math.min(1, stepValue))
+						stepInput.value = stepValue
+
+						// Update the power slider's step attribute
+						powerSlider.step = stepValue
+
+						// Show feedback
+						if (stepValue !== 0.1) {
+							showNotification(`Slider precision set to ${stepValue}`)
+						}
+
+						console.log(`Power slider step updated to: ${stepValue}`)
+					},
+					300
+				)
+			})
+
+			// Initialize step input on load
+			stepInput.addEventListener('blur', () => {
+				// Ensure valid value on blur
+				let stepValue = parseFloat(stepInput.value)
+				if (isNaN(stepValue) || stepValue <= 0 || stepValue > 1) {
+					stepValue = 0.1
+					stepInput.value = stepValue
+					powerSlider.step = stepValue
+				}
+			})
+
+			// Optimized range controls with combined updates
+			function setupRangeControl(rangeElement, textElement, type) {
+				// Range slider with throttled updates
+				rangeElement.addEventListener('input', () => {
+					textElement.value = rangeElement.value
+
+					// Validate range order
+					if (
+						type === 'start' &&
+						parseFloat(rangeElement.value) > parseFloat(endRange.value)
+					) {
+						endRange.value = rangeElement.value
+						endText.value = endRange.value
+					} else if (
+						type === 'end' &&
+						parseFloat(rangeElement.value) < parseFloat(startRange.value)
+					) {
+						startRange.value = rangeElement.value
+						startText.value = startRange.value
+					}
+
+					// Fast visual updates
+					throttle('range-overlay', updateRangeOverlay, 50)
+					throttle('ramp-name', updateRampName, 100)
+
+					// Expensive operations debounced
+					if (gradientImage) {
+						debounce('generate-swatch-range', generateSwatch, 200)
+					}
+				})
+
+				// Text input with validation and debouncing
+				textElement.addEventListener('input', () => {
+					debounce(
+						'text-input-' + type,
+						() => {
+							let value = parseFloat(textElement.value)
+							if (isNaN(value)) value = type === 'start' ? 0 : 100
+							value = Math.max(0, Math.min(100, value))
+							textElement.value = value
+							rangeElement.value = value
+
+							// Validate range order
+							if (type === 'start' && value > parseFloat(endRange.value)) {
+								endRange.value = value
+								endText.value = value
+							} else if (
+								type === 'end' &&
+								value < parseFloat(startRange.value)
+							) {
+								startRange.value = value
+								startText.value = value
+							}
+
+							updateRangeOverlay()
+							updateRampName()
+							if (gradientImage) generateSwatch()
+						},
+						300
+					)
+				})
+			}
+
+			setupRangeControl(startRange, startText, 'start')
+			setupRangeControl(endRange, endText, 'end')
+
+			// Auto-generate ramp name based on settings (optimized)
+			function generateRampName() {
+				const functionName =
+					functionSelector.options[functionSelector.selectedIndex].text
+				const start = Math.round(parseFloat(startRange.value))
+				const end = Math.round(parseFloat(endRange.value))
+
+				let name = functionName
+				if (start !== 0 || end !== 100) {
+					name += ` ${start}-${end}%`
+				}
+
+				return name
+			}
+
+			// Update ramp name (debounced)
+			function updateRampName() {
+				const nameInput = document.getElementById('saveRampName')
+				if (nameInput && (!nameInput.value || !nameInput.value.trim())) {
+					nameInput.value = generateRampName()
+				}
+			}
+
+			// ========================================
+			// OPTIMIZED IMAGE HANDLING
+			// ========================================
+
+			// Optimized image loading with automatic resizing
+			function loadImage(file) {
+				showPerformanceIndicator('Loading image...')
+
+				const reader = new FileReader()
+				reader.onload = (e) => {
+					const img = new Image()
+					img.onload = () => {
+						// Resize large images for better performance
+						const resized = resizeImageIfNeeded(img)
+						gradientImage = resized
+
+						displayGradient()
+						debounce('initial-swatch', generateSwatch, 100)
+
+						showPerformanceIndicator('Image loaded and optimized!')
+					}
+					img.src = e.target.result
+				}
+				reader.readAsDataURL(file)
+			}
+
+			// Resize large images to improve performance
+			function resizeImageIfNeeded(img) {
+				const { width, height } = img
+
+				// If image is already small enough, return as-is
+				if (width <= MAX_IMAGE_WIDTH && height <= MAX_IMAGE_HEIGHT) {
+					return img
+				}
+
+				// Calculate new dimensions maintaining aspect ratio
+				const aspectRatio = width / height
+				let newWidth = width
+				let newHeight = height
+
+				if (width > MAX_IMAGE_WIDTH) {
+					newWidth = MAX_IMAGE_WIDTH
+					newHeight = newWidth / aspectRatio
+				}
+
+				if (newHeight > MAX_IMAGE_HEIGHT) {
+					newHeight = MAX_IMAGE_HEIGHT
+					newWidth = newHeight * aspectRatio
+				}
+
+				// Create temporary canvas for resizing
+				const tempCanvas = document.createElement('canvas')
+				const tempCtx = tempCanvas.getContext('2d')
+
+				tempCanvas.width = Math.round(newWidth)
+				tempCanvas.height = Math.round(newHeight)
+
+				// Use high-quality scaling
+				tempCtx.imageSmoothingEnabled = true
+				tempCtx.imageSmoothingQuality = 'high'
+				tempCtx.drawImage(img, 0, 0, newWidth, newHeight)
+
+				// Create new image from resized canvas
+				const resizedImg = new Image()
+				resizedImg.src = tempCanvas.toDataURL()
+
+				showNotification(
+					`Image resized from ${width}×${height} to ${Math.round(
+						newWidth
+					)}×${Math.round(newHeight)} for better performance`
+				)
+
+				return resizedImg
+			}
+
+			// ========================================
+			// OPTIMIZED CORE FUNCTIONS
+			// ========================================
+
+			function displayGradient() {
+				previewContainer.style.display = 'block'
+				canvas.width = gradientImage.width
+				canvas.height = gradientImage.height
+				ctx.drawImage(gradientImage, 0, 0)
+				updateRangeOverlay()
+				updateRampName()
+			}
+
+			function updateRangeOverlay() {
+				if (
+					!previewContainer.style.display ||
+					previewContainer.style.display === 'none'
+				)
+					return
+
+				const start = parseFloat(startRange.value) / 100
+				const end = parseFloat(endRange.value) / 100
+
+				const leftOverlay = document.getElementById('leftOverlay')
+				const rightOverlay = document.getElementById('rightOverlay')
+
+				// Left excluded area (0% to start%)
+				leftOverlay.style.left = '0%'
+				leftOverlay.style.width = `${start * 100}%`
+
+				// Right excluded area (end% to 100%)
+				rightOverlay.style.left = `${end * 100}%`
+				rightOverlay.style.width = `${(1 - end) * 100}%`
+			}
+
+			function updateSamplePoints() {
+				const container = document.getElementById('samplePointsContainer')
+				if (!container) return
+
+				// Use DocumentFragment for better performance
+				const fragment = document.createDocumentFragment()
+
+				// Clear existing points
+				container.innerHTML = ''
+
+				// Add new points
+				samplePositions.forEach((position, index) => {
+					const point = document.createElement('div')
+					point.className = 'sample-point'
+					point.style.left = `${position * 100}%`
+					point.setAttribute('data-index', index)
+					fragment.appendChild(point)
+				})
+
+				container.appendChild(fragment)
+			}
+
+			// Optimized swatch generation
+			function generateSwatch() {
+				if (!gradientImage) return
+
+				showPerformanceIndicator('Generating swatch...')
+				performanceStats.updateCount++
+
+				const startTime = performance.now()
+
+				const start = parseFloat(startRange.value) / 100
+				const end = parseFloat(endRange.value) / 100
+				const func = samplingFunctions[functionSelector.value]
+
+				generatedColors = []
+				samplePositions = []
+
+				// Sample 11 colors with optimized sampling
+				for (let i = 0; i < 11; i++) {
+					const t = i / 10
+					const mappedT = func(t)
+					const position = start + (end - start) * mappedT
+
+					samplePositions.push(position)
+					const color = sampleColorAtPosition(position)
+					generatedColors.push(color)
+				}
+
+				updateSamplePoints()
+				displaySwatch()
+
+				// Debounce secondary updates
+				debounce('update-gpl', updateGPLOutput, 100)
+
+				const duration = performance.now() - startTime
+				showPerformanceIndicator(`Swatch generated (${Math.round(duration)}ms)`)
+			}
+
+			// Optimized color sampling with smaller sample area
+			function sampleColorAtPosition(position) {
+				const x = Math.floor(position * (canvas.width - 1))
+				const y = Math.floor(canvas.height / 2)
+
+				// Reduced sample size for better performance
+				let r = 0,
+					g = 0,
+					b = 0
+				let samples = 0
+
+				for (let dx = -SAMPLE_SIZE; dx <= SAMPLE_SIZE; dx++) {
+					for (let dy = -SAMPLE_SIZE; dy <= SAMPLE_SIZE; dy++) {
+						const sampleX = Math.max(0, Math.min(canvas.width - 1, x + dx))
+						const sampleY = Math.max(0, Math.min(canvas.height - 1, y + dy))
+
+						const pixelData = ctx.getImageData(sampleX, sampleY, 1, 1).data
+						r += pixelData[0]
+						g += pixelData[1]
+						b += pixelData[2]
+						samples++
+					}
+				}
+
+				r = Math.round(r / samples)
+				g = Math.round(g / samples)
+				b = Math.round(b / samples)
+
+				return {
+					r,
+					g,
+					b,
+					hex: rgbToHex(r, g, b),
+				}
+			}
+
+			// Optimized swatch display
+			function displaySwatch() {
+				const outputSection = document.getElementById('outputSection')
+				const swatchContainer = document.getElementById('swatchContainer')
+				const compareSection = document.getElementById('compareSection')
+
+				outputSection.style.display = 'block'
+				compareSection.style.display = 'block'
+
+				// Use DocumentFragment for better performance
+				const fragment = document.createDocumentFragment()
+
+				generatedColors.forEach((color, index) => {
+					const tile = document.createElement('div')
+					tile.className = 'color-tile'
+					tile.style.backgroundColor = color.hex
+					tile.innerHTML = `
+						<span class="color-index">${index}</span>
+						<span class="color-code">${color.hex}</span>
+					`
+					tile.onclick = () => copyHexToClipboard(color.hex)
+					fragment.appendChild(tile)
+				})
+
+				swatchContainer.innerHTML = ''
+				swatchContainer.appendChild(fragment)
+
+				// Enable save button
+				document.getElementById('saveRampBtn').disabled = false
+
+				// Update comparison if active
+				if (comparisonRamp) {
+					updateComparisonDisplay()
+				}
+
+				// Update brightness overlay on main swatch if enabled
+				if (brightnessOverlayEnabled) {
+					setTimeout(addBrightnessToMainSwatch, 100)
+				}
+			}
+
+			// ========================================
+			// OPTIMIZED HEX INPUT HANDLING
+			// ========================================
+
+			// Hex input with debounced processing
+			const hexInput = document.getElementById('hexInput')
+			hexInput.addEventListener('input', () => {
+				debounce(
+					'hex-preview',
+					() => {
+						updateColorPreview()
+
+						// Auto-create gradient if valid
+						const hexColors = parseHexColors(hexInput.value)
+						if (hexColors.length >= 2 && hexColors.length <= 8) {
+							createCanvasGradient(hexColors)
+						}
+					},
+					300
+				)
+			})
+
+			// Replace the updateColorPreview() function with this:
+			function updateColorPreview() {
+				const hexColors = parseHexColors(hexInput.value)
+
+				// Clear and update selectedColors array
+				selectedColors = [...hexColors]
+
+				if (selectedColors.length === 0) {
+					// Reset if no valid colors
+					updateSelectedColorsList()
+					return
+				}
+
+				// Update the unified display
+				updateSelectedColorsList()
+
+				// Auto-create gradient if valid
+				if (selectedColors.length >= 2 && selectedColors.length <= 8) {
+					createCanvasGradient(selectedColors)
+				}
+			}
+
+			function parseHexColors(input) {
+				if (!input || typeof input !== 'string') return []
+
+				// Split by comma, space, or semicolon
+				const parts = input.split(/[,;\s]+/)
+				const colors = []
+
+				for (let part of parts) {
+					if (!part || typeof part !== 'string') continue
+
+					part = part.trim()
+					if (!part) continue
+
+					// Add # if missing
+					if (!part.startsWith('#')) {
+						part = '#' + part
+					}
+
+					// Validate hex color (3, 4, 6, or 8 digits)
+					if (/^#([A-Fa-f0-9]{3}){1,2}$|^#([A-Fa-f0-9]{4}){1,2}$/.test(part)) {
+						// Expand 3-digit hex to 6-digit
+						if (part.length === 4) {
+							part =
+								'#' + part[1] + part[1] + part[2] + part[2] + part[3] + part[3]
+						}
+						colors.push(part)
+					}
+				}
+
+				return colors
+			}
+
+			function createCanvasGradient(hexColors) {
+				showPerformanceIndicator('Creating gradient from colors...')
+
+				// Create a virtual canvas for the gradient
+				const width = 800
+				const height = 100
+
+				// Show the preview container
+				previewContainer.style.display = 'block'
+				canvas.width = width
+				canvas.height = height
+
+				// Create linear gradient
+				const gradient = ctx.createLinearGradient(0, 0, width, 0)
+
+				// Add color stops evenly distributed
+				hexColors.forEach((color, index) => {
+					const position = index / (hexColors.length - 1)
+					gradient.addColorStop(position, color)
+				})
+
+				// Fill canvas with gradient
+				ctx.fillStyle = gradient
+				ctx.fillRect(0, 0, width, height)
+
+				// Create an image from the canvas for consistent handling
+				canvas.toBlob((blob) => {
+					const url = URL.createObjectURL(blob)
+					gradientImage = new Image()
+					gradientImage.onload = () => {
+						// Redraw on canvas (this ensures getImageData works)
+						ctx.drawImage(gradientImage, 0, 0, width, height)
+						updateRangeOverlay()
+						debounce('gradient-swatch', generateSwatch, 100)
+
+						// Clean up
+						URL.revokeObjectURL(url)
+					}
+					gradientImage.src = url
+				})
+			}
+
+			// ========================================
+			// REMAINING FUNCTIONS (GPL, drag/drop, etc.)
+			// ========================================
+
+			// GPL file import functionality
+			const gplInput = document.getElementById('gplInput')
+			gplInput.addEventListener('change', (e) => {
+				const file = e.target.files[0]
+				if (file) {
+					handleGPLImport(file)
+				}
+			})
+
+			function handleGPLImport(file) {
+				// Show confirmation dialog
+				const rampsCount = savedRamps.length
+				const warningMessage =
+					rampsCount > 0
+						? `This will replace your ${rampsCount} current saved ramps. All unsaved progress will be lost!\n\nAre you sure you want to continue?`
+						: 'This will import ramps from the .gpl file. Continue?'
+
+				if (!confirm(warningMessage)) {
+					// Clear the file input
+					gplInput.value = ''
+					return
+				}
+
+				const reader = new FileReader()
+				reader.onload = (e) => {
+					try {
+						const gplContent = e.target.result
+						const importedRamps = parseGPLFile(gplContent)
+
+						if (importedRamps.length === 0) {
+							showNotification('No valid ramps found in file!', 'error')
+							return
+						}
+
+						// Replace current ramps
+						savedRamps = importedRamps
+						saveSavedRamps()
+						updateSavedRampsDisplay()
+
+						showNotification(
+							`Successfully imported ${importedRamps.length} ramps!`
+						)
+
+						// Clear the file input
+						gplInput.value = ''
+					} catch (error) {
+						console.error('GPL import error:', error)
+						showNotification('Failed to parse .gpl file!', 'error')
+						gplInput.value = ''
+					}
+				}
+
+				reader.readAsText(file)
+			}
+
+			function parseGPLFile(content) {
+				const lines = content.split('\n')
+				const ramps = []
+				let currentRamp = null
+				let currentColors = []
+
+				for (let i = 0; i < lines.length; i++) {
+					const line = lines[i].trim()
+
+					// Skip empty lines and palette headers
+					if (
+						!line ||
+						line.startsWith('GIMP Palette') ||
+						line.startsWith('Name:') ||
+						line.startsWith('Columns:') ||
+						line === '#'
+					) {
+						continue
+					}
+
+					// Check for ramp name comment
+					if (
+						line.startsWith('# ') &&
+						!line.includes('Generated by') &&
+						!line.includes('color ramps exported')
+					) {
+						// Save previous ramp if it exists
+						if (currentRamp && currentColors.length > 0) {
+							ramps.push(createRampFromColors(currentRamp, currentColors))
+						}
+
+						// Start new ramp
+						currentRamp = line.substring(2).trim() // Remove '# '
+						currentColors = []
+						continue
+					}
+
+					// Parse color line: "255 128   0    Color Name"
+					const colorMatch = line.match(/^\s*(\d+)\s+(\d+)\s+(\d+)\s+(.*)$/)
+					if (colorMatch) {
+						const [, r, g, b] = colorMatch
+						const red = parseInt(r)
+						const green = parseInt(g)
+						const blue = parseInt(b)
+
+						// Validate RGB values
+						if (
+							red >= 0 &&
+							red <= 255 &&
+							green >= 0 &&
+							green <= 255 &&
+							blue >= 0 &&
+							blue <= 255
+						) {
+							currentColors.push({
+								r: red,
+								g: green,
+								b: blue,
+								hex: rgbToHex(red, green, blue),
+							})
+						}
+					}
+				}
+
+				// Don't forget the last ramp
+				if (currentRamp && currentColors.length > 0) {
+					ramps.push(createRampFromColors(currentRamp, currentColors))
+				}
+
+				return ramps
+			}
+
+			function createRampFromColors(name, colors) {
+				// Create a ramp object with default settings
+				// Since we don't have the original settings, we'll use reasonable defaults
+				return {
+					id: Date.now() + Math.random(), // Ensure unique IDs
+					name: name,
+					colors: [...colors],
+					settings: {
+						startRange: 0,
+						endRange: 100,
+						function: 'linear',
+						power: 2.0,
+					},
+					timestamp: new Date().toISOString(),
+				}
+			}
+
+			// Draw curve preview (throttled)
+			function drawCurvePreview() {
+				const width = (curvePreview.width = curvePreview.offsetWidth * 2)
+				const height = (curvePreview.height = curvePreview.offsetHeight * 2)
+
+				curveCtx.clearRect(0, 0, width, height)
+
+				// Draw axes
+				curveCtx.strokeStyle = '#444'
+				curveCtx.lineWidth = 1
+				curveCtx.lineJoin = 'round' // Smoother lines
+				curveCtx.beginPath()
+				curveCtx.moveTo(0, height)
+				curveCtx.lineTo(width, height)
+				curveCtx.moveTo(0, 0)
+				curveCtx.lineTo(0, height)
+				curveCtx.stroke()
+
+				// Draw curve
+				const func = samplingFunctions[functionSelector.value]
+				curveCtx.strokeStyle = '#4a9eff'
+				curveCtx.lineWidth = 2
+				curveCtx.beginPath()
+
+				for (let x = 0; x <= width; x += 2) {
+					// Skip every other pixel for performance
+					const t = x / width
+					const y = (1 - func(t)) * height
+					if (x === 0) {
+						curveCtx.moveTo(x, y)
+					} else {
+						curveCtx.lineTo(x, y)
+					}
+				}
+				curveCtx.stroke()
+
+				// Draw sample points
+				curveCtx.fillStyle = '#ff6b6b'
+				for (let i = 0; i < 11; i++) {
+					const t = i / 10
+					const mappedT = func(t)
+					const x = t * width
+					const y = (1 - mappedT) * height
+
+					curveCtx.beginPath()
+					curveCtx.arc(x, y, 3, 0, Math.PI * 2)
+					curveCtx.fill()
+				}
+			}
+
+			// Initial curve preview
+			drawCurvePreview()
+
+			// Drag and drop
+			uploadSection.addEventListener('dragover', (e) => {
+				e.preventDefault()
+				uploadSection.classList.add('drag-over')
+			})
+
+			uploadSection.addEventListener('dragleave', () => {
+				uploadSection.classList.remove('drag-over')
+			})
+
+			uploadSection.addEventListener('drop', (e) => {
+				e.preventDefault()
+				uploadSection.classList.remove('drag-over')
+
+				const file = e.dataTransfer.files[0]
+				if (file && file.type.startsWith('image/')) {
+					loadImage(file)
+				}
+			})
+
+			fileInput.addEventListener('change', (e) => {
+				const file = e.target.files[0]
+				if (file) {
+					loadImage(file)
+				}
+			})
+
+			// Save ramp functionality
+			function saveCurrentRamp() {
+				if (generatedColors.length === 0) {
+					showNotification('No colors to save!', 'error')
+					return
+				}
+
+				const nameInput = document.getElementById('saveRampName')
+				let name =
+					nameInput && nameInput.value && typeof nameInput.value === 'string'
+						? nameInput.value.trim()
+						: ''
+
+				if (!name) {
+					name = generateRampName()
+					if (nameInput) nameInput.value = name
+				}
+
+				// Check for duplicate name
+				if (savedRamps.some((ramp) => ramp.name === name)) {
+					const timestamp = new Date().toLocaleTimeString([], {
+						hour: '2-digit',
+						minute: '2-digit',
+					})
+					name += ` (${timestamp})`
+					if (nameInput) nameInput.value = name
+				}
+
+				const ramp = {
+					id: Date.now(),
+					name: name,
+					colors: [...generatedColors],
+					settings: {
+						startRange: parseFloat(startRange.value),
+						endRange: parseFloat(endRange.value),
+						function: functionSelector.value,
+						power: parseFloat(powerSlider.value),
+					},
+					timestamp: new Date().toISOString(),
+				}
+
+				savedRamps.push(ramp)
+				saveSavedRamps()
+
+				// Debounce the expensive UI update
+				debounce('update-saved-ramps', updateSavedRampsDisplay, 100)
+
+				showNotification(`Saved "${name}"!`)
+
+				// Clear the name input for next ramp
+				if (nameInput) nameInput.value = ''
+			}
+
+			// Load/save to localStorage
+			function loadSavedRamps() {
+				try {
+					const saved = localStorage.getItem('gradientSamplerRamps')
+					if (saved) {
+						savedRamps = JSON.parse(saved)
+					}
+				} catch (e) {
+					console.warn('Failed to load saved ramps:', e)
+					savedRamps = []
+				}
+			}
+
+			function saveSavedRamps() {
+				try {
+					localStorage.setItem(
+						'gradientSamplerRamps',
+						JSON.stringify(savedRamps)
+					)
+				} catch (e) {
+					console.warn('Failed to save ramps:', e)
+					showNotification('Failed to save - storage full?', 'error')
+				}
+			}
+
+			// Panel functionality
+			function togglePanel() {
+				const panel = document.getElementById('savedRampsPanel')
+				const btn = document.getElementById('collapseBtn')
+
+				panel.classList.toggle('collapsed')
+				btn.textContent = panel.classList.contains('collapsed') ? '→' : '←'
+			}
+
+			// Optimized saved ramps display
+			function updateSavedRampsDisplay() {
+				const list = document.getElementById('savedRampsList')
+				const emptyState = document.getElementById('emptyState')
+				const exportAllBtn = document.getElementById('exportAllBtn')
+				const exportAllPngBtn = document.getElementById('exportAllPngBtn')
+
+				if (savedRamps.length === 0) {
+					list.innerHTML = ''
+					emptyState.style.display = 'block'
+					exportAllBtn.disabled = true
+					exportAllPngBtn.disabled = true
+
+					// Hide the control grid when no ramps
+					document.getElementById('rampControlsGrid').style.display = 'none'
+					document.getElementById('reverseAllColorsBtn').disabled = true
+					document.getElementById('reverseRampOrderBtn').disabled = true
+					return
+				}
+
+				emptyState.style.display = 'none'
+				exportAllBtn.disabled = false
+				exportAllPngBtn.disabled = false
+
+				// Show and enable the control grid when ramps exist
+				document.getElementById('rampControlsGrid').style.display = 'grid'
+				document.getElementById('reverseAllColorsBtn').disabled = false
+				document.getElementById('reverseRampOrderBtn').disabled = false
+
+				// Use DocumentFragment for better performance when rebuilding list
+				const fragment = document.createDocumentFragment()
+
+				savedRamps.forEach((ramp, index) => {
+					const item = createRampItem(ramp, index)
+					fragment.appendChild(item)
+				})
+
+				list.innerHTML = ''
+				list.appendChild(fragment)
+			}
+
+			function createRampItem(ramp, index) {
+				const item = document.createElement('div')
+				item.className = 'saved-ramp-item'
+				item.draggable = true
+
+				// Create color squares preview
+				const colorSquares = ramp.colors
+					.map(
+						(color) =>
+							`<div style="width: 100%; height: 100%; background: ${color.hex};"></div>`
+					)
+					.join('')
+
+				item.innerHTML = `
+					<div class="ramp-preview" style="display: grid; grid-template-columns: repeat(11, 1fr); gap: 1px; background: #333; padding: 2px;">
+						${colorSquares}
+					</div>
+					<div class="ramp-info">
+						<div style="display:flex;">
+							<input type="text" class="ramp-name" value="${ramp.name}" 
+								onblur="updateRampName(${index}, this.value)"
+								onkeypress="if(event.key==='Enter') this.blur()">
+							<div class="ramp-actions">
+								<button class="ramp-action-btn" onclick="loadRamp(${index})" title="Load">📂</button>
+								<button class="ramp-action-btn" onclick="duplicateRamp(${index})" title="Duplicate">📋</button>
+								<button class="ramp-action-btn" onclick="reverseRamp(${index})" title="Reverse Colors">🔄</button>
+								<button class="ramp-action-btn delete" onclick="deleteRamp(${index})" title="Delete">🗑️</button>
+							</div>
+						</div>
+					</div>
+				`
+
+				// In the createRampItem function, replace the existing drag event listeners with:
+				item.addEventListener('dragstart', (e) => {
+					draggedRampIndex = index
+					item.classList.add('dragging')
+					e.dataTransfer.effectAllowed = 'copy'
+					// Store the ramp index for comparison dropping
+					e.dataTransfer.setData('text/plain', index.toString())
+				})
+
+				item.addEventListener('dragend', () => {
+					item.classList.remove('dragging')
+					draggedRampIndex = null
+				})
+
+				item.addEventListener('dragover', (e) => {
+					e.preventDefault()
+					e.dataTransfer.dropEffect = 'move'
+					item.classList.add('drag-over-target')
+				})
+
+				item.addEventListener('dragleave', () => {
+					item.classList.remove('drag-over-target')
+				})
+
+				item.addEventListener('drop', (e) => {
+					e.preventDefault()
+					item.classList.remove('drag-over-target')
+
+					if (draggedRampIndex !== null && draggedRampIndex !== index) {
+						// Reorder ramps
+						const draggedRamp = savedRamps.splice(draggedRampIndex, 1)[0]
+						savedRamps.splice(index, 0, draggedRamp)
+
+						saveSavedRamps()
+						debounce('reorder-update', updateSavedRampsDisplay, 50)
+						showNotification('Ramp reordered!')
+					}
+				})
+
+				return item
+			}
+
+			function updateRampName(index, newName) {
+				if (
+					newName &&
+					typeof newName === 'string' &&
+					newName.trim() &&
+					savedRamps[index]
+				) {
+					savedRamps[index].name = newName.trim()
+					saveSavedRamps()
+					showNotification('Name updated!')
+				}
+			}
+
+			function loadRamp(index) {
+				const ramp = savedRamps[index]
+				if (!ramp) return
+
+				// Restore settings
+				startRange.value = ramp.settings.startRange
+				startText.value = ramp.settings.startRange
+				endRange.value = ramp.settings.endRange
+				endText.value = ramp.settings.endRange
+				functionSelector.value = ramp.settings.function
+				powerSlider.value = ramp.settings.power
+				powerValue.textContent = ramp.settings.power
+				powerSlider.step = stepInput.value
+
+				// Show power slider if needed
+				powerSliderGroup.classList.toggle(
+					'show',
+					ramp.settings.function === 'customExponent'
+				)
+
+				// Restore colors
+				generatedColors = [...ramp.colors]
+
+				// Display
+				displaySwatch()
+				updateGPLOutput()
+				drawCurvePreview()
+				updateRangeOverlay()
+
+				showNotification(`Loaded "${ramp.name}"!`)
+			}
+
+			function duplicateRamp(index) {
+				const originalRamp = savedRamps[index]
+				if (!originalRamp) return
+
+				const duplicate = {
+					...originalRamp,
+					id: Date.now(),
+					name: originalRamp.name + ' Copy',
+					colors: [...originalRamp.colors],
+					settings: { ...originalRamp.settings },
+					timestamp: new Date().toISOString(),
+				}
+
+				savedRamps.splice(index + 1, 0, duplicate)
+				saveSavedRamps()
+				debounce('duplicate-update', updateSavedRampsDisplay, 50)
+				showNotification('Ramp duplicated!')
+			}
+
+			function deleteRamp(index) {
+				const ramp = savedRamps[index]
+				if (!ramp) return
+
+				if (confirm(`Delete "${ramp.name}"?`)) {
+					savedRamps.splice(index, 1)
+					saveSavedRamps()
+					debounce('delete-update', updateSavedRampsDisplay, 50)
+					showNotification('Ramp deleted!')
+				}
+			}
+
+			//#region Reverse Functions
+			// Reverse the current active swatch
+			function reverseCurrentSwatch() {
+				if (generatedColors.length === 0) {
+					showNotification('No colors to reverse!', 'error')
+					return
+				}
+
+				generatedColors.reverse()
+				displaySwatch()
+				debounce('update-gpl-reverse', updateGPLOutput, 100)
+				showNotification('Current swatch reversed!')
+			}
+
+			// Reverse colors in a specific saved ramp
+			function reverseRamp(index) {
+				const ramp = savedRamps[index]
+				if (!ramp) return
+
+				if (confirm(`Reverse colors in "${ramp.name}"?`)) {
+					ramp.colors.reverse()
+					saveSavedRamps()
+					debounce('reverse-ramp-update', updateSavedRampsDisplay, 50)
+					showNotification(`"${ramp.name}" colors reversed!`)
+				}
+			}
+
+			// Reverse all colors in all saved ramps
+			function reverseAllRampColors() {
+				if (savedRamps.length === 0) {
+					showNotification('No ramps to reverse!', 'error')
+					return
+				}
+
+				if (
+					confirm(`Reverse colors in all ${savedRamps.length} saved ramps?`)
+				) {
+					savedRamps.forEach((ramp) => {
+						ramp.colors.reverse()
+					})
+
+					saveSavedRamps()
+					debounce('reverse-all-colors-update', updateSavedRampsDisplay, 50)
+					showNotification(`All ${savedRamps.length} ramps' colors reversed!`)
+				}
+			}
+
+			// Reverse the order of all saved ramps
+			function reverseRampOrder() {
+				if (savedRamps.length === 0) {
+					showNotification('No ramps to reorder!', 'error')
+					return
+				}
+
+				if (
+					confirm(`Reverse the order of all ${savedRamps.length} saved ramps?`)
+				) {
+					savedRamps.reverse()
+					saveSavedRamps()
+					debounce('reverse-order-update', updateSavedRampsDisplay, 50)
+					showNotification(`Ramp order reversed!`)
+				}
+			}
+			//#endregion /Reverse
+
+			// Export all ramps
+			function exportAllRamps() {
+				if (savedRamps.length === 0) {
+					showNotification('No ramps to export!', 'error')
+					return
+				}
+
+				const datestamp = new Date().toISOString().split('T')[0]
+				let allContent = 'GIMP Palette\n'
+				allContent += `Name: Multi-Ramp Export ${datestamp}\n`
+				allContent += 'Columns: 11\n'
+				allContent += '# Generated by Gradient Color Sampler v6.6.2\n'
+				allContent += `# ${savedRamps.length} color ramps exported\n`
+				allContent += '#\n'
+
+				savedRamps.forEach((ramp, rampIndex) => {
+					allContent += `# ${ramp.name}\n`
+
+					ramp.colors.forEach((color, colorIndex) => {
+						const r = color.r.toString().padStart(3)
+						const g = color.g.toString().padStart(3)
+						const b = color.b.toString().padStart(3)
+						allContent += `${r} ${g} ${b}    ${ramp.name} ${colorIndex}\n`
+					})
+
+					allContent += '#\n'
+				})
+
+				// Download
+				const blob = new Blob([allContent], { type: 'text/plain' })
+				const url = URL.createObjectURL(blob)
+				const a = document.createElement('a')
+				a.href = url
+				a.download = `all-color-ramps-${datestamp}.gpl`
+				a.click()
+				URL.revokeObjectURL(url)
+
+				showNotification(`Exported ${savedRamps.length} ramps!`)
+			}
+
+			// Export all ramps as combined PNG (11x[number of ramps])
+			function exportAllRampsPNG() {
+				if (savedRamps.length === 0) {
+					showNotification('No ramps to export!', 'error')
+					return
+				}
+
+				// Create a single image: 11 pixels wide, one row per ramp
+				const pngCanvas = document.createElement('canvas')
+				pngCanvas.width = 11
+				pngCanvas.height = savedRamps.length
+				const pngCtx = pngCanvas.getContext('2d')
+
+				// Draw each ramp as a horizontal row
+				savedRamps.forEach((ramp, rampIndex) => {
+					ramp.colors.forEach((color, colorIndex) => {
+						pngCtx.fillStyle = color.hex
+						pngCtx.fillRect(colorIndex, rampIndex, 1, 1)
+					})
+				})
+
+				// Convert to blob and download
+				pngCanvas.toBlob((blob) => {
+					const url = URL.createObjectURL(blob)
+					const a = document.createElement('a')
+					a.href = url
+					a.download = `all-color-ramps-${
+						new Date().toISOString().split('T')[0]
+					}.png`
+					a.click()
+					URL.revokeObjectURL(url)
+
+					showNotification(
+						`Downloaded ${savedRamps.length} ramps as single PNG!`
+					)
+				}, 'image/png')
+			}
+
+			// Generate GPL content
+			function generateGPLContent() {
+				const nameInput = document.getElementById('saveRampName')
+				const swatchName =
+					nameInput && nameInput.value && typeof nameInput.value === 'string'
+						? nameInput.value.trim() || 'Current Swatch'
+						: 'Current Swatch'
+
+				let gplContent = 'GIMP Palette\n'
+				gplContent += `Name: ${swatchName}\n`
+				gplContent += 'Columns: 11\n'
+				gplContent += '# Generated by Gradient Color Sampler v6.6.2\n'
+				gplContent += '#\n'
+
+				generatedColors.forEach((color, index) => {
+					const r = color.r.toString().padStart(3)
+					const g = color.g.toString().padStart(3)
+					const b = color.b.toString().padStart(3)
+					gplContent += `${r} ${g} ${b}    Color ${index}\n`
+				})
+
+				return gplContent
+			}
+
+			// Update the output div with GPL content in real-time (debounced)
+			function updateGPLOutput() {
+				if (generatedColors.length === 0) return
+
+				const gplContent = generateGPLContent()
+				const codeOutput = document.getElementById('codeOutput')
+				codeOutput.textContent = gplContent
+				codeOutput.classList.add('show')
+			}
+
+			// Download GPL file
+			function downloadGPL() {
+				if (generatedColors.length === 0) {
+					showNotification('Please generate a swatch first!', 'error')
+					return
+				}
+
+				const nameInput = document.getElementById('saveRampName')
+				const swatchName =
+					nameInput && nameInput.value && typeof nameInput.value === 'string'
+						? nameInput.value.trim() || 'Current Swatch'
+						: 'Current Swatch'
+
+				const gplContent = generateGPLContent()
+
+				const blob = new Blob([gplContent], { type: 'text/plain' })
+				const url = URL.createObjectURL(blob)
+				const a = document.createElement('a')
+				a.href = url
+				a.download = `${swatchName.toLowerCase().replace(/\s+/g, '-')}.gpl`
+				a.click()
+				URL.revokeObjectURL(url)
+
+				showNotification('GPL file downloaded!')
+			}
+
+			// Download PNG file (11x1 pixels)
+			function downloadPNG() {
+				if (generatedColors.length === 0) {
+					showNotification('Please generate a swatch first!', 'error')
+					return
+				}
+
+				const nameInput = document.getElementById('saveRampName')
+				const swatchName =
+					nameInput && nameInput.value && typeof nameInput.value === 'string'
+						? nameInput.value.trim() || 'Current Swatch'
+						: 'Current Swatch'
+
+				// Create an 11x1 canvas
+				const pngCanvas = document.createElement('canvas')
+				pngCanvas.width = 11
+				pngCanvas.height = 1
+				const pngCtx = pngCanvas.getContext('2d')
+
+				// Draw each color as a 1x1 pixel
+				generatedColors.forEach((color, index) => {
+					pngCtx.fillStyle = color.hex
+					pngCtx.fillRect(index, 0, 1, 1)
+				})
+
+				// Convert to blob and download
+				pngCanvas.toBlob((blob) => {
+					const url = URL.createObjectURL(blob)
+					const a = document.createElement('a')
+					a.href = url
+					a.download = `${swatchName.toLowerCase().replace(/\s+/g, '-')}.png`
+					a.click()
+					URL.revokeObjectURL(url)
+
+					showNotification('PNG ramp downloaded!')
+				}, 'image/png')
+			}
+
+			// Copy GPL content to clipboard
+			function copyGPLToClipboard() {
+				if (generatedColors.length === 0) {
+					showNotification('Please generate a swatch first!', 'error')
+					return
+				}
+
+				// For clipboard, just copy the color data without headers
+				// This is for pasting into existing GPL files
+				const nameInput = document.getElementById('saveRampName')
+				const swatchName =
+					nameInput && nameInput.value && typeof nameInput.value === 'string'
+						? nameInput.value.trim() || 'Current Swatch'
+						: 'Current Swatch'
+
+				let gplContent = `# ${swatchName}\n`
+
+				generatedColors.forEach((color, index) => {
+					const r = color.r.toString().padStart(3)
+					const g = color.g.toString().padStart(3)
+					const b = color.b.toString().padStart(3)
+					gplContent += `${r} ${g} ${b}    Color ${index}\n`
+				})
+
+				navigator.clipboard
+					.writeText(gplContent)
+					.then(() => {
+						showNotification('Colors copied to clipboard!')
+					})
+					.catch(() => {
+						showNotification('Failed to copy to clipboard', 'error')
+					})
+			}
+
+			function copyHexToClipboard(hex) {
+				navigator.clipboard.writeText(hex)
+				showNotification(`${hex} copied!`)
+			}
+
+			function rgbToHex(r, g, b) {
+				return (
+					'#' +
+					[r, g, b]
+						.map((x) => {
+							const hex = x.toString(16)
+							return hex.length === 1 ? '0' + hex : hex
+						})
+						.join('')
+				)
+			}
+
+			// Notification system
+			function showNotification(message, type = 'success') {
+				const notification = document.getElementById('notification')
+				notification.textContent = message
+				notification.className = `notification ${type}`
+				notification.classList.add('show')
+
+				setTimeout(() => {
+					notification.classList.remove('show')
+				}, 3000)
+			}
+
+			// Performance monitoring (optional - can be removed in production)
+			setInterval(() => {
+				const now = Date.now()
+				const timeDiff = now - performanceStats.lastUpdate
+
+				if (timeDiff > 5000) {
+					// Update every 5 seconds
+					const updatesPerSecond =
+						performanceStats.updateCount / (timeDiff / 1000)
+
+					if (updatesPerSecond > 0) {
+						console.log(
+							`Performance: ${updatesPerSecond.toFixed(1)} updates/sec, ${
+								performanceStats.debounceCount
+							} debounced`
+						)
+					}
+
+					performanceStats = {
+						lastUpdate: now,
+						updateCount: 0,
+						debounceCount: 0,
+					}
+				}
+			}, 5000)
+
+			//#region Comparison
+
+			// Compare Against functionality
+			let comparisonRamp = null
+			let brightnessOverlayEnabled = false
+
+			// Toggle compare section
+			function toggleCompareSection() {
+				const content = document.getElementById('compareContent')
+				const btn = document.getElementById('compareCollapseBtn')
+
+				content.classList.toggle('collapsed')
+				btn.textContent = content.classList.contains('collapsed') ? '↓' : '↑'
+			}
+
+			// Calculate perceived brightness using selected algorithm
+			function calculateBrightness(r, g, b) {
+				return calculateLuminance(r, g, b)
+			}
+
+			// Update comparison display
+			function updateComparisonDisplay() {
+				const comparisonContainer = document.getElementById(
+					'comparisonSwatchContainer'
+				)
+				const compareControls = document.getElementById('compareControls')
+				const dropHint = document.querySelector('.drop-hint')
+				const comparisonName = document.getElementById('comparisonName')
+
+				if (!comparisonRamp) {
+					comparisonContainer.style.display = 'none'
+					compareControls.style.display = 'none'
+					dropHint.style.display = 'block'
+					comparisonName.textContent = 'None'
+					return
+				}
+
+				dropHint.style.display = 'none'
+				compareControls.style.display = 'flex'
+				comparisonName.textContent = comparisonRamp.name
+
+				// Display comparison swatch with perfect alignment
+				displayComparisonSwatch(comparisonRamp.colors, comparisonRamp.name)
+			}
+
+			// Display comparison swatch
+			function displayComparisonSwatch(colors, swatchName) {
+				const container = document.getElementById('comparisonSwatchContainer')
+				if (!container) return
+
+				// Set the data attribute for the CSS ::before label
+				container.setAttribute('data-comparison-name', swatchName)
+				container.style.display = 'grid' // Use same display as main swatch
+
+				const fragment = document.createDocumentFragment()
+
+				colors.forEach((color, index) => {
+					const tile = document.createElement('div')
+					tile.className = 'color-tile'
+					tile.style.backgroundColor = color.hex
+
+					const brightness = calculateBrightness(color.r, color.g, color.b)
+
+					tile.innerHTML = `
+						<span class="color-index">${index}</span>
+						<span class="color-code">${color.hex}</span>
+						<span class="brightness-overlay ${
+							brightnessOverlayEnabled ? 'show' : ''
+						}">${brightness}</span>
+						`
+
+					tile.onclick = () => copyHexToClipboard(color.hex)
+					tile.title = `${color.hex} (Brightness: ${brightness})`
+
+					fragment.appendChild(tile)
+				})
+
+				container.innerHTML = ''
+				container.appendChild(fragment)
+			}
+
+			// Toggle brightness overlay
+			function toggleBrightnessOverlay() {
+				brightnessOverlayEnabled = !brightnessOverlayEnabled
+
+				const toggle = document.getElementById('brightnessToggle')
+				toggle.classList.toggle('active', brightnessOverlayEnabled)
+
+				const luminanceLabel = luminanceMode === 'hsv' ? 'HSV' : 'CIE L*'
+				toggle.textContent = brightnessOverlayEnabled
+					? `Hide ${luminanceLabel}`
+					: `Show ${luminanceLabel}`
+
+				// Update all brightness overlays
+				if (brightnessOverlayEnabled) {
+					// Show overlays
+					if (generatedColors.length > 0) {
+						addBrightnessToMainSwatch()
+					}
+					if (comparisonRamp) {
+						addBrightnessToComparisonSwatch()
+					}
+				} else {
+					// Hide overlays
+					removeBrightnessFromMainSwatch()
+					removeBrightnessFromComparisonSwatch()
+				}
+
+				showNotification(
+					brightnessOverlayEnabled
+						? `${luminanceLabel} overlay enabled`
+						: `${luminanceLabel} overlay disabled`
+				)
+			}
+
+			// Add brightness overlay to main swatch
+			function addBrightnessToMainSwatch() {
+				const mainSwatchTiles = document.querySelectorAll(
+					'#swatchContainer .color-tile'
+				)
+				mainSwatchTiles.forEach((tile, index) => {
+					if (generatedColors[index]) {
+						const color = generatedColors[index]
+						const brightness = calculateLuminance(color.r, color.g, color.b) // Fresh calc with current mode
+						let overlay = tile.querySelector('.brightness-overlay')
+						if (!overlay) {
+							overlay = document.createElement('span')
+							overlay.className = 'brightness-overlay'
+							tile.appendChild(overlay)
+						}
+						overlay.textContent = brightness
+						overlay.classList.add('show')
+					}
+				})
+			}
+
+			// Remove brightness overlay from main swatch
+			function removeBrightnessFromMainSwatch() {
+				const overlays = document.querySelectorAll(
+					'#swatchContainer .brightness-overlay'
+				)
+				overlays.forEach((overlay) => {
+					overlay.classList.remove('show')
+				})
+			}
+
+			// Add brightness overlay to comparison swatch
+			function addBrightnessToComparisonSwatch() {
+				if (!comparisonRamp) return
+
+				const comparisonTiles = document.querySelectorAll(
+					'#comparisonSwatchContainer .color-tile'
+				)
+				comparisonTiles.forEach((tile, index) => {
+					if (comparisonRamp.colors[index]) {
+						const color = comparisonRamp.colors[index]
+						const brightness = calculateBrightness(color.r, color.g, color.b)
+
+						let overlay = tile.querySelector('.brightness-overlay')
+						if (!overlay) {
+							overlay = document.createElement('span')
+							overlay.className = 'brightness-overlay'
+							tile.appendChild(overlay)
+						}
+
+						overlay.textContent = brightness
+						overlay.classList.add('show')
+					}
+				})
+			}
+
+			// Remove brightness overlay from comparison swatch
+			function removeBrightnessFromComparisonSwatch() {
+				const overlays = document.querySelectorAll(
+					'#comparisonSwatchContainer .brightness-overlay'
+				)
+				overlays.forEach((overlay) => {
+					overlay.classList.remove('show')
+				})
+			}
+
+			// Update all brightness overlays with new algorithm
+			function updateBrightnessOverlay() {
+				if (brightnessOverlayEnabled) {
+					// Update main swatch
+					if (generatedColors.length > 0) {
+						addBrightnessToMainSwatch()
+					}
+
+					// Update comparison swatch
+					if (comparisonRamp) {
+						addBrightnessToComparisonSwatch()
+					}
+				}
+			}
+
+			// Clear comparison
+			function clearComparison() {
+				comparisonRamp = null
+				updateComparisonDisplay()
+				showNotification('Comparison cleared')
+			}
+
+			// Set up drag and drop for comparison
+			function setupComparisonDropZone() {
+				const dropZone = document.getElementById('compareDropZone')
+
+				dropZone.addEventListener('dragover', (e) => {
+					e.preventDefault()
+					dropZone.classList.add('drag-over')
+				})
+
+				dropZone.addEventListener('dragleave', () => {
+					dropZone.classList.remove('drag-over')
+				})
+
+				dropZone.addEventListener('drop', (e) => {
+					e.preventDefault()
+					dropZone.classList.remove('drag-over')
+
+					// The drag data should contain the ramp index
+					const rampIndex = parseInt(e.dataTransfer.getData('text/plain'))
+					if (!isNaN(rampIndex) && savedRamps[rampIndex]) {
+						comparisonRamp = savedRamps[rampIndex]
+						updateComparisonDisplay()
+						showNotification(`Comparing against "${comparisonRamp.name}"`)
+					}
+				})
+			}
+
+			//#endregion /Comparison
+
+			//#region Color Picker
+
+			// Visual Color Picker Variables
+			let selectedColors = []
+			let currentHue = 0
+			let currentSaturation = 100
+			let currentValue = 100
+			let currentLuminance = 50 // CIE L* value (0-100)
+			let isPickerVisible = false
+
+			// LAB color conversion functions
+			function rgbToLab(r, g, b) {
+				// Normalize RGB values
+				r = r / 255.0
+				g = g / 255.0
+				b = b / 255.0
+
+				// Apply gamma correction
+				function gammaCorrect(c) {
+					return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)
+				}
+
+				const rLinear = gammaCorrect(r)
+				const gLinear = gammaCorrect(g)
+				const bLinear = gammaCorrect(b)
+
+				// Convert to XYZ using sRGB matrix
+				const x =
+					0.4124564 * rLinear + 0.3575761 * gLinear + 0.1804375 * bLinear
+				const y = 0.2126729 * rLinear + 0.7151522 * gLinear + 0.072175 * bLinear
+				const z = 0.0193339 * rLinear + 0.119192 * gLinear + 0.9503041 * bLinear
+
+				// Convert XYZ to LAB
+				function f(t) {
+					const delta = 6.0 / 29.0
+					return t > Math.pow(delta, 3)
+						? Math.pow(t, 1.0 / 3.0)
+						: t / (3 * delta * delta) + 4.0 / 29.0
+				}
+
+				const fx = f(x / 0.95047)
+				const fy = f(y / 1.0)
+				const fz = f(z / 1.08883)
+
+				const L = 116 * fy - 16
+				const A = 500 * (fx - fy)
+				const B = 200 * (fy - fz)
+
+				return { L: Math.max(0, Math.min(100, L)), A, B }
+			}
+
+			function labToRgb(L, A, B) {
+				// Convert LAB to XYZ
+				const fy = (L + 16) / 116
+				const fx = A / 500 + fy
+				const fz = fy - B / 200
+
+				function f_inv(t) {
+					const delta = 6.0 / 29.0
+					return t > delta
+						? Math.pow(t, 3)
+						: 3 * delta * delta * (t - 4.0 / 29.0)
+				}
+
+				const x = 0.95047 * f_inv(fx)
+				const y = 1.0 * f_inv(fy)
+				const z = 1.08883 * f_inv(fz)
+
+				// Convert XYZ to linear RGB
+				let rLinear = 3.2404542 * x - 1.5371385 * y - 0.4985314 * z
+				let gLinear = -0.969266 * x + 1.8760108 * y + 0.041556 * z
+				let bLinear = 0.0556434 * x - 0.2040259 * y + 1.0572252 * z
+
+				// Apply inverse gamma correction
+				function gammaInverse(c) {
+					return c <= 0.0031308
+						? 12.92 * c
+						: 1.055 * Math.pow(c, 1 / 2.4) - 0.055
+				}
+
+				rLinear = gammaInverse(rLinear)
+				gLinear = gammaInverse(gLinear)
+				bLinear = gammaInverse(bLinear)
+
+				// Convert to 8-bit RGB
+				const r = Math.max(0, Math.min(255, Math.round(rLinear * 255)))
+				const g = Math.max(0, Math.min(255, Math.round(gLinear * 255)))
+				const b = Math.max(0, Math.min(255, Math.round(bLinear * 255)))
+
+				return { r, g, b }
+			}
+
+			// Update color by adjusting luminance
+			function updateColorWithLuminance() {
+				if (luminanceMode === 'hsv') {
+					// In HSV mode, luminance directly controls the V (value) component
+					currentValue = currentLuminance
+					// No need for color space conversion
+				} else {
+					// CIE L* mode - use the existing LAB conversion
+					// Get current RGB color from HSV
+					const currentRgb = hsvToRgb(
+						currentHue,
+						currentSaturation,
+						currentValue
+					)
+
+					// Convert to LAB
+					const lab = rgbToLab(currentRgb.r, currentRgb.g, currentRgb.b)
+
+					// Update LAB with new luminance
+					lab.L = currentLuminance
+
+					// Convert back to RGB
+					const newRgb = labToRgb(lab.L, lab.A, lab.B)
+
+					// Convert RGB back to HSV to keep sliders in sync
+					const newHsv = rgbToHsv(newRgb.r, newRgb.g, newRgb.b)
+
+					// Update HSV values (but not luminance - avoid feedback loop)
+					currentHue = newHsv.h
+					currentSaturation = newHsv.s
+					currentValue = newHsv.v
+				}
+			}
+
+			// HSV to RGB helper (we need this for luminance calculations)
+			function hsvToRgb(h, s, v) {
+				h = h / 360
+				s = s / 100
+				v = v / 100
+
+				const c = v * s
+				const x = c * (1 - Math.abs(((h * 6) % 2) - 1))
+				const m = v - c
+
+				let r, g, b
+
+				if (h < 1 / 6) {
+					r = c
+					g = x
+					b = 0
+				} else if (h < 2 / 6) {
+					r = x
+					g = c
+					b = 0
+				} else if (h < 3 / 6) {
+					r = 0
+					g = c
+					b = x
+				} else if (h < 4 / 6) {
+					r = 0
+					g = x
+					b = c
+				} else if (h < 5 / 6) {
+					r = x
+					g = 0
+					b = c
+				} else {
+					r = c
+					g = 0
+					b = x
+				}
+
+				r = Math.round((r + m) * 255)
+				g = Math.round((g + m) * 255)
+				b = Math.round((b + m) * 255)
+
+				return { r, g, b }
+			}
+
+			// RGB to HSV helper
+			function rgbToHsv(r, g, b) {
+				r = r / 255
+				g = g / 255
+				b = b / 255
+
+				const max = Math.max(r, g, b)
+				const min = Math.min(r, g, b)
+				const delta = max - min
+
+				let h = 0
+				if (delta !== 0) {
+					if (max === r) h = 60 * (((g - b) / delta) % 6)
+					else if (max === g) h = 60 * ((b - r) / delta + 2)
+					else h = 60 * ((r - g) / delta + 4)
+				}
+
+				if (h < 0) h += 360
+
+				const s = max === 0 ? 0 : (delta / max) * 100
+				const v = max * 100
+
+				return { h, s, v }
+			}
+
+			// Toggle color picker visibility
+			function toggleColorPicker() {
+				const container = document.getElementById('colorPickerContainer')
+				isPickerVisible = !isPickerVisible
+
+				container.style.display = isPickerVisible ? 'block' : 'none'
+
+				const btn = event.target
+				btn.textContent = isPickerVisible
+					? '❌ Hide Picker'
+					: '🎨 Visual Picker'
+
+				if (isPickerVisible) {
+					updateColorPickerDisplay()
+				}
+			}
+
+			function initializeColorPicker() {
+				const hueSlider = document.getElementById('hueSlider')
+				const svPicker = document.getElementById('svPicker')
+				const luminanceSlider = document.getElementById('luminanceSlider')
+
+				let isDraggingHue = false
+				let isDraggingSV = false
+				let isDraggingLuminance = false
+
+				// SV picker with global mouse tracking
+				svPicker.addEventListener('mousedown', (e) => {
+					isDraggingSV = true
+					updateSVFromEvent(e, svPicker) // Pass picker element
+				})
+
+				// Global mouse move - tracks even outside the picker
+				document.addEventListener('mousemove', (e) => {
+					if (isDraggingSV) {
+						updateSVFromEvent(e, svPicker)
+					} else if (isDraggingHue) {
+						updateHueFromEvent(e, hueSlider)
+					} else if (isDraggingLuminance) {
+						updateLuminanceFromEvent(e, luminanceSlider)
+					}
+				})
+
+				// Global mouse up
+				document.addEventListener('mouseup', () => {
+					isDraggingHue = false
+					isDraggingSV = false
+					isDraggingLuminance = false
+				})
+
+				// Other sliders...
+				hueSlider.addEventListener('mousedown', (e) => {
+					isDraggingHue = true
+					updateHueFromEvent(e, hueSlider)
+				})
+
+				luminanceSlider.addEventListener('mousedown', (e) => {
+					isDraggingLuminance = true
+					updateLuminanceFromEvent(e, luminanceSlider)
+				})
+
+				// Click handlers remain the same
+				hueSlider.addEventListener('click', (e) =>
+					updateHueFromEvent(e, hueSlider)
+				)
+				svPicker.addEventListener('click', (e) =>
+					updateSVFromEvent(e, svPicker)
+				)
+				luminanceSlider.addEventListener('click', (e) =>
+					updateLuminanceFromEvent(e, luminanceSlider)
+				)
+			}
+
+			function updateLuminanceFromEvent(e, targetElement) {
+				const rect = targetElement.getBoundingClientRect()
+				const y = e.clientY - rect.top
+				const percentage = Math.max(0, Math.min(100, (y / rect.height) * 100))
+				currentLuminance = 100 - percentage
+
+				updateColorWithLuminance()
+				updateColorPickerDisplay()
+			}
+
+			function updateHueFromEvent(e, targetElement) {
+				const rect = targetElement.getBoundingClientRect()
+				const y = e.clientY - rect.top
+				const percentage = Math.max(0, Math.min(100, (y / rect.height) * 100))
+				currentHue = (percentage / 100) * 360
+
+				updateColorPickerDisplay()
+			}
+
+			function updateSVFromEvent(e, targetElement) {
+				const rect = targetElement.getBoundingClientRect()
+				const x = e.clientX - rect.left
+				const y = e.clientY - rect.top
+
+				// Now this will work even when mouse is outside the picker
+				currentSaturation = Math.max(0, Math.min(100, (x / rect.width) * 100))
+				currentValue = Math.max(0, Math.min(100, 100 - (y / rect.height) * 100))
+
+				updateColorPickerDisplay()
+			}
+
+			// Update hex input from selection with smart debouncing
+			function updateHexInputFromSelection() {
+				const hexInput = document.getElementById('hexInput')
+				hexInput.value = selectedColors.join(', ')
+
+				// Immediate preview update (cheap operation)
+				throttle('color-preview-immediate', updateColorPreview, 50)
+
+				// Debounced gradient generation (expensive operation)
+				if (selectedColors.length >= 2) {
+					debounce(
+						'gradient-from-picker',
+						() => {
+							createCanvasGradient(selectedColors)
+						},
+						200
+					)
+				}
+			}
+
+			// Replace updateSelectedColorsList() with this enhanced version:
+			function updateSelectedColorsList() {
+				const container = document.getElementById('selectedColorsList')
+
+				if (selectedColors.length === 0) {
+					container.innerHTML =
+						'<div style="color: #888; font-size: 12px; align-self: center;">Selected colors will appear here...</div>'
+					return
+				}
+
+				const fragment = document.createDocumentFragment()
+
+				// Add individual color chips
+				selectedColors.forEach((color, index) => {
+					const chip = document.createElement('div')
+					chip.className = 'selected-color-chip'
+					chip.style.backgroundColor = color
+					chip.title = color
+
+					const removeBtn = document.createElement('button')
+					removeBtn.className = 'remove-btn'
+					removeBtn.innerHTML = '×'
+					removeBtn.onclick = (e) => {
+						e.stopPropagation()
+						removeSelectedColor(index)
+					}
+
+					chip.appendChild(removeBtn)
+					chip.onclick = () => copyHexToClipboard(color)
+					fragment.appendChild(chip)
+				})
+
+				// Add gradient preview if more than 1 color
+				if (selectedColors.length > 1) {
+					const gradientPreview = document.createElement('div')
+					const gradientString = selectedColors
+						.map((color, index) => {
+							const position = (index / (selectedColors.length - 1)) * 100
+							return `${color} ${position}%`
+						})
+						.join(', ')
+
+					gradientPreview.style.cssText = `
+			            height: 32px;
+			            flex: 1;
+			            min-width: 100px;
+			            background: linear-gradient(90deg, ${gradientString});
+			            border-radius: 4px;
+			            border: 1px solid #444;
+			            margin-left: 4px;
+			            cursor: pointer;
+			        `
+					gradientPreview.title = 'Gradient preview - click to copy all colors'
+					gradientPreview.onclick = () => {
+						navigator.clipboard.writeText(selectedColors.join(', '))
+						showNotification('All colors copied!')
+					}
+
+					fragment.appendChild(gradientPreview)
+				}
+
+				container.innerHTML = ''
+				container.appendChild(fragment)
+			}
+
+			// Update color picker display
+			function updateColorPickerDisplay() {
+				const currentRgb = hsvToRgb(currentHue, currentSaturation, currentValue)
+				const currentColor = rgbToHex(currentRgb.r, currentRgb.g, currentRgb.b)
+
+				// Update preview
+				document.getElementById('colorPreviewLarge').style.backgroundColor =
+					currentColor
+				document.getElementById('currentHexValue').value = currentColor
+
+				// Update luminance from current color using selected algorithm
+				currentLuminance = calculateLuminance(
+					currentRgb.r,
+					currentRgb.g,
+					currentRgb.b
+				)
+
+				// Update value displays
+				document.getElementById('hsvDisplay').textContent = `${Math.round(
+					currentHue
+				)}°, ${Math.round(currentSaturation)}%, ${Math.round(currentValue)}%`
+
+				const luminanceLabel = luminanceMode === 'hsv' ? 'HSV' : 'L*'
+				document.getElementById('luminanceDisplay').textContent = `${Math.round(
+					currentLuminance
+				)} (${luminanceLabel})`
+
+				// Update SV picker background
+				const svPicker = document.getElementById('svPicker')
+				const hueRgb = hsvToRgb(currentHue, 100, 100)
+				const hueColor = rgbToHex(hueRgb.r, hueRgb.g, hueRgb.b)
+				svPicker.style.backgroundColor = hueColor
+
+				// Update luminance slider background
+				updateLuminanceSliderBackground()
+
+				// Update handle positions
+				const hueHandle = document.getElementById('hueHandle')
+				const svHandle = document.getElementById('svHandle')
+				const luminanceHandle = document.getElementById('luminanceHandle')
+
+				hueHandle.style.top = `${(currentHue / 360) * 100}%`
+				svHandle.style.left = `${currentSaturation}%`
+				svHandle.style.top = `${100 - currentValue}%`
+				luminanceHandle.style.top = `${100 - currentLuminance}%`
+			}
+
+			// Update luminance slider background based on current hue/saturation
+			function updateLuminanceSliderBackground() {
+				const luminanceSlider = document.getElementById('luminanceSlider')
+
+				if (luminanceMode === 'hsv') {
+					// HSV mode: gradient from full color (top) to black (bottom)
+					// This represents the V (Value) component: 100% = full brightness, 0% = black
+					const fullRgb = hsvToRgb(currentHue, currentSaturation, 100)
+					const fullHex = rgbToHex(fullRgb.r, fullRgb.g, fullRgb.b)
+
+					luminanceSlider.style.background = `linear-gradient(to bottom, ${fullHex} 0%, #000000 100%)`
+				} else {
+					// CIE L* mode: show luminance range for current hue at medium saturation
+					const baseRgb = hsvToRgb(
+						currentHue,
+						Math.max(50, currentSaturation),
+						50
+					)
+
+					// Calculate high and low luminance colors
+					const highLab = rgbToLab(baseRgb.r, baseRgb.g, baseRgb.b)
+					const lowLab = { ...highLab }
+
+					highLab.L = 95
+					lowLab.L = 5
+
+					const highRgb = labToRgb(highLab.L, highLab.A, highLab.B)
+					const lowRgb = labToRgb(lowLab.L, lowLab.A, lowLab.B)
+
+					const highHex = rgbToHex(highRgb.r, highRgb.g, highRgb.b)
+					const lowHex = rgbToHex(lowRgb.r, lowRgb.g, lowRgb.b)
+
+					luminanceSlider.style.background = `linear-gradient(to bottom, ${highHex} 0%, ${lowHex} 100%)`
+				}
+			}
+
+			// Add current color to selection
+			function addCurrentColor() {
+				const currentColor = hsvToHex(
+					currentHue,
+					currentSaturation,
+					currentValue
+				)
+
+				if (selectedColors.length >= 8) {
+					showNotification('Maximum 8 colors allowed!', 'error')
+					return
+				}
+
+				if (selectedColors.includes(currentColor)) {
+					showNotification('Color already added!', 'error')
+					return
+				}
+
+				selectedColors.push(currentColor)
+				updateSelectedColorsList()
+				updateHexInputFromSelection()
+
+				showNotification(`Added ${currentColor}!`)
+			}
+
+			function removeSelectedColor(index) {
+				const removedColor = selectedColors.splice(index, 1)[0]
+				updateSelectedColorsList()
+
+				// Update hex input to stay in sync
+				const hexInput = document.getElementById('hexInput')
+				hexInput.value = selectedColors.join(', ')
+
+				// Update gradient if still enough colors
+				if (selectedColors.length >= 2) {
+					createCanvasGradient(selectedColors)
+				}
+
+				showNotification(`Removed ${removedColor}`)
+			}
+
+			// Clear all selected colors
+			function clearSelectedColors() {
+				if (selectedColors.length === 0) return
+
+				selectedColors = []
+				updateSelectedColorsList()
+				updateHexInputFromSelection()
+				showNotification('All colors cleared')
+			}
+
+			// Color conversion utilities
+			function hsvToHex(h, s, v) {
+				const rgb = hsvToRgb(h, s, v)
+				return rgbToHex(rgb.r, rgb.g, rgb.b)
+			}
+
+			function hexToHsv(hex) {
+				const r = parseInt(hex.slice(1, 3), 16) / 255
+				const g = parseInt(hex.slice(3, 5), 16) / 255
+				const b = parseInt(hex.slice(5, 7), 16) / 255
+
+				const max = Math.max(r, g, b)
+				const min = Math.min(r, g, b)
+				const delta = max - min
+
+				let h = 0
+				if (delta !== 0) {
+					if (max === r) h = 60 * (((g - b) / delta) % 6)
+					else if (max === g) h = 60 * ((b - r) / delta + 2)
+					else h = 60 * ((r - g) / delta + 4)
+				}
+
+				if (h < 0) h += 360
+
+				const s = max === 0 ? 0 : (delta / max) * 100
+				const v = max * 100
+
+				return { h, s, v }
+			}
+
+			function isValidHex(hex) {
+				return /^#[0-9A-Fa-f]{6}$/.test(hex)
+			}
+
+			// Initialize color picker when page loads
+			document.addEventListener('DOMContentLoaded', () => {
+				setTimeout(initializeColorPicker, 100) // Small delay to ensure DOM is ready
+			})
+
+			//#region Update from hex input
+
+			function hexToHSV(hex) {
+				// Remove # if present
+				hex = hex.replace('#', '')
+
+				// Convert hex to RGB
+				const r = parseInt(hex.substring(0, 2), 16) / 255
+				const g = parseInt(hex.substring(2, 4), 16) / 255
+				const b = parseInt(hex.substring(4, 6), 16) / 255
+
+				const max = Math.max(r, g, b)
+				const min = Math.min(r, g, b)
+				const delta = max - min
+
+				// Calculate HSV values
+				let h = 0
+				if (delta !== 0) {
+					if (max === r) {
+						h = 60 * (((g - b) / delta) % 6)
+					} else if (max === g) {
+						h = 60 * ((b - r) / delta + 2)
+					} else {
+						h = 60 * ((r - g) / delta + 4)
+					}
+				}
+
+				// Ensure hue is positive
+				if (h < 0) h += 360
+
+				// Calculate saturation and value
+				const s = max === 0 ? 0 : (delta / max) * 100
+				const v = max * 100
+
+				return { h, s, v }
+			}
+
+			function hexToCIEL(hex) {
+				// Remove # if present
+				hex = hex.replace('#', '')
+
+				// Convert hex to RGB
+				const r = parseInt(hex.substring(0, 2), 16)
+				const g = parseInt(hex.substring(2, 4), 16)
+				const b = parseInt(hex.substring(4, 6), 16)
+
+				// Convert RGB to linear RGB (remove gamma correction)
+				const rLinear =
+					r / 255 <= 0.04045
+						? r / 255 / 12.92
+						: Math.pow((r / 255 + 0.055) / 1.055, 2.4)
+				const gLinear =
+					g / 255 <= 0.04045
+						? g / 255 / 12.92
+						: Math.pow((g / 255 + 0.055) / 1.055, 2.4)
+				const bLinear =
+					b / 255 <= 0.04045
+						? b / 255 / 12.92
+						: Math.pow((b / 255 + 0.055) / 1.055, 2.4)
+
+				// Convert to XYZ using sRGB matrix
+				const y = 0.2126729 * rLinear + 0.7151522 * gLinear + 0.072175 * bLinear
+
+				// Convert Y to L* using CIE formula
+				const epsilon = 0.008856
+				const kappa = 903.3
+
+				const fy = y > epsilon ? Math.pow(y, 1 / 3) : (kappa * y + 16) / 116
+				const L = 116 * fy - 16
+
+				return Math.max(0, Math.min(100, L))
+			}
+
+			function updateFromHex() {
+				const hexInput = document.getElementById('currentHexValue')
+				let hex = hexInput.value.trim().toUpperCase()
+
+				// Auto-add # if missing and looks like 6-digit hex
+				if (!hex.startsWith('#') && /^[0-9A-F]{6}$/.test(hex)) {
+					hex = '#' + hex
+					hexInput.value = hex // Update input to reflect
+				}
+
+				if (!isValidHex(hex)) {
+					showNotification('Invalid hex color', 'error')
+					return
+				}
+
+				const hsv = hexToHSV(hex)
+				const lStar = hexToCIEL(hex)
+
+				// Set current vars and let updateColorPickerDisplay handle the rest
+				currentHue = hsv.h
+				currentSaturation = hsv.s
+				currentValue = hsv.v
+				currentLuminance = getActiveLuminance(hsv, lStar)
+
+				updateColorPickerDisplay()
+			}
+			function updateHueSlider(hue) {
+				const handle = document.getElementById('hueHandle')
+				handle.style.top = `${(hue / 360) * 100}%`
+			}
+
+			function updateLuminanceSlider(lum) {
+				const handle = document.getElementById('luminanceHandle')
+				handle.style.top = `${100 - lum}%`
+			}
+
+			function updateSVPicker(hue, sat, val) {
+				const picker = document.getElementById('svPicker')
+				// Set base hue color; pseudos handle overlays
+				picker.style.backgroundColor = `hsl(${hue}, 100%, 50%)`
+				// Position handle
+				const svHandle = document.getElementById('svHandle')
+				svHandle.style.left = `${sat}%`
+				svHandle.style.top = `${100 - val}%`
+			}
+
+			function updateColorPreview(hex) {
+				const preview = document.getElementById('colorPreviewLarge')
+				preview.style.backgroundColor = hex
+			}
+
+			function updateTextDisplays(hsv, lStar) {
+				// Update HSV display
+				const hsvDisplay = document.getElementById('hsvDisplay')
+				hsvDisplay.textContent = `${Math.round(hsv.h)}°, ${Math.round(
+					hsv.s
+				)}%, ${Math.round(hsv.v)}%`
+
+				// Update luminance display with appropriate label based on mode
+				const luminanceDisplay = document.getElementById('luminanceDisplay')
+				const luminanceValue = luminanceMode === 'hsv' ? hsv.v : lStar
+				const luminanceLabel = luminanceMode === 'hsv' ? 'HSV' : 'L*'
+				luminanceDisplay.textContent = `${Math.round(
+					luminanceValue
+				)} (${luminanceLabel})`
+
+				// Update color values
+				currentHue = hsv.h
+				currentSaturation = hsv.s
+				currentValue = hsv.v
+				currentLuminance = luminanceValue
+			}
+
+			function getActiveLuminance(hsv, lStar) {
+				const algo = document.getElementById('luminanceModeSelector').value
+				switch (algo) {
+					case 'hsv':
+						return hsv.v
+					case 'cie':
+						return lStar
+					default:
+						return hsv.v
+				}
+			}
+
+			function initHexInput() {
+				document
+					.getElementById('currentHexValue')
+					.addEventListener('input', updateFromHex)
+			}
+			//#endregion /Update from hex input
+
+			//#endregion /Color Picker
+		</script>
+	</body>
+</html>
+
