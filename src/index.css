@@ -1858,10 +1858,6 @@ body {
 		top: 0;
 	}
 
-	.sidebar.open {
-		transform: translateX(0);
-	}
-
 	.sidebar-overlay.show {
 		opacity: 1;
 		visibility: visible;
@@ -1871,6 +1867,13 @@ body {
 	.app-layout.homepage .sidebar,
 	.app-layout.subpage .sidebar {
 		transform: translateX(-100%);
+	}
+
+	/* Ensure open sidebar always shows regardless of page type */
+	.app-layout.homepage .sidebar.open,
+	.app-layout.subpage .sidebar.open,
+	.sidebar.open {
+		transform: translateX(0) !important;
 	}
 }
 /*#endregion /Responsive*/
