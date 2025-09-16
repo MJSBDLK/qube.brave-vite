@@ -117,9 +117,11 @@ Internet/LAN → nginx (reverse proxy) → Docker Container → Vite App
 1. **Connect**: VS Code Remote-SSH to server
 2. **Edit**: Direct file editing on server via remote session
 3. **Test**: Local development server (`npm run dev` - port 3000)
-4. **Build**: Static build process (`npm run build`)
-5. **Deploy Traditional**: Container rebuild (`sudo docker compose up --build -d`)
-6. **Deploy Web3**: IPFS publish (`./update-ipfs.sh`) + update Unstoppable Domains
+4. **Deploy**: Complete deployment (`npm run publish:all`)
+   - Builds static files
+   - Publishes to IPFS
+   - Updates Docker container
+   - Available immediately on external IP
 
 ### **Web3 Publishing Process**
 1. **Build for IPFS**: Static export with relative asset paths (`npm run build`)
@@ -139,8 +141,14 @@ npm run build        # Static export to out/ directory
 # Preview build
 npm run preview      # Preview production build locally
 
-# IPFS publish
-./update-ipfs.sh     # Build and publish to IPFS
+# IPFS publish only
+npm run publish      # Build and publish to IPFS (./update-ipfs.sh)
+
+# Complete deployment (IPFS + Docker update)
+npm run publish:all  # Build, publish to IPFS, and update Docker container
+
+# Get current IPFS CID
+npm run ipfs:cid     # Get CID from latest-cid.txt
 ```
 
 ## Key Design Decisions
@@ -384,14 +392,13 @@ This avoids binding to host ports and lets Docker handle routing. It requires ng
 cd /var/www/qube.brave-vite
 npm run dev
 
-# Build for production
-npm run build
+# Complete deployment (IPFS + external IP)
+npm run publish:all
+
+# IPFS-only deployment  
+npm run publish
 
 # Test IPFS deployment
-./update-ipfs.sh
-
-# View IPFS content locally
-cat latest-cid.txt
 curl http://localhost:8080/ipfs/$(cat latest-cid.txt)/
 
 # Test external gateway access

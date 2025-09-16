@@ -15,7 +15,7 @@ export const changelogData = [
   },
   {
     version: "v7.0",
-    date: "Sep 16, 2025",
+    date: "Aug 16, 2025",
     changes: [
       "Complete React/NextJS port with performance optimizations",
       "Built-in debouncing and throttling for smooth interactions",
@@ -28,7 +28,7 @@ export const changelogData = [
   },
   {
     version: "v6.6.2",
-    date: "Sep 15, 2025",
+    date: "Aug 15, 2025",
     changes: [
       "Fixed brightness toggle - now properly shows/hides on both swatches",
       "Fixed comparison swatch brightness overlay display",
@@ -39,7 +39,7 @@ export const changelogData = [
   },
   {
     version: "v6.6.1",
-    date: "Sep 14, 2025",
+    date: "Aug 14, 2025",
     changes: [
       "Added project-wide luminance algorithm selector",
       "Fixed color picker gray/black issue",
@@ -51,7 +51,7 @@ export const changelogData = [
   },
   {
     version: "v6.6",
-    date: "Sep 13, 2025",
+    date: "Aug 13, 2025",
     changes: [
       "Added hue cube",
       "Added luminance algorithm picker (HSV vs CIE L*)",
@@ -60,7 +60,7 @@ export const changelogData = [
   },
   {
     version: "v6.5.1",
-    date: "Sep 12, 2025",
+    date: "Aug 12, 2025",
     changes: [
       "Replaced luminance algorithm with CIE L*",
       "Removed redundant comparison section",
@@ -69,7 +69,7 @@ export const changelogData = [
   },
   {
     version: "v6.5",
-    date: "Sep 11, 2025",
+    date: "Aug 11, 2025",
     changes: [
       "Added comparison",
       "Added luminance overlay",
@@ -78,28 +78,28 @@ export const changelogData = [
   },
   {
     version: "v6.4.1",
-    date: "Sep 10, 2025",
+    date: "Aug 10, 2025",
     changes: [
       "Added step input for custom exponent slider"
     ]
   },
   {
     version: "v6.4",
-    date: "Sep 9, 2025",
+    date: "Aug 9, 2025",
     changes: [
       "Put my thing down flip it and reverse it"
     ]
   },
   {
     version: "v6.3.1",
-    date: "Sep 8, 2025",
+    date: "Aug 8, 2025",
     changes: [
       "Fixed sample overlay to cover excluded rather than included zone"
     ]
   },
   {
     version: "v6.3",
-    date: "Sep 7, 2025",
+    date: "Aug 7, 2025",
     changes: [
       "Added custom parametric algorithm",
       "Removed preset algorithms other than linear",
@@ -108,7 +108,7 @@ export const changelogData = [
   },
   {
     version: "v6.2.5",
-    date: "Sep 6, 2025",
+    date: "Aug 6, 2025",
     changes: [
       "Tightened up saved ramps section CSS",
       "Added this changelog"
@@ -116,28 +116,28 @@ export const changelogData = [
   },
   {
     version: "v6.2.4",
-    date: "Sep 5, 2025",
+    date: "Aug 5, 2025",
     changes: [
       "Improved performance when sampling"
     ]
   },
   {
     version: "v6.2.3",
-    date: "Sep 4, 2025",
+    date: "Aug 4, 2025",
     changes: [
       "Added .gpl import"
     ]
   },
   {
     version: "v6.2.2",
-    date: "Sep 3, 2025",
+    date: "Aug 3, 2025",
     changes: [
       "Added alpha values to .gpl export"
     ]
   },
   {
     version: "v6.2.1",
-    date: "Sep 2, 2025",
+    date: "Aug 2, 2025",
     changes: [
       "Added ability to export all ramps as .gpl palette",
       "Added ability to export all ramps as 11×X .png"
