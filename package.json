@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "publish": "./update-ipfs.sh",
+    "publish:fast": "./deploy-multi-pin.sh",
     "build:server": "vite build --mode server",
     "ipfs:cid": "./get-cid.sh"
   },
