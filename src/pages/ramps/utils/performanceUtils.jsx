@@ -133,16 +133,56 @@ export function showNotification(message, type = 'success', duration = 3000) {
 }
 
 /**
- * Copy text to clipboard with notification
+ * Copy text to clipboard with notification and fallback
  */
 export async function copyToClipboard(text, successMessage = 'Copied to clipboard!') {
   try {
-    await navigator.clipboard.writeText(text)
-    showNotification(successMessage)
-    return true
+    // Check if Clipboard API is available
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      // Modern Clipboard API (requires secure context)
+      await navigator.clipboard.writeText(text)
+      showNotification(successMessage)
+      return true
+    } else {
+      // Fallback for insecure contexts or browsers without Clipboard API
+      return copyToClipboardFallback(text, successMessage)
+    }
   } catch (error) {
-    console.error('Failed to copy to clipboard:', error)
-    showNotification('Failed to copy to clipboard', 'error')
+    console.error('Clipboard API failed, trying fallback:', error)
+    // If Clipboard API fails, try fallback
+    return copyToClipboardFallback(text, successMessage)
+  }
+}
+
+/**
+ * Fallback clipboard copy using temporary textarea
+ */
+function copyToClipboardFallback(text, successMessage = 'Copied to clipboard!') {
+  try {
+    // Create temporary textarea element
+    const textarea = document.createElement('textarea')
+    textarea.value = text
+    textarea.style.position = 'fixed'
+    textarea.style.left = '-999999px'
+    textarea.style.top = '-999999px'
+    document.body.appendChild(textarea)
+    
+    // Select and copy the text
+    textarea.focus()
+    textarea.select()
+    
+    const successful = document.execCommand('copy')
+    document.body.removeChild(textarea)
+    
+    if (successful) {
+      showNotification(successMessage)
+      return true
+    } else {
+      throw new Error('execCommand copy failed')
+    }
+  } catch (error) {
+    console.error('Fallback clipboard copy failed:', error)
+    showNotification('Failed to copy to clipboard. Try selecting and copying manually.', 'error')
     return false
   }
 }
