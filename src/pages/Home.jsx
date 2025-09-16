@@ -17,7 +17,7 @@ const HomePage = () => {
 						Gradient Ramps tool available at qube.brave/ramps
 					</p>
 					<div className="u-flex u-gap-sm">
-						<Link to="/ramps/" className="c-button c-button--primary">Try It Out</Link>
+						<Link to="/ramps" className="c-button c-button--primary">Try It Out</Link>
 						{/* <a href="#" className="c-button c-button--ghost">View Source</a> */}
 					</div>
 				</>

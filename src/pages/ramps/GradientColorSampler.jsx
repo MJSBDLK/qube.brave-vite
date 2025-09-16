@@ -5,10 +5,12 @@ import GradientCanvas from './components/GradientCanvas'
 import CurvePreview from './components/CurvePreview'
 import SavedRamps from './components/SavedRamps'
 import ColorPicker from './components/ColorPicker'
+import Changelog from '../../components/Changelog'
 import { useColorSampling } from './hooks/useColorSampling'
 import { useSavedRamps } from './hooks/useSavedRamps'
 import { useEnvironment } from './hooks/useEnvironment'
-import { parseHexColors, calculateLuminance } from './utils/colorUtils'
+import { parseHexColors, calculateLuminance, rgbToHex } from './utils/colorUtils'
+import { changelogData } from '../../data/changelog'
 import {
 	debounce,
 	showNotification,
@@ -32,7 +34,6 @@ const GradientColorSampler = () => {
 	const [samplingFunction, setSamplingFunction] = useState('linear')
 	const [powerValue, setPowerValue] = useState(2.0)
 	const [showPowerSlider, setShowPowerSlider] = useState(false)
-	const [showChangelogCollapsed, setShowChangelogCollapsed] = useState(true)
 	const [processing, setProcessing] = useState(false)
 	const [sampleCount, setSampleCount] = useState(11)
 	const [gradientImage, setGradientImage] = useState(null)
@@ -100,22 +101,133 @@ const GradientColorSampler = () => {
 		img.src = URL.createObjectURL(file)
 	}, [])
 
+	// Helper function to create a ramp from colors
+	const createRampFromColors = useCallback((colors, name) => {
+		return {
+			name,
+			colors: colors.map(color => color.hex || color),
+			sampleCount: colors.length,
+			samplingFunction: 'linear',
+			powerValue: 2.0,
+			luminanceMode: 'hsv',
+			samplingRange: { start: 0, end: 100 },
+			sourceType: 'gpl'
+		}
+	}, [])
+
+	// Helper function to group flat color list into ramps based on sample count
+	const groupColorsIntoRamps = useCallback((colors, sampleCount) => {
+		const ramps = []
+		for (let i = 0; i < colors.length; i += sampleCount) {
+			const rampColors = colors.slice(i, i + sampleCount)
+			if (rampColors.length > 0) {
+				ramps.push(createRampFromColors(rampColors, `GPL Ramp ${Math.floor(i / sampleCount) + 1}`))
+			}
+		}
+		return ramps
+	}, [createRampFromColors])
+
 	// Handle GPL import
 	const handleGPLImport = useCallback((file) => {
 		const reader = new FileReader()
 		reader.onload = (e) => {
 			try {
 				const gplContent = e.target.result
-				// TODO: Parse GPL file and import ramps
-				console.log('GPL content:', gplContent)
-				showNotification('GPL import not yet implemented', 'error')
+				const lines = gplContent.split('\n').map(line => line.trim()).filter(line => line)
+				
+				let currentRamp = null
+				let currentRampColors = []
+				const ramps = []
+				const flatColors = []
+				let isProcessingRamp = false
+				
+				for (const line of lines) {
+					// Skip GPL headers
+					if (line.startsWith('GIMP Palette') || 
+						line.startsWith('Name:') || 
+						line.startsWith('Columns:') || 
+						line.startsWith('Channels:') ||
+						line === '') {
+						continue
+					}
+					
+					// Handle ramp name comments
+					if (line.startsWith('#')) {
+						// If we have colors for the current ramp, save it
+						if (currentRampColors.length > 0) {
+							ramps.push(createRampFromColors(currentRampColors, currentRamp || 'GPL Ramp'))
+							currentRampColors = []
+						}
+						
+						// Extract ramp name from comment
+						const rampName = line.replace(/^#+\s*/, '').replace(/^Ramp\s+\d+:\s*/, '').trim()
+						if (rampName && rampName !== '') {
+							currentRamp = rampName
+							isProcessingRamp = true
+						}
+						continue
+					}
+					
+					// Parse color line (RGB or RGBA format)
+					const colorMatch = line.match(/^\s*(\d+)\s+(\d+)\s+(\d+)(?:\s+(\d+))?\s*(.*)$/)
+					if (colorMatch) {
+						const [, r, g, b, a, colorName] = colorMatch
+						const rValue = parseInt(r, 10)
+						const gValue = parseInt(g, 10)
+						const bValue = parseInt(b, 10)
+						
+						// Validate RGB values
+						if (rValue >= 0 && rValue <= 255 && 
+							gValue >= 0 && gValue <= 255 && 
+							bValue >= 0 && bValue <= 255) {
+							
+							const hexColor = rgbToHex(rValue, gValue, bValue)
+							
+							if (isProcessingRamp) {
+								currentRampColors.push(hexColor)
+							} else {
+								flatColors.push(hexColor)
+							}
+						}
+					}
+				}
+				
+				// Handle any remaining colors for the last ramp
+				if (currentRampColors.length > 0) {
+					ramps.push(createRampFromColors(currentRampColors, currentRamp || 'GPL Ramp'))
+				}
+				
+				// If we have flat colors (no ramp structure), group them by sample count
+				if (flatColors.length > 0 && ramps.length === 0) {
+					const groupedRamps = groupColorsIntoRamps(flatColors, sampleCount)
+					ramps.push(...groupedRamps)
+				}
+				
+				// Save all ramps
+				if (ramps.length > 0) {
+					let savedCount = 0
+					ramps.forEach(ramp => {
+						if (saveCurrentRamp(ramp)) {
+							savedCount++
+						}
+					})
+					
+					if (savedCount > 0) {
+						showNotification(`Successfully imported ${savedCount} ramp${savedCount !== 1 ? 's' : ''} from GPL file`, 'success')
+					} else {
+						showNotification('Failed to save imported ramps', 'error')
+					}
+				} else {
+					showNotification('No valid colors found in GPL file', 'error')
+				}
+				
 			} catch (error) {
 				console.error('Failed to parse GPL file:', error)
 				showNotification('Failed to parse GPL file', 'error')
 			}
 		}
 		reader.readAsText(file)
-	}, [])
+	}, [sampleCount, rgbToHex, createRampFromColors, groupColorsIntoRamps, saveCurrentRamp])
 
 	// Handle hex input colors with debouncing
 	const handleHexInputChange = useCallback((value) => {
@@ -153,7 +265,7 @@ const GradientColorSampler = () => {
 	}, [])
 
 	const validateColors = (colorsArray) => {
-		if (!colorsArray || colorsArray.length < 2 || colorsArray.length > 8) {
+		if (!colorsArray || colorsArray.length < 2 || colorsArray.length > 16) {
 			return false
 		}
 
@@ -331,8 +443,13 @@ const GradientColorSampler = () => {
 	)
 
 	// Copy color to clipboard
-	const handleColorClick = useCallback((color) => {
-		copyToClipboard(color.hex, `${color.hex} copied!`)
+	const handleColorClick = useCallback(async (color) => {
+		try {
+			await copyToClipboard(color.hex, `${color.hex} copied!`)
+		} catch (error) {
+			console.error('Failed to copy color:', error)
+			showNotification('Failed to copy color to clipboard', 'error')
+		}
 	}, [])
 
 	// #region Saved Ramps Handlers
@@ -546,6 +663,35 @@ const GradientColorSampler = () => {
 									/>
 								)}
 							</div>
+							
+							{/* Sample Count Control - Always Visible */}
+							<div className='control-group sample-count-control'>
+								<label>Sample Count: {sampleCount} colors</label>
+								<p className='info-text'>Colors per ramp when importing GPL files</p>
+								<input
+									type='range'
+									min='8'
+									max='16'
+									step='1'
+									value={sampleCount}
+									onChange={(e) => {
+										const newCount = parseInt(e.target.value)
+										setSampleCount(newCount)
+
+										// Trigger swatch regeneration if we have an image
+										if (gradientImage) {
+											debouncedGenerateSwatch({
+												startRange: samplingRange.start,
+												endRange: samplingRange.end,
+												samplingFunction,
+												powerValue,
+												sampleCount: newCount,
+											})
+										}
+									}}
+									className='sample-count-slider'
+								/>
+							</div>
 						</div>
 
 						{/* Gradient Display */}
@@ -614,33 +760,6 @@ const GradientColorSampler = () => {
 											<span>%</span>
 										</div>
 									</div>
-								</div>
-
-								<div className='control-group'>
-									<label>Sample Count: {sampleCount} colors</label>
-									<input
-										type='range'
-										min='8'
-										max='16'
-										step='1'
-										value={sampleCount}
-										onChange={(e) => {
-											const newCount = parseInt(e.target.value)
-											setSampleCount(newCount)
-
-											// Trigger swatch regeneration if we have an image
-											if (gradientImage) {
-												debouncedGenerateSwatch({
-													startRange: samplingRange.start,
-													endRange: samplingRange.end,
-													samplingFunction,
-													powerValue,
-													sampleCount: newCount,
-												})
-											}
-										}}
-										className='sample-count-slider'
-									/>
 								</div>
 
 								<div className='control-group'>
@@ -778,7 +897,14 @@ const GradientColorSampler = () => {
 													key={index}
 													className='color-tile'
 													style={{ backgroundColor: hex }}
-													onClick={() => copyToClipboard(hex, `${hex} copied!`)}
+													onClick={async () => {
+														try {
+															await copyToClipboard(hex, `${hex} copied!`)
+														} catch (error) {
+															console.error('Failed to copy color:', error)
+															showNotification('Failed to copy color to clipboard', 'error')
+														}
+													}}
 													title={`${hex} (Click to copy)`}
 												>
 													<span className='color-index'>{index}</span>
@@ -882,14 +1008,19 @@ const GradientColorSampler = () => {
 										</button>
 										<button
 											className='export-button'
-											onClick={() => {
-												const gplContent = generatedColors
-													.map((c) => c.hex)
-													.join(', ')
-												copyToClipboard(
-													gplContent,
-													'Colors copied to clipboard!'
-												)
+											onClick={async () => {
+												try {
+													const gplContent = generatedColors
+														.map((c) => c.hex)
+														.join(', ')
+													await copyToClipboard(
+														gplContent,
+														'Colors copied to clipboard!'
+													)
+												} catch (error) {
+													console.error('Failed to copy colors:', error)
+													showNotification('Failed to copy colors to clipboard', 'error')
+												}
 											}}
 											title='Copy Colors'
 										>
@@ -901,44 +1032,11 @@ const GradientColorSampler = () => {
 						)}
 
 						{/* Changelog */}
-						<div className='changelog-section'>
-							<div
-								className='section-header'
-								onClick={() =>
-									setShowChangelogCollapsed(!showChangelogCollapsed)
-								}
-							>
-								<span>Changelog</span>
-								<button className='toggle-btn'>
-									{showChangelogCollapsed ? '↓' : '↑'}
-								</button>
-							</div>
-
-							{!showChangelogCollapsed && (
-								<div className='changelog-content'>
-									<div className='changelog-entry'>
-										<div className='version'>v7.0</div>
-										<ul>
-											<li>
-												Complete React/NextJS port with performance
-												optimizations
-											</li>
-											<li>
-												Built-in debouncing and throttling for smooth
-												interactions
-											</li>
-											<li>Modular component architecture with custom hooks</li>
-											<li>Real-time color sampling with visual feedback</li>
-											<li>Export functionality (GPL, PNG, clipboard)</li>
-											<li>
-												Responsive design optimized for various screen sizes
-											</li>
-											<li>Performance monitoring and optimization utilities</li>
-										</ul>
-									</div>
-								</div>
-							)}
-						</div>
+						<Changelog 
+							entries={changelogData.slice(0, 3)} 
+							title="Changelog" 
+							defaultCollapsed={true}
+						/>
 					</div>{' '}
 					{/* Close gradient-sampler-main */}
 					

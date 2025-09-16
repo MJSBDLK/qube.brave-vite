@@ -10,8 +10,19 @@ const FileUpload = ({ accept, onFileSelect, buttonText, infoText, buttonColor = 
   const dragCounterRef = useRef(0)
 
   const handleFileSelect = (file) => {
-    if (file && file.type.match(accept.replace('*', '.*'))) {
-      onFileSelect(file)
+    if (file) {
+      // Check if accept prop starts with a dot (file extension)
+      if (accept.startsWith('.')) {
+        const fileExtension = '.' + file.name.split('.').pop().toLowerCase()
+        if (fileExtension === accept.toLowerCase()) {
+          onFileSelect(file)
+        }
+      } else {
+        // Original MIME type check for non-extension accepts
+        if (file.type.match(accept.replace('*', '.*'))) {
+          onFileSelect(file)
+        }
+      }
     }
   }
 

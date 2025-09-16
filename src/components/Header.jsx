@@ -13,7 +13,7 @@ export default function Header({ onMenuToggle, sidebarOpen }) {
     const baseDomain = 'qube.brave'
     
     if (location.pathname === '/' || location.pathname === '') return baseDomain
-    if (location.pathname === '/ramps' || location.pathname === '/ramps/') return `${baseDomain}/ramps`
+    if (location.pathname === '/ramps') return `${baseDomain}/ramps`
     
     // Clean up path and add to domain
     const cleanPath = location.pathname.replace(/\/$/, '') // Remove trailing slash

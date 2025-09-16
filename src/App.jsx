@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
+import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
@@ -54,7 +55,6 @@ function AppLayout() {
             description: 'Personal website and tools by Quinn Davis'
           }
         case '/ramps':
-        case '/ramps/':
           return {
             title: `${baseDomain}/ramps`,
             description: 'Advanced gradient ramp tool for color analysis and curve sampling'
@@ -82,8 +82,21 @@ function AppLayout() {
       {/* Main Content */}
       <main className={`main-content ${isHomepage ? 'homepage' : 'subpage'}`}>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/ramps/" element={<Ramps />} />
+          <Route path="/" element={
+            <ErrorBoundary>
+              <Home />
+            </ErrorBoundary>
+          } />
+          <Route path="/ramps" element={
+            <ErrorBoundary>
+              <Ramps />
+            </ErrorBoundary>
+          } />
+          <Route path="/ramps/" element={
+            <ErrorBoundary>
+              <Ramps />
+            </ErrorBoundary>
+          } />
         </Routes>
       </main>
 

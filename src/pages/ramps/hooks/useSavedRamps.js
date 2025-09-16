@@ -214,16 +214,33 @@ export function useSavedRamps() {
    */
   const reverseAllRamps = useCallback(() => {
     try {
-      const reversedRamps = reverseAllSavedRamps()
-      setSavedRamps(reversedRamps)
+      if (savedRamps.length === 0) {
+        showNotification('No ramps to reverse', 'error')
+        return null
+      }
+      
+      const reversedRamps = [...savedRamps].reverse()
+      
+      // Update timestamps to maintain the new order
+      const updatedRamps = reversedRamps.map(ramp => ({
+        ...ramp,
+        updatedAt: new Date().toISOString()
+      }))
+      
+      // Update localStorage
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('gradient-sampler-saved-ramps', JSON.stringify(updatedRamps))
+      }
+      
+      setSavedRamps(updatedRamps)
       showNotification('All ramps order reversed', 'success')
-      return reversedRamps
+      return updatedRamps
     } catch (error) {
       console.error('Error reversing all ramps:', error)
       showNotification('Error reversing all ramps: ' + error.message, 'error')
       return null
     }
-  }, [])
+  }, [savedRamps])
 
   /**
    * Import ramps from a file
