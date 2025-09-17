@@ -3,6 +3,13 @@
 
 export const changelogData = [
 	{
+		version: 'v7.1.2', date: 'Sep 17, 2025', changes: [
+			'Fixed hue cube deformation - now maintains perfect square at all screen sizes',
+			'Completely redesigned color info panel with modern, flexible layout',
+			'Implemented smart wrapping layout that adapts to any screen size',
+			'Cleaned up legacy CSS for better performance and maintainability',
+		]
+	}, {
 		version: 'v7.1.1', date: 'Sep 16, 2025', changes: [
 			'Fixed copy to clipboard bug in production environment',
 			'Streamlined deployment workflow',

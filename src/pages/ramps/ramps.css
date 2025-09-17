@@ -2121,27 +2121,53 @@ input[type='range'] {
 	color: #e0e0e0;
 }
 
-/* Main Picker Interface */
+/* Main Picker Interface - Flexible Wrapping Layout */
 .picker-interface {
 	display: flex;
 	gap: 12px;
 	margin-bottom: 12px;
-	/* Make it responsive to fit in smaller grid columns */
+	align-items: flex-start;
 	flex-wrap: wrap;
-	align-items: flex-start; /* Prevent stretching */
+	justify-content: center; /* Center items when they wrap */
 }
 
-/* Color Workspace */
 .color-workspace {
+	--cube-size: 280px; /* Ensure CSS variable is available to all children */
+	flex: 0 0 auto; /* Don't grow, don't shrink, size to content */
+	min-width: calc(var(--cube-size) + 48px); /* Cube + side-controls + gaps */
 	display: flex;
-	gap: 16px;
-	flex: 1;
-	/* Allow it to shrink when space is limited */
-	min-width: 0; /* Important for flex shrinking */
-	justify-content: center;
-	flex-wrap: wrap; /* Allow wrapping when needed */
+	flex-wrap: wrap; /* Allow wrapping when space is tight */
+	gap: 24px; /* Increase gap to prevent overlap */
+	justify-content: center; /* Center items horizontally */
 	align-items: flex-start;
-	width: 50%;
+	padding: 0; /* Add some padding */
+}
+
+/* Allow wrapping when space is tight - much narrower breakpoint */
+@media (max-width: 600px) {
+	.picker-interface {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+/* Responsive cube size updates */
+@media (max-width: 768px) {
+	.color-workspace {
+		--cube-size: min(280px, 80vw);
+	}
+}
+
+@media (max-width: 480px) {
+	.color-workspace {
+		--cube-size: min(260px, 85vw);
+	}
+}
+
+@media (max-width: 360px) {
+	.color-workspace {
+		--cube-size: min(240px, 90vw);
+	}
 }
 
 /* When content wraps, adjust layout for better space usage */
@@ -2153,26 +2179,47 @@ input[type='range'] {
 
 
 
-/* Modern SV Picker */
+/* Modern SV Picker - Perfect Square Always */
 .sv-picker-modern {
-	width: 100%;
-	min-height: 235px;
+	--cube-size: 280px; /* CSS variable for consistent sizing */
+	width: var(--cube-size);
+	height: var(--cube-size);
+	max-width: var(--cube-size); /* Ensure it can't exceed this */
+	aspect-ratio: 1 / 1;
 	border-radius: 12px;
 	position: relative;
 	cursor: crosshair;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
-	flex-shrink: 0; /* Prevent shrinking */
+	flex-shrink: 0;
+	margin: 0; /* Remove auto centering that might cause issues */
 }
 
-/* Make SV picker responsive but maintain aspect ratio */
-/* @media (max-width: 600px) {
+/* Responsive square sizes - always perfect squares */
+@media (max-width: 768px) {
 	.sv-picker-modern {
-		width: min(280px, calc(100vw - 80px));
-		height: min(280px, calc(100vw - 80px));
+		--cube-size: min(280px, 80vw);
+		width: var(--cube-size);
+		height: var(--cube-size);
 	}
-} */
+}
+
+@media (max-width: 480px) {
+	.sv-picker-modern {
+		--cube-size: min(260px, 85vw);
+		width: var(--cube-size);
+		height: var(--cube-size);
+	}
+}
+
+@media (max-width: 360px) {
+	.sv-picker-modern {
+		--cube-size: min(240px, 90vw);
+		width: var(--cube-size);
+		height: var(--cube-size);
+	}
+}
 
 .sv-picker-modern::before {
 	content: '';
@@ -2214,41 +2261,50 @@ input[type='range'] {
 	transform: translate(-50%, -50%) scale(1.1);
 }
 
-/* Side Controls - Dynamic Layout */
+/* Side Controls - Match Hue Cube Dimensions */
 .side-controls {
 	display: flex;
 	flex-direction: row;
 	gap: 16px;
+	/* Vertical orientation: height matches cube */
+	height: var(--cube-size, 280px);
 }
 
-/* When content wraps, switch to horizontal layout for space efficiency */
+/* When content wraps, switch to horizontal layout */
 .color-workspace.wrapped .side-controls {
 	flex-direction: column;
 	align-items: center;
 	gap: 12px;
-	width: 100%;
+	/* Horizontal orientation: width matches cube */
+	width: var(--cube-size, 280px);
+	height: auto;
 }
 
 /* Modern Sliders - Adaptive sizing */
 .hue-slider-modern,
 .luminance-slider-modern {
-	width: 24px;
-	height: 100%;
 	border-radius: 12px;
 	position: relative;
 	cursor: pointer;
 	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
 	overflow: hidden;
+	transition: all 0.3s ease;
+}
+
+/* Vertical orientation (default) */
+.hue-slider-modern,
+.luminance-slider-modern {
+	width: 24px;
+	height: 100%; /* Fill the side-controls height (matches cube) */
 	/* Default vertical gradient for luminance */
 	background: linear-gradient(to bottom, white 0%, gray 50%, black 100%);
-	transition: all 0.3s ease;
 }
 
 /* Horizontal layout for sliders when content wraps */
 .color-workspace.wrapped .hue-slider-modern,
 .color-workspace.wrapped .luminance-slider-modern {
-	width: 100%; /* Match the SV picker width */
-	height: 24px; /* Horizontal layout */
+	width: 100%; /* Fill the side-controls width (matches cube) */
+	height: 24px; /* Fixed height for horizontal sliders */
 }
 
 .hue-slider-modern {
@@ -2313,144 +2369,299 @@ input[type='range'] {
 	transform: inherit scale(1.1);
 }
 
-/* Color Info Panel */
+/* =================================================================
+   COLOR INFO PANEL - REDESIGNED FROM SCRATCH
+   ================================================================= */
+
 .color-info-panel {
-	display: flex;
-	flex-direction: column;
-	gap: 16px; width: 50%;
-	/* min-width: 180px; 
-	max-width: 300px;  */
-	flex-shrink: 1; /* Allow some shrinking when needed */
-	flex-grow: 0; /* Don't grow unnecessarily */
+	flex: 1 1 165px; /* flex-grow: 1, flex-shrink: 1, flex-basis: 165px */
+	min-width: 165px; /* Never shrink below this */
+	max-width: 300px; /* Don't get too wide */
+	background: rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	padding: 16px;
+	backdrop-filter: blur(10px);
 }
 
-/* Current Color Section */
+/* Current Color Display - More Compact */
 .current-color-section {
-	background: rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column; /* Stack vertically for narrower layout */
+	align-items: center;
+	gap: 12px;
+	padding: 12px;
+	background: rgba(255, 255, 255, 0.05);
 	border-radius: 12px;
-	padding: 16px;
+	margin-bottom: 16px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .color-preview-modern {
-	width: 60px;
-	height: 60px;
+	width: 56px; /* Smaller preview */
+	height: 56px;
 	border-radius: 12px;
 	border: 2px solid rgba(255, 255, 255, 0.2);
-	margin-bottom: 12px;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3),
-		inset 0 2px 4px rgba(255, 255, 255, 0.1);
 	cursor: pointer;
-	transition: transform 0.2s ease;
+	transition: all 0.2s ease;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	flex-shrink: 0;
 }
 
 .color-preview-modern:hover {
 	transform: scale(1.05);
+	border-color: rgba(255, 255, 255, 0.4);
 }
 
 .color-details {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+	width: 100%; /* Take full width of narrow panel */
+	min-width: 0;
 }
 
 .hex-input-modern {
 	width: 100%;
-	padding: 10px 12px;
+	padding: 8px 12px;
 	background: rgba(0, 0, 0, 0.3);
 	color: #ffffff;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	border-radius: 8px;
-	font-size: 14px;
+	font-size: 13px; /* Slightly smaller font */
 	font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
-	font-weight: 500;
-	letter-spacing: 0.5px;
-	text-transform: uppercase;
-	transition: all 0.2s ease;
+	margin-bottom: 8px;
+	transition: border-color 0.2s ease;
+	text-align: center; /* Center the hex value */
 }
 
 .hex-input-modern:focus {
 	outline: none;
 	border-color: #4a9eff;
-	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
 }
 
 .color-values {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 3px; /* Tighter spacing */
+	font-size: 11px; /* Smaller font */
+	color: rgba(255, 255, 255, 0.7);
 }
 
 .value-row {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	font-size: 12px;
 }
 
 .value-row .label {
-	color: #888;
-	font-weight: 600;
-}
-
-.value-row .value {
-	color: #e0e0e0;
-	font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
 	font-weight: 500;
 }
 
-/* Add Color Button */
+/* Add Color Button - More Compact */
 .add-color-btn {
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 8px;
-	padding: 12px 16px;
-	background: linear-gradient(135deg, #28a745, #1e7e34);
+	gap: 6px; /* Smaller gap */
+	padding: 10px 12px; /* Less padding */
+	background: linear-gradient(135deg, #4a9eff 0%, #3b7dd8 100%);
 	color: white;
 	border: none;
 	border-radius: 10px;
-	font-size: 14px;
+	font-size: 13px; /* Smaller font */
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.2s ease;
-	box-shadow: 0 4px 16px rgba(40, 167, 69, 0.3);
-	position: relative;
-	overflow: hidden;
-}
-
-.add-color-btn::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(
-		90deg,
-		transparent,
-		rgba(255, 255, 255, 0.2),
-		transparent
-	);
-	transition: left 0.5s ease;
-}
-
-.add-color-btn:hover::before {
-	left: 100%;
+	margin-bottom: 16px;
 }
 
 .add-color-btn:hover:not(:disabled) {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+	transform: translateY(-1px);
+	box-shadow: 0 6px 20px rgba(74, 158, 255, 0.4);
 }
 
 .add-color-btn:disabled {
-	background: linear-gradient(135deg, #333, #2a2a2a);
-	color: #666;
+	opacity: 0.5;
 	cursor: not-allowed;
-	transform: none;
-	box-shadow: none;
+}
+
+.btn-icon {
+	font-size: 14px; /* Smaller icon */
+}
+
+.btn-count {
+	font-size: 11px;
+	opacity: 0.8;
+}
+
+/* Color Palette Section */
+
+.palette-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.palette-title {
+	font-size: 14px;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.clear-palette-btn {
+	padding: 4px 8px;
+	background: rgba(255, 255, 255, 0.1);
+	color: rgba(255, 255, 255, 0.7);
+	border: none;
+	border-radius: 6px;
+	font-size: 11px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.clear-palette-btn:hover {
+	background: rgba(255, 0, 0, 0.2);
+	color: #ff6b6b;
+}
+
+.palette-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+	gap: 8px;
+	min-height: 60px;
+}
+
+.empty-palette {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+}
+
+.empty-icon {
+	font-size: 24px;
+	margin-bottom: 8px;
+}
+
+.empty-text {
+	font-size: 13px;
+	font-weight: 500;
+	margin-bottom: 4px;
+}
+
+.empty-hint {
+	font-size: 11px;
+	opacity: 0.7;
+}
+
+.color-chip-modern {
+	position: relative;
+	height: 60px;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	cursor: pointer;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: flex-end;
+	overflow: hidden;
+}
+
+.color-chip-modern:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.remove-chip-btn {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	width: 20px;
+	height: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	border: none;
+	border-radius: 50%;
+	font-size: 12px;
+	line-height: 1;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.color-chip-modern:hover .remove-chip-btn {
+	opacity: 1;
+}
+
+.remove-chip-btn:hover {
+	background: rgba(255, 0, 0, 0.8);
+}
+
+.chip-label {
+	width: 100%;
+	padding: 4px 6px;
+	background: rgba(0, 0, 0, 0.7);
+	color: white;
+	font-size: 10px;
+	font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+	text-align: center;
+	backdrop-filter: blur(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+	.color-info-panel {
+		width: 280px;
+		padding: 16px;
+	}
+	
+	.current-color-section {
+		padding: 12px;
+		gap: 12px;
+	}
+	
+	.color-preview-modern {
+		width: 56px;
+		height: 56px;
+	}
+}
+
+@media (max-width: 1000px) {
+	.color-info-panel {
+		width: 100%;
+		max-width: 320px;
+	}
+	
+	.palette-grid {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.color-info-panel {
+		max-width: 280px;
+		padding: 12px;
+	}
+	
+	.color-values {
+		display: none;
+	}
+	
+	.palette-grid {
+		grid-template-columns: repeat(4, 1fr);
+		gap: 6px;
+	}
+	
+	.color-chip-modern {
+		height: 50px;
+	}
 }
 
 .btn-icon {
