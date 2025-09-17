@@ -29,6 +29,7 @@ const GradientColorSampler = () => {
 		testingMode ? true : false
 	)
 	const [hexInput, setHexInput] = useState('')
+	const [colorBalanceCollapsed, setColorBalanceCollapsed] = useState(false)
 	const [colorsArray, setSelectedColors] = useState([])
 	const [samplingRange, setSamplingRange] = useState({ start: 0, end: 100 })
 	const [samplingFunction, setSamplingFunction] = useState('linear')
@@ -48,21 +49,29 @@ const GradientColorSampler = () => {
 	const {
 		generatedColors,
 		samplePositions,
-		isProcessing: samplingProcessing,
+		isProcessing,
 		luminanceMode,
+		colorBalance,
+		colorAdjustmentMode,
+		hueAdjustment,
 		setCanvasRef,
+		generateSwatch,
 		debouncedGenerateSwatch,
 		throttledGenerateSwatch,
 		reverseColors,
 		clearSwatch,
 		updateLuminanceMode,
+		updateColorBalance,
+		resetColorBalance,
+		updateColorAdjustments,
+		resetColorAdjustments,
+		toggleColorAdjustmentMode,
+		getGPLContent,
 		exportAsPNG,
 		exportAsGPL,
 		hasColors,
-		colorCount,
-	} = useColorSampling()
-
-	// Use the saved ramps hook
+		colorCount
+	} = useColorSampling()	// Use the saved ramps hook
 	const {
 		savedRamps,
 		isLoading: rampsLoading,
@@ -572,7 +581,7 @@ const GradientColorSampler = () => {
 			<div id='ramps-page-container' className='ramps-page-container'>
 				{/* Performance Indicator */}
 				<PerformanceIndicator
-					isProcessing={processing || samplingProcessing}
+					isProcessing={processing || isProcessing}
 					message={processing ? 'Loading image...' : 'Generating swatch...'}
 				/>
 				<div className='main-grid'>
@@ -821,42 +830,217 @@ const GradientColorSampler = () => {
 							</div>
 						)}
 
-						{/* Color Swatch Display */}
-						{hasColors && (
-							<div className='output-section'>
-								<div className='section-header'>
-									<h2>Generated Swatch ({colorCount} colors)</h2>
-									<div className='swatch-actions'>
-										<select
-											className='show-luminance-selector'
-											value={showLuminance}
-											onChange={(e) =>
-												handleShowLuminanceChange(e.target.value)
-											}
-											title='Show luminance values on color tiles'
-										>
-											<option value='none'>Luminance</option>
-											<option value='ciel'>CIE L*</option>
-											<option value='hsv'>HSV</option>
-										</select>
+		{/* Color Swatch Display */}
+		{hasColors && (
+			<div className='output-section'>
+				<div className='section-header'>
+					<h2>Generated Swatch ({colorCount} colors)</h2>
+					<div className='swatch-actions'>
+						<select
+							className='show-luminance-selector'
+							value={showLuminance}
+							onChange={(e) =>
+								handleShowLuminanceChange(e.target.value)
+							}
+							title='Show luminance values on color tiles'
+						>
+							<option value='none'>Luminance</option>
+							<option value='ciel'>CIE L*</option>
+							<option value='hsv'>HSV</option>
+						</select>
+						<button
+							className='control-icon-btn'
+							onClick={reverseColors}
+							title='Reverse Colors'
+						>
+							🔄
+						</button>
+						<button
+							className='control-icon-btn'
+							onClick={clearSwatch}
+							title='Clear Swatch'
+						>
+							🗑️
+						</button>
+					</div>
+				</div>
+
+				{/* Color Adjustment Controls */}
+				<div className='color-balance-section'>
+					<div className='control-group color-balance-control'>
+						<div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+							<label 
+								onClick={() => setColorBalanceCollapsed(!colorBalanceCollapsed)}
+								style={{ cursor: 'pointer', userSelect: 'none', flex: 1 }}
+								title="Click to expand/collapse color adjustment controls"
+							>
+								Color Adjustment {colorBalanceCollapsed ? '▶' : '▼'}
+							</label>
+							<div className='color-mode-toggle'>
+								<button 
+									onClick={toggleColorAdjustmentMode}
+									className={`mode-toggle-btn ${colorAdjustmentMode === 'rgbcym' ? 'active' : ''}`}
+									title="RGBCYM mode: Photoshop-style color balance with complementary pairs"
+								>
+									RGBCYM
+								</button>
+								<button 
+									onClick={toggleColorAdjustmentMode}
+									className={`mode-toggle-btn ${colorAdjustmentMode === 'all' ? 'active' : ''}`}
+									title="All mode: Granular hue direction and intensity control"
+								>
+									All
+								</button>
+							</div>
+						</div>
+						{!colorBalanceCollapsed && (
+							<>
+								{/* RGBCYM Mode Controls */}
+								{colorAdjustmentMode === 'rgbcym' && (
+									<div className='color-balance-controls'>
+										{/* Cyan - Red */}
+										<div className='color-balance-slider-group'>
+											<div className='slider-labels'>
+												<span>Cyan</span>
+												<span>{colorBalance.cyanRed > 0 ? '+' : ''}{colorBalance.cyanRed}</span>
+												<span>Red</span>
+											</div>
+											<input
+												type='range'
+												min='-100'
+												max='100'
+												step='1'
+												value={colorBalance.cyanRed}
+												onChange={(e) => updateColorBalance({ cyanRed: parseInt(e.target.value) })}
+												className='color-balance-slider cyan-red'
+												title='Cyan ← → Red balance'
+											/>
+										</div>
+
+										{/* Magenta - Green */}
+										<div className='color-balance-slider-group'>
+											<div className='slider-labels'>
+												<span>Magenta</span>
+												<span>{colorBalance.magentaGreen > 0 ? '+' : ''}{colorBalance.magentaGreen}</span>
+												<span>Green</span>
+											</div>
+											<input
+												type='range'
+												min='-100'
+												max='100'
+												step='1'
+												value={colorBalance.magentaGreen}
+												onChange={(e) => updateColorBalance({ magentaGreen: parseInt(e.target.value) })}
+												className='color-balance-slider magenta-green'
+												title='Magenta ← → Green balance'
+											/>
+										</div>
+
+										{/* Yellow - Blue */}
+										<div className='color-balance-slider-group'>
+											<div className='slider-labels'>
+												<span>Yellow</span>
+												<span>{colorBalance.yellowBlue > 0 ? '+' : ''}{colorBalance.yellowBlue}</span>
+												<span>Blue</span>
+											</div>
+											<input
+												type='range'
+												min='-100'
+												max='100'
+												step='1'
+												value={colorBalance.yellowBlue}
+												onChange={(e) => updateColorBalance({ yellowBlue: parseInt(e.target.value) })}
+												className='color-balance-slider yellow-blue'
+												title='Yellow ← → Blue balance'
+											/>
+										</div>
+
 										<button
-											className='control-icon-btn'
-											onClick={reverseColors}
-											title='Reverse Colors'
+											className='color-balance-reset-btn'
+											onClick={resetColorBalance}
+											disabled={colorBalance.cyanRed === 0 && colorBalance.magentaGreen === 0 && colorBalance.yellowBlue === 0}
+											title='Reset all color balance to neutral'
 										>
-											🔄
-										</button>
-										<button
-											className='control-icon-btn'
-											onClick={clearSwatch}
-											title='Clear Swatch'
-										>
-											🗑️
+											Reset Balance
 										</button>
 									</div>
-								</div>
+								)}
 
-								<div
+								{/* All Mode Controls */}
+								{colorAdjustmentMode === 'all' && (
+									<div className='hue-adjustment-controls'>
+										{/* Hue Direction */}
+										<div className='hue-slider-group'>
+											<div className='slider-labels'>
+												<span>Direction</span>
+												<span>{hueAdjustment.direction}°</span>
+												<span>360°</span>
+											</div>
+											<input
+												type='range'
+												min='0'
+												max='360'
+												step='1'
+												value={hueAdjustment.direction}
+												onChange={(e) => updateColorAdjustments({ direction: parseInt(e.target.value) })}
+												className='hue-direction-slider'
+												title='Hue direction in degrees (0-360)'
+											/>
+										</div>
+
+										{/* Intensity */}
+										<div className='hue-slider-group'>
+											<div className='slider-labels'>
+												<span>Intensity</span>
+												<span>{hueAdjustment.intensity}%</span>
+												<span>100%</span>
+											</div>
+											<input
+												type='range'
+												min='0'
+												max='100'
+												step='1'
+												value={hueAdjustment.intensity}
+												onChange={(e) => updateColorAdjustments({ intensity: parseInt(e.target.value) })}
+												className='hue-intensity-slider'
+												title='Adjustment intensity (0-100%)'
+											/>
+										</div>
+
+										<button
+											className='color-balance-reset-btn'
+											onClick={resetColorAdjustments}
+											disabled={hueAdjustment.direction === 0 && hueAdjustment.intensity === 0}
+											title='Reset hue adjustment to neutral'
+										>
+											Reset Adjustment
+										</button>
+									</div>
+								)}
+
+								<p className='color-balance-info'>
+									{colorAdjustmentMode === 'rgbcym' 
+										? `RGBCYM mode: ${showLuminance === 'ciel' 
+											? 'Color balance preserving CIE L* perceptual luminance'
+											: showLuminance === 'hsv'
+											? 'Color balance preserving HSV brightness'
+											: 'Simple color balance (changes both color and perceived brightness)'
+										}`
+										: `All mode: ${showLuminance === 'ciel' 
+											? 'Hue shift preserving CIE L* perceptual luminance'
+											: showLuminance === 'hsv'
+											? 'Hue shift preserving HSV brightness'
+											: 'Simple hue shift (changes both color and perceived brightness)'
+										}`
+									}
+								</p>
+							</>
+						)}
+					</div>
+				</div>
+				
+				{/* Main Color Output Section */}
+				<div
 									className='swatch-container'
 									style={{ gridTemplateColumns: `repeat(${sampleCount}, 1fr)` }}
 								>
@@ -1060,6 +1244,7 @@ const GradientColorSampler = () => {
 								onReverseSavedRamp={reverseSavedRamp}
 								onReverseAllRamps={reverseAllRamps}
 								onCompareRamp={handleComparisonSelect}
+								luminanceMode={luminanceMode}
 							/>
 						</div>
 					)}

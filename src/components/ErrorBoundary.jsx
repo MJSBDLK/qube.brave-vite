@@ -37,7 +37,7 @@ class ErrorBoundary extends React.Component {
                   <pre>{this.state.error && this.state.error.toString()}</pre>
                   
                   <h4>Component Stack:</h4>
-                  <pre>{this.state.errorInfo.componentStack}</pre>
+                  <pre>{this.state.errorInfo && this.state.errorInfo.componentStack}</pre>
                 </div>
               </details>
             )}

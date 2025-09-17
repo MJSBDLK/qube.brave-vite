@@ -1,6 +1,7 @@
 // app/ramps/components/SavedRamps.jsx
 'use client'
 import React, { useState } from 'react'
+import { applyColorBalanceToColors } from '../utils/colorUtils'
 
 const SavedRamps = ({ 
   savedRamps = [], 
@@ -17,13 +18,15 @@ const SavedRamps = ({
   onReorderRamps,
   onReverseSavedRamp,
   onReverseAllRamps,
-  onCompareRamp
+  onCompareRamp,
+  luminanceMode = 'hsv'
 }) => {
   const [editingRamp, setEditingRamp] = useState(null)
   const [newName, setNewName] = useState('')
   const [showActions, setShowActions] = useState(false)
   const [draggedItem, setDraggedItem] = useState(null)
   const [dropZoneIndex, setDropZoneIndex] = useState(null)
+  const [hueShifting, setHueShifting] = useState(null) // Track which ramp is being color-balanced
 
   const handleStartEdit = (ramp) => {
     setEditingRamp(ramp.id)
@@ -49,6 +52,22 @@ const SavedRamps = ({
       onImportRamps(file)
       event.target.value = '' // Reset input
     }
+  }
+
+  // Handle color balance for a saved ramp
+  const handleColorBalance = (ramp, balance, balanceDescription) => {
+    const balancedColors = applyColorBalanceToColors(ramp.colors, balance, luminanceMode)
+    
+    const luminanceModeText = luminanceMode === 'ciel' ? ' (CIE L*)' : luminanceMode === 'hsv' ? ' (HSV)' : ''
+    const updatedRamp = {
+      ...ramp,
+      colors: balancedColors,
+      name: `${ramp.name} (${balanceDescription}${luminanceModeText})`
+    }
+    
+    // Create a new ramp with the balanced colors
+    onDuplicateRamp(ramp.id, updatedRamp)
+    setHueShifting(null)
   }
 
   const formatDate = (dateString) => {
@@ -385,6 +404,13 @@ const SavedRamps = ({
                     )}
                     <button 
                       className="ramp-action-btn"
+                      onClick={() => setHueShifting(hueShifting === ramp.id ? null : ramp.id)}
+                      title="Color balance"
+                    >
+                      �
+                    </button>
+                    <button 
+                      className="ramp-action-btn"
                       onClick={() => onReverseSavedRamp(ramp.id)}
                       title="Reverse colors"
                     >
@@ -417,6 +443,46 @@ const SavedRamps = ({
                     </button>
                   </div>
                 </div>
+                
+                {/* Color Balance Panel */}
+                {hueShifting === ramp.id && (
+                  <div className="hue-shift-panel">
+                    <div className="hue-shift-title">
+                      Color Balance - Creates New Ramp
+                      {luminanceMode === 'ciel' && <div style={{fontSize: '10px', color: '#ccc'}}>Preserving CIE L* luminance</div>}
+                      {luminanceMode === 'hsv' && <div style={{fontSize: '10px', color: '#ccc'}}>Preserving HSV brightness</div>}
+                      {luminanceMode === 'none' && <div style={{fontSize: '10px', color: '#ccc'}}>Simple color balance</div>}
+                    </div>
+                    <div className="hue-shift-presets">
+                      <button onClick={() => handleColorBalance(ramp, {cyanRed: -40, magentaGreen: 0, yellowBlue: 0}, 'More Cyan')} className="hue-preset-btn">
+                        More Cyan
+                      </button>
+                      <button onClick={() => handleColorBalance(ramp, {cyanRed: 40, magentaGreen: 0, yellowBlue: 0}, 'More Red')} className="hue-preset-btn">
+                        More Red
+                      </button>
+                      <button onClick={() => handleColorBalance(ramp, {cyanRed: 0, magentaGreen: -40, yellowBlue: 0}, 'More Magenta')} className="hue-preset-btn">
+                        More Magenta
+                      </button>
+                      <button onClick={() => handleColorBalance(ramp, {cyanRed: 0, magentaGreen: 40, yellowBlue: 0}, 'More Green')} className="hue-preset-btn">
+                        More Green
+                      </button>
+                      <button onClick={() => handleColorBalance(ramp, {cyanRed: 0, magentaGreen: 0, yellowBlue: -40}, 'More Yellow')} className="hue-preset-btn">
+                        More Yellow
+                      </button>
+                      <button onClick={() => handleColorBalance(ramp, {cyanRed: 0, magentaGreen: 0, yellowBlue: 40}, 'More Blue')} className="hue-preset-btn">
+                        More Blue
+                      </button>
+                    </div>
+                    <div className="hue-shift-custom">
+                      <button 
+                        onClick={() => setHueShifting(null)} 
+                        className="hue-shift-close"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* Drop zone after this item */}

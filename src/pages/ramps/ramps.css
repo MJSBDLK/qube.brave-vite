@@ -2938,3 +2938,448 @@ input[type='range'] {
 
 /*#endregion /Test Element Styles */
 
+/*#region Color Balance Controls */
+
+/* Color Balance Section in Main Output */
+.color-balance-section {
+  margin: 8px 0 8px 0;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-balance-control {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.color-balance-control label {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Mode Toggle Buttons */
+.color-mode-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.mode-toggle-btn {
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  color: #cccccc;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 70px;
+}
+
+.mode-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.mode-toggle-btn.active {
+  background: #4a9eff;
+  color: #ffffff;
+}
+
+.color-balance-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.color-balance-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #cccccc;
+}
+
+.slider-labels span:first-child {
+  color: #ff6b6b; /* Color for left side (Cyan, Magenta, Yellow) */
+}
+
+.slider-labels span:last-child {
+  color: #4ecdc4; /* Color for right side (Red, Green, Blue) */
+}
+
+.slider-labels span:nth-child(2) {
+  color: #ffffff;
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+.color-balance-slider {
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.color-balance-slider.cyan-red {
+  background: linear-gradient(to right, #00ffff 0%, #808080 50%, #ff0000 100%);
+}
+
+.color-balance-slider.magenta-green {
+  background: linear-gradient(to right, #ff00ff 0%, #808080 50%, #00ff00 100%);
+}
+
+.color-balance-slider.yellow-blue {
+  background: linear-gradient(to right, #ffff00 0%, #808080 50%, #0000ff 100%);
+}
+
+.color-balance-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.color-balance-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.color-balance-reset-btn {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.color-balance-reset-btn:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.color-balance-reset-btn:disabled {
+  background: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.color-balance-info {
+  font-size: 12px;
+  color: #cccccc;
+  margin: 0;
+  font-style: italic;
+}
+
+/*#region Hue Adjustment Controls (All Mode) */
+
+.hue-adjustment-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hue-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hue-direction-slider {
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, 
+    #ff0000 0%,   /* Red */
+    #ff8000 16%,  /* Orange */
+    #ffff00 33%,  /* Yellow */
+    #80ff00 50%,  /* Green */
+    #00ff80 66%,  /* Cyan */
+    #0080ff 83%,  /* Blue */
+    #8000ff 100%  /* Purple/Magenta */
+  );
+}
+
+.hue-intensity-slider {
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, #333333 0%, #ffffff 100%);
+}
+
+.hue-direction-slider::-webkit-slider-thumb,
+.hue-intensity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hue-direction-slider::-moz-range-thumb,
+.hue-intensity-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/*#endregion /Hue Adjustment Controls */
+
+/*#endregion /Color Balance Controls */
+
+/*#region Legacy Hue Shift Controls (kept for SavedRamps) */
+
+/* Hue Shift Section in Main Output */
+.hue-shift-section {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hue-shift-control {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hue-shift-control label {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.hue-shift-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hue-shift-slider {
+  flex: 1;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    #ff0000 0%,
+    #ffff00 16.66%,
+    #00ff00 33.33%,
+    #00ffff 50%,
+    #0000ff 66.66%,
+    #ff00ff 83.33%,
+    #ff0000 100%
+  );
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hue-shift-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hue-shift-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hue-reset-btn {
+  padding: 6px 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.hue-reset-btn:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.hue-reset-btn:disabled {
+  background: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.hue-shift-info {
+  font-size: 12px;
+  color: #cccccc;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Hue Shift Panel in Saved Ramps */
+.hue-shift-panel {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hue-shift-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.hue-shift-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.hue-preset-btn {
+  padding: 6px 8px;
+  background: #444444;
+  color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.hue-preset-btn:hover {
+  background: #555555;
+  border-color: #777777;
+}
+
+.hue-shift-custom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hue-shift-slider-small {
+  flex: 1;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #ff0000 0%,
+    #ffff00 16.66%,
+    #00ff00 33.33%,
+    #00ffff 50%,
+    #0000ff 66.66%,
+    #ff00ff 83.33%,
+    #ff0000 100%
+  );
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.hue-shift-slider-small::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hue-shift-slider-small::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.hue-shift-close {
+  width: 24px;
+  height: 24px;
+  background: #666666;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.hue-shift-close:hover {
+  background: #777777;
+}
+
+/*#endregion /Hue Shift Controls */
+

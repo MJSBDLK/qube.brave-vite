@@ -6,7 +6,9 @@ import React, { useState, useCallback, useRef, useEffect } from 'react'
 import { 
   generateColorSwatch, 
   updatePerformanceStats,
-  calculateLuminance 
+  calculateLuminance,
+  applyColorBalanceToColors,
+  applyHueShiftToColors
 } from '../utils/colorUtils'
 import { 
   debounce, 
@@ -20,6 +22,25 @@ export function useColorSampling() {
   const [samplePositions, setSamplePositions] = useState([])
   const [isProcessing, setIsProcessing] = useState(false)
   const [luminanceMode, setLuminanceMode] = useState('hsv') // 'hsv' or 'ciel'
+  
+  // Color adjustment mode: 'rgbcym' or 'all'
+  const [colorAdjustmentMode, setColorAdjustmentMode] = useState('rgbcym')
+  
+  // RGBCYM Color Balance state
+  const [colorBalance, setColorBalance] = useState({
+    cyanRed: 0,        // -100 to +100 (negative = cyan, positive = red)
+    magentaGreen: 0,   // -100 to +100 (negative = magenta, positive = green)
+    yellowBlue: 0      // -100 to +100 (negative = yellow, positive = blue)
+  })
+  
+  // All mode (Hue + Intensity) state
+  const [hueAdjustment, setHueAdjustment] = useState({
+    direction: 0,      // 0-360 degrees
+    intensity: 0       // 0-100 percentage
+  })
+  
+  // Store original colors to apply color balance to
+  const [originalColors, setOriginalColors] = useState([])
 
   // Refs for canvas operations
   const canvasRef = useRef(null)
@@ -56,7 +77,21 @@ export function useColorSampling() {
         }
       )
 
-      setGeneratedColors(result.colors)
+      // Store original colors for color adjustments
+      setOriginalColors(result.colors)
+      
+      // Apply current color adjustments if any
+      let finalColors = result.colors
+      
+      if (colorAdjustmentMode === 'rgbcym') {
+        const hasBalance = colorBalance.cyanRed !== 0 || colorBalance.magentaGreen !== 0 || colorBalance.yellowBlue !== 0
+        finalColors = hasBalance ? applyColorBalanceToColors(result.colors, colorBalance, luminanceMode) : result.colors
+      } else {
+        const hasHueShift = hueAdjustment.intensity !== 0
+        finalColors = hasHueShift ? applyHueShiftToColors(result.colors, hueAdjustment.direction, hueAdjustment.intensity, luminanceMode) : result.colors
+      }
+      
+      setGeneratedColors(finalColors)
       setSamplePositions(result.positions)
       
       const duration = perf.end()
@@ -68,7 +103,7 @@ export function useColorSampling() {
     } finally {
       setIsProcessing(false)
     }
-  }, [luminanceMode])
+  }, [luminanceMode, colorBalance, colorAdjustmentMode, hueAdjustment])
 
   /**
    * Debounced swatch generation for expensive operations
@@ -83,6 +118,102 @@ export function useColorSampling() {
   const throttledGenerateSwatch = useCallback((options = {}) => {
     throttle('generate-swatch-throttled', () => generateSwatch(options), 100)
   }, [generateSwatch])
+
+  /**
+   * Update color adjustments and apply to colors
+   */
+  const updateColorAdjustments = useCallback((updates) => {
+    if (colorAdjustmentMode === 'rgbcym') {
+      const newBalance = { ...colorBalance, ...updates }
+      setColorBalance(newBalance)
+      
+      if (originalColors.length > 0) {
+        const hasBalance = newBalance.cyanRed !== 0 || newBalance.magentaGreen !== 0 || newBalance.yellowBlue !== 0
+        const adjustedColors = hasBalance ? applyColorBalanceToColors(originalColors, newBalance, luminanceMode) : originalColors
+        
+        // Ensure luminance is calculated with current mode
+        const updatedColors = adjustedColors.map(color => ({
+          ...color,
+          luminance: calculateLuminance(color.r, color.g, color.b, luminanceMode)
+        }))
+        
+        setGeneratedColors(updatedColors)
+        
+        const preserveText = luminanceMode === 'ciel' ? ' (preserving CIE L*)' : luminanceMode === 'hsv' ? ' (preserving HSV)' : ''
+        if (hasBalance) {
+          showNotification(`Color balance applied${preserveText}`, 'info')
+        }
+      }
+    } else {
+      const newHueAdjustment = { ...hueAdjustment, ...updates }
+      setHueAdjustment(newHueAdjustment)
+      
+      if (originalColors.length > 0) {
+        const hasHueShift = newHueAdjustment.intensity !== 0
+        const adjustedColors = hasHueShift ? applyHueShiftToColors(originalColors, newHueAdjustment.direction, newHueAdjustment.intensity, luminanceMode) : originalColors
+        
+        // Ensure luminance is calculated with current mode
+        const updatedColors = adjustedColors.map(color => ({
+          ...color,
+          luminance: calculateLuminance(color.r, color.g, color.b, luminanceMode)
+        }))
+        
+        setGeneratedColors(updatedColors)
+        
+        const preserveText = luminanceMode === 'ciel' ? ' (preserving CIE L*)' : luminanceMode === 'hsv' ? ' (preserving HSV)' : ''
+        if (hasHueShift) {
+          showNotification(`Hue shift applied${preserveText}`, 'info')
+        }
+      }
+    }
+  }, [originalColors, luminanceMode, colorBalance, hueAdjustment, colorAdjustmentMode])
+
+  /**
+   * Legacy updateColorBalance for backward compatibility
+   */
+  const updateColorBalance = useCallback((balanceUpdates) => {
+    updateColorAdjustments(balanceUpdates)
+  }, [updateColorAdjustments])
+
+  /**
+   * Reset current color adjustments to neutral
+   */
+  const resetColorAdjustments = useCallback(() => {
+    if (colorAdjustmentMode === 'rgbcym') {
+      setColorBalance({ cyanRed: 0, magentaGreen: 0, yellowBlue: 0 })
+    } else {
+      setHueAdjustment({ direction: 0, intensity: 0 })
+    }
+    
+    if (originalColors.length > 0) {
+      setGeneratedColors(originalColors)
+      showNotification('Color adjustments reset', 'info')
+    }
+  }, [originalColors, colorAdjustmentMode])
+
+  /**
+   * Legacy resetColorBalance for backward compatibility
+   */
+  const resetColorBalance = useCallback(() => {
+    resetColorAdjustments()
+  }, [resetColorAdjustments])
+
+  /**
+   * Toggle between RGBCYM and All color adjustment modes
+   */
+  const toggleColorAdjustmentMode = useCallback(() => {
+    const newMode = colorAdjustmentMode === 'rgbcym' ? 'all' : 'rgbcym'
+    setColorAdjustmentMode(newMode)
+    
+    // Reset adjustments when switching modes
+    setColorBalance({ cyanRed: 0, magentaGreen: 0, yellowBlue: 0 })
+    setHueAdjustment({ direction: 0, intensity: 0 })
+    
+    if (originalColors.length > 0) {
+      setGeneratedColors(originalColors)
+      showNotification(`Switched to ${newMode.toUpperCase()} mode`, 'info')
+    }
+  }, [colorAdjustmentMode, originalColors])
 
   /**
    * Update luminance mode and recalculate if needed
@@ -121,7 +252,9 @@ export function useColorSampling() {
    */
   const clearSwatch = useCallback(() => {
     setGeneratedColors([])
+    setOriginalColors([])
     setSamplePositions([])
+    setColorBalance({ cyanRed: 0, magentaGreen: 0, yellowBlue: 0 })
     showNotification('Swatch cleared')
   }, [])
 
@@ -203,6 +336,9 @@ export function useColorSampling() {
     samplePositions,
     isProcessing,
     luminanceMode,
+    colorBalance,
+    colorAdjustmentMode,
+    hueAdjustment,
     
     // Canvas management
     setCanvasRef,
@@ -218,6 +354,11 @@ export function useColorSampling() {
     
     // Settings
     updateLuminanceMode,
+    updateColorBalance,
+    resetColorBalance,
+    updateColorAdjustments,
+    resetColorAdjustments,
+    toggleColorAdjustmentMode,
     
     // Export operations
     getGPLContent,

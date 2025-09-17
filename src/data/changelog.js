@@ -3,6 +3,14 @@
 
 export const changelogData = [
 	{
+		version: '7.2', date: 'Sep 17, 2025', changes: [
+			`Hue adjustment feature added:`,
+			`Adjust in RGBCYM or pick any hue and intensity.`,
+			`Should preserve luminance based on selected luminance algorithm, if any.`,
+			'Fixed error boundary to properly display call stack when page crashes',
+		]
+	},
+	{
 		version: 'v7.1.2', date: 'Sep 16, 2025', changes: [
 			'Fixed hue cube deformation - now maintains perfect square at all screen sizes',
 			'Completely redesigned color info panel with modern, flexible layout',

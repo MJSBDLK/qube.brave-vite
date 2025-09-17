@@ -131,15 +131,17 @@ export function useSavedRamps() {
   /**
    * Duplicate a saved ramp
    */
-  const duplicateRamp = useCallback((rampId) => {
+  const duplicateRamp = useCallback((rampId, customData = null) => {
     try {
       const originalRamp = savedRamps.find(ramp => ramp.id === rampId)
       if (!originalRamp) return null
 
       const duplicatedRamp = saveCurrentRamp({
         ...originalRamp,
-        name: `${originalRamp.name} (Copy)`,
-        sourceType: 'duplicate'
+        name: customData?.name || `${originalRamp.name} (Copy)`,
+        colors: customData?.colors || originalRamp.colors,
+        sourceType: customData ? 'hue-shifted' : 'duplicate',
+        ...customData
       })
 
       return duplicatedRamp
