@@ -3,6 +3,11 @@
 
 export const changelogData = [
 	{
+		version: '7.2.1', date: 'Sep 17, 2025', changes: [
+			`Fixed header breadcrumbs to properly show /#/ prefix for SPA routing`,
+		]
+	},
+	{
 		version: '7.2', date: 'Sep 17, 2025', changes: [
 			`Hue adjustment feature added:`,
 			`Adjust in RGBCYM or pick any hue and intensity.`,

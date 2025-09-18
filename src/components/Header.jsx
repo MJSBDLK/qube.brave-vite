@@ -9,15 +9,16 @@ export default function Header({ onMenuToggle, sidebarOpen }) {
   
   // Get the page title based on the current route
   // Always shows qube.brave regardless of IPFS hash in actual URL
+  // Includes /#/ prefix since we're using HashRouter for SPA compatibility
   const getPageTitle = () => {
     const baseDomain = 'qube.brave'
     
     if (location.pathname === '/' || location.pathname === '') return baseDomain
-    if (location.pathname === '/ramps') return `${baseDomain}/ramps`
+    if (location.pathname === '/ramps') return `${baseDomain}/#/ramps`
     
-    // Clean up path and add to domain
+    // Clean up path and add to domain with hash router prefix
     const cleanPath = location.pathname.replace(/\/$/, '') // Remove trailing slash
-    return `${baseDomain}${cleanPath}`
+    return `${baseDomain}/#${cleanPath}`
   }
 
   return (
