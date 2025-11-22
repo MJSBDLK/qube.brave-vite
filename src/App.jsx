@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar'
 import ErrorBoundary from './components/ErrorBoundary'
 import Home from './pages/Home'
 import Ramps from './pages/Ramps'
+import SecretSanta from './pages/SecretSanta'
 import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
 
@@ -59,6 +60,11 @@ function AppLayout() {
             title: `${baseDomain}/ramps`,
             description: 'Advanced gradient ramp tool for color analysis and curve sampling'
           }
+        case '/secretsanta':
+          return {
+            title: `${baseDomain}/secretsanta`,
+            description: 'Secret Santa generator with clan constraints'
+          }
         default:
           return {
             title: getDisplayUrl(location.pathname),
@@ -95,6 +101,16 @@ function AppLayout() {
           <Route path="/ramps/" element={
             <ErrorBoundary>
               <Ramps />
+            </ErrorBoundary>
+          } />
+          <Route path="/secretsanta" element={
+            <ErrorBoundary>
+              <SecretSanta />
+            </ErrorBoundary>
+          } />
+          <Route path="/secretsanta/" element={
+            <ErrorBoundary>
+              <SecretSanta />
             </ErrorBoundary>
           } />
         </Routes>

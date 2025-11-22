@@ -7,6 +7,22 @@ import SpicyWord from '../components/SpicyWord'
 const HomePage = () => {
 	const updates = [
 		{
+			date: 'Nov 21, 2025',
+			title: 'Secret Santa Generator',
+			badge: 'New Tool',
+			badgeType: 'teal',
+			content: (
+				<>
+					<p className="text-body text-secondary u-m-sm">
+						Secret Santa generator with clan constraints - no one gets matched within their own family/group
+					</p>
+					<div className="u-flex u-gap-sm">
+						<Link to="/secretsanta" className="c-button c-button--primary">Try It Out</Link>
+					</div>
+				</>
+			)
+		},
+		{
 			date: 'Aug 26, 2025',
 			title: 'Gradient Ramps Tool',
 			badge: 'New Tool',

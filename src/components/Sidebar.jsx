@@ -71,6 +71,17 @@ export default function Sidebar({ isOpen, onClose }) {
 								</Link>
 							</li>
 							<li className='nav-item'>
+								<Link
+									to='/secretsanta'
+									className={`nav-link ${
+										location.pathname === '/secretsanta' ? 'nav-link--active' : ''
+									}`}
+									onClick={onClose}
+								>
+									Secret Santa
+								</Link>
+							</li>
+							<li className='nav-item'>
 								<a
 									href='#'
 									className='nav-link nav-link--coming-soon'

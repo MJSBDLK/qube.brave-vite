@@ -717,6 +717,55 @@ export function generateColorSwatch(canvas, ctx, options = {}) {
 }
 
 /**
+ * Deterministic hash-to-color function
+ * Any JS primitive or object will always hash to the same color
+ * @param {*} input - Any value to hash (string, number, object, etc.)
+ * @param {Object} options - Optional color generation options
+ * @param {number} options.saturation - Saturation percentage (0-100), default 65
+ * @param {number} options.lightness - Lightness percentage (0-100), default 55
+ * @returns {string} - Hex color string
+ */
+export function hashToColor(input, options = {}) {
+  const { saturation = 65, lightness = 55 } = options
+
+  // Convert input to string for hashing
+  const str = typeof input === 'object' ? JSON.stringify(input) : String(input)
+
+  // Simple but effective hash function
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i)
+    hash = ((hash << 5) - hash) + char
+    hash = hash & hash // Convert to 32-bit integer
+  }
+
+  // Use hash to generate hue (0-360)
+  const hue = Math.abs(hash) % 360
+
+  // Convert HSL to RGB
+  const rgb = hslToRgb(hue, saturation, lightness)
+  return rgbToHex(rgb.r, rgb.g, rgb.b)
+}
+
+/**
+ * Get contrasting text color (black or white) for a given background color
+ * Uses WCAG relative luminance formula for accurate contrast detection
+ * @param {string} bgColor - Background color (hex format like '#ff0000')
+ * @returns {string} - Either '#000000' (black) or '#ffffff' (white)
+ */
+export function getContrastingTextColor(bgColor) {
+  const rgb = hexToRgb(bgColor)
+  if (!rgb) return '#000000'
+
+  // Calculate relative luminance using WCAG formula
+  const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255
+
+  // If luminance > 0.5, background is light, use dark text
+  // Otherwise, background is dark, use light text
+  return luminance > 0.5 ? '#000000' : '#ffffff'
+}
+
+/**
  * Performance monitoring utilities
  */
 export function updatePerformanceStats() {
@@ -729,7 +778,7 @@ export function getPerformanceStats() {
 
   if (timeDiff > 5000) {
     const updatesPerSecond = performanceStats.updateCount / (timeDiff / 1000)
-    
+
     const stats = {
       updatesPerSecond: updatesPerSecond.toFixed(1),
       debounceCount: performanceStats.debounceCount,
