@@ -2,20 +2,21 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import IPFSIndicator from './IPFSIndicator'
 import { useSpicyMode } from '../contexts/SpicyModeContext'
+import { getCanonicalDomain } from '../utils/urlUtils'
 
 export default function Header({ onMenuToggle, sidebarOpen }) {
   const location = useLocation()
   const { isSpicyMode, toggleSpicyMode } = useSpicyMode()
-  
+
   // Get the page title based on the current route
-  // Always shows qube.brave regardless of IPFS hash in actual URL
+  // Shows the domain the user accessed (mjsbdlk.com, qube.brave, etc.)
   // Includes /#/ prefix since we're using HashRouter for SPA compatibility
   const getPageTitle = () => {
-    const baseDomain = 'qube.brave'
-    
+    const baseDomain = getCanonicalDomain()
+
     if (location.pathname === '/' || location.pathname === '') return baseDomain
     if (location.pathname === '/ramps') return `${baseDomain}/#/ramps`
-    
+
     // Clean up path and add to domain with hash router prefix
     const cleanPath = location.pathname.replace(/\/$/, '') // Remove trailing slash
     return `${baseDomain}/#${cleanPath}`

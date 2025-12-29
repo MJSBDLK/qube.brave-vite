@@ -1,6 +1,8 @@
 import React from 'react'
+import { Bug } from 'lucide-react'
+import BugReportContext from '../contexts/BugReportContext'
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundaryInner extends React.Component {
   constructor(props) {
     super(props)
     this.state = { hasError: false, error: null, errorInfo: null }
@@ -20,40 +22,59 @@ class ErrorBoundary extends React.Component {
     })
   }
 
+  handleReportCrash = () => {
+    const { openBugReport } = this.props
+    if (openBugReport) {
+      openBugReport({
+        message: this.state.error?.message || 'Unknown error',
+        stack: this.state.error?.stack || '',
+        componentStack: this.state.errorInfo?.componentStack || ''
+      })
+    }
+  }
+
   render() {
     if (this.state.hasError) {
       // Custom fallback UI
       return (
         <div className="error-boundary">
           <div className="error-boundary-content">
-            <h2>🚨 Something went wrong</h2>
+            <h2>Something went wrong</h2>
             <p>The page encountered an error and couldn't load properly.</p>
-            
+
             {process.env.NODE_ENV === 'development' && (
               <details className="error-details">
                 <summary>Error Details (Development Mode)</summary>
                 <div className="error-info">
                   <h4>Error:</h4>
                   <pre>{this.state.error && this.state.error.toString()}</pre>
-                  
+
                   <h4>Component Stack:</h4>
                   <pre>{this.state.errorInfo && this.state.errorInfo.componentStack}</pre>
                 </div>
               </details>
             )}
-            
+
             <div className="error-actions">
-              <button 
+              <button
+                onClick={this.handleReportCrash}
+                className="error-report-btn"
+                title="Help us fix this issue"
+              >
+                <Bug size={16} />
+                Report Crash
+              </button>
+              <button
                 onClick={() => window.location.reload()}
                 className="error-reload-btn"
               >
-                🔄 Reload Page
+                Reload Page
               </button>
-              <button 
+              <button
                 onClick={() => window.location.href = '/'}
                 className="error-home-btn"
               >
-                🏠 Go Home
+                Go Home
               </button>
             </div>
           </div>
@@ -63,6 +84,19 @@ class ErrorBoundary extends React.Component {
 
     return this.props.children
   }
+}
+
+// Wrapper component to provide context to class component
+function ErrorBoundary({ children }) {
+  return (
+    <BugReportContext.Consumer>
+      {(context) => (
+        <ErrorBoundaryInner openBugReport={context?.openBugReport}>
+          {children}
+        </ErrorBoundaryInner>
+      )}
+    </BugReportContext.Consumer>
+  )
 }
 
 export default ErrorBoundary

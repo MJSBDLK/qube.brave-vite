@@ -47,7 +47,7 @@ export default function IPFSIndicator() {
 					<div>
 						<strong>Decentralized Hosting</strong>
 						<p style={{ margin: '8px 0' }}>You're accessing this site via IPFS - a decentralized, censorship-resistant network.</p>
-						<p style={{ margin: '8px 0 0 0', fontSize: '12px', opacity: '0.8' }}>Bookmark <strong>qube.brave</strong> for easier access.</p>
+						<p style={{ margin: '8px 0 0 0', fontSize: '12px', opacity: '0.8' }}>Bookmark <strong>mjsbdlk.com</strong> or <strong>qube.brave</strong> for easier access.</p>
 					</div>
 				</div>
 			)}

@@ -4,11 +4,13 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
 import ErrorBoundary from './components/ErrorBoundary'
+import BugReportModal from './components/BugReportModal'
 import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import SecretSanta from './pages/SecretSanta'
 import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
+import { BugReportProvider } from './contexts/BugReportContext'
 
 function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -125,9 +127,12 @@ function AppLayout() {
 function App() {
   return (
     <HashRouter>
-      <SpicyModeProvider>
-        <AppLayout />
-      </SpicyModeProvider>
+      <BugReportProvider>
+        <SpicyModeProvider>
+          <AppLayout />
+          <BugReportModal />
+        </SpicyModeProvider>
+      </BugReportProvider>
     </HashRouter>
   )
 }

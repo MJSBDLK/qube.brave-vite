@@ -1,6 +1,8 @@
-# qube.brave - Decentralized Website
+# mjsbdlk.com | qube.brave | mjsbdlk.brave
 
-A modern React application deployed both traditionally and on IPFS (InterPlanetary File System) for decentralized web hosting.
+A modern React application available on both web2 and web3:
+- **Web2**: [mjsbdlk.com](https://mjsbdlk.com) (traditional hosting with SSL)
+- **Web3**: [qube.brave](https://qube.brave) / [mjsbdlk.brave](https://mjsbdlk.brave) (IPFS + Unstoppable Domains)
 
 ## 🚀 Quick Start
 
@@ -33,16 +35,16 @@ npm run publish:all
 ## 🏗️ Architecture
 
 ```
-Internet/LAN → nginx (reverse proxy) → Docker Container → Vite App
-                ↓
-         Ubuntu Server (192.168.1.100)
-                ↓
-         IPFS Node → Distributed Web3 Network
+mjsbdlk.com → nginx (SSL termination) → Docker Container → Vite App
+                    ↓
+             Ubuntu Server (75.4.38.92)
+                    ↓
+             IPFS Node → Distributed Web3 Network
 ```
 
 ### Access Points
+- **Production**: `https://mjsbdlk.com` (via nginx + Let's Encrypt SSL)
 - **Development**: `http://localhost:3000` (when running `npm run dev`)
-- **External IP**: `http://YOUR_EXTERNAL_IP` (via nginx → Docker)
 - **IPFS**: `https://dweb.link/ipfs/[CID]/` or `qube.brave` (Unstoppable Domain)
 
 ## 🛠️ Tech Stack
@@ -177,10 +179,34 @@ npm run build
 - **[IPFS_URL_SOLUTION.md](./IPFS_URL_SOLUTION.md)**: IPFS UX enhancements
 - **[deprecated/](./deprecated/)**: Old scripts and configurations
 
+## 🌐 Domain & SSL
+
+| Setting | Value |
+|---------|-------|
+| **Domain** | mjsbdlk.com |
+| **Registrar** | Njalla |
+| **SSL** | Let's Encrypt (auto-renews) |
+| **Certificate** | `/etc/letsencrypt/live/mjsbdlk.com/` |
+| **Expires** | 2026-03-28 |
+| **nginx config** | `/etc/nginx/sites-enabled/qube-brave` |
+
+### SSL Commands
+```bash
+# Test renewal (safe, doesn't actually renew)
+sudo certbot renew --dry-run
+
+# Check certificate expiry
+sudo certbot certificates
+
+# Check auto-renewal timer
+sudo systemctl status certbot.timer
+```
+
 ## 🔒 Security
 
 - **SSH**: Key-based authentication only
 - **Firewall**: UFW enabled (SSH, HTTP, HTTPS only)
+- **SSL**: Let's Encrypt with automatic renewal
 - **Container**: Isolated Docker network
 - **IPFS**: Local API only (not exposed externally)
 
@@ -199,6 +225,6 @@ This is a personal project, but the architecture and scripts can serve as refere
 
 ---
 
-**Last Updated**: September 16, 2025  
-**Status**: Production Ready  
-**Access**: [qube.brave](https://qube.brave) (Unstoppable Domain) | External IP
+**Last Updated**: December 28, 2025
+**Status**: Production Ready
+**Access**: [mjsbdlk.com](https://mjsbdlk.com) | [qube.brave](https://qube.brave) (Unstoppable Domain)

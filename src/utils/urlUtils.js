@@ -23,10 +23,29 @@ export const isIPFSUrl = () => {
 }
 
 /**
- * Gets the canonical domain name for display
+ * Gets the display domain based on how the user accessed the site
+ * - Real domains (mjsbdlk.com, qube.brave, etc.) → show as-is
+ * - IP addresses or localhost → show "MJSBDLK"
+ * - IPFS gateways → show "MJSBDLK"
  */
 export const getCanonicalDomain = () => {
-  return 'qube.brave'
+  const hostname = window.location.hostname
+
+  // Known domains - show as-is
+  const knownDomains = [
+    'mjsbdlk.com',
+    'www.mjsbdlk.com',
+    'qube.brave',
+    'mjsbdlk.brave',
+  ]
+
+  if (knownDomains.includes(hostname)) {
+    // Strip www. prefix for cleaner display
+    return hostname.replace(/^www\./, '')
+  }
+
+  // IP address, localhost, or IPFS gateway → fallback
+  return 'MJSBDLK'
 }
 
 /**
