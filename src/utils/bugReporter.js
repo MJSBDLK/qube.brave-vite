@@ -202,6 +202,10 @@ export function buildReport({
       version: import.meta.env.VITE_APP_VERSION || '1.0.0',
       route: window.location.hash.replace('#', '') || '/',
     },
+    source: {
+      frontend: import.meta.env.DEV ? 'development' : 'production',
+      origin: window.location.origin,
+    },
     issue: {
       description: sanitizeString(description),
       stepsToReproduce: stepsToReproduce ? sanitizeString(stepsToReproduce) : null,
