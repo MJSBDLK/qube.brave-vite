@@ -1,11 +1,11 @@
 import React from 'react'
-import { Bug } from 'lucide-react'
+import { Bug, Clipboard, Check } from 'lucide-react'
 import BugReportContext from '../contexts/BugReportContext'
 
 class ErrorBoundaryInner extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { hasError: false, error: null, errorInfo: null }
+    this.state = { hasError: false, error: null, errorInfo: null, copied: false }
   }
 
   static getDerivedStateFromError(error) {
@@ -33,6 +33,33 @@ class ErrorBoundaryInner extends React.Component {
     }
   }
 
+  handleCopyError = async () => {
+    const errorText = [
+      '=== Error ===',
+      this.state.error?.toString() || 'Unknown error',
+      '',
+      '=== Stack Trace ===',
+      this.state.error?.stack || 'No stack trace',
+      '',
+      '=== Component Stack ===',
+      this.state.errorInfo?.componentStack || 'No component stack',
+      '',
+      '=== URL ===',
+      window.location.href,
+      '',
+      '=== Timestamp ===',
+      new Date().toISOString()
+    ].join('\n')
+
+    try {
+      await navigator.clipboard.writeText(errorText)
+      this.setState({ copied: true })
+      setTimeout(() => this.setState({ copied: false }), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+
   render() {
     if (this.state.hasError) {
       // Custom fallback UI
@@ -56,6 +83,14 @@ class ErrorBoundaryInner extends React.Component {
             )}
 
             <div className="error-actions">
+              <button
+                onClick={this.handleCopyError}
+                className="error-copy-btn"
+                title="Copy error details to clipboard"
+              >
+                {this.state.copied ? <Check size={16} /> : <Clipboard size={16} />}
+                {this.state.copied ? 'Copied!' : 'Copy Error'}
+              </button>
               <button
                 onClick={this.handleReportCrash}
                 className="error-report-btn"

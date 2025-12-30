@@ -18,8 +18,14 @@ export function transformData(assetData, stickData, stickType) {
 
   // Find the applicable measuring stick value for a given timestamp
   function getStickValue(timestamp) {
+    // Return null if timestamp is before measuring stick data begins
+    const firstStickTime = sortedStickTimes[0]
+    if (!firstStickTime || timestamp < firstStickTime) {
+      return null
+    }
+
     // Find the most recent stick data point on or before this timestamp
-    let lastValue = stickData[0]?.value
+    let lastValue = null
     for (const t of sortedStickTimes) {
       if (t <= timestamp) {
         lastValue = stickByTime.get(t)
@@ -31,7 +37,8 @@ export function transformData(assetData, stickData, stickType) {
   }
 
   // Apply transformation based on stick type
-  const result = []
+  // Use a Map to dedupe by timestamp (last value wins)
+  const resultMap = new Map()
   for (const point of assetData) {
     const stickValue = getStickValue(point.time)
 
@@ -56,14 +63,14 @@ export function transformData(assetData, stickData, stickType) {
           transformedValue = point.value / stickValue
       }
 
-      result.push({
-        time: point.time,
-        value: transformedValue,
-      })
+      resultMap.set(point.time, transformedValue)
     }
   }
 
-  return result
+  // Convert to sorted array (ascending by time)
+  return [...resultMap.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .map(([time, value]) => ({ time, value }))
 }
 
 /**

@@ -5,9 +5,41 @@ import DataFreshness from './components/DataFreshness'
 import LoadingOverlay from './components/LoadingOverlay'
 import { transformData } from './utils/dataTransforms'
 
+// Dedupe and sort data by timestamp (Lightweight Charts requires unique ascending times)
+function dedupeAndSort(data) {
+  if (!data) return null
+  const map = new Map()
+  for (const point of data) {
+    map.set(point.time, point.value)
+  }
+  return [...map.entries()]
+    .sort((a, b) => a[0] - b[0])
+    .map(([time, value]) => ({ time, value }))
+}
+
+// Normalize data to monthly frequency (first data point per month)
+// This prevents time-axis distortion when data changes from monthly to daily
+function normalizeToMonthly(data) {
+  if (!data || data.length === 0) return data
+
+  const monthMap = new Map()
+  for (const point of data) {
+    const date = new Date(point.time * 1000)
+    const monthKey = `${date.getFullYear()}-${date.getMonth()}`
+    // Keep first data point for each month
+    if (!monthMap.has(monthKey)) {
+      monthMap.set(monthKey, point)
+    }
+  }
+
+  return [...monthMap.values()].sort((a, b) => a.time - b.time)
+}
+
 // Available options (both dropdowns share the same list)
 const DATA_SERIES = [
   { id: 'sp500', label: 'S&P 500', file: 'sp500.json' },
+  { id: 'gold', label: 'Gold (oz)', file: 'gold.json' },
+  { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json' },
   { id: 'labor-hours', label: 'Labor-Hours', file: 'labor-hours.json' },
   { id: 'usd', label: 'USD (nominal)', file: null },
 ]
@@ -27,11 +59,28 @@ export default function InflationPage() {
 
   // Transform data when selections change
   const chartData = useMemo(() => {
+    // X priced in X = always 1
+    if (asset === measuringStick) {
+      const sourceData = rawData[asset] || Object.values(rawData)[0]
+      if (!sourceData) return null
+      return dedupeAndSort(sourceData.map(point => ({ time: point.time, value: 1 })))
+    }
+
+    // Handle USD as asset (synthetic $1 series)
+    if (asset === 'usd') {
+      if (!rawData[measuringStick]) return null
+      const usdData = rawData[measuringStick].map(point => ({
+        time: point.time,
+        value: 1,
+      }))
+      return transformData(usdData, rawData[measuringStick], measuringStick)
+    }
+
     if (!rawData[asset]) return null
 
+    // Handle USD as measuring stick (just return nominal prices)
     if (measuringStick === 'usd') {
-      // Just return nominal USD prices
-      return rawData[asset]
+      return dedupeAndSort(rawData[asset])
     }
 
     if (!rawData[measuringStick]) return null
@@ -66,7 +115,8 @@ export default function InflationPage() {
       },
       timeScale: {
         borderColor: '#374151',
-        timeVisible: true,
+        timeVisible: false,
+        uniformDistribution: false,
       },
       rightPriceScale: {
         borderColor: '#374151',
@@ -185,7 +235,8 @@ export default function InflationPage() {
           time: Math.floor(new Date(date).getTime() / 1000),
           value: data.data.values[i],
         }))
-        newRawData[id] = chartFormat
+        // Normalize to monthly to prevent time-axis distortion from mixed frequencies
+        newRawData[id] = normalizeToMonthly(chartFormat)
         newMetadata[id] = data.meta
       }
 

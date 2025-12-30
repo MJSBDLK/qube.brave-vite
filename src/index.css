@@ -2115,6 +2115,7 @@ body {
 	margin-top: var(--space-lg);
 }
 
+.error-copy-btn,
 .error-report-btn,
 .error-reload-btn,
 .error-home-btn {
@@ -2127,6 +2128,16 @@ body {
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.2s ease;
+}
+
+.error-copy-btn {
+	background: var(--surface-secondary);
+	color: var(--text-primary);
+	border: 1px solid var(--border-primary);
+}
+
+.error-copy-btn:hover {
+	background: var(--bg-elevated);
 }
 
 .error-report-btn {
