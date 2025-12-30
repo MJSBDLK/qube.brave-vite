@@ -82,6 +82,17 @@ export default function Sidebar({ isOpen, onClose }) {
 								</Link>
 							</li>
 							<li className='nav-item'>
+								<Link
+									to='/inflation'
+									className={`nav-link ${
+										location.pathname === '/inflation' ? 'nav-link--active' : ''
+									}`}
+									onClick={onClose}
+								>
+									Inflation
+								</Link>
+							</li>
+							<li className='nav-item'>
 								<a
 									href='#'
 									className='nav-link nav-link--coming-soon'

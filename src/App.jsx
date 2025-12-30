@@ -8,6 +8,7 @@ import BugReportModal from './components/BugReportModal'
 import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import SecretSanta from './pages/SecretSanta'
+import Inflation from './pages/Inflation'
 import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
 import { BugReportProvider } from './contexts/BugReportContext'
@@ -67,6 +68,11 @@ function AppLayout() {
             title: `${baseDomain}/secretsanta`,
             description: 'Secret Santa generator with clan constraints'
           }
+        case '/inflation':
+          return {
+            title: `${baseDomain}/inflation`,
+            description: 'Visualize asset prices using alternative measuring sticks'
+          }
         default:
           return {
             title: getDisplayUrl(location.pathname),
@@ -113,6 +119,16 @@ function AppLayout() {
           <Route path="/secretsanta/" element={
             <ErrorBoundary>
               <SecretSanta />
+            </ErrorBoundary>
+          } />
+          <Route path="/inflation" element={
+            <ErrorBoundary>
+              <Inflation />
+            </ErrorBoundary>
+          } />
+          <Route path="/inflation/" element={
+            <ErrorBoundary>
+              <Inflation />
             </ErrorBoundary>
           } />
         </Routes>

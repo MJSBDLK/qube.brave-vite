@@ -19,6 +19,7 @@
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.2",
     "html2canvas-pro": "^1.6.2",
+    "lightweight-charts": "^5.1.0",
     "lucide-react": "^0.542.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
