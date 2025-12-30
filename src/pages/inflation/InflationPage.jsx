@@ -1,11 +1,19 @@
-import { useState, useEffect, useRef, useMemo } from 'react'
-import { createChart, AreaSeries } from 'lightweight-charts'
+import { useState, useEffect, useMemo } from 'react'
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+} from 'recharts'
 import ChartControls from './components/ChartControls'
 import DataFreshness from './components/DataFreshness'
 import LoadingOverlay from './components/LoadingOverlay'
 import { transformData } from './utils/dataTransforms'
 
-// Dedupe and sort data by timestamp (Lightweight Charts requires unique ascending times)
+// Dedupe and sort data by timestamp
 function dedupeAndSort(data) {
   if (!data) return null
   const map = new Map()
@@ -17,24 +25,6 @@ function dedupeAndSort(data) {
     .map(([time, value]) => ({ time, value }))
 }
 
-// Normalize data to monthly frequency (first data point per month)
-// This prevents time-axis distortion when data changes from monthly to daily
-function normalizeToMonthly(data) {
-  if (!data || data.length === 0) return data
-
-  const monthMap = new Map()
-  for (const point of data) {
-    const date = new Date(point.time * 1000)
-    const monthKey = `${date.getFullYear()}-${date.getMonth()}`
-    // Keep first data point for each month
-    if (!monthMap.has(monthKey)) {
-      monthMap.set(monthKey, point)
-    }
-  }
-
-  return [...monthMap.values()].sort((a, b) => a.time - b.time)
-}
-
 // Available options (both dropdowns share the same list)
 const DATA_SERIES = [
   { id: 'sp500', label: 'S&P 500', file: 'sp500.json' },
@@ -44,11 +34,23 @@ const DATA_SERIES = [
   { id: 'usd', label: 'USD (nominal)', file: null },
 ]
 
-export default function InflationPage() {
-  const chartContainerRef = useRef(null)
-  const chartRef = useRef(null)
-  const seriesRef = useRef(null)
+// Format timestamp for X-axis
+function formatXAxis(timestamp) {
+  const date = new Date(timestamp * 1000)
+  const year = date.getFullYear()
+  const month = date.toLocaleString('en-US', { month: 'short' })
+  return `${month} ${year}`
+}
 
+// Format value for Y-axis and tooltip
+function formatValue(value) {
+  if (value >= 1000) return value.toFixed(0)
+  if (value >= 100) return value.toFixed(1)
+  if (value >= 1) return value.toFixed(2)
+  return value.toFixed(4)
+}
+
+export default function InflationPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [rawData, setRawData] = useState({})
@@ -87,95 +89,9 @@ export default function InflationPage() {
     return transformData(rawData[asset], rawData[measuringStick], measuringStick)
   }, [rawData, asset, measuringStick])
 
-  // Dynamic label for legend
-  const chartLabel = useMemo(() => {
-    const assetLabel = DATA_SERIES.find(a => a.id === asset)?.label || asset
-    const stickLabel = DATA_SERIES.find(m => m.id === measuringStick)?.label || measuringStick
-    return `${assetLabel} in ${stickLabel}`
-  }, [asset, measuringStick])
-
-  // Load data on mount
-  useEffect(() => {
-    loadData()
-  }, [])
-
-  // Initialize chart
-  useEffect(() => {
-    if (!chartContainerRef.current || !chartData) return
-
-    // Create chart
-    const chart = createChart(chartContainerRef.current, {
-      layout: {
-        background: { type: 'solid', color: '#111827' },
-        textColor: '#9ca3af',
-      },
-      grid: {
-        vertLines: { color: '#1f2937' },
-        horzLines: { color: '#1f2937' },
-      },
-      timeScale: {
-        borderColor: '#374151',
-        timeVisible: false,
-        uniformDistribution: false,
-      },
-      rightPriceScale: {
-        borderColor: '#374151',
-        autoScale: true,
-        scaleMargins: {
-          top: 0.1,
-          bottom: 0.1,
-        },
-      },
-      crosshair: {
-        mode: 0,
-      },
-      localization: {
-        priceFormatter: (price) => {
-          if (price >= 1000) return price.toFixed(0)
-          if (price >= 100) return price.toFixed(1)
-          if (price >= 1) return price.toFixed(2)
-          return price.toFixed(4)
-        },
-      },
-    })
-
-    // Create area series (v5 API)
-    const series = chart.addSeries(AreaSeries, {
-      lineColor: '#6b73a3',
-      topColor: 'rgba(107, 115, 163, 0.4)',
-      bottomColor: 'rgba(107, 115, 163, 0.0)',
-      lineWidth: 2,
-    })
-
-    series.setData(chartData)
-
-    // Handle resize
-    const handleResize = () => {
-      if (chartContainerRef.current) {
-        chart.applyOptions({
-          width: chartContainerRef.current.clientWidth,
-        })
-      }
-    }
-
-    window.addEventListener('resize', handleResize)
-    handleResize()
-
-    // Fit content
-    chart.timeScale().fitContent()
-
-    chartRef.current = chart
-    seriesRef.current = series
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-      chart.remove()
-    }
-  }, [chartData])
-
   // Filter data by date range
-  useEffect(() => {
-    if (!chartRef.current || !chartData) return
+  const filteredData = useMemo(() => {
+    if (!chartData) return null
 
     const now = new Date()
     let startDate = null
@@ -192,19 +108,24 @@ export default function InflationPage() {
         break
       case 'max':
       default:
-        startDate = null
+        return chartData
     }
 
-    if (startDate) {
-      const startTimestamp = Math.floor(startDate.getTime() / 1000)
-      chartRef.current.timeScale().setVisibleRange({
-        from: startTimestamp,
-        to: Math.floor(now.getTime() / 1000),
-      })
-    } else {
-      chartRef.current.timeScale().fitContent()
-    }
-  }, [dateRange, chartData])
+    const startTimestamp = Math.floor(startDate.getTime() / 1000)
+    return chartData.filter(d => d.time >= startTimestamp)
+  }, [chartData, dateRange])
+
+  // Dynamic label for legend
+  const chartLabel = useMemo(() => {
+    const assetLabel = DATA_SERIES.find(a => a.id === asset)?.label || asset
+    const stickLabel = DATA_SERIES.find(m => m.id === measuringStick)?.label || measuringStick
+    return `${assetLabel} in ${stickLabel}`
+  }, [asset, measuringStick])
+
+  // Load data on mount
+  useEffect(() => {
+    loadData()
+  }, [])
 
   async function loadData() {
     setLoading(true)
@@ -230,13 +151,12 @@ export default function InflationPage() {
       const newMetadata = {}
 
       for (const { id, data } of results) {
-        // Convert to chart format
+        // Convert to chart format (keep all data points)
         const chartFormat = data.data.dates.map((date, i) => ({
           time: Math.floor(new Date(date).getTime() / 1000),
           value: data.data.values[i],
         }))
-        // Normalize to monthly to prevent time-axis distortion from mixed frequencies
-        newRawData[id] = normalizeToMonthly(chartFormat)
+        newRawData[id] = chartFormat
         newMetadata[id] = data.meta
       }
 
@@ -248,6 +168,21 @@ export default function InflationPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  // Custom tooltip
+  const CustomTooltip = ({ active, payload }) => {
+    if (!active || !payload || !payload.length) return null
+    const data = payload[0].payload
+    const date = new Date(data.time * 1000)
+    return (
+      <div className="recharts-custom-tooltip">
+        <p className="tooltip-date">
+          {date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+        </p>
+        <p className="tooltip-value">{formatValue(data.value)}</p>
+      </div>
+    )
   }
 
   return (
@@ -279,10 +214,47 @@ export default function InflationPage() {
             <button onClick={loadData}>Retry</button>
           </div>
         )}
-        <div
-          ref={chartContainerRef}
-          className="inflation-chart"
-        />
+        {filteredData && filteredData.length > 0 && (
+          <ResponsiveContainer width="100%" height={500}>
+            <AreaChart data={filteredData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+              <defs>
+                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#6b73a3" stopOpacity={0.4} />
+                  <stop offset="100%" stopColor="#6b73a3" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
+              <XAxis
+                dataKey="time"
+                type="number"
+                scale="time"
+                domain={['dataMin', 'dataMax']}
+                tickFormatter={formatXAxis}
+                stroke="#9ca3af"
+                tick={{ fill: '#9ca3af', fontSize: 12 }}
+                tickLine={{ stroke: '#374151' }}
+                axisLine={{ stroke: '#374151' }}
+              />
+              <YAxis
+                tickFormatter={formatValue}
+                stroke="#9ca3af"
+                tick={{ fill: '#9ca3af', fontSize: 12 }}
+                tickLine={{ stroke: '#374151' }}
+                axisLine={{ stroke: '#374151' }}
+                width={80}
+              />
+              <Tooltip content={<CustomTooltip />} />
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#6b73a3"
+                strokeWidth={2}
+                fill="url(#areaGradient)"
+                isAnimationActive={false}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        )}
       </div>
 
       <div className="inflation-legend">

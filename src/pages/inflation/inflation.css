@@ -313,6 +313,28 @@
   margin-top: 4px;
 }
 
+/* Recharts Custom Tooltip */
+.recharts-custom-tooltip {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.recharts-custom-tooltip .tooltip-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 0 0 4px 0;
+}
+
+.recharts-custom-tooltip .tooltip-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
 /* Responsive */
 @media (max-width: 576px) {
   .inflation-page {
