@@ -6,8 +6,8 @@
     "description": "Milk Price per gallon",
     "frequency": "monthly",
     "category": "food",
-    "lastUpdated": "2026-01-06T21:36:36.583Z",
-    "lastAttempted": "2026-01-06T21:36:36.583Z",
+    "lastUpdated": "2026-01-06T22:17:09.614Z",
+    "lastAttempted": "2026-01-06T22:17:09.614Z",
     "status": "success",
     "recordCount": 364,
     "dateRange": {

@@ -6,8 +6,8 @@
     "description": "Median Home Sales Price",
     "frequency": "quarterly",
     "category": "housing",
-    "lastUpdated": "2026-01-06T21:36:35.384Z",
-    "lastAttempted": "2026-01-06T21:36:35.384Z",
+    "lastUpdated": "2026-01-06T22:17:08.525Z",
+    "lastAttempted": "2026-01-06T22:17:08.525Z",
     "status": "success",
     "recordCount": 250,
     "dateRange": {

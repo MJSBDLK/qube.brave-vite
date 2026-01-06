@@ -6,8 +6,8 @@
     "description": "S&P 500 Index",
     "frequency": "daily",
     "category": "asset",
-    "lastUpdated": "2026-01-06T21:36:35.254Z",
-    "lastAttempted": "2026-01-06T21:36:35.254Z",
+    "lastUpdated": "2026-01-06T22:17:08.357Z",
+    "lastAttempted": "2026-01-06T22:17:08.357Z",
     "status": "success",
     "recordCount": 2514,
     "dateRange": {

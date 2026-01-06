@@ -6,8 +6,8 @@
     "description": "Regular Gasoline Price",
     "frequency": "weekly",
     "category": "energy",
-    "lastUpdated": "2026-01-06T21:36:35.907Z",
-    "lastAttempted": "2026-01-06T21:36:35.908Z",
+    "lastUpdated": "2026-01-06T22:17:09.069Z",
+    "lastAttempted": "2026-01-06T22:17:09.069Z",
     "status": "success",
     "recordCount": 1841,
     "dateRange": {

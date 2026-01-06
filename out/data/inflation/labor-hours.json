@@ -3,11 +3,11 @@
     "seriesId": "labor-hours",
     "fredSeriesId": "LES1252881500Q",
     "source": "FRED",
-    "description": "Median Weekly Nominal Earnings (full-time workers)",
+    "description": "Median Work Hour (weekly earnings ÷ 40)",
     "frequency": "quarterly",
     "category": "measuring-stick",
-    "lastUpdated": "2026-01-06T21:36:33.649Z",
-    "lastAttempted": "2026-01-06T21:36:33.649Z",
+    "lastUpdated": "2026-01-06T22:17:06.990Z",
+    "lastAttempted": "2026-01-06T22:17:06.990Z",
     "status": "success",
     "recordCount": 187,
     "dateRange": {
@@ -15,7 +15,7 @@
       "end": "2025-07-01"
     },
     "caveats": [
-      "Hourly rate assumes 40-hour work week"
+      "Derived from median weekly earnings for full-time workers"
     ],
     "error": null
   },

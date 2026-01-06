@@ -1,5 +1,12 @@
-export default function DataFreshness({ metadata }) {
+export default function DataFreshness({ metadata, activeIds = [] }) {
   if (!metadata || Object.keys(metadata).length === 0) return null
+
+  // Filter to only show active datasets
+  const activeMetadata = activeIds
+    .filter(id => id && id !== 'usd' && metadata[id])
+    .map(id => [id, metadata[id]])
+
+  if (activeMetadata.length === 0) return null
 
   const formatDate = (isoString) => {
     if (!isoString) return 'Unknown'
@@ -28,14 +35,14 @@ export default function DataFreshness({ metadata }) {
     <div className="data-freshness">
       <h3 className="freshness-title">Data Sources</h3>
       <div className="freshness-grid">
-        {Object.entries(metadata).map(([id, meta]) => (
+        {activeMetadata.map(([id, meta]) => (
           <div key={id} className="freshness-item">
             <div className="freshness-header">
               <span className="freshness-name">{meta.description || id}</span>
               {getStatusBadge(meta.status)}
             </div>
             <div className="freshness-details">
-              <span>Source: {meta.source} ({meta.fredSeriesId || id})</span>
+              <span>Source: {meta.source} ({meta.fredSeriesId || meta.seriesId || id})</span>
               <span>Updated: {formatDate(meta.lastUpdated)}</span>
               <span>Range: {meta.dateRange?.start} to {meta.dateRange?.end}</span>
               <span>{meta.recordCount?.toLocaleString()} records ({meta.frequency})</span>

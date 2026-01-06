@@ -33,12 +33,36 @@ const DATA_SERIES = [
   // Measuring sticks
   { id: 'gold', label: 'Gold (oz)', file: 'gold.json' },
   { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json' },
-  { id: 'labor-hours', label: 'Wage (median)', file: 'labor-hours.json' },
-  { id: 'mfg-wage', label: 'Wage (mfg avg)', file: 'mfg-wage.json' },
-  { id: 'avg-wage', label: 'Wage (all avg)', file: 'avg-wage.json' },
-  { id: 'min-wage', label: 'Min Wage', file: 'min-wage.json' },
+  { id: 'labor-hours', label: 'Median Work Hour', file: 'labor-hours.json' },
+  { id: 'mfg-wage', label: 'Mfg Work Hour', file: 'mfg-wage.json' },
+  { id: 'avg-wage', label: 'Avg Work Hour', file: 'avg-wage.json' },
+  { id: 'min-wage', label: 'Min Wage Hour', file: 'min-wage.json' },
   { id: 'usd', label: 'USD (nominal)', file: null },
 ]
+
+// Unit labels for measuring sticks
+const UNIT_LABELS = {
+  'gold': 'oz gold',
+  'bitcoin': 'BTC',
+  'labor-hours': 'hours',
+  'mfg-wage': 'hours',
+  'avg-wage': 'hours',
+  'min-wage': 'hours',
+  'usd': 'USD',
+}
+
+// Short "per unit" labels for assets
+const ASSET_UNITS = {
+  'sp500': '/ share',
+  'median-home': '/ home',
+  'gold': '/ oz',
+  'bitcoin': '/ BTC',
+  'labor-hours': '/ hour',
+  'mfg-wage': '/ hour',
+  'avg-wage': '/ hour',
+  'min-wage': '/ hour',
+  'usd': '/ $1',
+}
 
 // Format timestamp for X-axis
 function formatXAxis(timestamp) {
@@ -128,6 +152,13 @@ export default function InflationPage() {
     return `${assetLabel} in ${stickLabel}`
   }, [asset, measuringStick])
 
+  // Unit label for Y-axis (e.g., "oz gold / share", "hours / home")
+  const unitLabel = useMemo(() => {
+    const stickUnit = UNIT_LABELS[measuringStick] || measuringStick
+    const assetUnit = ASSET_UNITS[asset] || ''
+    return `${stickUnit} ${assetUnit}`.trim()
+  }, [measuringStick, asset])
+
   // Load data on mount
   useEffect(() => {
     loadData()
@@ -186,7 +217,7 @@ export default function InflationPage() {
         <p className="tooltip-date">
           {date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
         </p>
-        <p className="tooltip-value">{formatValue(data.value)}</p>
+        <p className="tooltip-value">{formatValue(data.value)} {unitLabel}</p>
       </div>
     )
   }
@@ -248,6 +279,13 @@ export default function InflationPage() {
                 tickLine={{ stroke: '#374151' }}
                 axisLine={{ stroke: '#374151' }}
                 width={80}
+                label={{
+                  value: unitLabel,
+                  angle: -90,
+                  position: 'insideLeft',
+                  style: { fill: '#9ca3af', fontSize: 12 },
+                  offset: 10,
+                }}
               />
               <Tooltip content={<CustomTooltip />} />
               <Area
@@ -270,7 +308,7 @@ export default function InflationPage() {
         </div>
       </div>
 
-      <DataFreshness metadata={metadata} />
+      <DataFreshness metadata={metadata} activeIds={[asset, measuringStick]} />
     </div>
   )
 }

@@ -6,8 +6,8 @@
     "description": "CPI: Electricity per kWh",
     "frequency": "monthly",
     "category": "energy",
-    "lastUpdated": "2026-01-06T21:36:36.076Z",
-    "lastAttempted": "2026-01-06T21:36:36.076Z",
+    "lastUpdated": "2026-01-06T22:17:09.205Z",
+    "lastAttempted": "2026-01-06T22:17:09.205Z",
     "status": "success",
     "recordCount": 563,
     "dateRange": {

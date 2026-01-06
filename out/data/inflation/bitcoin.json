@@ -5,8 +5,8 @@
     "description": "Bitcoin Price (Bitstamp)",
     "frequency": "daily",
     "category": "measuring-stick",
-    "lastUpdated": "2026-01-06T21:36:35.108Z",
-    "lastAttempted": "2026-01-06T21:36:35.108Z",
+    "lastUpdated": "2026-01-06T22:17:08.205Z",
+    "lastAttempted": "2026-01-06T22:17:08.205Z",
     "status": "success",
     "recordCount": 4058,
     "dateRange": {

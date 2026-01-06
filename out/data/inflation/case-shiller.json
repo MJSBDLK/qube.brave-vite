@@ -6,8 +6,8 @@
     "description": "Case-Shiller Home Price Index",
     "frequency": "monthly",
     "category": "housing",
-    "lastUpdated": "2026-01-06T21:36:35.518Z",
-    "lastAttempted": "2026-01-06T21:36:35.518Z",
+    "lastUpdated": "2026-01-06T22:17:08.711Z",
+    "lastAttempted": "2026-01-06T22:17:08.711Z",
     "status": "success",
     "recordCount": 466,
     "dateRange": {
