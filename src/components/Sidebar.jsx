@@ -89,7 +89,7 @@ export default function Sidebar({ isOpen, onClose }) {
 									}`}
 									onClick={onClose}
 								>
-									Inflation
+									Inflation™
 								</Link>
 							</li>
 							<li className='nav-item'>

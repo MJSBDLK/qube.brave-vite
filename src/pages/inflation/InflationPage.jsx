@@ -27,10 +27,16 @@ function dedupeAndSort(data) {
 
 // Available options (both dropdowns share the same list)
 const DATA_SERIES = [
+  // Assets
   { id: 'sp500', label: 'S&P 500', file: 'sp500.json' },
+  { id: 'median-home', label: 'Median Home', file: 'median-home.json' },
+  // Measuring sticks
   { id: 'gold', label: 'Gold (oz)', file: 'gold.json' },
   { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json' },
-  { id: 'labor-hours', label: 'Labor-Hours', file: 'labor-hours.json' },
+  { id: 'labor-hours', label: 'Wage (median)', file: 'labor-hours.json' },
+  { id: 'mfg-wage', label: 'Wage (mfg avg)', file: 'mfg-wage.json' },
+  { id: 'avg-wage', label: 'Wage (all avg)', file: 'avg-wage.json' },
+  { id: 'min-wage', label: 'Min Wage', file: 'min-wage.json' },
   { id: 'usd', label: 'USD (nominal)', file: null },
 ]
 
