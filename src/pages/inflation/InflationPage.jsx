@@ -32,8 +32,12 @@ const DATA_SERIES = [
   // Assets
   { id: 'sp500', label: 'S&P 500', file: 'sp500.json' },
   { id: 'median-home', label: 'Median Home', file: 'median-home.json' },
+  { id: 'beans', label: 'Dried Beans (lb)', file: 'beans.json' },
+  { id: 'rice', label: 'Rice (lb)', file: 'rice.json' },
+  { id: 'gasoline', label: 'Gasoline (gal)', file: 'gasoline.json' },
   // Measuring sticks
   { id: 'gold', label: 'Gold (oz)', file: 'gold.json' },
+  { id: 'silver', label: 'Silver (oz)', file: 'silver.json' },
   { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json' },
   { id: 'labor-hours', label: 'Median Work Hour', file: 'labor-hours.json' },
   { id: 'mfg-wage', label: 'Mfg Work Hour', file: 'mfg-wage.json' },
@@ -45,6 +49,7 @@ const DATA_SERIES = [
 // Unit labels for measuring sticks
 const UNIT_LABELS = {
   'gold': 'oz gold',
+  'silver': 'oz silver',
   'bitcoin': 'BTC',
   'labor-hours': 'hours',
   'mfg-wage': 'hours',
@@ -57,7 +62,11 @@ const UNIT_LABELS = {
 const ASSET_UNITS = {
   'sp500': '/ share',
   'median-home': '/ home',
+  'beans': '/ lb',
+  'rice': '/ lb',
+  'gasoline': '/ gal',
   'gold': '/ oz',
+  'silver': '/ oz',
   'bitcoin': '/ BTC',
   'labor-hours': '/ hour',
   'mfg-wage': '/ hour',
