@@ -2309,6 +2309,31 @@ body {
 	color: var(--text-subtle);
 }
 
+.bug-report-field input[type="text"],
+.bug-report-field input[type="email"] {
+	width: 100%;
+	padding: var(--space-md);
+	background: var(--bg-tertiary);
+	border: 1px solid var(--border-primary);
+	border-radius: var(--radius-md);
+	color: var(--text-primary);
+	font-family: inherit;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	transition: border-color var(--transition-fast);
+}
+
+.bug-report-field input[type="text"]:focus,
+.bug-report-field input[type="email"]:focus {
+	outline: none;
+	border-color: var(--color-primary);
+}
+
+.bug-report-field input[type="text"]::placeholder,
+.bug-report-field input[type="email"]::placeholder {
+	color: var(--text-subtle);
+}
+
 .bug-report-auto-data {
 	margin-bottom: var(--space-lg);
 	padding: var(--space-md);

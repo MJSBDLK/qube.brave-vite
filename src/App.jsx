@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Sidebar from './components/Sidebar'
 import ErrorBoundary from './components/ErrorBoundary'
 import BugReportModal from './components/BugReportModal'
+import DatasetSuggestionModal from './components/DatasetSuggestionModal'
 import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import SecretSanta from './pages/SecretSanta'
@@ -12,6 +13,7 @@ import Inflation from './pages/Inflation'
 import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
 import { BugReportProvider } from './contexts/BugReportContext'
+import { DatasetSuggestionProvider } from './contexts/DatasetSuggestionContext'
 
 function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -144,10 +146,13 @@ function App() {
   return (
     <HashRouter>
       <BugReportProvider>
-        <SpicyModeProvider>
-          <AppLayout />
-          <BugReportModal />
-        </SpicyModeProvider>
+        <DatasetSuggestionProvider>
+          <SpicyModeProvider>
+            <AppLayout />
+            <BugReportModal />
+            <DatasetSuggestionModal />
+          </SpicyModeProvider>
+        </DatasetSuggestionProvider>
       </BugReportProvider>
     </HashRouter>
   )

@@ -1,4 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
+import { Lightbulb } from 'lucide-react'
+import { useDatasetSuggestion } from '../../contexts/DatasetSuggestionContext'
 import {
   ResponsiveContainer,
   AreaChart,
@@ -81,6 +83,7 @@ function formatValue(value) {
 }
 
 export default function InflationPage() {
+  const { openDatasetSuggestion } = useDatasetSuggestion()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [rawData, setRawData] = useState({})
@@ -309,6 +312,13 @@ export default function InflationPage() {
       </div>
 
       <DataFreshness metadata={metadata} activeIds={[asset, measuringStick]} />
+
+      <div className="inflation-suggest">
+        <button className="suggest-dataset-btn" onClick={openDatasetSuggestion}>
+          <Lightbulb size={16} />
+          Suggest a Dataset
+        </button>
+      </div>
     </div>
   )
 }
