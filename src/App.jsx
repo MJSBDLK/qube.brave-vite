@@ -10,7 +10,7 @@ import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import SecretSanta from './pages/SecretSanta'
 import Inflation from './pages/Inflation'
-import { updatePageMetadata, getDisplayUrl } from './utils/urlUtils'
+import { updatePageMetadata, getDisplayUrl, getCanonicalDomain } from './utils/urlUtils'
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
 import { BugReportProvider } from './contexts/BugReportContext'
 import { DatasetSuggestionProvider } from './contexts/DatasetSuggestionContext'
@@ -52,7 +52,7 @@ function AppLayout() {
   // Update page metadata based on current route
   useEffect(() => {
     const getPageInfo = () => {
-      const baseDomain = 'qube.brave'
+      const baseDomain = getCanonicalDomain()
       
       switch (location.pathname) {
         case '/':

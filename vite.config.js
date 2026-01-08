@@ -15,7 +15,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    host: '0.0.0.0', // Allow external connections
+    host: true, // Bind to all interfaces (IPv4 + IPv6)
     proxy: {
       '/api': 'http://localhost:3010' // Bug report API
     }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Lightbulb, TrendingUp, Activity } from 'lucide-react'
+import { Lightbulb, TrendingUp, Activity, ChevronDown, ChevronUp } from 'lucide-react'
 import { useDatasetSuggestion } from '../../contexts/DatasetSuggestionContext'
 import {
   ResponsiveContainer,
@@ -157,6 +157,7 @@ export default function InflationPage() {
   const [showRegression, setShowRegression] = useState(false)
   const [showMA, setShowMA] = useState(false)
   const [maWindow, setMaWindow] = useState(4) // years
+  const [aboutExpanded, setAboutExpanded] = useState(false)
 
   // Transform data when selections change
   const chartData = useMemo(() => {
@@ -218,16 +219,27 @@ export default function InflationPage() {
   const enhancedData = useMemo(() => {
     if (!filteredData || filteredData.length < 2) return null
 
+    // Calculate regression on filtered data (trend for visible period)
     const regression = calculateRegression(filteredData)
-    const maData = calculateMovingAverage(filteredData, maWindow)
 
-    // Combine regression and MA values
-    return filteredData.map((point, i) => ({
+    // Calculate MA on FULL chartData so we have lookback before the visible range
+    const fullMaData = calculateMovingAverage(chartData, maWindow)
+
+    // Create a map of time -> ma value for quick lookup
+    const maMap = new Map()
+    for (const point of fullMaData) {
+      if (point.ma != null) {
+        maMap.set(point.time, point.ma)
+      }
+    }
+
+    // Combine: use filteredData but look up MA from the full calculation
+    return filteredData.map((point) => ({
       ...point,
       regression: regression ? regression.slope * point.time + regression.intercept : null,
-      ma: maData[i]?.ma ?? null
+      ma: maMap.get(point.time) ?? null
     }))
-  }, [filteredData, maWindow])
+  }, [chartData, filteredData, maWindow])
 
   // Dynamic label for legend
   const chartLabel = useMemo(() => {
@@ -321,7 +333,7 @@ export default function InflationPage() {
       <div className="inflation-header">
         <h1 className="inflation-title">Inflation™</h1>
         <p className="inflation-subtitle">
-          Price assets using alternative measuring sticks
+          Price assets using other assets
         </p>
       </div>
 
@@ -473,6 +485,59 @@ export default function InflationPage() {
           <Lightbulb size={16} />
           Suggest a Dataset
         </button>
+      </div>
+
+      <div className="inflation-about">
+        <button
+          className="about-toggle"
+          onClick={() => setAboutExpanded(!aboutExpanded)}
+        >
+          <span>About This Page</span>
+          {aboutExpanded ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+        </button>
+        {aboutExpanded && (
+          <div className="about-content">
+            <h3>What is this?</h3>
+            <p>
+              This tool lets you price various assets in other assets.
+              By expressing prices in gold, silver, Bitcoin, or labor hours,
+              you can see how asset values have changed relative to these benchmarks over time.
+            </p>
+
+            <h3>Why?</h3>
+            <p>
+              CPI (Inflation™) is a dumpster fire.
+              I'm increasingly convinced the notion that one can capture the value of the US dollar across time with a single index is fundamentally wrong.
+              I decided to build this tool using easily available datasets to gain a deeper understanding of assets' performance relative to each other across time.
+            </p>
+
+            <h3>Challenges</h3>
+            <p>
+              The star of the show here is median labor hours, which, in my humble yet correct opinion, is a superior way of gauging changes in cost over time.
+              The main challenge in this project is finding good data. Most compiled datasets either don't go back very far, are out-of-date, behind paywalls, or come pre-adjusted for CPI.
+            </p>
+
+            <h3>Data Sources</h3>
+            <p>
+              Prices are sourced from FRED (Federal Reserve Economic Data), USDA, and other
+              public datasets. Gold and silver prices extend back to 1792 via MeasuringWorth.
+              All prices are nominal USD values—no CPI adjustments applied unless otherwise stated.
+            </p>
+
+            <h3>How to use</h3>
+            <ul>
+              <li>Select an asset (what you want to price)</li>
+              <li>Select a measuring stick (what to price it in)</li>
+              <li>Use the time range buttons to zoom in on specific periods</li>
+              <li>Toggle regression and moving average lines to see trends</li>
+            </ul>
+
+            <h3>Help me build this tool!</h3>
+            <p>
+              If you have suggestions for datasets or features, please use the suggestion feature above I want to make this tool as useful as possible.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )

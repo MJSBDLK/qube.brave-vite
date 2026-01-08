@@ -7,6 +7,22 @@ import SpicyWord from '../components/SpicyWord'
 const HomePage = () => {
 	const updates = [
 		{
+			date: 'Jan 8, 2026',
+			title: 'Inflation™',
+			badge: 'New Tool',
+			badgeType: 'teal',
+			content: (
+				<>
+					<p className="text-body text-secondary u-m-sm">
+						Visualize asset prices measured in other assets
+					</p>
+					<div className="u-flex u-gap-sm">
+						<Link to="/inflation" className="c-button c-button--primary">In 2026 Dollars™</Link>
+					</div>
+				</>
+			)
+		},
+		{
 			date: 'Nov 21, 2025',
 			title: 'Secret Santa Generator',
 			badge: 'New Tool',
@@ -17,7 +33,7 @@ const HomePage = () => {
 						Secret Santa generator with clan constraints - no one gets matched within their own family/group
 					</p>
 					<div className="u-flex u-gap-sm">
-						<Link to="/secretsanta" className="c-button c-button--primary">Try It Out</Link>
+						<Link to="/secretsanta" className="c-button c-button--primary">Ho ho ho</Link>
 					</div>
 				</>
 			)
@@ -41,32 +57,32 @@ const HomePage = () => {
 		}
 	]
 
-  return (
-    <>
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
+	return (
+		<>
+			{/* Hero Section */}
+			<section className="hero-section">
+				<div className="hero-content">
 					<Tagline />
-          <h1 className="text-display u-mb-lg">Quinn Davis</h1>
-          <p
+					<h1 className="text-display u-mb-lg">Quinn Davis</h1>
+					<p
 						className="text-body text-secondary"
-						// title="I'll replace this when I think of a good description, chill"
-						>
-            "You must accept inconvenience on principle or you get to live in a <SpicyWord worksafe="degraded" spicy="shit" /> world"
-          </p>
-        </div>
-      </section>
+					// title="I'll replace this when I think of a good description, chill"
+					>
+						"You must accept inconvenience on principle or you get to live in a <SpicyWord worksafe="garbage" spicy="shit" /> world"
+					</p>
+				</div>
+			</section>
 
-      {/* Updates Section */}
-      <section className="updates-section">
-        <h2 className="text-title-2 u-mb-lg">Latest Updates</h2>
-        
-        {updates.map((update, index) => (
-          <Update key={index} content={update} />
-        ))}
-      </section>
-    </>
-  )
+			{/* Updates Section */}
+			<section className="updates-section">
+				<h2 className="text-title-2 u-mb-lg">Latest Updates</h2>
+
+				{updates.map((update, index) => (
+					<Update key={index} content={update} />
+				))}
+			</section>
+		</>
+	)
 }
 
 export default HomePage

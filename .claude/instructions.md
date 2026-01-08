@@ -42,6 +42,9 @@
 
 ### Adding a Simple Page
 
+**See [NEW_PAGE_CHECKLIST.md](../NEW_PAGE_CHECKLIST.md) for the full checklist.**
+
+Quick reference:
 1. Create component: `src/pages/NewPage.jsx`
 2. Add route in `src/App.jsx`:
    ```jsx
@@ -50,7 +53,8 @@
    } />
    ```
 3. Add navigation in `src/components/Sidebar.jsx`
-4. Update metadata in `App.jsx` `getPageInfo()` function
+4. Add homepage card in `src/pages/Home.jsx`
+5. Update metadata in `App.jsx` `getPageInfo()` function
 
 ### Adding a Complex Tool (like Ramps)
 
