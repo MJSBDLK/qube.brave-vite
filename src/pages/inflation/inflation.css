@@ -27,6 +27,10 @@
 
 /* Controls */
 .inflation-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-lg);
   margin-bottom: var(--space-lg);
 }
 
@@ -100,6 +104,33 @@
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: white;
+}
+
+/* Regression Toggle */
+.regression-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-left: auto;
+}
+
+.regression-toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.regression-toggle.active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: #f59e0b;
+  color: #f59e0b;
 }
 
 /* Chart Container */
@@ -218,6 +249,16 @@
   border-radius: 2px;
 }
 
+.legend-color.legend-dashed {
+  background: repeating-linear-gradient(
+    90deg,
+    currentColor,
+    currentColor 3px,
+    transparent 3px,
+    transparent 5px
+  ) !important;
+}
+
 .legend-label {
   font-size: 0.875rem;
   font-weight: 500;
@@ -334,6 +375,12 @@
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
+}
+
+.recharts-custom-tooltip .tooltip-regression {
+  font-size: 0.875rem;
+  color: #f59e0b;
+  margin: 4px 0 0 0;
 }
 
 /* Suggest Dataset Section */

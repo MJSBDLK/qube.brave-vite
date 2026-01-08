@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Lightbulb } from 'lucide-react'
+import { Lightbulb, TrendingUp } from 'lucide-react'
 import { useDatasetSuggestion } from '../../contexts/DatasetSuggestionContext'
 import {
   ResponsiveContainer,
-  AreaChart,
+  ComposedChart,
   Area,
+  Line,
   XAxis,
   YAxis,
   Tooltip,
@@ -97,6 +98,26 @@ function formatValue(value) {
   return value.toFixed(4)
 }
 
+// Calculate linear regression (least squares)
+function calculateRegression(data) {
+  if (!data || data.length < 2) return null
+
+  const n = data.length
+  let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0
+
+  for (const point of data) {
+    sumX += point.time
+    sumY += point.value
+    sumXY += point.time * point.value
+    sumX2 += point.time * point.time
+  }
+
+  const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX)
+  const intercept = (sumY - slope * sumX) / n
+
+  return { slope, intercept }
+}
+
 export default function InflationPage() {
   const { openDatasetSuggestion } = useDatasetSuggestion()
   const [loading, setLoading] = useState(true)
@@ -106,6 +127,7 @@ export default function InflationPage() {
   const [dateRange, setDateRange] = useState('max')
   const [asset, setAsset] = useState('sp500')
   const [measuringStick, setMeasuringStick] = useState('labor-hours')
+  const [showRegression, setShowRegression] = useState(false)
 
   // Transform data when selections change
   const chartData = useMemo(() => {
@@ -162,6 +184,20 @@ export default function InflationPage() {
     const startTimestamp = Math.floor(startDate.getTime() / 1000)
     return chartData.filter(d => d.time >= startTimestamp)
   }, [chartData, dateRange])
+
+  // Calculate regression line data
+  const regressionData = useMemo(() => {
+    if (!filteredData || filteredData.length < 2) return null
+
+    const regression = calculateRegression(filteredData)
+    if (!regression) return null
+
+    // Add regression value to each data point
+    return filteredData.map(point => ({
+      ...point,
+      regression: regression.slope * point.time + regression.intercept
+    }))
+  }, [filteredData])
 
   // Dynamic label for legend
   const chartLabel = useMemo(() => {
@@ -236,6 +272,11 @@ export default function InflationPage() {
           {date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
         </p>
         <p className="tooltip-value">{formatValue(data.value)} {unitLabel}</p>
+        {showRegression && data.regression != null && (
+          <p className="tooltip-regression">
+            Trend: {formatValue(data.regression)} {unitLabel}
+          </p>
+        )}
       </div>
     )
   }
@@ -259,6 +300,14 @@ export default function InflationPage() {
           onMeasuringStickChange={setMeasuringStick}
           availableOptions={DATA_SERIES}
         />
+        <button
+          className={`regression-toggle ${showRegression ? 'active' : ''}`}
+          onClick={() => setShowRegression(!showRegression)}
+          title="Toggle trend line"
+        >
+          <TrendingUp size={16} />
+          Trend
+        </button>
       </div>
 
       <div className="inflation-chart-container">
@@ -269,9 +318,9 @@ export default function InflationPage() {
             <button onClick={loadData}>Retry</button>
           </div>
         )}
-        {filteredData && filteredData.length > 0 && (
+        {regressionData && regressionData.length > 0 && (
           <ResponsiveContainer width="100%" height={500}>
-            <AreaChart data={filteredData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+            <ComposedChart data={regressionData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#6b73a3" stopOpacity={0.4} />
@@ -314,7 +363,18 @@ export default function InflationPage() {
                 fill="url(#areaGradient)"
                 isAnimationActive={false}
               />
-            </AreaChart>
+              {showRegression && (
+                <Line
+                  type="linear"
+                  dataKey="regression"
+                  stroke="#f59e0b"
+                  strokeWidth={2}
+                  strokeDasharray="5 5"
+                  dot={false}
+                  isAnimationActive={false}
+                />
+              )}
+            </ComposedChart>
           </ResponsiveContainer>
         )}
       </div>
@@ -324,6 +384,12 @@ export default function InflationPage() {
           <span className="legend-color" style={{ background: '#6b73a3' }} />
           <span className="legend-label">{chartLabel}</span>
         </div>
+        {showRegression && (
+          <div className="legend-item">
+            <span className="legend-color legend-dashed" style={{ background: '#f59e0b' }} />
+            <span className="legend-label">Linear Trend</span>
+          </div>
+        )}
       </div>
 
       <DataFreshness metadata={metadata} activeIds={[asset, measuringStick]} />
