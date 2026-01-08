@@ -507,8 +507,8 @@ export default function InflationPage() {
             <h3>Why?</h3>
             <p>
               CPI (Inflation™) is a dumpster fire.
-              I'm increasingly convinced the notion that one can capture the value of the US dollar across time with a single index is fundamentally wrong.
-              I decided to build this tool using easily available datasets to gain a deeper understanding of assets' performance relative to each other across time.
+              I'm increasingly convinced you can't properly capture a currency's value across time with a single index.
+              I built this tool using easily available datasets to gain a deeper understanding of assets' performance relative to each other across time.
             </p>
 
             <h3>Challenges</h3>
