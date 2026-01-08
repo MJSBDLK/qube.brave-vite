@@ -133,6 +133,54 @@
   color: #f59e0b;
 }
 
+/* Moving Average Control */
+.ma-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.ma-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ma-toggle:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.ma-toggle.active {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.ma-window-select {
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid #10b981;
+  border-radius: var(--radius-sm);
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ma-window-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
 /* Chart Container */
 .inflation-chart-container {
   position: relative;
@@ -380,6 +428,12 @@
 .recharts-custom-tooltip .tooltip-regression {
   font-size: 0.875rem;
   color: #f59e0b;
+  margin: 4px 0 0 0;
+}
+
+.recharts-custom-tooltip .tooltip-ma {
+  font-size: 0.875rem;
+  color: #10b981;
   margin: 4px 0 0 0;
 }
 

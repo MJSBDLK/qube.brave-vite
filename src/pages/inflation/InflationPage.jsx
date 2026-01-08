@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Lightbulb, TrendingUp } from 'lucide-react'
+import { Lightbulb, TrendingUp, Activity } from 'lucide-react'
 import { useDatasetSuggestion } from '../../contexts/DatasetSuggestionContext'
 import {
   ResponsiveContainer,
@@ -118,6 +118,33 @@ function calculateRegression(data) {
   return { slope, intercept }
 }
 
+// Calculate moving average with time-based window (in years)
+function calculateMovingAverage(data, windowYears) {
+  if (!data || data.length < 2) return data
+
+  const windowSeconds = windowYears * 365.25 * 24 * 60 * 60
+  const dataStartTime = data[0].time
+
+  return data.map((point) => {
+    const windowStart = point.time - windowSeconds
+
+    // Only show MA after we have a full window of data
+    if (windowStart < dataStartTime) {
+      return { ...point, ma: null }
+    }
+
+    // Get all points within the window
+    const windowPoints = data.filter(p => p.time >= windowStart && p.time <= point.time)
+
+    if (windowPoints.length === 0) {
+      return { ...point, ma: null }
+    }
+
+    const sum = windowPoints.reduce((acc, p) => acc + p.value, 0)
+    return { ...point, ma: sum / windowPoints.length }
+  })
+}
+
 export default function InflationPage() {
   const { openDatasetSuggestion } = useDatasetSuggestion()
   const [loading, setLoading] = useState(true)
@@ -128,6 +155,8 @@ export default function InflationPage() {
   const [asset, setAsset] = useState('sp500')
   const [measuringStick, setMeasuringStick] = useState('labor-hours')
   const [showRegression, setShowRegression] = useState(false)
+  const [showMA, setShowMA] = useState(false)
+  const [maWindow, setMaWindow] = useState(4) // years
 
   // Transform data when selections change
   const chartData = useMemo(() => {
@@ -185,19 +214,20 @@ export default function InflationPage() {
     return chartData.filter(d => d.time >= startTimestamp)
   }, [chartData, dateRange])
 
-  // Calculate regression line data
-  const regressionData = useMemo(() => {
+  // Calculate regression and moving average data
+  const enhancedData = useMemo(() => {
     if (!filteredData || filteredData.length < 2) return null
 
     const regression = calculateRegression(filteredData)
-    if (!regression) return null
+    const maData = calculateMovingAverage(filteredData, maWindow)
 
-    // Add regression value to each data point
-    return filteredData.map(point => ({
+    // Combine regression and MA values
+    return filteredData.map((point, i) => ({
       ...point,
-      regression: regression.slope * point.time + regression.intercept
+      regression: regression ? regression.slope * point.time + regression.intercept : null,
+      ma: maData[i]?.ma ?? null
     }))
-  }, [filteredData])
+  }, [filteredData, maWindow])
 
   // Dynamic label for legend
   const chartLabel = useMemo(() => {
@@ -277,6 +307,11 @@ export default function InflationPage() {
             Trend: {formatValue(data.regression)} {unitLabel}
           </p>
         )}
+        {showMA && data.ma != null && (
+          <p className="tooltip-ma">
+            {maWindow}Y MA: {formatValue(data.ma)} {unitLabel}
+          </p>
+        )}
       </div>
     )
   }
@@ -306,8 +341,30 @@ export default function InflationPage() {
           title="Toggle trend line"
         >
           <TrendingUp size={16} />
-          Trend
+          Regression
         </button>
+        <div className="ma-control">
+          <button
+            className={`ma-toggle ${showMA ? 'active' : ''}`}
+            onClick={() => setShowMA(!showMA)}
+            title="Toggle moving average"
+          >
+            <Activity size={16} />
+            MA
+          </button>
+          {showMA && (
+            <select
+              className="ma-window-select"
+              value={maWindow}
+              onChange={(e) => setMaWindow(Number(e.target.value))}
+            >
+              <option value={1}>1Y</option>
+              <option value={2}>2Y</option>
+              <option value={4}>4Y</option>
+              <option value={10}>10Y</option>
+            </select>
+          )}
+        </div>
       </div>
 
       <div className="inflation-chart-container">
@@ -318,9 +375,9 @@ export default function InflationPage() {
             <button onClick={loadData}>Retry</button>
           </div>
         )}
-        {regressionData && regressionData.length > 0 && (
+        {enhancedData && enhancedData.length > 0 && (
           <ResponsiveContainer width="100%" height={500}>
-            <ComposedChart data={regressionData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+            <ComposedChart data={enhancedData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#6b73a3" stopOpacity={0.4} />
@@ -363,6 +420,17 @@ export default function InflationPage() {
                 fill="url(#areaGradient)"
                 isAnimationActive={false}
               />
+              {showMA && (
+                <Line
+                  type="monotone"
+                  dataKey="ma"
+                  stroke="#10b981"
+                  strokeWidth={2}
+                  dot={false}
+                  isAnimationActive={false}
+                  connectNulls
+                />
+              )}
               {showRegression && (
                 <Line
                   type="linear"
@@ -384,6 +452,12 @@ export default function InflationPage() {
           <span className="legend-color" style={{ background: '#6b73a3' }} />
           <span className="legend-label">{chartLabel}</span>
         </div>
+        {showMA && (
+          <div className="legend-item">
+            <span className="legend-color" style={{ background: '#10b981' }} />
+            <span className="legend-label">{maWindow}-Year Moving Avg</span>
+          </div>
+        )}
         {showRegression && (
           <div className="legend-item">
             <span className="legend-color legend-dashed" style={{ background: '#f59e0b' }} />
