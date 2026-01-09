@@ -40,6 +40,14 @@ const DATA_SERIES = [
   { id: 'beef-retail', label: 'Beef (lb)', file: 'beef-retail.json' },
   { id: 'pork-retail', label: 'Pork (lb)', file: 'pork-retail.json' },
   { id: 'chicken-retail', label: 'Chicken (lb)', file: 'chicken-retail.json' },
+  // World Bank Pink Sheet commodities
+  { id: 'crude-oil-wti', label: 'Crude Oil WTI (bbl)', file: 'crude-oil-wti.json' },
+  { id: 'coffee-arabica', label: 'Coffee Arabica (kg)', file: 'coffee-arabica.json' },
+  { id: 'wheat', label: 'Wheat (mt)', file: 'wheat.json' },
+  { id: 'copper', label: 'Copper (mt)', file: 'copper.json' },
+  // USDA NASS (farmer prices, long history)
+  { id: 'corn', label: 'Corn (bu)', file: 'corn.json' },
+  { id: 'soybeans', label: 'Soybeans (bu)', file: 'soybeans.json' },
   // Measuring sticks
   { id: 'gold', label: 'Gold (oz)', file: 'gold.json' },
   { id: 'silver', label: 'Silver (oz)', file: 'silver.json' },
@@ -74,6 +82,12 @@ const ASSET_UNITS = {
   'beef-retail': '/ lb',
   'pork-retail': '/ lb',
   'chicken-retail': '/ lb',
+  'crude-oil-wti': '/ bbl',
+  'coffee-arabica': '/ kg',
+  'wheat': '/ mt',
+  'copper': '/ mt',
+  'corn': '/ bu',
+  'soybeans': '/ bu',
   'gold': '/ oz',
   'silver': '/ oz',
   'bitcoin': '/ BTC',
