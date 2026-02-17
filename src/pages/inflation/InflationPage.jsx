@@ -53,9 +53,14 @@ const DATA_SERIES = [
   { id: 'silver', label: 'Silver (oz)', file: 'silver.json' },
   { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json' },
   { id: 'labor-hours', label: 'Median Work Hour', file: 'labor-hours.json' },
+  { id: 'median-extended', label: 'Median Hour (Extended)', file: 'median-extended.json' },
   { id: 'mfg-wage', label: 'Mfg Work Hour', file: 'mfg-wage.json' },
   { id: 'avg-wage', label: 'Avg Work Hour', file: 'avg-wage.json' },
   { id: 'min-wage', label: 'Min Wage Hour', file: 'min-wage.json' },
+  { id: 'p10-wage', label: '10th %ile Work Hour', file: 'p10-wage.json' },
+  { id: 'p25-wage', label: '25th %ile Work Hour', file: 'p25-wage.json' },
+  { id: 'p75-wage', label: '75th %ile Work Hour', file: 'p75-wage.json' },
+  { id: 'p90-wage', label: '90th %ile Work Hour', file: 'p90-wage.json' },
   { id: 'usd', label: 'USD (nominal)', file: null },
 ]
 
@@ -65,9 +70,14 @@ const UNIT_LABELS = {
   'silver': 'oz silver',
   'bitcoin': 'BTC',
   'labor-hours': 'hours',
+  'median-extended': 'hours',
   'mfg-wage': 'hours',
   'avg-wage': 'hours',
   'min-wage': 'hours',
+  'p10-wage': 'hours',
+  'p25-wage': 'hours',
+  'p75-wage': 'hours',
+  'p90-wage': 'hours',
   'usd': 'USD',
 }
 
@@ -92,9 +102,14 @@ const ASSET_UNITS = {
   'silver': '/ oz',
   'bitcoin': '/ BTC',
   'labor-hours': '/ hour',
+  'median-extended': '/ hour',
   'mfg-wage': '/ hour',
   'avg-wage': '/ hour',
   'min-wage': '/ hour',
+  'p10-wage': '/ hour',
+  'p25-wage': '/ hour',
+  'p75-wage': '/ hour',
+  'p90-wage': '/ hour',
   'usd': '/ $1',
 }
 
