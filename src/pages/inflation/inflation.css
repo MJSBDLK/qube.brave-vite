@@ -397,10 +397,49 @@
   color: var(--text-muted);
 }
 
+.freshness-caveat-section {
+  margin-top: 4px;
+}
+
 .freshness-caveat {
   color: #eab308 !important;
   font-style: italic;
-  margin-top: 4px;
+  font-size: 0.75rem;
+}
+
+.freshness-caveat-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 2px 0;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.freshness-caveat-toggle:hover {
+  opacity: 1;
+  color: #eab308;
+}
+
+.freshness-caveat-details {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.freshness-caveat-details li {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding-left: 8px;
+  border-left: 2px solid rgba(234, 179, 8, 0.3);
 }
 
 /* Recharts Custom Tooltip */
