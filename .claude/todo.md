@@ -11,46 +11,6 @@
 
 ---
 
-## Feature: Fitness Log
-**Branch:** `rqd--fitness`
-**Potential subdomain:** qube.fit
-
-### Phase 1 - MVP (Strong App Clone)
-- [ ] Scaffold page per NEW_PAGE_CHECKLIST.md (route, sidebar, homepage card, meta)
-- [ ] Design data model for workouts, exercises, sets, reps, weight
-- [ ] Build exercise library (searchable list of exercises with muscle groups, equipment)
-- [ ] Build workout logging UI (add exercises, log sets/reps/weight, rest timers)
-- [ ] Workout history view (past sessions, filterable by date/exercise)
-- [ ] Exercise progress tracking (charts per exercise over time)
-- [ ] Data persistence (localStorage MVP, API backend later)
-- [ ] Significantly more free options than Strong (no paywall on exercise count, charts, etc.)
-
-### Phase 2 - Smart Programming
-- [ ] Exercise rotation system (auto-rotate accessories in/out on a schedule)
-- [ ] Periodization templates (linear, block, undulating)
-- [ ] Deload week suggestions based on accumulated volume/fatigue
-
-### Phase 3 - Trainer/Client
-- [ ] Trainer accounts that can create/assign programs to clients
-- [ ] Client progress dashboard visible to trainer
-- [ ] Program templates that trainers can share/sell
-- [ ] Messaging/notes between trainer and client
-
-### Phase 4 - Advanced Programming
-- [ ] Intermediate routines library (5/3/1, GZCL, nSuns, etc.)
-- [ ] Advanced routines library
-- [ ] **Conjugate method focus** - max effort / dynamic effort / repetition method tracking
-  - ME day rotation tracking (exercise variation cycling)
-  - DE day percentage/band/chain progression
-  - Weakness identification and accessory recommendations
-  - This fills a real gap - PTs in the strength community need good conjugate tooling
-- [ ] **5th Set (Swede Burns) secondary focus** - RPE-based autoregulation program
-  - Ideal for athletes limited to 3 days/week (vs 4 for conjugate)
-  - Weight increases / volume decreases across mesocycle for peaking
-  - Also has confirmed demand from PTs in the strength community
-
----
-
 ## Feature: Tier List
 **Branch:** `rqd--tierlist`
 
@@ -111,7 +71,60 @@
 
 ---
 
+## Feature: Recipe Book
+**Branch:** `rqd--recipes`
+**Potential subdomain:** TBD
+
+### Phase 1 - Data Model & Storage
+- [ ] Define standardized recipe schema (JSON):
+  - Title, description, source/attribution
+  - Ingredients list (quantity, unit, item, prep notes)
+  - Steps (ordered, with optional timing/temp metadata)
+  - Tags/categories (cuisine, meal type, dietary: vegan, GF, etc.)
+  - Prep time, cook time, total time, servings
+  - Difficulty rating
+  - Photos (hero image, optional per-step images)
+  - Notes/tips field
+  - Version/edit history
+- [ ] Scaffold page per NEW_PAGE_CHECKLIST.md
+- [ ] Backend API endpoints for recipe CRUD (qube-api)
+- [ ] Recipe file storage format decision (DB records vs flat JSON files vs hybrid)
+
+### Phase 2 - Core UI
+- [ ] Recipe list/browse view with search, filter by tag/category/dietary
+- [ ] Full recipe detail view (clean, readable, mobile-friendly)
+- [ ] "Cook mode" — simplified step-by-step view optimized for kitchen use (large text, keep-screen-awake, tap to advance)
+- [ ] Scaling — adjust servings and auto-recalculate ingredient quantities
+- [ ] Print-friendly layout
+- [ ] Admin interface for manual recipe entry/editing
+
+### Phase 3 - OpenClaw Integration
+- [ ] Define API endpoint for recipe submission (POST with auth token)
+- [ ] Validate incoming recipes against the standardized schema
+- [ ] Auto-parse and normalize ingredient formats (e.g., "2 cloves garlic, minced" → structured data)
+- [ ] Support submitting recipes via natural language (OpenClaw sends freeform text, API parses into schema)
+- [ ] Pending/review queue — OpenClaw-submitted recipes land in draft state for quick review before publishing
+- [ ] Feedback response — API returns confirmation or validation errors back to OpenClaw
+- [ ] Bulk import support (submit multiple recipes in one request)
+
+### Phase 4 - Family Sharing
+- [ ] Shareable recipe links (public or family-only via private link/token)
+- [ ] Family collection/cookbook grouping (e.g., "Holiday Favorites," "Weeknight Dinners")
+- [ ] Favorites/bookmarking per user
+- [ ] Comments/notes per recipe (family members can add their own tweaks)
+- [ ] Meal planning calendar — drag recipes onto days of the week
+- [ ] Shopping list generation from selected recipes (aggregate + deduplicate ingredients)
+
+### Phase 5 - Extras
+- [ ] Import recipes from URL (scrape and parse common recipe sites)
+- [ ] Export cookbook as PDF
+- [ ] Nutritional info estimation (API integration or manual entry)
+- [ ] Recipe version history (track edits over time)
+- [ ] Voice control / hands-free navigation in cook mode
+
+---
+
 ## General / Cross-Cutting
-- [ ] Decide which features need their own subdomain vs staying on qube.brave
 - [ ] Backend API expansion (qube-api) for features needing persistence beyond localStorage
-- [ ] Auth system for trainer/client, admin, and user-submitted content features
+- [ ] Auth system for admin and user-submitted content features
+- [ ] Fitness app lives separately at /var/www/fit.mjsbdlk (fit.mjsbdlk.com) — see that project's todo
