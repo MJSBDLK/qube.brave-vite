@@ -4,15 +4,26 @@
 
 ## Current Branch: `rqd--inflation`
 
-### Inflation Page Remaining Work
-- [ ] Derive median work hours as far back as possible
-- [ ] Derive stratified percentile work hours as far back as possible
-- [ ] Commit new untracked data files (median-extended, p10/p25/p75/p90 wages)
+### Inflation Page — Completed
+- [x] Scaffold inflation page with chart UI, data source cards, moving average, regression
+- [x] Add core datasets: median-home, case-shiller, median-rent, gasoline, crude-oil, gold, silver, bitcoin, S&P 500
+- [x] Add grocery datasets: beans, rice, beer, beef-retail, pork-retail, chicken-retail
+- [x] Add commodity datasets: coffee-arabica, wheat, copper, corn, soybeans
+- [x] Add labor/wage datasets: labor-hours, avg-wage, mfg-wage
+- [x] Derive median-extended wage series back to 1964 (avg-wage × 0.99 for pre-1979)
+- [x] Derive stratified percentile wages: p10, p25, p75, p90 (2000-present)
+- [x] Commit all data files (median-extended, p10/p25/p75/p90 wages)
+- [x] Extend S&P 500 back to 1871 with expandable methodology notes on data source cards
+- [x] Fetch data files for electricity, ground-beef, eggs, milk, beef-steak (JSON files present)
+
+### Inflation Page — Remaining Work
+- [ ] Wire up already-fetched datasets to frontend UI (electricity, ground-beef, eggs, milk — data exists but not in DATA_SERIES)
+- [ ] Fetch and wire medical-cpi (configured in dataSeries.js but no JSON file yet)
+- [ ] Fetch and wire tuition-cpi (configured in dataSeries.js but no JSON file yet)
 - [ ] Add CPIAUCSL (CPI-U All Items) as a utility series for un-adjusting "real" datasets
-- [ ] Wire up remaining already-fetched datasets (electricity, ground-beef, eggs, milk, medical-cpi, tuition-cpi, m2)
+- [ ] Review CPI-based series (electricity, ground-beef, eggs, milk, median-rent) — ensure nominal USD, un-adjust if needed
 - [ ] Investigate Zillow ZHVI Bottom Tier as "starter home" proxy (needs CSV fetcher)
 - [ ] Investigate Case-Shiller Low Tier metro indices for starter home tracking
-- [ ] Any CPI-adjusted dataset MUST be un-adjusted to nominal before use
 
 ---
 
