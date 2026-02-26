@@ -28,40 +28,50 @@ function dedupeAndSort(data) {
     .map(([time, value]) => ({ time, value }))
 }
 
+// Category definitions (order controls display in dropdowns)
+const CATEGORIES = [
+  { id: 'indices', label: 'Indices' },
+  { id: 'housing', label: 'Housing' },
+  { id: 'groceries', label: 'Groceries' },
+  { id: 'energy', label: 'Energy' },
+  { id: 'commodities', label: 'Commodities' },
+  { id: 'real-money', label: 'Real Money' },
+  { id: 'labor', label: 'Labor' },
+  { id: 'currency', label: 'Currency' },
+]
+
 // Available options (both dropdowns share the same list)
 const DATA_SERIES = [
-  // Assets
-  { id: 'sp500', label: 'S&P 500', file: 'sp500.json' },
-  { id: 'median-home', label: 'Median Home', file: 'median-home.json' },
-  { id: 'beans', label: 'Dried Beans (lb)', file: 'beans.json' },
-  { id: 'rice', label: 'Rice (lb)', file: 'rice.json' },
-  { id: 'beer', label: 'Beer (16 oz)', file: 'beer.json' },
-  { id: 'gasoline', label: 'Gasoline (gal)', file: 'gasoline.json' },
-  { id: 'beef-retail', label: 'Beef (lb)', file: 'beef-retail.json' },
-  { id: 'pork-retail', label: 'Pork (lb)', file: 'pork-retail.json' },
-  { id: 'chicken-retail', label: 'Chicken (lb)', file: 'chicken-retail.json' },
-  // World Bank Pink Sheet commodities
-  { id: 'crude-oil-wti', label: 'Crude Oil WTI (bbl)', file: 'crude-oil-wti.json' },
-  { id: 'coffee-arabica', label: 'Coffee Arabica (kg)', file: 'coffee-arabica.json' },
-  { id: 'wheat', label: 'Wheat (mt)', file: 'wheat.json' },
-  { id: 'copper', label: 'Copper (mt)', file: 'copper.json' },
-  // USDA NASS (farmer prices, long history)
-  { id: 'corn', label: 'Corn (bu)', file: 'corn.json' },
-  { id: 'soybeans', label: 'Soybeans (bu)', file: 'soybeans.json' },
-  // Measuring sticks
-  { id: 'gold', label: 'Gold (oz)', file: 'gold.json' },
-  { id: 'silver', label: 'Silver (oz)', file: 'silver.json' },
-  { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json' },
-  { id: 'labor-hours', label: 'Median Work Hour', file: 'labor-hours.json' },
-  { id: 'median-extended', label: 'Median Hour (Extended)', file: 'median-extended.json' },
-  { id: 'mfg-wage', label: 'Mfg Work Hour', file: 'mfg-wage.json' },
-  { id: 'avg-wage', label: 'Avg Work Hour', file: 'avg-wage.json' },
-  { id: 'min-wage', label: 'Min Wage Hour', file: 'min-wage.json' },
-  { id: 'p10-wage', label: '10th %ile Work Hour', file: 'p10-wage.json' },
-  { id: 'p25-wage', label: '25th %ile Work Hour', file: 'p25-wage.json' },
-  { id: 'p75-wage', label: '75th %ile Work Hour', file: 'p75-wage.json' },
-  { id: 'p90-wage', label: '90th %ile Work Hour', file: 'p90-wage.json' },
-  { id: 'usd', label: 'USD (nominal)', file: null },
+  { id: 'sp500', label: 'S&P 500', file: 'sp500.json', category: 'indices' },
+  { id: 'median-home', label: 'Median Home', file: 'median-home.json', category: 'housing' },
+  { id: 'case-shiller', label: 'Case-Shiller HPI', file: 'case-shiller.json', category: 'housing' },
+  { id: 'median-rent', label: 'Median Rent (CPI)', file: 'median-rent.json', category: 'housing' },
+  { id: 'beans', label: 'Dried Beans (lb)', file: 'beans.json', category: 'groceries' },
+  { id: 'rice', label: 'Rice (lb)', file: 'rice.json', category: 'groceries' },
+  { id: 'beer', label: 'Beer (16 oz)', file: 'beer.json', category: 'groceries' },
+  { id: 'beef-retail', label: 'Beef (lb)', file: 'beef-retail.json', category: 'groceries' },
+  { id: 'pork-retail', label: 'Pork (lb)', file: 'pork-retail.json', category: 'groceries' },
+  { id: 'chicken-retail', label: 'Chicken (lb)', file: 'chicken-retail.json', category: 'groceries' },
+  { id: 'gasoline', label: 'Gasoline (gal)', file: 'gasoline.json', category: 'energy' },
+  { id: 'crude-oil-wti', label: 'Crude Oil WTI (bbl)', file: 'crude-oil-wti.json', category: 'energy' },
+  { id: 'coffee-arabica', label: 'Coffee Arabica (kg)', file: 'coffee-arabica.json', category: 'commodities' },
+  { id: 'wheat', label: 'Wheat (mt)', file: 'wheat.json', category: 'commodities' },
+  { id: 'copper', label: 'Copper (mt)', file: 'copper.json', category: 'commodities' },
+  { id: 'corn', label: 'Corn (bu)', file: 'corn.json', category: 'commodities' },
+  { id: 'soybeans', label: 'Soybeans (bu)', file: 'soybeans.json', category: 'commodities' },
+  { id: 'gold', label: 'Gold (oz)', file: 'gold.json', category: 'real-money' },
+  { id: 'silver', label: 'Silver (oz)', file: 'silver.json', category: 'real-money' },
+  { id: 'bitcoin', label: 'Bitcoin', file: 'bitcoin.json', category: 'real-money' },
+  { id: 'labor-hours', label: 'Median Work Hour', file: 'labor-hours.json', category: 'labor' },
+  { id: 'median-extended', label: 'Median Hour (Extended)', file: 'median-extended.json', category: 'labor' },
+  { id: 'mfg-wage', label: 'Mfg Work Hour', file: 'mfg-wage.json', category: 'labor' },
+  { id: 'avg-wage', label: 'Avg Work Hour', file: 'avg-wage.json', category: 'labor' },
+  { id: 'min-wage', label: 'Min Wage Hour', file: 'min-wage.json', category: 'labor' },
+  { id: 'p10-wage', label: '10th %ile Work Hour', file: 'p10-wage.json', category: 'labor' },
+  { id: 'p25-wage', label: '25th %ile Work Hour', file: 'p25-wage.json', category: 'labor' },
+  { id: 'p75-wage', label: '75th %ile Work Hour', file: 'p75-wage.json', category: 'labor' },
+  { id: 'p90-wage', label: '90th %ile Work Hour', file: 'p90-wage.json', category: 'labor' },
+  { id: 'usd', label: 'USD (nominal)', file: null, category: 'currency' },
 ]
 
 // Unit labels for measuring sticks
@@ -85,6 +95,8 @@ const UNIT_LABELS = {
 const ASSET_UNITS = {
   'sp500': '/ share',
   'median-home': '/ home',
+  'case-shiller': '/ index pt',
+  'median-rent': '/ index pt',
   'beans': '/ lb',
   'rice': '/ lb',
   'beer': '/ 16 oz',
@@ -377,6 +389,7 @@ export default function InflationPage() {
           measuringStick={measuringStick}
           onMeasuringStickChange={setMeasuringStick}
           availableOptions={DATA_SERIES}
+          categories={CATEGORIES}
         />
         <button
           className={`regression-toggle ${showRegression ? 'active' : ''}`}

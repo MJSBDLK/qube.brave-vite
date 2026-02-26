@@ -8,6 +8,11 @@
 - [ ] Derive median work hours as far back as possible
 - [ ] Derive stratified percentile work hours as far back as possible
 - [ ] Commit new untracked data files (median-extended, p10/p25/p75/p90 wages)
+- [ ] Add CPIAUCSL (CPI-U All Items) as a utility series for un-adjusting "real" datasets
+- [ ] Wire up remaining already-fetched datasets (electricity, ground-beef, eggs, milk, medical-cpi, tuition-cpi, m2)
+- [ ] Investigate Zillow ZHVI Bottom Tier as "starter home" proxy (needs CSV fetcher)
+- [ ] Investigate Case-Shiller Low Tier metro indices for starter home tracking
+- [ ] Any CPI-adjusted dataset MUST be un-adjusted to nominal before use
 
 ---
 

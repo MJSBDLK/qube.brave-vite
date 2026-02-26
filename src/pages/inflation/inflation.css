@@ -58,26 +58,6 @@
   font-weight: 500;
 }
 
-.control-select {
-  padding: var(--space-xs) var(--space-sm);
-  border: 1px solid var(--border-primary);
-  border-radius: var(--radius-sm);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  cursor: pointer;
-  min-width: 140px;
-}
-
-.control-select:hover {
-  border-color: var(--color-primary);
-}
-
-.control-select:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(107, 115, 163, 0.2);
-}
 
 .range-buttons {
   display: flex;
@@ -405,6 +385,7 @@
   color: #eab308 !important;
   font-style: italic;
   font-size: 0.75rem;
+  margin-right: var(--space-sm);
 }
 
 .freshness-caveat-toggle {

@@ -15,7 +15,8 @@
       "end": "2025-11-01"
     },
     "caveats": [
-      "CPI series - may include substitution effects"
+      "Index value (1982-84 = 100), not a dollar price",
+      "BLS may swap in cheaper alternatives when prices rise, understating true cost increases"
     ],
     "error": null
   },

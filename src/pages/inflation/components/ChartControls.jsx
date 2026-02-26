@@ -1,3 +1,5 @@
+import CategorySelect from './CategorySelect'
+
 export default function ChartControls({
   dateRange,
   onDateRangeChange,
@@ -6,6 +8,7 @@ export default function ChartControls({
   measuringStick,
   onMeasuringStickChange,
   availableOptions,
+  categories,
 }) {
   const ranges = [
     { id: '1y', label: '1Y' },
@@ -17,33 +20,27 @@ export default function ChartControls({
   return (
     <div className="chart-controls">
       <div className="control-group">
-        <label className="control-label">Asset</label>
-        <select
-          className="control-select"
+        <label className="control-label" id="asset-select-label">Asset</label>
+        <CategorySelect
           value={asset}
-          onChange={(e) => onAssetChange(e.target.value)}
-        >
-          {availableOptions.map((opt) => (
-            <option key={opt.id} value={opt.id}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
+          onChange={onAssetChange}
+          options={availableOptions}
+          categories={categories}
+          label="Asset"
+          id="asset-select"
+        />
       </div>
 
       <div className="control-group">
-        <label className="control-label">priced in</label>
-        <select
-          className="control-select"
+        <label className="control-label" id="stick-select-label">priced in</label>
+        <CategorySelect
           value={measuringStick}
-          onChange={(e) => onMeasuringStickChange(e.target.value)}
-        >
-          {availableOptions.map((opt) => (
-            <option key={opt.id} value={opt.id}>
-              {opt.label}
-            </option>
-          ))}
-        </select>
+          onChange={onMeasuringStickChange}
+          options={availableOptions}
+          categories={categories}
+          label="priced in"
+          id="stick-select"
+        />
       </div>
 
       <div className="control-group">

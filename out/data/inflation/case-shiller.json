@@ -14,7 +14,7 @@
       "start": "1987-01-01",
       "end": "2025-10-01"
     },
-    "caveats": [],
+    "caveats": ["Tracks repeat sales of the same homes over time, controlling for size and quality changes", "Index value (Jan 2000 = 100), not a dollar price", "By only comparing a house's sale price to its own previous sale price, the house acts as its own control — unlike median price, which compares different homes each period", "Covers single-family homes only; excludes condos, co-ops, new construction, and homes that sold only once in the sample period", "Doesn't account for renovations between sales (overstates market gains) or aging/neglect (understates them) — renovations are believed to be the bigger effect in recent decades", "Metro-weighted national composite — rural and small-town markets are underrepresented"],
     "error": null
   },
   "data": {
