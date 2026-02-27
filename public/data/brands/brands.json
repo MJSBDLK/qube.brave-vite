@@ -2,118 +2,9 @@
   "meta": {
     "version": 1,
     "lastUpdated": "2026-02-27",
-    "count": 63
+    "count": 77
   },
   "brands": [
-    {
-      "id": "dr-bronners",
-      "name": "Dr. Bronner's",
-      "parentCompany": null,
-      "ownershipType": [
-        "family"
-      ],
-      "categories": [
-        "cosmetics",
-        "household"
-      ],
-      "starRating": 5,
-      "animalWelfare": {
-        "rating": "good",
-        "supplyChainAbuse": false,
-        "testingOnAnimals": false,
-        "notes": "Certified cruelty-free by Leaping Bunny. All products vegan. Fair trade certified ingredients."
-      },
-      "shitList": false,
-      "recommended": true,
-      "notes": "Family-owned since 1948. All products vegan and fair trade certified. Known for ethical sourcing and environmental activism.",
-      "sources": [
-        {
-          "label": "Leaping Bunny Certification",
-          "url": "https://www.leapingbunny.org/brands/dr-bronners"
-        },
-        {
-          "label": "B Corp Profile",
-          "url": "https://www.bcorporation.net/en-us/find-a-b-corp/company/dr-bronners/"
-        }
-      ],
-      "report": {
-        "generatedBy": "admin",
-        "generatedDate": "2026-02-26",
-        "verified": true,
-        "promptVersion": "0.1",
-        "model": "Claude Opus 4.6",
-        "content": "## Overview\n\nDr. Bronner's is an American manufacturer of organic soap and personal care products, founded in 1948 by Emanuel Bronner. [1][2] The company is headquartered in Vista, California and remains fully family-owned \u2014 now operated by the fifth generation of the Bronner family. [1] They are best known for their castile soap products, which feature densely printed philosophical and religious text on the labels.\n\n## Ownership & Corporate Structure\n\nDr. Bronner's is a **privately held, family-owned company** with no outside investors or shareholders. [1] CEO David Bronner (Emanuel's grandson) has been vocal about rejecting acquisition offers and maintaining independence. [3] The company caps executive compensation at 5x the lowest-paid warehouse worker's salary. [3][4]\n\nThe company is certified as a **B Corporation**, meeting rigorous standards for social and environmental performance, accountability, and transparency. [2] This is not a greenwashing label \u2014 B Corp certification requires comprehensive third-party auditing. [2]\n\n## Animal Welfare\n\n### Testing Practices\n\nDr. Bronner's does **not test on animals** and is certified by the Leaping Bunny program, which requires a supplier monitoring system to ensure no animal testing occurs at any stage of product development. [5][6] The company has maintained this certification since the program's inception.\n\n### Supply Chain\n\nAll Dr. Bronner's products are **vegan** \u2014 no animal-derived ingredients. [5] Their supply chain uses Fair Trade certified organic ingredients (coconut oil, palm oil, olive oil) sourced from projects the company directly invests in across Ghana, Sri Lanka, India, and Samoa. [7][8]\n\n### Certifications\n\nLeaping Bunny (cruelty-free), USDA Organic, Fair Trade, Non-GMO Project Verified, Certified B Corporation, Vegan Action certified. [5][2][7] These are **independent, third-party certifications** \u2014 not self-awarded labels.\n\n## Controversies & Legal\n\nDr. Bronner's has faced **no significant animal welfare controversies**. The company has been involved in activism rather than scandal \u2014 executives have been arrested protesting for GMO labeling, fair trade standards, and drug policy reform. [3][9] CEO David Bronner was arrested in 2012 harvesting industrial hemp in front of the White House to protest hemp prohibition. [9]\n\nThe only notable criticism relates to palm oil use, though the company sources from its own Fair Trade organic projects specifically to avoid the deforestation and habitat destruction associated with conventional palm oil. [7][8]\n\n## Verdict\n\nDr. Bronner's earns a **5-star rating** as a genuinely ethical company \u2014 family-owned, cruelty-free, vegan, fair trade, with capped executive pay and a track record of activism rather than greenwashing. One of the clearest examples of a company that walks the talk.",
-        "citations": [
-          {
-            "id": 1,
-            "label": "Dr. Bronner's Company History & About Page",
-            "url": "https://www.drbronner.com/about/",
-            "type": "corporate",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 2,
-            "label": "B Corp Directory \u2014 Dr. Bronner's Profile",
-            "url": "https://www.bcorporation.net/en-us/find-a-b-corp/company/dr-bronners/",
-            "type": "secondary",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 3,
-            "label": "Forbes \u2014 How Dr. Bronner's Became America's Top-Selling Soap Brand",
-            "url": "https://www.forbes.com/sites/clareoconnor/2017/04/12/how-dr-bronners-became-americas-top-selling-soap-brand/",
-            "type": "primary",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 4,
-            "label": "Inc. Magazine \u2014 Dr. Bronner's CEO Pay Cap",
-            "url": "https://www.inc.com/magazine/201604/leigh-buchanan/dr-bronners-magic-soaps.html",
-            "type": "primary",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 5,
-            "label": "Leaping Bunny \u2014 Dr. Bronner's Certification",
-            "url": "https://www.leapingbunny.org/brands/dr-bronners",
-            "type": "secondary",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 6,
-            "label": "Cruelty Free International \u2014 Leaping Bunny Standard",
-            "url": "https://www.crueltyfreeinternational.org/leaping-bunny",
-            "type": "secondary",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 7,
-            "label": "Dr. Bronner's Fair Trade & Organic Supply Chains",
-            "url": "https://www.drbronner.com/our-story/timeline/constructive-capitalism/",
-            "type": "corporate",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 8,
-            "label": "Fair Trade USA \u2014 Dr. Bronner's Partnership",
-            "url": "https://www.fairtradecertified.org/",
-            "type": "secondary",
-            "accessed": "2026-02-26"
-          },
-          {
-            "id": 9,
-            "label": "The Guardian \u2014 Dr. Bronner's CEO Arrested at Hemp Protest",
-            "url": "https://www.theguardian.com/world/2012/jun/01/dr-bronners-hemp-protest",
-            "type": "primary",
-            "accessed": "2026-02-26"
-          }
-        ]
-      },
-      "dateAdded": "2026-02-26",
-      "lastUpdated": "2026-02-26",
-      "sample": true,
-      "priceTier": null
-    },
     {
       "id": "patagonia",
       "name": "Patagonia",
@@ -364,38 +255,6 @@
         {
           "label": "Burt's Bees Animal Testing Policy",
           "url": "https://www.burtsbees.com/content/about-burts-bees/animal-testing.html"
-        }
-      ],
-      "dateAdded": "2026-02-26",
-      "lastUpdated": "2026-02-26",
-      "report": null,
-      "sample": true,
-      "priceTier": null
-    },
-    {
-      "id": "method",
-      "name": "Method",
-      "parentCompany": "SC Johnson",
-      "ownershipType": [
-        "megacorp"
-      ],
-      "categories": [
-        "household"
-      ],
-      "starRating": 3.5,
-      "animalWelfare": {
-        "rating": "moderate",
-        "supplyChainAbuse": false,
-        "testingOnAnimals": false,
-        "notes": "Leaping Bunny certified. No animal testing. Cradle to Cradle certified products. Parent company SC Johnson has committed to no animal testing."
-      },
-      "shitList": false,
-      "recommended": false,
-      "notes": "Founded 2000. Acquired by SC Johnson in 2017. Known for stylish, plant-based cleaning products and innovative packaging.",
-      "sources": [
-        {
-          "label": "Method Sustainability",
-          "url": "https://methodhome.com/beyond-the-bottle/sustainability/"
         }
       ],
       "dateAdded": "2026-02-26",
@@ -2858,6 +2717,477 @@
       "dateAdded": "2026-02-27",
       "lastUpdated": "2026-02-27",
       "priceTier": 3
+    },
+    {
+      "id": "dr-bronner-s",
+      "name": "Dr. Bronner's",
+      "parentCompany": null,
+      "ownershipType": [
+        "family"
+      ],
+      "categories": [
+        "cosmetics",
+        "household",
+        "personal-care"
+      ],
+      "starRating": 5.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Never tested on animals. Leaping Bunny and PETA certified. 100% vegan. Palm oil sourced from ~2,500 acres of certified organic, Fair Trade smallholdings in Ghana \u2014 not from deforestation-linked plantations."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Fifth-generation family-owned Benefit Corporation. CEO pay capped at 5x lowest employee. 2024 revenue ~$209M; donates ~33% of profits. Never tested on animals; Leaping Bunny certified since 1990s. Does NOT sell in mainland China. Voluntarily dropped B Corp certification Feb 2025 on principle (had highest score globally at 206.7) because B Lab certified multinationals like Nespresso. Certifications: Leaping Bunny, PETA Cruelty-Free, USDA Organic, Fair for Life, Vegan Action, EWG Verified, Regenerative Organic Certified, Non-GMO Project Verified. Remarkably clean record \u2014 no greenwashing, environmental, or labor violations found.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "plaine-products",
+      "name": "Plaine Products",
+      "parentCompany": null,
+      "ownershipType": [
+        "founder-led"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 5.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Never tested on animals. Leaping Bunny and PETA certified. 100% vegan. Does not sell in China. Small scale limits scrutiny but also limits risk."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 2017 by sisters Lindsey McCoy and Alison Delaplaine. ~5 employees. Certified Women-Owned Business (WBENC). No outside investors. Based in Terrace Park, Ohio. Leaping Bunny and PETA certified (cruelty-free and vegan). B Corp certified (score 100.2). 1% for the Planet member. Refillable/returnable aluminum bottle model. No controversies found.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "ethique",
+      "name": "Ethique",
+      "parentCompany": "Bansk Group",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny and PETA certified. 100% vegan and palm oil-free. No sales in mainland China. No documented animal welfare issues."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 2012 by Brianne West in Christchurch, NZ. West sold 75% to Bansk Group (NY investment firm) in late 2020 for >$100M valuation. West resigned as CEO in 2023 and has left the company. No longer founder-led despite marketing suggesting otherwise. Leaping Bunny and PETA certified. B Corp (score 117.9). 100% vegan and palm oil-free. Mica in products flagged for potential child labor sourcing. Brand narrative centers on founder's story but she sold majority stake and departed.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "aesop",
+      "name": "Aesop",
+      "parentCompany": "L'Oreal S.A.",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "starRating": 3.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Aesop brand never tested on animals. Leaping Bunny certified. 100% vegan. Sells limited range in China via domestic manufacturing. Parent L'Oreal sells extensively in China where products tested by government labs."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Acquired by L'Oreal Aug 2023 for A$3.7B (L'Oreal's largest-ever acquisition). Founded 1987 in Melbourne. L'Oreal is publicly traded (~EUR200B+ market cap); Bettencourt Meyers family holds ~35%. Aesop brand is Leaping Bunny certified and 100% vegan. Sells in China via approved channels to avoid mandatory testing. PETA status contested due to L'Oreal ownership. Ethical Consumer gives worst rating for palm oil. L'Oreal is on PETA's 'do test' list. L'Oreal fined EUR189.5M (France) and EUR23.2M (Spain) for price-fixing. B Corp recertified 2024 under L'Oreal ownership (score 84.0).",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 4
+    },
+    {
+      "id": "method",
+      "name": "Method",
+      "parentCompany": "SC Johnson & Son, Inc.",
+      "ownershipType": [
+        "megacorp",
+        "family"
+      ],
+      "categories": [
+        "household",
+        "personal-care"
+      ],
+      "starRating": 2.5,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Method brand is Leaping Bunny and PETA certified. Does not sell in China. Parent SC Johnson openly tests on animals for other brands (Raid, OFF!, etc.). Naturewatch revoked Method's accreditation and called for boycott."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Acquired by SC Johnson Dec 2017. Founded 2000 by Eric Ryan and Adam Lowry. SC Johnson is privately held, Johnson family 5th generation, ~$10B revenue. Method brand is Leaping Bunny and PETA certified. Does not sell in mainland China. HOWEVER: parent SC Johnson openly conducts animal testing and states 'We're not there yet' on ending it. Naturewatch Foundation revoked Method's accreditation. $2.25M class action settlement (2021) for falsely labeling products 'non-toxic' and 'natural.' Cradle-to-Cradle certification expired 2020, not renewed. SC Johnson initially hid ownership from consumers. SC Johnson fined in EUR948.9M French price-fixing case. Continued Russia operations despite 2022 sanctions.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "mrs-meyer-s-clean-day",
+      "name": "Mrs. Meyer's Clean Day",
+      "parentCompany": "SC Johnson & Son, Inc.",
+      "ownershipType": [
+        "megacorp",
+        "family"
+      ],
+      "categories": [
+        "household",
+        "personal-care"
+      ],
+      "starRating": 2.5,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Brand claims Leaping Bunny certification. Does not sell in China. Parent SC Johnson tests on animals. Ethical Consumer gave SC Johnson worst rating for animal testing. Naturewatch revoked endorsement."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Acquired by SC Johnson April 2008 (via The Caldrea Company). Founded 2001 by Monica Nassif. Same parent issues as Method. Brand claims Leaping Bunny certification. Does not sell in mainland China. Parent SC Johnson is NOT cruelty-free. 2009 Prop 65 lawsuit: dish soap contained >10ppm 1,4-dioxane (carcinogen); settled $50K. Products contain methylisothiazolinone and synthetic fragrances despite 'garden-inspired' natural marketing. Widely criticized as greenwashing \u2014 appearing indie/natural while owned by SC Johnson. Karma Wallet sustainability score: 2/16.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "dove",
+      "name": "Dove",
+      "parentCompany": "Unilever PLC",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 2.0,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "PETA-approved but NOT Leaping Bunny certified (lower rigor). Manufactures in China to bypass testing. Parent Unilever not cruelty-free at corporate level. CrueltyFreeKitty argues Dove's cruelty-free status is essentially a marketing tactic."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Unilever PLC (LSE: ULVR). Dove is PETA-approved (since 2018) but NOT Leaping Bunny certified. Manufactures domestically in China to bypass testing requirements. Parent Unilever still allows testing 'where required by law' for other brands. UK CMA greenwashing investigation (2023-ongoing). Greenpeace: Unilever produced 6.4 billion unrecyclable plastic sachets for Dove alone in 2023. History of racially insensitive advertising (2017 Facebook ad, plus 2011 and 2014 incidents). Axe/Dove hypocrisy. Unilever fined EUR172.5M in 2014 French price-fixing. Dr. Bronner's dropped B Corp partly because B Lab certified Unilever subsidiaries.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "dial",
+      "name": "Dial",
+      "parentCompany": "Henkel AG & Co. KGaA",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 2.0,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Dial brand is Leaping Bunny certified since June 2022. Does not sell in China physical stores. Parent Henkel is NOT cruelty-free and admits testing 'where required by law.'"
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Henkel AG (Frankfurt, DAX component). Henkel family controls 61.85% of voting shares. Dial brand IS Leaping Bunny certified since June 2022. Does not sell in China physical stores. HOWEVER: PETA still lists Dial (Henkel) as animal tester at parent level. Parent Henkel admits testing 'where required by law.' Henkel fined EUR92.3M (2011) and EUR109M (2014) for price-fixing. EWG rates 84%+ of Henkel products D or F. Palm oil supply chain risks including forced labor and child labor. WWII forced labor history.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "l-occitane-en-provence",
+      "name": "L'Occitane en Provence",
+      "parentCompany": "L'Occitane Groupe S.A.",
+      "ownershipType": [
+        "private-equity",
+        "founder-led"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Leaping Bunny REVOKED due to China sales triggering animal testing. B Corp certified while testing on animals creates credibility paradox."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Founded 1976 by Olivier Baussan. Controlled by Reinold Geiger (~72% stake). Taken private Sept 2024 at ~EUR6B with Blackstone and Goldman Sachs financing. PETA lists L'Occitane as company that tests on animals. Leaping Bunny certification REVOKED when L'Occitane began selling in mainland China. L'Occitane admits Chinese authorities test their products. B Corp certified (score 85.4) \u2014 paradox of B Corp while Leaping Bunny revoked. Changing Markets Foundation named in 'hall of shame' for greenwashing.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "nivea",
+      "name": "Nivea",
+      "parentCompany": "Beiersdorf AG",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Extensive China operations including Wuhan R&D center. No cruelty-free certifications of any kind."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Beiersdorf AG (Frankfurt, DAX, ~$26.6B market cap). Maxingvest AG (Herz family) holds ~50.49%. PETA lists Nivea as company that tests on animals. No Leaping Bunny or PETA cruelty-free certification. Tests 'unless specifically required by law.' Has dedicated R&D center in Wuhan, China. FTC fined $900K for false slimming claims (2011). Price-fixing conviction (2016). Acquired sustainability brand 'Stop the Water While Using Me' in 2020 then discontinued it in 2023.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "aveeno",
+      "name": "Aveeno",
+      "parentCompany": "Kenvue Inc. (being acquired by Kimberly-Clark)",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Sells in China physical stores. Misleading cruelty-free language ('except when required by law'). No Leaping Bunny or PETA cruelty-free certification."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Spun off from Johnson & Johnson as Kenvue (NYSE: KVUE) May 2023. Kimberly-Clark announced $48.7B acquisition Nov 2025. PETA lists Aveeno (J&J) as animal tester. Claims no testing 'except in rare situations where governments or laws require it' \u2014 enables China testing. Sells in China physical stores. J&J talc/asbestos scandal: 62,000+ lawsuits alleging cancer. Kenvue named as defendant, found 70% responsible in $45M verdict. $700M multistate AG settlement. Kenvue stock dropped ~42% from IPO.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "cetaphil",
+      "name": "Cetaphil",
+      "parentCompany": "Galderma S.A.",
+      "ownershipType": [
+        "private-equity",
+        "public"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Explicitly admits China animal testing in own policy. Pharma parent makes cruelty-free structurally impossible. L'Oreal's growing 20% stake ties Cetaphil to L'Oreal's testing practices."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Galderma founded 1981 as L'Oreal/Nestle JV. Sold 2019 for $10.2B to PE consortium (EQT, ADIA subsidiary, PSP Investments). IPO'd on Swiss Exchange March 2024. L'Oreal took 10% stake Aug 2024, doubled to 20% early 2026. Galderma explicitly states: 'We are required by law to submit Cetaphil products for animal testing to import into China.' Pharma parent inherently requires animal testing for prescription drugs. PETA does not list Cetaphil as cruelty-free.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "irish-spring",
+      "name": "Irish Spring",
+      "parentCompany": "Colgate-Palmolive Company",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "household",
+        "personal-care"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Zero ethical certifications. Products widely sold in China. 'Worst offender' for palm oil deforestation per RAN."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Colgate-Palmolive (NYSE: CL). PETA lists as 'Working for Regulatory Change' \u2014 tests 'only when required by law.' Rainforest Action Network names Colgate-Palmolive as 'one of the worst offenders' for deforestation and human rights abuses in palm oil supply chain (only 70.89% RSPO certified). Fined EUR35.4M (2011) with 'particularly active role' in price-fixing. Federal court allowing 'recyclable tube' greenwashing lawsuit (2024). Named as potentially responsible party for $23M Chemsol Superfund site cleanup. Ethical Consumer gave worst ratings for human rights, climate, pay, tax.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "ivory",
+      "name": "Ivory",
+      "parentCompany": "Procter & Gamble Company",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Zero ethical certifications. Massive China operations. Palm oil supply chain linked to forced labor and deforestation."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "P&G (NYSE: PG). On PETA's 'do test' list. Policy: 'We do not test unless required by law' \u2014 applies only to finished products, not ingredients where most testing occurs. Massive China operations. Linked to FGV Holdings (Malaysian palm oil company banned by US Customs for forced labor). Connected to destruction of Leuser Ecosystem. NRDC/Stand.earth/RAN document boreal forest deforestation. Multiple greenwashing class-action lawsuits (2025), est. $800M consumer overpayment. Fined EUR233.6M (2011) and EUR74.9M via Gillette (2014) for price-fixing. Planet Tracker: emissions targets don't align with Paris Agreement.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "old-spice",
+      "name": "Old Spice",
+      "parentCompany": "Procter & Gamble Company",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "personal-care"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Zero ethical certifications. All P&G controversies apply \u2014 forced labor in palm oil, boreal deforestation."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "P&G (NYSE: PG). Same parent company issues as Ivory. Explicitly on PETA's 'do test' list. Not among P&G's 13 PETA-certified brands. Sells in mainland China physical stores. All P&G supply chain issues apply \u2014 forced labor in palm oil, deforestation, Leuser Ecosystem destruction. Consumer complaints about chemical burns from certain body wash/deodorant formulations.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "olay",
+      "name": "Olay",
+      "parentCompany": "Procter & Gamble Company",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": true,
+        "notes": "On PETA 'do test' list. Specifically named in RAN deforestation reports. Largest China exposure of P&G soap brands studied."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "P&G (NYSE: PG). Same parent as Ivory/Old Spice. Explicitly on PETA's 'do test' list. Specifically named by RAN: 'Companies in P&G's supply chain destroy the Leuser Ecosystem to keep profit margins high for products like Olay.' Major China market presence \u2014 most China exposure of P&G soap brands. All P&G controversies apply: multiple greenwashing lawsuits ($800M+ exposure), EUR300M+ in price-fixing fines, Paris non-compliance, tax haven subsidiaries.",
+      "summary": "",
+      "sources": [],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
     }
   ]
 }
