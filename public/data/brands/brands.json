@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "lastUpdated": "2026-02-27",
-    "count": 40
+    "count": 63
   },
   "brands": [
     {
@@ -2348,6 +2348,516 @@
       "dateAdded": "2026-02-27",
       "lastUpdated": "2026-02-27",
       "priceTier": 1
+    },
+    {
+      "id": "organic-valley",
+      "name": "Organic Valley",
+      "parentCompany": "CROPP Cooperative",
+      "ownershipType": [
+        "cooperative"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Farmer-owned cooperative of 1,600+ family farms across 34 states with a 4-cow Cornucopia rating, multiple certifications (USDA Organic, Certified Grass-Fed Organic for Grassmilk line, Non-GMO Project Verified), no documented animal abuse, and a leadership role in advocating for stronger USDA organic standards \u2014 the only notable blemish is a $26,574 Oregon environmental fine for wastewater discharge in 2019."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Farmer-owned cooperative of 1,600+ family farms across 34 states with a 4-cow Cornucopia rating, multiple certifications (USDA Organic, Certified Grass-Fed Organic for Grassmilk line, Non-GMO Project Verified), no documented animal abuse, and a leadership role in advocating for stronger USDA organic standards \u2014 the only notable blemish is a $26,574 Oregon environmental fine for wastewater discharge in 2019.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/organic-valley-3/"
+        },
+        {
+          "label": "www.organicvalley.coop",
+          "url": "https://www.organicvalley.coop/"
+        },
+        {
+          "label": "www.organicvalley.coop",
+          "url": "https://www.organicvalley.coop/newspress/organic-valley-and-maple-hill-raise-grass-fed-organic-standard-launch-new-certified-grass-fed-organic-livestock-program-and-certification-mark/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "straus-family-creamery",
+      "name": "Straus Family Creamery",
+      "parentCompany": "Straus Family Creamery (investment from Grounded Capital)",
+      "ownershipType": [
+        "founder-led",
+        "venture-backed"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Founded in 1994 by Albert Straus as the first certified organic dairy west of the Mississippi, sources from 12+ small Marin/Sonoma County family farms, holds a 4-cow Cornucopia rating (875/1,100) with perfect scores for transparency and environmental commitment, TRUE Zero Waste Certified, Non-GMO Project Verified, no documented abuse \u2014 received 2025 OTA Organic Lifetime Achievement Award."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded in 1994 by Albert Straus as the first certified organic dairy west of the Mississippi, sources from 12+ small Marin/Sonoma County family farms, holds a 4-cow Cornucopia rating (875/1,100) with perfect scores for transparency and environmental commitment, TRUE Zero Waste Certified, Non-GMO Project Verified, no documented abuse \u2014 received 2025 OTA Organic Lifetime Achievement Award.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/straus-family-creamery-2/"
+        },
+        {
+          "label": "www.strausfamilycreamery.com",
+          "url": "https://www.strausfamilycreamery.com/about/"
+        },
+        {
+          "label": "www.strausfamilycreamery.com",
+          "url": "https://www.strausfamilycreamery.com/carbon-neutral-farming/organic-model/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "kalona-supernatural",
+      "name": "Kalona SuperNatural",
+      "parentCompany": "Open Gates Group (Bill Evans)",
+      "ownershipType": [
+        "founder-led"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 3.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Sources from small Amish and Mennonite family farms in Iowa (average herd ~35 cows), USDA Organic certified, Savory Institute Land to Market Verified, vat-pasteurized and non-homogenized, no documented abuse \u2014 rated slightly lower than Straus/Organic Valley only because Cornucopia rating is still pending and the brand has not yet participated in their investigation."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Sources from small Amish and Mennonite family farms in Iowa (average herd ~35 cows), USDA Organic certified, Savory Institute Land to Market Verified, vat-pasteurized and non-homogenized, no documented abuse \u2014 rated slightly lower than Straus/Organic Valley only because Cornucopia rating is still pending and the brand has not yet participated in their investigation.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/kalona-supernatural-farmers-creamery/"
+        },
+        {
+          "label": "kalonasupernatural.com",
+          "url": "https://kalonasupernatural.com/"
+        },
+        {
+          "label": "opengatesgroup.com",
+          "url": "https://opengatesgroup.com/companies/kalonasupernatural/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "maple-hill-creamery",
+      "name": "Maple Hill Creamery",
+      "parentCompany": "Horizon Family Brands (Platinum Equity)",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 3.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Historically a 5-cow Cornucopia top-rated brand sourcing 100% grass-fed organic milk from 150+ small upstate NY farms, but acquired by Platinum Equity's Horizon Family Brands in December 2025 \u2014 the same PE firm that owns controversy-plagued Horizon Organic \u2014 creating significant uncertainty about whether standards will be maintained; Cornucopia rating now pending investigation."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Historically a 5-cow Cornucopia top-rated brand sourcing 100% grass-fed organic milk from 150+ small upstate NY farms, but acquired by Platinum Equity's Horizon Family Brands in December 2025 \u2014 the same PE firm that owns controversy-plagued Horizon Organic \u2014 creating significant uncertainty about whether standards will be maintained; Cornucopia rating now pending investigation.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/maple-hill-creamery-3/"
+        },
+        {
+          "label": "www.fooddive.com",
+          "url": "https://www.fooddive.com/news/horizon-buys-maple-hill-organic-dairy/806772/"
+        },
+        {
+          "label": "www.prnewswire.com",
+          "url": "https://www.prnewswire.com/news-releases/horizon-family-brands-announces-acquisition-of-maple-hill-creamery-to-strengthen-leadership-in-organic-dairy-302629317.html"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "lactaid",
+      "name": "Lactaid",
+      "parentCompany": "HP Hood LLC (Kaneb family)",
+      "ownershipType": [
+        "family"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 2.0,
+      "animalWelfare": {
+        "rating": "unknown",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Conventional lactose-free milk manufactured by HP Hood (private, Kaneb family-owned since 1995, $3B+ revenue), no Certified Humane or welfare certifications, no documented abuse investigations specific to this brand, but very limited supply chain transparency \u2014 a generic mid-tier conventional brand with nothing notably good or bad on the ethics front."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Conventional lactose-free milk manufactured by HP Hood (private, Kaneb family-owned since 1995, $3B+ revenue), no Certified Humane or welfare certifications, no documented abuse investigations specific to this brand, but very limited supply chain transparency \u2014 a generic mid-tier conventional brand with nothing notably good or bad on the ethics front.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.hphood.com",
+          "url": "https://www.hphood.com/"
+        },
+        {
+          "label": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/HP_Hood"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "borden-dairy",
+      "name": "Borden Dairy",
+      "parentCompany": "New Dairy Opco LLC (Capitol Peak Partners + KKR)",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 1.5,
+      "animalWelfare": {
+        "rating": "unknown",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Emerged from 2020 bankruptcy under PE ownership (Capitol Peak Partners + KKR), led by Gregg Engles (former Dean Foods CEO), operates ~12 processing plants, no specific abuse investigations found targeting Borden's supply chain, but also no welfare certifications or transparency \u2014 a conventional processor with opaque sourcing and PE profit incentives."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Emerged from 2020 bankruptcy under PE ownership (Capitol Peak Partners + KKR), led by Gregg Engles (former Dean Foods CEO), operates ~12 processing plants, no specific abuse investigations found targeting Borden's supply chain, but also no welfare certifications or transparency \u2014 a conventional processor with opaque sourcing and PE profit incentives.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.bordendairy.com",
+          "url": "https://www.bordendairy.com/announcement/borden-dairy-completes-sale-to-capitol-peak-partners-and-kkr/"
+        },
+        {
+          "label": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Borden_Dairy"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "kirkland-signature-milk-costco",
+      "name": "Kirkland Signature Milk (Costco)",
+      "parentCompany": "Costco Wholesale Corporation",
+      "ownershipType": [
+        "public"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 1.5,
+      "animalWelfare": {
+        "rating": "unknown",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Budget store-brand milk sourced from undisclosed regional processors (varies by location), organic line supplied partly through Aurora Organic Dairy (0-cow Cornucopia rating) \u2014 linked to 2019 ARM investigation at Natural Prairie Dairy (a shared organic supplier where severe abuse was documented), and Costco faces ongoing animal welfare pressure from ASPCA and Mercy For Animals over its poultry operations."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Budget store-brand milk sourced from undisclosed regional processors (varies by location), organic line supplied partly through Aurora Organic Dairy (0-cow Cornucopia rating) \u2014 linked to 2019 ARM investigation at Natural Prairie Dairy (a shared organic supplier where severe abuse was documented), and Costco faces ongoing animal welfare pressure from ASPCA and Mercy For Animals over its poultry operations.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/kirkland-signature-costco/"
+        },
+        {
+          "label": "sentientmedia.org",
+          "url": "https://sentientmedia.org/cruelty-investigation-organic-dairy-farm/"
+        },
+        {
+          "label": "costcoexposed.com",
+          "url": "https://costcoexposed.com/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "great-value-walmart",
+      "name": "Great Value (Walmart)",
+      "parentCompany": "Walmart Inc.",
+      "ownershipType": [
+        "public"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 1.5,
+      "animalWelfare": {
+        "rating": "unknown",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Walmart's budget store brand, now partly produced at Walmart-owned plants (Fort Wayne IN, Valdosta GA, Robinson TX forthcoming) but also sourced from regional processors including DFA \u2014 organic line linked to 2019 ARM investigation at Natural Prairie Dairy (shared organic supplier with Costco), and Cornucopia warns private-label brands lack transparency on sourcing."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Walmart's budget store brand, now partly produced at Walmart-owned plants (Fort Wayne IN, Valdosta GA, Robinson TX forthcoming) but also sourced from regional processors including DFA \u2014 organic line linked to 2019 ARM investigation at Natural Prairie Dairy (shared organic supplier with Costco), and Cornucopia warns private-label brands lack transparency on sourcing.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/great-value-food-walmart/"
+        },
+        {
+          "label": "corporate.walmart.com",
+          "url": "https://corporate.walmart.com/news/2025/12/02/walmart-opens-second-owned-and-operated-milk-processing-facility-in-valdosta-georgia-creating-more-than-400-new-jobs"
+        },
+        {
+          "label": "sentientmedia.org",
+          "url": "https://sentientmedia.org/cruelty-investigation-organic-dairy-farm/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "dairypure-trumoo",
+      "name": "DairyPure / TruMoo",
+      "parentCompany": "Dairy Farmers of America (DFA)",
+      "ownershipType": [
+        "cooperative"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Acquired from bankrupt Dean Foods in 2020 by DFA (largest US dairy cooperative, 13,000+ member farms), but at least four separate undercover investigations by Mercy for Animals, Animal Outlook, ARM, and ALDF have documented severe abuse at DFA supplier farms (Cactus Acres CO 2015, Mason Dixon PA 2017, McArthur FL 2017, Dick Van Dam CA 2020) \u2014 DFA's FARM Program self-policing has proven insufficient to prevent recurring cruelty."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Acquired from bankrupt Dean Foods in 2020 by DFA (largest US dairy cooperative, 13,000+ member farms), but at least four separate undercover investigations by Mercy for Animals, Animal Outlook, ARM, and ALDF have documented severe abuse at DFA supplier farms (Cactus Acres CO 2015, Mason Dixon PA 2017, McArthur FL 2017, Dick Van Dam CA 2020) \u2014 DFA's FARM Program self-policing has proven insufficient to prevent recurring cruelty.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "aldf.org",
+          "url": "https://aldf.org/article/lawsuit-filed-after-investigation-exposes-animal-cruelty-at-dairy-farmers-of-america-supplier/"
+        },
+        {
+          "label": "animaloutlook.org",
+          "url": "https://animaloutlook.org/investigations/mason-dixon-dairy/"
+        },
+        {
+          "label": "www.prnewswire.com",
+          "url": "https://www.prnewswire.com/news-releases/dfa-urges-activist-groups-to-report-abuse-immediately-300097864.html"
+        },
+        {
+          "label": "globalnews.ca",
+          "url": "https://globalnews.ca/news/3919866/horrific-video-of-animal-abuse-at-florida-dairy-farm-leads-to-3-arrests/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "horizon-organic",
+      "name": "Horizon Organic",
+      "parentCompany": "Horizon Family Brands (Platinum Equity)",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "The world's largest organic dairy brand received a 0-cow Cornucopia rating (the worst possible) for operating 8,000+ cow industrial CAFOs while marketing as 'organic,' dropped 89 small Northeast family farms in 2021 to source from cheaper mega-dairies, had a supplier (Lone Star Organic Dairy) exposed by PETA for mass calf deaths and rotting bodies \u2014 sold by Danone to PE firm Platinum Equity in April 2024, further reducing accountability."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "The world's largest organic dairy brand received a 0-cow Cornucopia rating (the worst possible) for operating 8,000+ cow industrial CAFOs while marketing as 'organic,' dropped 89 small Northeast family farms in 2021 to source from cheaper mega-dairies, had a supplier (Lone Star Organic Dairy) exposed by PETA for mass calf deaths and rotting bodies \u2014 sold by Danone to PE firm Platinum Equity in April 2024, further reducing accountability.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/scorecard/dairy/horizon-danone-na/"
+        },
+        {
+          "label": "beyondpesticides.org",
+          "url": "https://beyondpesticides.org/dailynewsblog/2021/09/danone-horizon-organic-threatens-the-backbone-of-organic-dairy-family-farms-and-their-consumer-supporters/"
+        },
+        {
+          "label": "www.fooddive.com",
+          "url": "https://www.fooddive.com/news/danone-to-sell-horizon-organic-and-wallaby-brands-to-pe-firm/703487/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "alexandre-family-farm",
+      "name": "Alexandre Family Farm",
+      "parentCompany": "Alexandre Family Farm (Blake & Stephanie Alexandre)",
+      "ownershipType": [
+        "family"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Once a 5-cow Cornucopia top-rated brand marketing as Regenerative Organic Certified, Certified Humane, and A2/A2 organic \u2014 but a 2024 Farm Forward investigation revealed systematic abuse (dehorning without pain medication, dragging cows with machinery, untreated illness, mass stampede killing ~40 cows), USDA confirmed 'systemic failures,' Cornucopia downgraded to 1 cow, Certified Humane removed the farm, and class-action fraud and criminal cruelty lawsuits are ongoing as of 2025."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Once a 5-cow Cornucopia top-rated brand marketing as Regenerative Organic Certified, Certified Humane, and A2/A2 organic \u2014 but a 2024 Farm Forward investigation revealed systematic abuse (dehorning without pain medication, dragging cows with machinery, untreated illness, mass stampede killing ~40 cows), USDA confirmed 'systemic failures,' Cornucopia downgraded to 1 cow, Certified Humane removed the farm, and class-action fraud and criminal cruelty lawsuits are ongoing as of 2025.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "www.farmforward.com",
+          "url": "https://www.farmforward.com/news/usda-confirms-animal-abuse-and-cruelty-at-alexandre-family-farm-dairy-now-admits-wrongdoing-legal-case-moves-forward/"
+        },
+        {
+          "label": "www.cornucopia.org",
+          "url": "https://www.cornucopia.org/alexandre-family-farm-brand-information/"
+        },
+        {
+          "label": "www.farmforward.com",
+          "url": "https://www.farmforward.com/news/timeline-of-alexandre-dairy-investigation/"
+        },
+        {
+          "label": "modernfarmer.com",
+          "url": "https://modernfarmer.com/2024/08/farm-animal-abuse-dairy/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 4
+    },
+    {
+      "id": "fairlife",
+      "name": "Fairlife",
+      "parentCompany": "The Coca-Cola Company",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Owned 100% by Coca-Cola since 2020 (~$6.2B total acquisition), Fairlife has been the subject of nine separate ARM undercover investigations from 2019-2025 (Fair Oaks IN, Windy Ridge IN, Rainbow Valley AZ, Butterfield AZ, Woodcrest NM) all documenting severe systemic abuse including calves stabbed with steel bars, cows beaten with shovels, botched euthanasia, and denial of veterinary care \u2014 resulting in a $21M class-action settlement, multiple new lawsuits, and ongoing USDA/sheriff investigations despite Coca-Cola's $40M+ in promised reforms."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Owned 100% by Coca-Cola since 2020 (~$6.2B total acquisition), Fairlife has been the subject of nine separate ARM undercover investigations from 2019-2025 (Fair Oaks IN, Windy Ridge IN, Rainbow Valley AZ, Butterfield AZ, Woodcrest NM) all documenting severe systemic abuse including calves stabbed with steel bars, cows beaten with shovels, botched euthanasia, and denial of veterinary care \u2014 resulting in a $21M class-action settlement, multiple new lawsuits, and ongoing USDA/sheriff investigations despite Coca-Cola's $40M+ in promised reforms.",
+      "summary": "",
+      "sources": [
+        {
+          "label": "animalrecoverymission.org",
+          "url": "https://animalrecoverymission.org/operations/factory-farm-division/operation-butterfield-dairy/"
+        },
+        {
+          "label": "www.classaction.org",
+          "url": "https://www.classaction.org/blog/fairlife-class-action-lawsuit-filed-over-new-animal-cruelty-allegations"
+        },
+        {
+          "label": "www.fooddive.com",
+          "url": "https://www.fooddive.com/news/fairlife-21m-animal-abuse-settlement-coca-cola/623045/"
+        },
+        {
+          "label": "www.kob.com",
+          "url": "https://www.kob.com/new-mexico/4-investigates-new-mexico-dairy-named-in-lawsuit-over-fairlife-animal-welfare-claims/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
     }
   ]
 }
