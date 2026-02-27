@@ -1,8 +1,7 @@
 {
   "meta": {
     "version": 1,
-    "lastUpdated": "2026-02-27",
-    "count": 77
+    "lastUpdated": "2026-02-27"
   },
   "brands": [
     {
@@ -42,33 +41,39 @@
       "name": "LUSH",
       "parentCompany": null,
       "ownershipType": [
-        "founder"
+        "family",
+        "cooperative"
       ],
       "categories": [
         "cosmetics",
         "personal-care"
       ],
+      "priceTier": 2,
       "starRating": 4.5,
       "animalWelfare": {
         "rating": "good",
         "supplyChainAbuse": false,
         "testingOnAnimals": false,
-        "notes": "Fighting Animal Testing campaign since founding. Over 80% of products are vegan. Funds animal protection organizations."
+        "notes": "Leaping Bunny certified, PETA certified. Pioneer of anti-animal-testing movement since 1980s. 95% vegan (uses honey/beeswax in small number of products). 10% employee-owned via Employee Benefit Trust."
       },
       "shitList": false,
       "recommended": true,
-      "notes": "Founded 1995 in UK. Known for handmade cosmetics and strong ethical stance. Pulled off social media platforms over algorithmic harm concerns.",
+      "notes": "Founded 1995 in Poole, UK by Mark and Mo Constantine. Private, family-owned with 10% employee trust. Fair Tax Mark accredited. \u00a3100M+ in charitable giving since 2007. Left all social media in 2021. Minor concerns: palm oil usage.",
       "sources": [
         {
-          "label": "LUSH Animal Testing Policy",
-          "url": "https://www.lush.com/us/en_us/a/fighting-animal-testing"
+          "label": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Lush_(company)"
+        },
+        {
+          "label": "weare.lush.com",
+          "url": "https://weare.lush.com/lush-life/our-company/the-lush-30-year-timeline/"
         }
       ],
-      "dateAdded": "2026-02-26",
-      "lastUpdated": "2026-02-26",
       "report": null,
-      "sample": true,
-      "priceTier": null
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nPrivate, family-owned by Mark and Mo Constantine (founded 1995 in Poole, UK). 10% employee-owned via Employee Benefit Trust. Fair Tax Mark accredited. Net debt \u00a311.7M as of June 2024.\n\n## Animal Welfare\nLeaping Bunny and PETA certified. Pioneer of the anti-animal-testing movement since the 1980s \u2014 co-founders helped develop original cruelty-free standards. 95% vegan (honey/beeswax in small number of products; vegan items carry Vegan Society trademark). Will not sell in any country requiring animal testing.\n\n## Controversies\nLeft all social media in 2021 (principled stand). Minor concerns around palm oil usage, political activism controversies, and environmental reporting gaps. \u00a3100M+ in charitable giving since 2007 partially offsets concerns.\n\n## Assessment\nA genuine ethical pioneer with deep roots in the cruelty-free movement. Family ownership and employee trust structure align incentives. The 95% (not 100%) vegan status and palm oil usage are the only meaningful deductions from an otherwise exemplary record."
     },
     {
       "id": "seventh-generation",
@@ -1151,9 +1156,7 @@
       "name": "Niman Ranch",
       "parentCompany": "Perdue Farms",
       "ownershipType": [
-        "private-parent",
-        "family-owned-parent",
-        "subsidiary"
+        "family"
       ],
       "categories": [
         "food",
@@ -1451,7 +1454,7 @@
       "name": "Pre Brands",
       "parentCompany": null,
       "ownershipType": [
-        "independent"
+        "founder"
       ],
       "categories": [
         "food"
@@ -1503,7 +1506,7 @@
       "name": "Belcampo",
       "parentCompany": null,
       "ownershipType": [
-        "independent"
+        "founder"
       ],
       "categories": [
         "food"
@@ -1530,8 +1533,7 @@
       "parentCompany": "WH Group Limited",
       "ownershipType": [
         "public",
-        "megacorp",
-        "foreign-owned"
+        "megacorp"
       ],
       "categories": [
         "food",
@@ -1573,8 +1575,7 @@
       "name": "Hormel Foods",
       "parentCompany": null,
       "ownershipType": [
-        "public",
-        "foundation-controlled"
+        "public"
       ],
       "categories": [
         "food",
@@ -1612,9 +1613,7 @@
       "name": "Farmland Foods",
       "parentCompany": "Smithfield Foods / WH Group Limited",
       "ownershipType": [
-        "subsidiary",
-        "megacorp",
-        "foreign-owned"
+        "megacorp"
       ],
       "categories": [
         "food",
@@ -1653,7 +1652,7 @@
       "parentCompany": "Kraft Heinz Company",
       "ownershipType": [
         "public",
-        "private-equity-influenced",
+        "private-equity",
         "megacorp"
       ],
       "categories": [
@@ -1692,7 +1691,6 @@
       "name": "Hatfield Quality Meats",
       "parentCompany": "Clemens Family Corporation",
       "ownershipType": [
-        "private",
         "family"
       ],
       "categories": [
@@ -1731,8 +1729,7 @@
       "name": "Applegate Farms",
       "parentCompany": "Hormel Foods Corporation",
       "ownershipType": [
-        "public-parent",
-        "subsidiary"
+        "public"
       ],
       "categories": [
         "food",
@@ -1771,9 +1768,7 @@
       "name": "Coleman Natural Foods",
       "parentCompany": "Perdue Farms",
       "ownershipType": [
-        "private-parent",
-        "family-owned-parent",
-        "subsidiary"
+        "family"
       ],
       "categories": [
         "food",
@@ -1811,9 +1806,7 @@
       "name": "Heritage Foods USA",
       "parentCompany": null,
       "ownershipType": [
-        "private",
-        "founder-led",
-        "independent"
+        "founder"
       ],
       "categories": [
         "food",
@@ -1851,9 +1844,7 @@
       "name": "Polyface Farm",
       "parentCompany": null,
       "ownershipType": [
-        "private",
-        "family",
-        "independent"
+        "family"
       ],
       "categories": [
         "food",
@@ -2007,9 +1998,7 @@
       "name": "Just BARE",
       "parentCompany": "JBS S.A. (via Pilgrim's Pride Corporation)",
       "ownershipType": [
-        "public-parent",
-        "megacorp",
-        "subsidiary"
+        "megacorp"
       ],
       "categories": [
         "food",
@@ -2154,8 +2143,7 @@
       "name": "Koch Foods",
       "parentCompany": "Koch Foods, Inc. (Joseph Grendys)",
       "ownershipType": [
-        "founder-led",
-        "private"
+        "founder"
       ],
       "categories": [
         "food",
@@ -2255,7 +2243,7 @@
       "name": "Straus Family Creamery",
       "parentCompany": "Straus Family Creamery (investment from Grounded Capital)",
       "ownershipType": [
-        "founder-led",
+        "founder",
         "venture-backed"
       ],
       "categories": [
@@ -2298,7 +2286,7 @@
       "name": "Kalona SuperNatural",
       "parentCompany": "Open Gates Group (Bill Evans)",
       "ownershipType": [
-        "founder-led"
+        "founder"
       ],
       "categories": [
         "food",
@@ -2719,92 +2707,6 @@
       "priceTier": 3
     },
     {
-      "id": "dr-bronner-s",
-      "name": "Dr. Bronner's",
-      "parentCompany": null,
-      "ownershipType": [
-        "family"
-      ],
-      "categories": [
-        "cosmetics",
-        "household",
-        "personal-care"
-      ],
-      "starRating": 5.0,
-      "animalWelfare": {
-        "rating": "good",
-        "supplyChainAbuse": false,
-        "testingOnAnimals": false,
-        "notes": "Never tested on animals. Leaping Bunny and PETA certified. 100% vegan. Palm oil sourced from ~2,500 acres of certified organic, Fair Trade smallholdings in Ghana \u2014 not from deforestation-linked plantations."
-      },
-      "shitList": false,
-      "recommended": true,
-      "notes": "Fifth-generation family-owned Benefit Corporation. CEO pay capped at 5x lowest employee. 2024 revenue ~$209M; donates ~33% of profits. Never tested on animals; Leaping Bunny certified since 1990s. Does NOT sell in mainland China. Voluntarily dropped B Corp certification Feb 2025 on principle (had highest score globally at 206.7) because B Lab certified multinationals like Nespresso. Certifications: Leaping Bunny, PETA Cruelty-Free, USDA Organic, Fair for Life, Vegan Action, EWG Verified, Regenerative Organic Certified, Non-GMO Project Verified. Remarkably clean record \u2014 no greenwashing, environmental, or labor violations found.",
-      "summary": "",
-      "sources": [],
-      "report": null,
-      "sample": false,
-      "dateAdded": "2026-02-27",
-      "lastUpdated": "2026-02-27",
-      "priceTier": 2
-    },
-    {
-      "id": "plaine-products",
-      "name": "Plaine Products",
-      "parentCompany": null,
-      "ownershipType": [
-        "founder-led"
-      ],
-      "categories": [
-        "personal-care"
-      ],
-      "starRating": 5.0,
-      "animalWelfare": {
-        "rating": "good",
-        "supplyChainAbuse": false,
-        "testingOnAnimals": false,
-        "notes": "Never tested on animals. Leaping Bunny and PETA certified. 100% vegan. Does not sell in China. Small scale limits scrutiny but also limits risk."
-      },
-      "shitList": false,
-      "recommended": true,
-      "notes": "Founded 2017 by sisters Lindsey McCoy and Alison Delaplaine. ~5 employees. Certified Women-Owned Business (WBENC). No outside investors. Based in Terrace Park, Ohio. Leaping Bunny and PETA certified (cruelty-free and vegan). B Corp certified (score 100.2). 1% for the Planet member. Refillable/returnable aluminum bottle model. No controversies found.",
-      "summary": "",
-      "sources": [],
-      "report": null,
-      "sample": false,
-      "dateAdded": "2026-02-27",
-      "lastUpdated": "2026-02-27",
-      "priceTier": 3
-    },
-    {
-      "id": "ethique",
-      "name": "Ethique",
-      "parentCompany": "Bansk Group",
-      "ownershipType": [
-        "private-equity"
-      ],
-      "categories": [
-        "personal-care"
-      ],
-      "starRating": 4.0,
-      "animalWelfare": {
-        "rating": "good",
-        "supplyChainAbuse": false,
-        "testingOnAnimals": false,
-        "notes": "Leaping Bunny and PETA certified. 100% vegan and palm oil-free. No sales in mainland China. No documented animal welfare issues."
-      },
-      "shitList": false,
-      "recommended": true,
-      "notes": "Founded 2012 by Brianne West in Christchurch, NZ. West sold 75% to Bansk Group (NY investment firm) in late 2020 for >$100M valuation. West resigned as CEO in 2023 and has left the company. No longer founder-led despite marketing suggesting otherwise. Leaping Bunny and PETA certified. B Corp (score 117.9). 100% vegan and palm oil-free. Mica in products flagged for potential child labor sourcing. Brand narrative centers on founder's story but she sold majority stake and departed.",
-      "summary": "",
-      "sources": [],
-      "report": null,
-      "sample": false,
-      "dateAdded": "2026-02-27",
-      "lastUpdated": "2026-02-27",
-      "priceTier": 3
-    },
-    {
       "id": "aesop",
       "name": "Aesop",
       "parentCompany": "L'Oreal S.A.",
@@ -2814,7 +2716,8 @@
       ],
       "categories": [
         "cosmetics",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 3.5,
       "animalWelfare": {
@@ -2826,7 +2729,7 @@
       "shitList": false,
       "recommended": false,
       "notes": "Acquired by L'Oreal Aug 2023 for A$3.7B (L'Oreal's largest-ever acquisition). Founded 1987 in Melbourne. L'Oreal is publicly traded (~EUR200B+ market cap); Bettencourt Meyers family holds ~35%. Aesop brand is Leaping Bunny certified and 100% vegan. Sells in China via approved channels to avoid mandatory testing. PETA status contested due to L'Oreal ownership. Ethical Consumer gives worst rating for palm oil. L'Oreal is on PETA's 'do test' list. L'Oreal fined EUR189.5M (France) and EUR23.2M (Spain) for price-fixing. B Corp recertified 2024 under L'Oreal ownership (score 84.0).",
-      "summary": "",
+      "summary": "## Ownership & Structure\nFounded in 1987 by Dennis Paphitis in Melbourne, Australia. Acquired by L\u2019Or\u00e9al S.A. in August 2023 for A$3.7 billion \u2014 L\u2019Or\u00e9al\u2019s largest-ever acquisition. Previously owned by Natura & Co. L\u2019Or\u00e9al is publicly traded on Euronext Paris (market cap \u20ac200B+) with the Bettencourt Meyers family holding ~35%. Every dollar spent on Aesop flows directly to L\u2019Or\u00e9al.\n\n## Animal Welfare\nAesop the brand is Leaping Bunny certified, B Corp certified (score 84.0, recertified 2024), and 100% vegan. However, parent L\u2019Or\u00e9al is on PETA\u2019s \u201cCompanies That DO Test on Animals\u201d list. Aesop sells in mainland China via carefully structured channels to avoid mandatory testing, but L\u2019Or\u00e9al sells extensively in China with products tested by government labs. Ethical Consumer gave Aesop the worst rating for palm oil sourcing.\n\n## Controversies\nThe L\u2019Or\u00e9al acquisition triggered significant consumer backlash and boycott campaigns. L\u2019Or\u00e9al was fined \u20ac189.5M in France and \u20ac23.2M in Spain for price-fixing. Naturewatch Foundation maintains a long-standing L\u2019Or\u00e9al boycott. PETA\u2019s cruelty-free status for Aesop is contested due to the parent company. Long-time CEO departed December 2024 post-acquisition.\n\n## Assessment\nA luxury brand with real certifications at the brand level, completely undermined by L\u2019Or\u00e9al ownership. If you define ethics at the corporate level rather than the brand level, your money is funding animal testing. At $45-50 for a bottle of body wash, you\u2019re paying luxury prices for a L\u2019Or\u00e9al subsidiary.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -2844,7 +2747,8 @@
       ],
       "categories": [
         "household",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 2.5,
       "animalWelfare": {
@@ -2856,7 +2760,7 @@
       "shitList": false,
       "recommended": false,
       "notes": "Acquired by SC Johnson Dec 2017. Founded 2000 by Eric Ryan and Adam Lowry. SC Johnson is privately held, Johnson family 5th generation, ~$10B revenue. Method brand is Leaping Bunny and PETA certified. Does not sell in mainland China. HOWEVER: parent SC Johnson openly conducts animal testing and states 'We're not there yet' on ending it. Naturewatch Foundation revoked Method's accreditation. $2.25M class action settlement (2021) for falsely labeling products 'non-toxic' and 'natural.' Cradle-to-Cradle certification expired 2020, not renewed. SC Johnson initially hid ownership from consumers. SC Johnson fined in EUR948.9M French price-fixing case. Continued Russia operations despite 2022 sanctions.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nFounded in 2000 by Eric Ryan and Adam Lowry. Merged with Ecover in 2012 to form \u2018People Against Dirty.\u2019 Acquired by SC Johnson & Son in December 2017. SC Johnson is a privately held, family-owned megacorp (Johnson family, 5th generation) with ~$10B revenue \u2014 the 26th largest private company in the US. SC Johnson initially obscured its ownership of Method from consumers post-acquisition.\n\n## Animal Welfare\nMethod brand holds Leaping Bunny and PETA Cruelty-Free certifications. Does not sell in mainland China. However, parent SC Johnson openly conducts animal testing and has stated: \u201cWe\u2019ve given a lot of thought to ending animal testing. We\u2019re not there yet.\u201d Naturewatch Foundation revoked Method\u2019s accreditation and called for a boycott of all SC Johnson brands after the acquisition.\n\n## Controversies\nSettled a $2.25M class action in 2021 for falsely labeling products as \u2018non-toxic\u2019 and \u2018natural\u2019 when they contained synthetic chemicals. Cradle-to-Cradle certification expired in 2020 and was not renewed. SC Johnson was fined as part of a \u20ac948.9M French price-fixing case. SC Johnson continued operations in Russia despite 2022 sanctions pressure. Ethical Consumer documented SC Johnson\u2019s efforts to hide ownership from consumers.\n\n## Assessment\nA brand that was genuinely ethical before acquisition, now serving as a green halo for a parent company that tests on animals and got caught in a billion-dollar price-fixing cartel. The false labeling settlement and expired certifications suggest the ethical standards are slipping under corporate ownership.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -2874,7 +2778,8 @@
       ],
       "categories": [
         "household",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 2.5,
       "animalWelfare": {
@@ -2886,36 +2791,7 @@
       "shitList": false,
       "recommended": false,
       "notes": "Acquired by SC Johnson April 2008 (via The Caldrea Company). Founded 2001 by Monica Nassif. Same parent issues as Method. Brand claims Leaping Bunny certification. Does not sell in mainland China. Parent SC Johnson is NOT cruelty-free. 2009 Prop 65 lawsuit: dish soap contained >10ppm 1,4-dioxane (carcinogen); settled $50K. Products contain methylisothiazolinone and synthetic fragrances despite 'garden-inspired' natural marketing. Widely criticized as greenwashing \u2014 appearing indie/natural while owned by SC Johnson. Karma Wallet sustainability score: 2/16.",
-      "summary": "",
-      "sources": [],
-      "report": null,
-      "sample": false,
-      "dateAdded": "2026-02-27",
-      "lastUpdated": "2026-02-27",
-      "priceTier": 2
-    },
-    {
-      "id": "dove",
-      "name": "Dove",
-      "parentCompany": "Unilever PLC",
-      "ownershipType": [
-        "megacorp",
-        "public"
-      ],
-      "categories": [
-        "personal-care"
-      ],
-      "starRating": 2.0,
-      "animalWelfare": {
-        "rating": "moderate",
-        "supplyChainAbuse": false,
-        "testingOnAnimals": false,
-        "notes": "PETA-approved but NOT Leaping Bunny certified (lower rigor). Manufactures in China to bypass testing. Parent Unilever not cruelty-free at corporate level. CrueltyFreeKitty argues Dove's cruelty-free status is essentially a marketing tactic."
-      },
-      "shitList": false,
-      "recommended": false,
-      "notes": "Unilever PLC (LSE: ULVR). Dove is PETA-approved (since 2018) but NOT Leaping Bunny certified. Manufactures domestically in China to bypass testing requirements. Parent Unilever still allows testing 'where required by law' for other brands. UK CMA greenwashing investigation (2023-ongoing). Greenpeace: Unilever produced 6.4 billion unrecyclable plastic sachets for Dove alone in 2023. History of racially insensitive advertising (2017 Facebook ad, plus 2011 and 2014 incidents). Axe/Dove hypocrisy. Unilever fined EUR172.5M in 2014 French price-fixing. Dr. Bronner's dropped B Corp partly because B Lab certified Unilever subsidiaries.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nFounded in 2001 by Monica Nassif as The Caldrea Company. Acquired by SC Johnson in April 2008. Same parent company issues as Method \u2014 SC Johnson is a privately held family megacorp (~$10B revenue) that tests on animals and has been convicted of price-fixing. The brand\u2019s folksy, garden-inspired marketing obscures its megacorp ownership.\n\n## Animal Welfare\nBrand claims Leaping Bunny certification and PETA Cruelty-Free status. Does not sell in mainland China. However, parent SC Johnson is confirmed by PETA as an animal tester. Ethical Consumer gave SC Johnson the worst rating for animal testing. Naturewatch revoked endorsement after documenting the parent company relationship.\n\n## Controversies\nSettled a Prop 65 lawsuit in 2009 after dish soap was found to contain >10ppm 1,4-dioxane, a carcinogen. Products contain methylisothiazolinone (named \u2018allergen of the year\u2019 by the American Contact Dermatitis Society) and synthetic fragrances despite \u2018garden-inspired\u2019 natural marketing. Widely criticized as greenwashing \u2014 presenting an indie, natural image while owned by SC Johnson. Karma Wallet gave it a sustainability score of 2 out of 16.\n\n## Assessment\nA textbook case of greenwashing: looks like a small artisan brand from the packaging, actually owned by a $10B conglomerate that tests on animals. The carcinogen contamination and allergen issues add insult to injury. If you\u2019re buying Mrs. Meyer\u2019s thinking you\u2019re supporting a small ethical company, you\u2019ve been had.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -2932,7 +2808,8 @@
         "public"
       ],
       "categories": [
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 2.0,
       "animalWelfare": {
@@ -2944,7 +2821,7 @@
       "shitList": false,
       "recommended": false,
       "notes": "Henkel AG (Frankfurt, DAX component). Henkel family controls 61.85% of voting shares. Dial brand IS Leaping Bunny certified since June 2022. Does not sell in China physical stores. HOWEVER: PETA still lists Dial (Henkel) as animal tester at parent level. Parent Henkel admits testing 'where required by law.' Henkel fined EUR92.3M (2011) and EUR109M (2014) for price-fixing. EWG rates 84%+ of Henkel products D or F. Palm oil supply chain risks including forced labor and child labor. WWII forced labor history.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Henkel AG & Co. KGaA, a German megacorp listed on the Frankfurt Stock Exchange (DAX component). The Henkel family controls 61.85% of voting shares via a share-pooling agreement despite the public listing \u2014 a dual-class structure that keeps the founding family in control through the 5th generation.\n\n## Animal Welfare\nDial brand achieved Leaping Bunny certification in June 2022 by ensuring it does not sell in Chinese physical stores. However, parent Henkel is NOT cruelty-free \u2014 it admits to testing \u201cwhere required by law\u201d and cannot guarantee suppliers\u2019 ingredients were never tested. PETA\u2019s database still lists Dial under Henkel as an animal tester at the parent level. Henkel acknowledges palm oil supply chain risks including forced labor and child labor on plantations.\n\n## Controversies\nHenkel was fined \u20ac92.3M (2011) and \u20ac109M (2014) in French price-fixing cases. EWG rates 84%+ of Henkel products D or F for safety. The company has WWII forced labor history. Good Jobs First Violation Tracker shows $28.7M in total tracked penalties.\n\n## Assessment\nCredit where due: Dial actually went through the work of getting Leaping Bunny certified at the brand level, which is more than Dove can say. But profits still flow to Henkel, which tests on animals and has a long rap sheet of price-fixing and poor product safety ratings. Budget-friendly at ~$0.60-0.90/bar.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -2958,10 +2835,11 @@
       "parentCompany": "L'Occitane Groupe S.A.",
       "ownershipType": [
         "private-equity",
-        "founder-led"
+        "founder"
       ],
       "categories": [
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 1.0,
       "animalWelfare": {
@@ -2973,7 +2851,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "Founded 1976 by Olivier Baussan. Controlled by Reinold Geiger (~72% stake). Taken private Sept 2024 at ~EUR6B with Blackstone and Goldman Sachs financing. PETA lists L'Occitane as company that tests on animals. Leaping Bunny certification REVOKED when L'Occitane began selling in mainland China. L'Occitane admits Chinese authorities test their products. B Corp certified (score 85.4) \u2014 paradox of B Corp while Leaping Bunny revoked. Changing Markets Foundation named in 'hall of shame' for greenwashing.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nFounded in 1976 by Olivier Baussan. Controlled by Austrian billionaire Reinold Geiger (~72% stake) since the 1990s. Taken private in September 2024 at HK$34/share (~\u20ac6B deal), delisted from the Hong Kong Stock Exchange. Blackstone and Goldman Sachs Alternatives provided up to \u20ac1.551B in financing. Now a private-equity-backed company with reduced public transparency obligations.\n\n## Animal Welfare\nPETA lists L\u2019Occitane as a company that tests on animals. Leaping Bunny certification was REVOKED when L\u2019Occitane began selling in mainland China physical stores. Cruelty Free International confirmed the revocation was because China sales trigger animal testing by government labs. L\u2019Occitane\u2019s defense \u2014 that Chinese authorities conduct the tests, not L\u2019Occitane directly \u2014 is a distinction without a difference.\n\n## Controversies\nLeaping Bunny certification revoked \u2014 one of the most damning things that can happen to a personal care brand\u2019s ethical credibility. Named in the Changing Markets Foundation\u2019s \u201chall of shame\u201d for greenwashing \u2014 marketing in-store refill stations that existed in only 6 UK stores. Paradoxically holds B Corp certification (score 85.4) while being on PETA\u2019s do-test list, highlighting the weakness of B Corp as a standalone indicator. Now backed by Blackstone private equity, further reducing accountability.\n\n## Assessment\nA brand that had real ethical credentials and threw them away for China market access. The B Corp certification while Leaping Bunny is revoked is a credibility paradox that should make consumers deeply skeptical of any single certification. At $24-28 for a bottle of body wash, you\u2019re paying premium prices for a brand that allows animal testing.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -2991,7 +2869,8 @@
       ],
       "categories": [
         "cosmetics",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 1.0,
       "animalWelfare": {
@@ -3003,7 +2882,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "Beiersdorf AG (Frankfurt, DAX, ~$26.6B market cap). Maxingvest AG (Herz family) holds ~50.49%. PETA lists Nivea as company that tests on animals. No Leaping Bunny or PETA cruelty-free certification. Tests 'unless specifically required by law.' Has dedicated R&D center in Wuhan, China. FTC fined $900K for false slimming claims (2011). Price-fixing conviction (2016). Acquired sustainability brand 'Stop the Water While Using Me' in 2020 then discontinued it in 2023.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Beiersdorf AG, a German megacorp listed on the Frankfurt Stock Exchange (DAX component, market cap ~$26.6B). Controlling shareholder is Maxingvest AG (Herz family) with ~50.49% of shares. Founded in 1882, with the NIVEA brand created in 1911. One of the world\u2019s largest skincare companies.\n\n## Animal Welfare\nPETA explicitly lists Nivea (Beiersdorf) as a company that tests on animals. No Leaping Bunny certification. No PETA Cruelty-Free certification. Policy uses the standard industry weasel words: \u201cdoes not test on animals... unless specifically required by law.\u201d Sells extensively in China with a dedicated R&D center in Wuhan \u2014 this is not a reluctant China presence, it\u2019s a strategic investment in a market that triggers animal testing.\n\n## Controversies\nFTC fined Beiersdorf $900K for falsely claiming NIVEA cream could slim consumers\u2019 bodies (2011). Fined in the 2016 French price-fixing case. Acquired the natural brand \u2018Stop the Water While Using Me\u2019 in 2020 and then discontinued it in 2023, signaling that sustainability acquisitions are expendable when they don\u2019t perform financially.\n\n## Assessment\nCheap, ubiquitous, and on PETA\u2019s do-test list with a dedicated R&D center in China. The \u201cunless required by law\u201d policy is an industry-standard loophole, not a commitment. Buying sustainably-branded companies and then killing them off tells you everything about where ethics rank in the priority list.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -3021,7 +2900,8 @@
       ],
       "categories": [
         "cosmetics",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 1.0,
       "animalWelfare": {
@@ -3033,7 +2913,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "Spun off from Johnson & Johnson as Kenvue (NYSE: KVUE) May 2023. Kimberly-Clark announced $48.7B acquisition Nov 2025. PETA lists Aveeno (J&J) as animal tester. Claims no testing 'except in rare situations where governments or laws require it' \u2014 enables China testing. Sells in China physical stores. J&J talc/asbestos scandal: 62,000+ lawsuits alleging cancer. Kenvue named as defendant, found 70% responsible in $45M verdict. $700M multistate AG settlement. Kenvue stock dropped ~42% from IPO.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nCurrently owned by Kenvue Inc. (NYSE: KVUE), which was spun off from Johnson & Johnson in May 2023. J&J fully divested its stake by 2024. In November 2025, Kimberly-Clark announced a $48.7B acquisition of Kenvue, expected to close H2 2026. Ownership is in flux \u2014 Aveeno will likely become a Kimberly-Clark brand within the year.\n\n## Animal Welfare\nPETA explicitly lists Aveeno (under Johnson & Johnson) as a company that tests on animals. No Leaping Bunny or PETA Cruelty-Free certification. Aveeno\u2019s website states it doesn\u2019t test \u201cexcept in the rare situation where governments or laws require it\u201d \u2014 the word \u201cexcept\u201d does all the heavy lifting here. Sells in mainland China physical stores with no evidence of steps to qualify for post-2021 testing exemptions.\n\n## Controversies\nInherits the J&J talc/asbestos scandal \u2014 over 62,000 lawsuits alleging products caused cancer. Kenvue was named as a defendant and found 70% responsible in a $45M verdict. Kenvue settled a $700M multistate AG settlement. Three failed \u2018Texas Two-Step\u2019 bankruptcy attempts by J&J to offload talc liability. Kenvue stock dropped ~42% from its IPO price. Multiple independent reviewers have flagged misleading cruelty-free language on Aveeno\u2019s website.\n\n## Assessment\nA brand dragged down by its parent company\u2019s catastrophic talc scandal and ongoing animal testing in China. The misleading \u201cexcept when required by law\u201d language on cruelty-free claims is deliberately deceptive. With ownership changing hands again, there\u2019s no stability or accountability to count on.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -3051,7 +2931,8 @@
       ],
       "categories": [
         "cosmetics",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 1.0,
       "animalWelfare": {
@@ -3063,7 +2944,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "Galderma founded 1981 as L'Oreal/Nestle JV. Sold 2019 for $10.2B to PE consortium (EQT, ADIA subsidiary, PSP Investments). IPO'd on Swiss Exchange March 2024. L'Oreal took 10% stake Aug 2024, doubled to 20% early 2026. Galderma explicitly states: 'We are required by law to submit Cetaphil products for animal testing to import into China.' Pharma parent inherently requires animal testing for prescription drugs. PETA does not list Cetaphil as cruelty-free.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Galderma S.A., originally a joint venture between L\u2019Or\u00e9al and Nestl\u00e9, then wholly Nestl\u00e9-owned, then sold in 2019 for $10.2B to a private equity consortium (EQT VIII, Luxinva/ADIA, PSP Investments). Galderma IPO\u2019d on the Swiss Exchange in March 2024. L\u2019Or\u00e9al took a 10% stake in August 2024 and doubled it to 20% in early 2026. A pharma-adjacent company whose core business (Restylane, Dysport) structurally requires animal testing.\n\n## Animal Welfare\nNot listed as cruelty-free by PETA or Leaping Bunny. Galderma\u2019s own policy explicitly states: \u201cWe are required by law to submit Cetaphil products for animal testing to import Cetaphil into the People\u2019s Republic of China.\u201d This is unusually candid \u2014 most companies hide behind vaguer language. The pharma parent\u2019s injectable and prescription drug business makes a cruelty-free transition structurally impossible.\n\n## Controversies\nThe explicit admission of China animal testing in official policy is notable \u2014 honest, but damning. PE ownership (EQT consortium) means return-focused governance. L\u2019Or\u00e9al\u2019s growing 20% stake ties Cetaphil\u2019s future increasingly to a company on PETA\u2019s do-test list. Historical use of sodium tallowate (animal-derived) in the cleansing bar.\n\n## Assessment\nAt least Galderma is honest about the animal testing, which is more than you can say for brands that hide behind \u201cexcept where required by law.\u201d But honesty doesn\u2019t change the outcome \u2014 your money funds animal testing in China and a pharma company that can never go cruelty-free by design. L\u2019Or\u00e9al\u2019s growing stake makes the trajectory worse, not better.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -3081,7 +2962,8 @@
       ],
       "categories": [
         "household",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 0.5,
       "animalWelfare": {
@@ -3093,7 +2975,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "Colgate-Palmolive (NYSE: CL). PETA lists as 'Working for Regulatory Change' \u2014 tests 'only when required by law.' Rainforest Action Network names Colgate-Palmolive as 'one of the worst offenders' for deforestation and human rights abuses in palm oil supply chain (only 70.89% RSPO certified). Fined EUR35.4M (2011) with 'particularly active role' in price-fixing. Federal court allowing 'recyclable tube' greenwashing lawsuit (2024). Named as potentially responsible party for $23M Chemsol Superfund site cleanup. Ethical Consumer gave worst ratings for human rights, climate, pay, tax.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Colgate-Palmolive Company (NYSE: CL), a multinational founded in 1806 and headquartered in New York City. A global leader in oral care, personal care, home care, and pet nutrition. Notably, Colgate-Palmolive also owns Leaping Bunny-certified Tom\u2019s of Maine and Hello \u2014 but Irish Spring carries zero ethical certifications.\n\n## Animal Welfare\nNot on Leaping Bunny or PETA cruelty-free lists. PETA lists Colgate-Palmolive as testing on animals (classified as \u201cWorking for Regulatory Change\u201d \u2014 a voluntary moratorium with exceptions, not a ban). Sells in mainland China. Rainforest Action Network has singled out Colgate-Palmolive as one of the worst offenders for deforestation and human rights abuses in palm oil supply chains, with only about 70% RSPO certification.\n\n## Controversies\nColgate-Palmolive was fined \u20ac35.4M (2011) with a \u201cparticularly active role\u201d in a price-fixing cartel, with additional fines in 2014. A federal court allowed a greenwashing lawsuit over \u201crecyclable tube\u201d claims to proceed in 2024. RAN field investigators caught Colgate-Palmolive sourcing palm oil linked to illegal deforestation in Indonesia\u2019s Leuser Ecosystem \u2014 the last habitat of Sumatran orangutans, elephants, tigers, and rhinos. Named as a potentially responsible party for the $23M Chemsol Superfund site cleanup. Ethical Consumer gave worst ratings across human rights, climate, pay, and tax.\n\n## Assessment\nBottom-of-the-barrel ethics at bottom-of-the-barrel prices (~$0.60-0.85/bar). Zero ethical certifications on a brand owned by a company caught sourcing palm oil from illegal deforestation in one of the world\u2019s most critical ecosystems. The fact that Colgate-Palmolive owns Tom\u2019s of Maine proves they know how to do better \u2014 they just choose not to for Irish Spring.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -3110,7 +2992,8 @@
         "public"
       ],
       "categories": [
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 0.5,
       "animalWelfare": {
@@ -3122,7 +3005,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "P&G (NYSE: PG). On PETA's 'do test' list. Policy: 'We do not test unless required by law' \u2014 applies only to finished products, not ingredients where most testing occurs. Massive China operations. Linked to FGV Holdings (Malaysian palm oil company banned by US Customs for forced labor). Connected to destruction of Leuser Ecosystem. NRDC/Stand.earth/RAN document boreal forest deforestation. Multiple greenwashing class-action lawsuits (2025), est. $800M consumer overpayment. Fined EUR233.6M (2011) and EUR74.9M via Gillette (2014) for price-fixing. Planet Tracker: emissions targets don't align with Paris Agreement.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Procter & Gamble Company (NYSE: PG), one of the world\u2019s largest consumer goods companies with approximately 79 brands. Founded in 1837, headquartered in Cincinnati. P&G has massive global operations including extensive China market presence.\n\n## Animal Welfare\nOn PETA\u2019s \u201cCompanies That DO Test on Animals\u201d list. No Leaping Bunny or PETA Cruelty-Free certification. P&G\u2019s policy states \u201cWe do not test\u2026 unless required by law\u201d \u2014 Ethical Consumer notes this only appears to apply to finished products, not ingredients, where most testing actually occurs. Only 13 of P&G\u2019s 79 brands hold PETA certification; Ivory is not one of them. P&G has been linked to FGV Holdings, a Malaysian palm oil company banned by US Customs for forced labor.\n\n## Controversies\nMultiple active greenwashing class-action lawsuits (2025) alleging P&G\u2019s \u201cKeep Forests as Forests\u201d marketing was deceptive, with an estimated $800M in consumer overpayment. NRDC, Stand.earth, and RAN extensively document P&G\u2019s role in deforestation of Canada\u2019s boreal forest and palm oil supply chain abuses in the Leuser Ecosystem. Fined \u20ac233.6M (2011) and \u20ac74.9M via Gillette (2014) for price-fixing. Planet Tracker found P&G\u2019s supply chain emissions targets don\u2019t align with the Paris Agreement. Tax haven subsidiaries documented.\n\n## Assessment\nOne of the cheapest soaps you can buy (~$0.40-0.60/bar), and you get what you pay for ethically. Active greenwashing lawsuits, Paris-noncompliant climate targets, forced labor links in palm oil supply chains, and animal testing. P&G spends more on PR about ending animal testing than it would cost to actually stop.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -3139,7 +3022,8 @@
         "public"
       ],
       "categories": [
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 0.5,
       "animalWelfare": {
@@ -3151,7 +3035,7 @@
       "shitList": true,
       "recommended": false,
       "notes": "P&G (NYSE: PG). Same parent company issues as Ivory. Explicitly on PETA's 'do test' list. Not among P&G's 13 PETA-certified brands. Sells in mainland China physical stores. All P&G supply chain issues apply \u2014 forced labor in palm oil, deforestation, Leuser Ecosystem destruction. Consumer complaints about chemical burns from certain body wash/deodorant formulations.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Procter & Gamble Company (NYSE: PG) \u2014 same parent as Ivory and Olay. All P&G-level ownership concerns apply. P&G is a publicly traded megacorp with ~79 brands and massive China market operations.\n\n## Animal Welfare\nExplicitly listed on PETA\u2019s \u201cCompanies That DO Test on Animals\u201d list as \u201cOld Spice (Procter & Gamble).\u201d No Leaping Bunny or PETA Cruelty-Free certification. Not among P&G\u2019s 13 PETA-certified brands. Sells in mainland China physical retail. Contains palm oil; not vegan. All P&G supply chain issues apply \u2014 forced labor in palm oil, deforestation, destruction of the Leuser Ecosystem.\n\n## Controversies\nAll P&G-level controversies apply: \u20ac300M+ in price-fixing fines, active greenwashing lawsuits, boreal forest deforestation, palm oil forced labor links, Paris-noncompliant climate targets, and tax haven subsidiaries. Some consumer complaints about chemical burns from certain body wash and deodorant formulations, though these haven\u2019t escalated to major regulatory action.\n\n## Assessment\nSame P&G problems as Ivory, with the added concern of consumer burn complaints. Zero ethical certifications, active animal testing, and a parent company facing $800M+ in greenwashing litigation. The irreverent marketing is fun; the ethics are not.",
       "sources": [],
       "report": null,
       "sample": false,
@@ -3169,7 +3053,8 @@
       ],
       "categories": [
         "cosmetics",
-        "personal-care"
+        "personal-care",
+        "soap"
       ],
       "starRating": 0.5,
       "animalWelfare": {
@@ -3181,13 +3066,2012 @@
       "shitList": true,
       "recommended": false,
       "notes": "P&G (NYSE: PG). Same parent as Ivory/Old Spice. Explicitly on PETA's 'do test' list. Specifically named by RAN: 'Companies in P&G's supply chain destroy the Leuser Ecosystem to keep profit margins high for products like Olay.' Major China market presence \u2014 most China exposure of P&G soap brands. All P&G controversies apply: multiple greenwashing lawsuits ($800M+ exposure), EUR300M+ in price-fixing fines, Paris non-compliance, tax haven subsidiaries.",
-      "summary": "",
+      "summary": "## Ownership & Structure\nOwned by Procter & Gamble Company (NYSE: PG) \u2014 same parent as Ivory and Old Spice. All P&G-level ownership concerns apply. Olay has the most significant China market presence of the three P&G soap/body care brands assessed, which maximizes its exposure to animal testing requirements.\n\n## Animal Welfare\nExplicitly on PETA\u2019s \u201cCompanies That DO Test on Animals\u201d list as \u201cOlay (Procter & Gamble).\u201d No Leaping Bunny or PETA Cruelty-Free certification. Ethical Elephant confirms: \u201cOlay allows its products to be tested on animals when required by law, like when selling in China.\u201d Specifically named by Rainforest Action Network in supply chain deforestation reports \u2014 RAN stated that companies in P&G\u2019s supply chain \u201cdestroy the Leuser Ecosystem to keep profit margins high for products like Olay.\u201d\n\n## Controversies\nAll P&G-level controversies apply, amplified by Olay\u2019s specific naming in RAN deforestation reports. Largest China market presence of the three P&G brands studied means maximum animal testing exposure. P&G\u2019s $495M investment in \u201calternatives to animal testing\u201d over 40 years sounds impressive until you realize it\u2019s about $12M/year for a company with $80B+ revenue \u2014 a rounding error in the marketing budget.\n\n## Assessment\nThe worst of the P&G trifecta due to its outsized China presence and specific naming in deforestation investigations. RAN singling out Olay by name in Leuser Ecosystem destruction reports is a distinction no brand wants. Everything wrong with the megacorp soap model, concentrated in one product line.",
       "sources": [],
       "report": null,
       "sample": false,
       "dateAdded": "2026-02-27",
       "lastUpdated": "2026-02-27",
       "priceTier": 2
+    },
+    {
+      "id": "dr-bronners",
+      "name": "Dr. Bronner's",
+      "parentCompany": null,
+      "ownershipType": [
+        "family"
+      ],
+      "categories": [
+        "personal-care",
+        "household",
+        "shampoo",
+        "soap",
+        "cosmetics"
+      ],
+      "priceTier": 2,
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny + PETA certified; does not sell in China; family-owned benefit corporation with no parent company complications."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Ethical gold standard \u2014 Leaping Bunny, PETA, USDA Organic, Fair Trade, Regenerative Organic Certified. Dropped B Corp voluntarily in 2025 to protest B Lab certifying Nestl\u00e9 subsidiaries.",
+      "summary": "## Ownership & Structure\nFully independent, family-owned since five generations. Incorporated as a California Benefit Corporation since 2015. CEO salary capped at 5x lowest-paid employee. No outside investors, no PE backing. Dropped B Corp voluntarily in February 2025 \u2014 protesting B Lab's certification of Nestl\u00e9 subsidiaries. Was the highest-scoring B Corp ever (206.7). Still legally a Benefit Corporation.\n\n## Animal Welfare\nLeaping Bunny + PETA certified. Does not sell in mainland China \u2014 no exceptions. Does not test on animals at any stage. USDA Organic, Vegan Action certified (except balms with beeswax), Fair for Life fair trade, Regenerative Organic Certified (co-created the standard), EWG Verified, Non-GMO Project Verified. Pioneer of fair trade coconut and palm oil supply chains.\n\n## Controversies\nNone against the brand. The B Corp departure was a principled stand against B Lab certifying Nestl\u00e9 subsidiaries, and was widely applauded. Filed the original 2008 lawsuit against brands falsely labeling products 'organic' \u2014 on the right side of that fight.\n\n## Assessment\nThe ethical gold standard in personal care. Every major certification, fully independent ownership, salary equity, and a track record of suing greenwashers rather than being one. Donated approximately $100M to causes. 100% post-consumer recycled bottles. The only caveat is that pure castile soap requires dilution for hair washing \u2014 it's not a traditional shampoo.",
+      "sources": [
+        {
+          "label": "Leaping Bunny listing",
+          "url": "https://www.leapingbunny.org/brand/dr-bronners"
+        },
+        {
+          "label": "Cornucopia Institute \u2014 Dr. Bronner's lawsuit against organic cheater brands",
+          "url": "https://www.cornucopia.org/2008/05/dr-bronner%E2%80%99s-files-lawsuit-against-major-%E2%80%98organic%E2%80%99-cheater-brands/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "plaine-products",
+      "name": "Plaine Products",
+      "parentCompany": null,
+      "ownershipType": [
+        "founder"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo",
+        "soap"
+      ],
+      "priceTier": 3,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny + PETA certified; B Corp; does not sell in China; fully independent women-owned brand with refillable aluminum bottle system."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Zero-waste refillable aluminum bottles, B Corp, 1% for the Planet member. Premium price but genuinely clean supply chain with no parent company issues.",
+      "summary": "## Ownership & Structure\nFully independent, women-owned, founder-led. Founded in 2017 by sisters Lindsey McCoy and Alison Delaplaine. Fewer than 15 employees. No VC or PE backing. Certified Women-Owned Business.\n\n## Animal Welfare\nLeaping Bunny + PETA certified. B Corp certified. 1% for the Planet member. Does not sell in mainland China. 100% vegan. No parent company complications \u2014 every dollar stays within the independent brand.\n\n## Controversies\nNone found. Clean record across all sources reviewed.\n\n## Assessment\nThe cleanest small brand in the shampoo space. Refillable aluminum bottle system represents genuine circular economy innovation \u2014 886,000+ plastic bottles eliminated. Aloe-based (not water-based) formula with no sulfates, parabens, phthalates, palm oil, synthetic fragrances, or silicones. Premium price ($28\u201332 for 16 oz) is the only barrier. Some consumers note low lather due to the aloe base.",
+      "sources": [
+        {
+          "label": "Plaine Products \u2014 About",
+          "url": "https://www.plaineproducts.com/about/"
+        },
+        {
+          "label": "Leaping Bunny listing",
+          "url": "https://www.leapingbunny.org/brand/plaine-products"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "hibar",
+      "name": "HiBAR",
+      "parentCompany": null,
+      "ownershipType": [
+        "founder"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo"
+      ],
+      "priceTier": 2,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny + PETA certified; Vegan Society certified (except honey-containing formulas); does not sell in China; fully independent."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Plastic-free shampoo bars made in Minneapolis. Leaping Bunny + PETA certified. Some formulas contain honey (disclosed). 7M+ plastic bottles eliminated.",
+      "summary": "## Ownership & Structure\nFully independent, founder-led. Founded in 2018 in Minneapolis by four co-founders including Nora Schaper. Women co-owned. Self-funded \u2014 no VC or PE backing. Manufactures in own Minneapolis facility.\n\n## Animal Welfare\nLeaping Bunny + PETA certified. Vegan Society certified, except Soothe and Maintain formulas which contain honey (transparently disclosed). Does not sell in mainland China. FSC-certified packaging. Amazon Compact by Design. Not B Corp certified.\n\n## Controversies\nNone. The honey in two formulas is transparently disclosed, preventing the brand from being 100% vegan across the full line \u2014 but this is honest labeling, not a controversy.\n\n## Assessment\nA plastic-free pioneer with genuine environmental credentials. 100% plastic-free from production to shipping. Ergonomic river-stone bar design. 7M+ plastic bottles eliminated. Water-free formula. No sulfates, parabens, phthalates, silicones, or palm oil. One bar replaces 2+ bottles of 24 oz liquid shampoo. Conditioner bars get mixed reviews for thick hair, but shampoo bars are consistently well-rated.",
+      "sources": [
+        {
+          "label": "HiBAR \u2014 About",
+          "url": "https://hellohibar.com/pages/about-hibar"
+        },
+        {
+          "label": "KARE 11 \u2014 HiBAR profile",
+          "url": "https://www.kare11.com/article/money/business/behind-the-business/st-paul-based-hibar-makes-it-easy-to-swap-out-plastic-in-bathroom/89-e6af01b8-0b39-4d6f-9d23-9350bc6aba77"
+        },
+        {
+          "label": "Thingtesting \u2014 HiBAR reviews",
+          "url": "https://thingtesting.com/brands/hibar/reviews"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "giovanni",
+      "name": "Giovanni",
+      "parentCompany": "Eco Chic Technology, LLC",
+      "ownershipType": [
+        "family"
+      ],
+      "categories": [
+        "personal-care",
+        "cosmetics",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny + PETA certified; does not sell in China; independent family-owned since 1979. Minor 2008 organic labeling lawsuit (resolved)."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Best value ethical shampoo \u2014 budget price, Leaping Bunny + PETA, family-owned 45+ years. Named in 2008 Dr. Bronner's organic labeling suit; since rebranded and reformulated.",
+      "summary": "## Ownership & Structure\nGiovanni Cosmetics, Inc. is a subsidiary of Eco Chic Technology, LLC. Private, family-owned since 1979. Founded by Arthur Guidotti, now led by son Giovanni (G. James) Guidotti. Veteran-owned business. No outside investors or PE backing.\n\n## Animal Welfare\nLeaping Bunny + PETA certified. Does not sell in mainland China. Mostly vegan ('vast majority' of products \u2014 a few exceptions per Giovanni). No B Corp, no USDA Organic (though uses organic ingredients). Products contain undisclosed 'Fragrance' ingredient, which is a minor transparency gap.\n\n## Controversies\nNamed in Dr. Bronner's 2008 lawsuit over misleading 'organic' branding when using conventional-origin cleansing ingredients. Has since rebranded from 'Organic Cosmetics' to 'Eco Chic Beauty' and reformulated. The lawsuit was legitimate \u2014 the labeling was misleading \u2014 but the brand corrected course.\n\n## Assessment\nBest value ethical shampoo on the market. Budget pricing ($7\u201310 for 8.5 oz, $40\u201355 per gallon) with genuine Leaping Bunny certification and 45+ years of independent family ownership. Tea Tree Triple Treat is a cult favorite. #1 selling hair care line in US Natural Products Industry per SPINS. Used backstage at Emmys, Grammys, Oscars, and Tonys. The 2008 organic labeling issue is resolved and the brand corrected transparently.",
+      "sources": [
+        {
+          "label": "Cruelty-Free Kitty \u2014 Giovanni",
+          "url": "https://www.crueltyfreekitty.com/brands/giovanni/"
+        },
+        {
+          "label": "Co+op \u2014 Giovanni profile",
+          "url": "https://www.grocery.coop/article/giovanni/"
+        },
+        {
+          "label": "PR Newswire \u2014 Giovanni at Makeup & Hair Stylist Guild Awards",
+          "url": "https://www.prnewswire.com/news-releases/the-hair-care-brand-of-the-entertainment-industry-giovanni-eco-chic-beauty--presents-the-makeup--hair-stylist-guild-awards-in-conjunction-with-loreal-groupe-saturday-february-15-2025-302368447.html"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "acure",
+      "name": "Acure",
+      "parentCompany": "Better Planet Brands, LLC",
+      "ownershipType": [
+        "founder"
+      ],
+      "categories": [
+        "personal-care",
+        "cosmetics",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny + PETA certified; 100% vegan; Climate Neutral Certified; does not sell in China; independent private company."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Affordable clean beauty at Target/Whole Foods prices. Leaping Bunny + PETA, 100% vegan, Climate Neutral. Minor ingredient transparency concerns flagged by reviewers.",
+      "summary": "## Ownership & Structure\nOperated by Better Planet Brands, LLC (d/b/a ACURE). Private, independent, described as family-owned. Based in Fort Lauderdale, FL. Estimated revenue $10\u201325M. No PE or VC backing confirmed.\n\n## Animal Welfare\nLeaping Bunny + PETA certified. 100% vegan across all products. Climate Neutral Certified as of April 2024. Does not sell in mainland China. No B Corp, no USDA Organic (though uses organic ingredients), not EWG Verified.\n\n## Controversies\nMinor \u2014 ingredient transparency concerns flagged by Clean Living Guide, noting inaccurate information about safety profiles of certain ingredients and ingredient lists changing without clear disclosure. No major lawsuits or regulatory actions.\n\n## Assessment\nThe best affordable clean beauty option. Accessible price point (~$9.99 for 8 oz at Target) with genuine Leaping Bunny certification, 100% vegan, and Climate Neutral status. Widely available at Target, Whole Foods, and Ulta. Independent ownership with no megacorp parent. The ingredient transparency concerns are minor compared to the overall ethical profile.",
+      "sources": [
+        {
+          "label": "Cruelty-Free Kitty \u2014 Acure",
+          "url": "https://www.crueltyfreekitty.com/brands/acure/"
+        },
+        {
+          "label": "Clean Living Guide \u2014 Acure review",
+          "url": "https://cleanlivingguide.com/review/acure-shampoo-conditioner-natural-hair-bath-body/"
+        },
+        {
+          "label": "Essential Moves to Wellness \u2014 Acure review",
+          "url": "https://essentialmovestowellness.com/acure-review/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "ethique",
+      "name": "Ethique",
+      "parentCompany": "Bansk Group (75% ownership)",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo",
+        "soap"
+      ],
+      "priceTier": 2,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny + PETA + Vegan Society certified; B Corp. No China sales. However, 75% owned by Bansk Group PE since 2020; founder departed 2023."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Strong certifications (Leaping Bunny, B Corp, Vegan Society) but 75% PE-owned since 2020. Founder departed 2023. Mission integrity under new management is uncertain.",
+      "summary": "## Ownership & Structure\n75% owned by Bansk Group, a New York private equity firm with a $1.45B fund, since late 2020. Founded in 2012 by Brianne West in New Zealand. West resigned as CEO in 2023 and was replaced by Bansk-appointed Erica Cocilova (ex-Briogeo). No longer founder-led. New CEO stated: 'I would love if sustainability was a major purchase driver, but I think we can all be really honest with ourselves.'\n\n## Animal Welfare\nLeaping Bunny + PETA + Vegan Society certified. B Corp (score 117.9). Living Wage Certified employer (NZ). Palm oil-free. Carbon positive. Donates 2% of revenue or 20% of profit (whichever higher). No China sales. 100% vegan. All certifications remain intact under PE ownership.\n\n## Controversies\nPE ownership is the primary concern. Bansk Group prioritizes returns. Founder's departure and new 'efficacy and value' messaging under PE management raises mission-integrity questions. The shift from founder-led to PE-appointed management is the classic pattern that precedes certification erosion, though it hasn't happened yet.\n\n## Assessment\nThe world's first zero-waste beauty brand with genuinely impressive credentials \u2014 33M+ plastic bottles saved, all packaging home-compostable, 93% smaller carbon footprint than liquid equivalents. Sold in 22+ countries and 8,000+ stores. But PE ownership fundamentally changes the calculus for ethical consumers. Certifications are intact today, but the incentive structure now favors returns over mission. Watch this space.",
+      "sources": [
+        {
+          "label": "Leaping Bunny listing",
+          "url": "https://www.leapingbunny.org/brand/ethique"
+        },
+        {
+          "label": "Conscious Bunny \u2014 Ethique ownership",
+          "url": "https://consciousbunny.com/is-charlotte-tilbury-cruelty-free/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "avalon-organics",
+      "name": "Avalon Organics",
+      "parentCompany": "Hain Celestial Group (NASDAQ: HAIN)",
+      "ownershipType": [
+        "public"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo"
+      ],
+      "priceTier": 2,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified since 1996 (one of the originals) + PETA. Parent Hain Celestial is also cruelty-free. No China sales."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Leaping Bunny since 1996, NSF organic certified. BUT settled $9.4M class action for fraudulent 'organic' labeling (2007\u20132015). Has since reformulated and obtained genuine certifications.",
+      "summary": "## Ownership & Structure\nOwned by Hain Celestial Group, Inc. (NASDAQ: HAIN), a publicly traded mid-cap natural/organic-focused company (~$172M market cap). Acquired for $120M in 2007. Hain Celestial is not a major conglomerate \u2014 it focuses specifically on natural and organic products.\n\n## Animal Welfare\nLeaping Bunny certified since 1996 \u2014 one of the original certified brands. PETA certified. NSF/ANSI 305 certified (\u226570% organic), some products USDA NOP certified, EWG Verified (some products), biodegradable formulas, Non-GMO. Parent Hain Celestial is itself cruelty-free, unlike the megacorp parents of many brands. Does not sell in China. Most third-party certifications of any brand in this assessment.\n\n## Controversies\n$9.4M class action settlement (Brown v. Hain Celestial) for falsely labeling products 'organic' in violation of California's Organic Products Act, covering May 2007 through January 2015. Also sued by Dr. Bronner's in 2008 for using conventional/petrochemical-derived cleansing ingredients under 'Organics' branding. CBS News investigation flagged synthetic ingredients. Post-lawsuit: reformulated and obtained genuine NSF/ANSI 305 certification.\n\n## Assessment\nA brand with the longest cruelty-free certification history in this assessment (since 1996) and the most third-party certifications, marred by a serious $9.4M organic fraud settlement. The brand genuinely reformed \u2014 obtaining real NSF/ANSI 305 organic certification post-lawsuit. Parent Hain Celestial being cruelty-free itself is a meaningful differentiator from megacorp-owned brands. The fraud history prevents a recommendation, but the current product is legitimately certified.",
+      "sources": [
+        {
+          "label": "Leaping Bunny \u2014 Avalon Organics",
+          "url": "https://www.leapingbunny.org/brand/avalon-organics"
+        },
+        {
+          "label": "Hain Celestial \u2014 Avalon acquisition",
+          "url": "https://ir.hain.com/news-releases/news-release-details/hain-celestial-group-agrees-acquire-avalon-natural-products-inc"
+        },
+        {
+          "label": "Moya Law Firm \u2014 Hain Celestial organic labeling settlement",
+          "url": "https://moyalawfirm.com/hain-celestial-settles-class-action-for-mislabeling-organic-cosmetics/"
+        },
+        {
+          "label": "Avalon Organics \u2014 Certifications page",
+          "url": "https://www.avalonorganics.com/pages/certifications"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "garnier",
+      "name": "Garnier",
+      "parentCompany": "L'Or\u00e9al Group (Euronext: OR)",
+      "ownershipType": [
+        "public",
+        "family",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "cosmetics",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Garnier itself is Leaping Bunny + PETA certified (withdrew from China retail). BUT parent L'Or\u00e9al Group is on PETA's 'DO TEST' list \u2014 all revenue flows to a non-CF parent."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Best mainstream cruelty-free option by certification rigor (Leaping Bunny). Cheapest CF shampoo. But all profits go to L'Or\u00e9al Group, which is NOT cruelty-free and sells in China.",
+      "summary": "## Ownership & Structure\nOwned by L'Or\u00e9al Group (Euronext Paris: OR), the world's largest cosmetics company. Market cap ~\u20ac210B, revenue \u20ac44B. Bettencourt Meyers family holds ~34.7%, Nestl\u00e9 holds ~20.1%. Megacorp conglomerate. All revenue flows upstream to L'Or\u00e9al Group.\n\n## Animal Welfare\nGarnier itself is Leaping Bunny certified (March 2021, after an 18-month audit of 500+ suppliers and 3,000+ ingredients) and PETA certified. Withdrew from mainland China retail to achieve certification. Approved by Logical Harmony, Ethical Elephant, and Cruelty-Free Kitty. However, parent L'Or\u00e9al Group is NOT cruelty-free \u2014 L'Or\u00e9al Paris and many other L'Or\u00e9al brands sell in China and permit testing where 'required by law.' PETA lists L'Or\u00e9al on its 'DO TEST' list.\n\n## Controversies\nPre-2021: criticized for 'vegan' labeling while selling in China. Post-certification: the primary concern is that all revenue flows to L'Or\u00e9al Group, which is not cruelty-free. Greenwashing accusations regarding sustainability claims. The fundamental tension: Leaping Bunny certifies the brand, not the parent \u2014 but the parent collects the revenue.\n\n## Assessment\nThe most accessible cruelty-free option by price (~$3.97\u20137.20). Leaping Bunny is the gold-standard certification with independent audits, making Garnier's individual brand certification meaningfully more credible than PETA-only brands. But consumers applying a 'follow the money' test will note that every purchase supports L'Or\u00e9al Group's $10B+ China business where animal testing still occurs. PETA encourages purchasing from certified sub-brands to incentivize parent companies \u2014 the consumer must decide whether brand-level or corporate-level accountability matters more.",
+      "sources": [
+        {
+          "label": "Garnier USA \u2014 Cruelty-free page",
+          "url": "https://www.garnierusa.com/about-garnier/greener-beauty/cruelty-free"
+        },
+        {
+          "label": "Cruelty-Free Kitty \u2014 Garnier",
+          "url": "https://www.crueltyfreekitty.com/brands/garnier/"
+        },
+        {
+          "label": "Cosmetics Design Europe \u2014 Garnier Leaping Bunny",
+          "url": "https://www.cosmeticsdesign-europe.com/Article/2021/03/09/Garnier-products-now-Leaping-Bunny-certified-by-Cruelty-Free-International-in-milestone-move/"
+        },
+        {
+          "label": "PETA \u2014 L'Or\u00e9al on 'do test' list",
+          "url": "https://www.peta.org/faq/is-loreal-cruelty-free/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "dove",
+      "name": "Dove",
+      "parentCompany": "Unilever PLC (LSE: ULVR)",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "cosmetics",
+        "shampoo",
+        "soap"
+      ],
+      "priceTier": 1,
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "PETA certified (2018) but NOT Leaping Bunny. PETA is self-attestation only \u2014 no independent audits. Parent Unilever is NOT cruelty-free. China sales via domestic manufacturing loophole."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "PETA certified since 2018 but no Leaping Bunny (less rigorous). Parent Unilever is NOT cruelty-free. UK CMA investigated Unilever for greenwashing. Palm oil deforestation in supply chain.",
+      "summary": "## Ownership & Structure\nOwned by Unilever PLC (LSE: ULVR, NYSE: UL), a publicly traded megacorp conglomerate. Market cap ~$162B, revenue ~$64.9B. Owns ~400 brands in 190+ countries. Only 31 of ~400 Unilever brands are individually PETA-certified.\n\n## Animal Welfare\nPETA certified since 2018 (first Unilever brand) but NOT Leaping Bunny certified. This distinction matters: PETA certification is self-attestation-based with no independent audits, while Leaping Bunny requires independent supplier audits and documentation. Dove says it stopped testing finished products in the mid-1980s and ingredients in 2010. Sells in China via domestically manufactured products exempt from mandatory pre-market testing. Parent Unilever is NOT cruelty-free \u2014 PETA lists Unilever as a 'company working for regulatory change,' and Cruelty-Free Kitty lists Unilever as NOT cruelty-free.\n\n## Controversies\nUK CMA investigated Unilever for greenwashing (2023\u20132024, closed after Unilever made changes). Palm oil supply chain linked to 55,000 hectares of deforestation since 2016. Unilever continued Russian operations post-invasion (profits doubled to \u20ac108M). Cruelty-Free Kitty initially challenged Dove's PETA certification as misleading given the parent company situation.\n\n## Assessment\nThe most recognizable 'cruelty-free' mass-market brand, but the certification is PETA-only (no independent audits). China sales remain contentious despite the domestic-manufacturing workaround. All profits flow to Unilever, which operates 369+ brands that are NOT individually cruelty-free certified. Palm oil deforestation and greenwashing investigations add environmental concerns on top of the animal testing gray zone. Well-regarded product quality (consistently 4.5\u20134.7 stars) but ethical consumers should understand exactly what PETA certification does and does not guarantee.",
+      "sources": [
+        {
+          "label": "Dove UK \u2014 PETA partnership",
+          "url": "https://www.dove.com/uk/stories/about-dove/sign-to-support.html"
+        },
+        {
+          "label": "Cruelty-Free Kitty \u2014 Dove",
+          "url": "https://www.crueltyfreekitty.com/brands/dove/"
+        },
+        {
+          "label": "Cruelty-Free Kitty \u2014 Dove CF status update",
+          "url": "https://www.crueltyfreekitty.com/news/dove-cruelty-free-update/"
+        },
+        {
+          "label": "Cruelty-Free Kitty \u2014 Unilever",
+          "url": "https://www.crueltyfreekitty.com/brands/unilever/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "tresemme",
+      "name": "TRESemm\u00e9",
+      "parentCompany": "Unilever PLC (LSE: ULVR)",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "PETA certified (May 2021) but NOT Leaping Bunny. China sales via cross-border e-commerce only. Parent Unilever is NOT cruelty-free."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "PETA certified 2021, no Leaping Bunny. China sales via e-commerce only. DMDM hydantoin hair loss lawsuits (since reformulated). Parent Unilever is NOT cruelty-free.",
+      "summary": "## Ownership & Structure\nOwned by Unilever PLC (LSE: ULVR, NYSE: UL). Same megacorp parent as Dove. Market cap ~$162B, ~400 brands, 190+ countries.\n\n## Animal Welfare\nPETA certified since May 2021 but NOT Leaping Bunny certified (same gap as Dove \u2014 no independent audits). China availability is via cross-border e-commerce only, which has never required animal testing. Parent Unilever is NOT cruelty-free. Same structural concerns as Dove.\n\n## Controversies\nMultiple class-action lawsuits alleging keratin shampoo caused hair loss due to DMDM hydantoin, a formaldehyde-releasing preservative. TRESemm\u00e9 has since reformulated. All Unilever-level controversies apply: palm oil deforestation, UK CMA greenwashing investigation, continued Russian operations post-invasion.\n\n## Assessment\nQuietly PETA-certified with the same structural limitations as Dove. The DMDM hydantoin hair loss lawsuits are a product-safety concern beyond the animal testing question \u2014 though the brand has reformulated. Good value per ounce ($5.99\u20137.49 for 28 oz) but profits flow to the same Unilever parent that operates 369+ non-certified brands. Cross-border e-commerce-only China sales are a cleaner workaround than Dove's domestic manufacturing approach.",
+      "sources": [
+        {
+          "label": "TRESemm\u00e9 Canada \u2014 PETA approved",
+          "url": "https://www.tresemme.com/ca/en/about-us/peta-approved.html"
+        },
+        {
+          "label": "LiveKindly \u2014 TRESemm\u00e9 cruelty-free",
+          "url": "https://www.livekindly.com/tresemme-cruelty-free/"
+        },
+        {
+          "label": "Logical Harmony \u2014 TRESemm\u00e9",
+          "url": "https://logicalharmony.net/is-tresemme-cruelty-free/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "herbal-essences",
+      "name": "Herbal Essences",
+      "parentCompany": "Procter & Gamble (NYSE: PG)",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "PETA certified (2019, first P&G brand) but NOT Leaping Bunny. Parent P&G is NOT cruelty-free and has documented animal testing history. Only 13 of 79 P&G brands are PETA-certified."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "PETA certified 2019, no Leaping Bunny. Most debated gray-zone brand \u2014 watchdogs split on legitimacy. Parent P&G has documented animal testing controversies including PETA undercover investigations.",
+      "summary": "## Ownership & Structure\nOwned by Procter & Gamble (NYSE: PG), a publicly traded megacorp. Market cap ~$375\u2013382B. P&G owns ~79 brands. Only 13 of 79 P&G brands are PETA cruelty-free certified.\n\n## Animal Welfare\nPETA certified since 2019 (first P&G brand) but NOT Leaping Bunny certified. PETA states the brand 'worked within Chinese regulations' to avoid testing. Sells in China via domestically manufactured products exempt from mandatory testing. Watchdogs are split: Cruelty-Free Kitty now lists as cruelty-free (with asterisk for non-CF parent), while stricter sources reject due to China presence and parent company. Ethical Elephant and Logical Harmony generally accept.\n\n## Controversies\nThe most debated gray-zone brand in this assessment. Parent P&G has documented animal testing history: PETA undercover investigation at Iams contract lab (2002\u201303), use of Huntingdon Life Sciences, Ohio HB 495 legislation specifically citing P&G practices. P&G's corporate policy remains: 'We do not test unless required by law.' Only 13 of 79 brands certified \u2014 the vast majority are not.\n\n## Assessment\nThe certification that started the megacorp gray zone. When the first P&G brand got PETA-certified in 2019, it forced every watchdog to decide whether brand-level or corporate-level accountability mattered more. The answer varies by source, creating genuine consumer confusion. Bio:Renew line is well-received. Known for pleasant scents. But every purchase supports P&G's $80B+ revenue machine, which includes brands that actively permit animal testing where 'required by law.'",
+      "sources": [
+        {
+          "label": "PETA \u2014 Herbal Essences certified",
+          "url": "https://www.peta.org/news/herbal-essences-beauty-without-bunnies/"
+        },
+        {
+          "label": "Ethical Elephant \u2014 Herbal Essences",
+          "url": "https://ethicalelephant.com/is-herbal-essences-cruelty-free-vegan/"
+        },
+        {
+          "label": "Cruelty-Free Kitty \u2014 P&G",
+          "url": "https://www.crueltyfreekitty.com/brands/procter-gamble/"
+        },
+        {
+          "label": "Bunny Search \u2014 Herbal Essences",
+          "url": "https://bunnysearch.app/brands/herbal-essences"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "pantene",
+      "name": "Pantene",
+      "parentCompany": "Procter & Gamble (NYSE: PG)",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 1.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. Sells in China physical stores. Pantene's own website admits governments mandate animal tests in some markets where it is sold."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Not cruelty-free \u2014 sells in China physical stores subject to mandatory testing. At least transparent about it: own website states 'we do not claim cruelty-free on our packaging.'",
+      "summary": "## Ownership & Structure\nOwned by Procter & Gamble (NYSE: PG). Same megacorp parent as Herbal Essences and Head & Shoulders. Market cap ~$375\u2013382B.\n\n## Animal Welfare\nNOT cruelty-free. No Leaping Bunny, no PETA certification. Listed on PETA's 'brands to avoid.' Sells in mainland China physical stores where products are subject to mandatory animal testing. Pantene's own website explicitly admits: 'In a few countries where Pantene is sold, governments still mandate animal tests\u2026 This is why we do not claim cruelty-free on our packaging.'\n\n## Controversies\nSubject to mandatory animal testing via China sales. All P&G-level controversies apply (undercover investigations, Huntingdon Life Sciences, Ohio HB 495).\n\n## Assessment\nNotable for being transparent about why it cannot claim cruelty-free status \u2014 more honest than most non-CF brands, and certainly more honest than L'Or\u00e9al Paris's misleading '30 years without testing' ads. The admission on their own website is unusual candor for a megacorp brand. Product quality varies significantly by line (3.8\u20134.5 stars). No certifications, no workarounds, no gray zones \u2014 straightforwardly not cruelty-free.",
+      "sources": [
+        {
+          "label": "Pantene Australia \u2014 Cruelty-free page (admission)",
+          "url": "https://www.pantene.com.au/en-au/cruelty-free"
+        },
+        {
+          "label": "Cruelty-Free Vegan Life \u2014 Pantene",
+          "url": "https://crueltyfreeveganlife.com/pantene-cruelty-free/"
+        },
+        {
+          "label": "PETA \u2014 P&G",
+          "url": "https://crueltyfree.peta.org/company/procter-gamble/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "head-and-shoulders",
+      "name": "Head & Shoulders",
+      "parentCompany": "Procter & Gamble (NYSE: PG)",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "shampoo"
+      ],
+      "priceTier": 1,
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. Sells in China physical stores. No cruelty-free certifications. P&G corporate policy: 'We do not test unless required by law.'"
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "America's #1 dandruff shampoo but not cruelty-free. Sells in China, no CF certifications. Parent P&G has documented animal testing history including PETA investigations at contract labs.",
+      "summary": "## Ownership & Structure\nOwned by Procter & Gamble (NYSE: PG). Same megacorp parent as Pantene and Herbal Essences. America's #1 dandruff shampoo by volume.\n\n## Animal Welfare\nNOT cruelty-free. No Leaping Bunny, no PETA certification. Listed as a company that tests on animals by PETA. Sells in mainland China physical stores. Uses carefully hedged language: 'not tested a finished product on animals in over a decade' \u2014 but makes no cruelty-free claim. The 'finished product' qualifier is deliberate; it says nothing about ingredient testing or third-party testing.\n\n## Controversies\nSubject to mandatory animal testing via China sales. All P&G-level controversies apply. The hedged 'finished product' language is more misleading than Pantene's straightforward admission.\n\n## Assessment\nHigh product quality (consistently 4.5\u20134.6 stars) driven by specific anti-dandruff efficacy, but no ethical credentials whatsoever. Sells in China physical stores with no workarounds attempted. The carefully worded non-denial about animal testing is less honest than Pantene's direct admission. For consumers who need anti-dandruff efficacy with cruelty-free credentials, this brand is not an option.",
+      "sources": [
+        {
+          "label": "Cruelty-Free Kitty \u2014 Head & Shoulders",
+          "url": "https://www.crueltyfreekitty.com/brands/head-shoulders/"
+        },
+        {
+          "label": "Veg Knowledge \u2014 Head & Shoulders",
+          "url": "https://www.vegknowledge.com/vegan/is-head-and-shoulders-vegan-or-cruelty-free/"
+        },
+        {
+          "label": "Ohio Capital Journal \u2014 P&G descendant proposes animal testing bill",
+          "url": "https://ohiocapitaljournal.com/2024/05/02/procter-and-gamble-descendant-proposes-bill-to-stop-the-type-of-animal-testing-pg-has-done/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "loreal-paris",
+      "name": "L'Or\u00e9al Paris",
+      "parentCompany": "L'Or\u00e9al Group (Euronext: OR)",
+      "ownershipType": [
+        "public",
+        "family",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "cosmetics",
+        "shampoo"
+      ],
+      "priceTier": 2,
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. No certifications. Sells extensively in China. Policy claims no testing but adds 'an exception could be made if authorities required it.' L'Or\u00e9al's own website admits China brands 'cannot have a cruelty-free logo.'"
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Flagship consumer brand of L'Or\u00e9al S.A. \u2014 world's largest cosmetics company. On PETA's 'DO TEST' list. Cruelty-Free Kitty calls its testing policy 'one of the biggest lies relating to animal testing.' Misleading ads claiming '30 years without testing' while permitting China animal testing.",
+      "summary": "## Ownership & Structure\nOwned by L'Or\u00e9al Group (Euronext: OR), the world's largest cosmetics company. Revenue \u20ac44B, market cap ~\u20ac210B. Bettencourt Meyers family holds ~34.7%, Nestl\u00e9 holds ~20.1%. Same parent as Garnier \u2014 but while Garnier withdrew from China retail to achieve Leaping Bunny, L'Or\u00e9al Paris did not. Also owns Maybelline, Lanc\u00f4me, IT Cosmetics, NYX, Urban Decay, CeraVe, La Roche-Posay, Kiehl's.\n\n## Animal Welfare\nNOT cruelty-free. No Leaping Bunny, no PETA certification. Explicitly on PETA's 'DO TEST' list. Sells in mainland China physical stores. Policy is the most heavily criticized in the industry: claims to have 'voluntarily stopped animal testing' since 1989 while adding 'an exception could be made if authorities required it.' Cruelty-Free Kitty calls this 'one of the biggest lies relating to animal testing.' PETA states: 'L'Or\u00e9al does not deny that it pays the Chinese government to test its products on animals.'\n\n## Controversies\nRan London Tube and radio ads claiming '30 years ago we completely stopped testing our products on animals' without disclosing the China caveat \u2014 actively misleading consumers. Exploits an ingredient loophole: can use ingredients tested on animals before March 2013. Prioritizes ~$10B+ China/North Asia revenue over CF status. ICCS founding member \u2014 widely viewed as an alibi while continuing to profit from markets requiring animal testing. The contrast with sibling brand Garnier (which achieved Leaping Bunny by leaving China) makes the choice explicitly deliberate.\n\n## Assessment\nThe most documented case of corporate greenwashing in the cosmetics industry. The biggest brand that isn't cruelty-free, and the most egregious for misleading consumers about it. While Pantene at least admits it can't claim CF status, L'Or\u00e9al Paris ran advertisements implying the opposite. The fact that Garnier achieved Leaping Bunny proves it's possible within the same parent company \u2014 L'Or\u00e9al Paris simply chooses not to because China revenue is too valuable.",
+      "sources": [
+        {
+          "label": "PETA \u2014 L'Or\u00e9al on 'do test' list",
+          "url": "https://www.peta.org/faq/is-loreal-cruelty-free/"
+        },
+        {
+          "label": "Cruelty-Free Kitty \u2014 L'Or\u00e9al misleading claims",
+          "url": "https://www.crueltyfreekitty.com/news/loreal-animal-testing-not-cruelty-free/"
+        },
+        {
+          "label": "L'Or\u00e9al Paris \u2014 Our Ethics page",
+          "url": "https://www.lorealparisusa.com/our-ethics"
+        },
+        {
+          "label": "The Ethos \u2014 Is L'Or\u00e9al cruelty-free?",
+          "url": "https://the-ethos.co/is-loreal-cruelty-free/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "knudsen",
+      "name": "Knudsen",
+      "parentCompany": "Lactalis Group",
+      "ownershipType": [
+        "family",
+        "megacorp"
+      ],
+      "categories": [
+        "food",
+        "dairy"
+      ],
+      "priceTier": 2,
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Zero meaningful third-party certifications. Parent Lactalis rated worst tier (Tier 6/Impact E) on BBFAW every year since 2012. Conventional industrial dairy supply chain."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Heritage California cottage cheese brand (1919), now owned by Lactalis \u2014 world's largest dairy, BBFAW bottom-tier since 2012. Lactalis criminally indicted for contaminated infant formula, raided for tax evasion, fined for price-fixing.",
+      "summary": "## Ownership & Structure\nFounded 1919 in Los Angeles by Danish immigrants. Passed through bankruptcy (1986), Kraft, Philip Morris, Kraft Heinz, and finally Lactalis Group (acquired 2021 for $3.2B). Lactalis is the world's largest dairy company \u2014 privately held by the Besnier family (France), 85,000+ employees across 52 countries. Opaque financials due to private ownership.\n\n## Animal Welfare\nZero meaningful third-party certifications \u2014 no Certified Humane, no Animal Welfare Approved, no GAP. The ASPCA does not recognize the industry FARM Program that likely covers Knudsen's suppliers. Parent Lactalis has been rated among the worst global food companies on farm animal welfare by the BBFAW every year since tracking began in 2012 \u2014 Tier 6 (absolute worst) through 2017, Impact Rating 'E' (second-worst) by 2023. Lactalis's Welfair certification covers only 900 Spanish farms and does not apply to U.S. operations.\n\n## Controversies\nLactalis criminally indicted in France for contaminated infant formula (12M+ boxes recalled, 18+ children hospitalized). As of 2026, facing new criminal complaint over cereulide-contaminated Picot formula across 18+ countries. French police raided Lactalis offices and CEO's mansion over tax evasion (2024). Spain fined Lactalis \u20ac11.69M for price-fixing. Investigative journalism found 38 of 60 Lactalis sites violated environmental codes. Former parent Kraft Heinz paid $62M SEC penalty for accounting fraud. Knudsen itself recalled 1.2M cases of cottage cheese in 2014.\n\n## Assessment\nA heritage brand trapped inside a toxic corporate structure. Every entity in Knudsen's ownership chain carries serious baggage. Lactalis's bottom-tier welfare ratings aren't improving meaningfully despite a decade of tracking. The private ownership structure means consumers have even less visibility than with publicly traded dairy companies. For cottage cheese specifically, there are better options from brands with actual independent welfare certifications.",
+      "sources": [
+        {
+          "label": "Knudsen Official Website",
+          "url": "https://knudsen.com/"
+        },
+        {
+          "label": "BBFAW 2023 Report",
+          "url": "https://www.bbfaw.com/media/2176/bbfaw-2023-report-final.pdf"
+        },
+        {
+          "label": "Lactalis Violation Tracker \u2014 Good Jobs First",
+          "url": "https://violationtracker.goodjobsfirst.org/parent/lactalis"
+        },
+        {
+          "label": "Lactalis environmental violations \u2014 Environmental Protection",
+          "url": "https://eponline.com/articles/2020/10/23/investigation-reveals-french-dairy-company-pollution.aspx"
+        }
+      ],
+      "report": {
+        "generatedBy": "ai-agent",
+        "generatedDate": "2026-02-27",
+        "verified": false,
+        "promptVersion": "0.1",
+        "model": "Claude Opus 4.6",
+        "content": "## Overview\n\nKnudsen is a heritage California dairy brand best known for cottage cheese, founded in 1919 in Los Angeles by Danish immigrants Thorkild \"Tom\" Knudsen and his brother Carl [1][2][3]. Tom's key innovation was converting skim milk \u2014 then considered waste \u2014 into cottage cheese. The brothers donated their patented process to the U.S. government during World War I and rebuilt the business afterward [2]. Under the slogan \"The Very Best,\" Knudsen grew into one of California's largest dairies, acquiring Borden's Northern California milk business in 1970 [3]. Today, the product line includes 11 varieties of cottage cheese (regular, low-fat, fat-free, and flavored snacking cups), Hampshire sour cream, and 7 snacking varieties [4][5]. The brand is sold primarily in western U.S. markets, while its sister brand Breakstone's serves the eastern U.S. [6]. Both are now managed by Lactalis Heritage Dairy, headquartered at 540 W. Madison Street, Chicago [7]. Note: R.W. Knudsen Family (juices) is a completely separate company with no corporate or family connection to Knudsen dairy; it is owned by Nexus Capital Management [8][9][10].\n\n## Ownership & Corporate Structure\n\nKnudsen's ownership history reveals a brand repeatedly absorbed by larger entities, with each transition driven by debt, bankruptcy, or conglomerate restructuring. The Knudsen family operated the dairy privately from 1919 through the late 1970s. Around 1978, Winn Enterprises (a former REIT) acquired all Knudsen stock for $74.8 million, then purchased Foremost Dairies in 1985 for $50.1 million, adding roughly $266 million in debt [2]. In September 1986, the combined entity filed Chapter 11 bankruptcy owing over $300 million [2]. In October 1986, Kraft Inc. acquired the cottage cheese, yogurt, sour cream, and ice cream operations [2][3]. Philip Morris acquired Kraft in 1988, bringing Knudsen along. After corporate reorganizations through the 1990s and 2000s \u2014 including Kraft's 2007 spinoff from Altria and its 2012 split \u2014 Knudsen remained with Kraft Foods Group (North American grocery), which merged with H.J. Heinz in 2015 to form Kraft Heinz, backed by 3G Capital and Berkshire Hathaway [11][12].\n\nIn November 2021, Lactalis Group completed its acquisition of Kraft Heinz's natural cheese business \u2014 including Knudsen, Breakstone's, Cracker Barrel cheese, and Hoffman's \u2014 for approximately $3.2 billion [13][14][15]. The U.S. Department of Justice required Lactalis to divest the Athenos and Polly-O brands to address antitrust concerns before approving the deal [16][17]. Lactalis Group (Laval, France) is the world's largest dairy company \u2014 privately held by the Besnier family, led by CEO Emmanuel Besnier \u2014 with 85,000+ employees across 52 countries [18]. Lactalis also owns Pr\u00e9sident, Galbani, Parmalat, Stonyfield Organic, and Siggi's. Because Lactalis is privately held, executive compensation, detailed financials, and supplier relationships are substantially opaque compared to publicly traded competitors [18].\n\nKnudsen is not owned by or associated with Dairy Farmers of America (DFA). DFA is a separate dairy cooperative. However, DFA is the dominant force in the U.S. raw milk supply chain, marketing roughly 30% of the national milk supply, and its practices shape conditions across the industry in which Knudsen products exist [19][20].\n\n## Animal Welfare\n\n### Testing Practices\n\nNo animal testing by Knudsen or Lactalis was documented in any source reviewed. Former parent Kraft Heinz stated it \"does not support or condone animal use for research not essential to food safety\" \u2014 this is a corporate self-reported claim with no independent verification [21]. Animal testing is largely irrelevant for dairy food brands; the real welfare question is what happens on the farms.\n\n### Supply Chain\n\nKnudsen holds zero meaningful third-party animal welfare certifications. The brand lacks Certified Humane, Animal Welfare Approved, and Global Animal Partnership certification \u2014 the only three programs the ASPCA recognizes as meaningful for dairy [22][23]. No welfare claims appear on Knudsen packaging [4]. U.S. supplier farms likely participate in the FARM Program (Farmers Assuring Responsible Management), which covers 99% of the U.S. milk supply but is industry self-regulation administered by the National Milk Producers Federation, not independent third-party auditing [24].\n\nThe most damning evidence comes from independent benchmarking. The Business Benchmark on Farm Animal Welfare (BBFAW) \u2014 backed by Compassion in World Farming and Four Paws International \u2014 has rated Lactalis among the worst-performing global food companies every year since tracking began in 2012 [25][26]. Lactalis sat in Tier 6 (the absolute worst tier) from 2012 through 2017, described as showing \"no evidence\" of animal welfare on its business agenda [25][26]. By 2023, Lactalis received an Impact Rating of \"E\" (second-worst on an A\u2013F scale), indicating very poor tangible welfare impact [27]. The 2020 BBFAW report explicitly named Lactalis as a company that has been assessed annually since the benchmark started yet still lags significantly behind its peers [25].\n\nLactalis publishes corporate animal welfare policies referencing the \"Five Freedoms\" framework, farm assessments in collaboration with Wageningen University, and goals like eliminating routine tail docking [28][29]. All of these claims are exclusively corporate self-reporting. Independent assessments consistently contradict the picture these policies suggest. The Welfair certification Lactalis touts covers 900 farms in Spain only \u2014 it does not apply to U.S. operations or Knudsen supplier farms [30].\n\nNo undercover investigations specifically targeting Knudsen or Lactalis Heritage Dairy supplier farms were found. This likely reflects a lack of scrutiny rather than an absence of problems, given that Lactalis is a conventional dairy operation with no higher-welfare sourcing claims. Mercy for Animals, Animal Outlook, and the Animal Legal Defense Fund have conducted multiple investigations at conventional U.S. dairy farms \u2014 including at DFA supplier farms specifically \u2014 documenting workers beating, stabbing, and mutilating animals [31][32][33].\n\n### Certifications\n\nKnudsen carries no Certified Humane, Animal Welfare Approved, or Global Animal Partnership certification [22][23]. The FARM Program, which likely covers Knudsen's suppliers, is an industry self-assessment tool, not an independent certification. It was developed and is administered by the National Milk Producers Federation \u2014 a trade group representing the same dairy cooperatives and processors it audits [24]. The ASPCA does not recognize the FARM Program as a meaningful welfare certification [22]. Lactalis's Welfair certification applies only to approximately 900 Spanish farms and has no bearing on U.S. operations [30].\n\n## Controversies & Legal\n\nTwo documented recalls directly involve Knudsen products. In 1987, Knudsen Corp. recalled six shipments of cottage cheese potentially containing glass shards, shipped to California and Nevada [34]. In May 2014, Kraft Foods Group voluntarily recalled 1.2 million cases of Knudsen Cottage Cheese after ingredients were stored at improper temperatures at the Tulare, California plant, creating risk of foodborne illness [35][36]. In 2019, sister brand Breakstone's recalled 9,500 cases of cottage cheese for metal and plastic contamination \u2014 six consumer complaints of foreign objects were filed [37].\n\nKnudsen's current parent Lactalis faces severe legal exposure. In 2017\u20132018, Lactalis recalled over 12 million boxes of infant formula after salmonella contamination at its Craon factory in France. At least 38 cases were reported in France alone, with additional cases in Spain and Greece, and at least 18 children were hospitalized [38][39]. In February 2023, Lactalis was indicted in France for aggravated deception and involuntary injury [38]. As of early 2026, a new crisis has emerged: Lactalis recalled Picot infant formula across 18+ countries after cereulide contamination. Consumer watchdog Foodwatch International filed a criminal complaint on behalf of eight families, alleging Lactalis sold contaminated formula for at least a year before issuing a recall. French authorities opened an investigation into infant deaths linked to contaminated formula [40][41][42].\n\nA 2020 investigation by Disclose (French investigative journalism outlet), in partnership with Mediapart, The Guardian, and France 2, found that 38 of 60 examined Lactalis production sites violated France's environmental code between 2010 and 2020, including dumping milk derivatives and cleaning chemicals into rivers, causing fish kills [43][44][45]. In February 2024, French police raided Lactalis offices and CEO Emmanuel Besnier's mansion in connection with tax evasion allegations [38]. That same month, Spain fined Lactalis \u20ac11.69 million for colluding to suppress milk prices paid to farmers from 2000 to 2013 [38].\n\nFormer parent Kraft Heinz was charged by the SEC with a years-long accounting scheme (2015\u20132018) involving falsified supplier contracts, unearned discounts, and manipulated expenses across nearly 300 transactions totaling $208 million in improperly recognized cost savings. Kraft Heinz paid a $62 million SEC penalty, took a $15.4 billion goodwill write-down, and settled a securities fraud class action for $450 million in 2023 [46][47][48][49].\n\nWhile DFA does not own Knudsen, it dominates the U.S. raw milk supply chain and its conduct shapes the industry. DFA has paid over $400 million in antitrust settlements across at least five major cases: $158.6 million for Southeast milk price-fixing (2013) [50][51][52]; $50 million for Northeast milk price-fixing (2015\u20132017) [53]; $46 million for CME cheese price manipulation (2013) [54]; $52 million for participating in a scheme that prematurely slaughtered over 500,000 dairy cows between 2003 and 2010 to reduce supply and inflate consumer prices [55][56]; and $24.5 million (of a $34.4 million total) for Southwest price-fixing (approved 2025) [57]. DFA also acquired 44 Dean Foods processing plants for $433 million during Dean's 2020 bankruptcy, raising concerns it now controls roughly 70% of the U.S. raw milk supply. The DOJ required divestiture of only 3 plants [58][59][60]. In August 2025, six workers died from hydrogen sulfide gas exposure at a DFA member dairy in Colorado; OSHA proposed fines of approximately $41,101 per worker killed [61].\n\n## Verdict\n\nKnudsen cottage cheese is a heritage California brand with an appealing origin story, now a small asset inside Lactalis Group \u2014 the world's largest dairy company, privately held by a single French family, with a documented record of environmental pollution, criminal charges for contaminated infant formula, tax evasion investigations, cartel fines, and consistently bottom-tier animal welfare performance on every independent benchmark that tracks it [25][27][38][43]. On animal welfare specifically, Knudsen carries no meaningful third-party certification, makes no welfare claims on its packaging, and its parent has been rated among the worst global food companies on farm animal welfare for over a decade by the BBFAW [25][27]. On corporate ethics and transparency, every entity in Knudsen's ownership chain carries significant baggage: Lactalis operates with minimal public disclosure obligations and has been raided by French police [38]; Kraft Heinz committed systematic accounting fraud [46][47]; and the broader U.S. dairy system is dominated by DFA, a cooperative with over $400 million in antitrust settlements [50][53][54][55][57]. Consumers should understand they are buying a product from a conventional industrial dairy supply chain with no independently verified welfare standards, owned by a company whose environmental and food safety record has been documented as poor by multiple independent investigations.",
+        "citations": [
+          {
+            "id": 1,
+            "label": "Knudsen Official Website",
+            "url": "https://knudsen.com/",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 2,
+            "label": "Finding Thorkild Knudsen \u2014 Finding Sam Breakstone Blog",
+            "url": "http://findingsambreakstone.blogspot.com/2011/05/finding-thorkild-knudsen.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 3,
+            "label": "Successors at creamery followed Knudsen brothers' philosophy \u2014 Santa Maria Times",
+            "url": "https://santamariatimes.com/lifestyles/columnist/shirley_contreras/successors-at-creamery-followed-knudsen-brothers-philosophy/article_2f92b772-73aa-11e0-8caa-001cc4c03286.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 4,
+            "label": "Knudsen Products Page",
+            "url": "https://knudsen.com/products/",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 5,
+            "label": "Breakstone's and Knudsen's Cottage Cheeses \u2014 TheForkingTruth",
+            "url": "https://theforkingtruth.com/?p=8538",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 6,
+            "label": "Who Owns Knudsen Cottage Cheese? \u2014 Foodie Fitness",
+            "url": "https://foodiefitness.org/who-owns-knudsen-cottage-cheese-question/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 7,
+            "label": "Company News \u2014 Lactalis Heritage Dairy",
+            "url": "https://lactalisheritagedairy.com/company-news/",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 8,
+            "label": "R.W. Knudsen Family \u2014 Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/R.W._Knudsen_Family",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 9,
+            "label": "R.W. Knudsen Family Encyclopedia Entry",
+            "url": "https://amp.blog.shops-net.com/17026985/1/r-w-knudsen-family.html",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 10,
+            "label": "R.W. Knudsen Family \u2014 Grocery.com",
+            "url": "https://www.grocery.com/r-w-knudsen-family/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 11,
+            "label": "Kraft Heinz \u2014 Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Kraft_Heinz",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 12,
+            "label": "Lactalis \u2014 Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Lactalis",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 13,
+            "label": "Lactalis Closes Acquisition of Kraft Heinz Natural Cheese Business \u2014 Benzinga",
+            "url": "https://www.benzinga.com/pressreleases/21/11/b24339319/lactalis-closes-acquisition-of-kraft-heinz-natural-cheese-business-in-united-states",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 14,
+            "label": "Lactalis completes $3.3 billion acquisition \u2014 Chicago Tribune",
+            "url": "https://www.chicagotribune.com/business/ct-biz-kraft-heinz-cheese-sale-lactalis-chicago-office-20211130-y36j4nhsnndyvl4jhdckphh54q-story.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 15,
+            "label": "Lactalis Acquires Kraft Heinz Natural Cheese Business \u2014 Citybiz",
+            "url": "https://www.citybiz.co/article/181216/lactalis-acquires-kraft-heinz-natural-cheese-business/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 16,
+            "label": "DOJ Requires Divestitures in Lactalis Acquisition \u2014 U.S. Department of Justice",
+            "url": "https://www.justice.gov/archives/opa/pr/justice-department-requires-divestitures-lactalis-s-acquisition-kraft-heinz-s-natural-cheese",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 17,
+            "label": "Lactalis-Kraft Heinz dairy deal clears DOJ hurdle \u2014 Food Business News",
+            "url": "https://www.foodbusinessnews.net/articles/20098-lactalis-kraft-heinz-dairy-deal-clears-doj-hurdle",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 18,
+            "label": "Lactalis \u2014 Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Lactalis",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 19,
+            "label": "Dairy Farmers of America \u2014 Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Dairy_Farmers_of_America",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 20,
+            "label": "DFA completes acquisition of Dean Foods \u2014 Capital Press",
+            "url": "https://www.capitalpress.com/ag_sectors/dairy/dairy-farmers-of-america-completes-acquisition-of-dean-foods/article_d95e321a-8e5b-11ea-aee1-ff80a4294010.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 21,
+            "label": "Kraft Heinz Global Animal Welfare Policy (PDF)",
+            "url": "https://www.kraftheinzcompany.com/pdf/KHC_AnimalWelfarePolicy_10.27.17.pdf",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 22,
+            "label": "Shop With Your Heart Grocery List \u2014 ASPCA",
+            "url": "https://www.aspca.org/shopwithyourheart/consumer-resources/shop-your-heart-grocery-list",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 23,
+            "label": "Certified Farms by State \u2014 ASPCA",
+            "url": "https://www.aspca.org/shopwithyourheart/consumer-resources/certified-farms-state",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 24,
+            "label": "Farm Animal Welfare \u2014 U.S. Dairy (FARM Program)",
+            "url": "https://www.usdairy.com/sustainability/animal-care",
+            "type": "industry",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 25,
+            "label": "2020 BBFAW report: food brand giants still failing animal welfare \u2014 World Animal Protection",
+            "url": "https://www.worldanimalprotection.org/latest/news/2020-bbfaw-report-food-brand-giants-failing-animal-welfare/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 26,
+            "label": "Animal welfare now serious business \u2014 Food Navigator (BBFAW 2017 coverage)",
+            "url": "https://www.foodnavigator.com/Article/2017/01/25/Animal-welfare-now-serious-business-rather-than-a-niche-option-says-global-report",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 27,
+            "label": "Business Benchmark on Farm Animal Welfare 2023 Report (PDF)",
+            "url": "https://www.bbfaw.com/media/2176/bbfaw-2023-report-final.pdf",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 28,
+            "label": "Animal health and welfare \u2014 Lactalis corporate site",
+            "url": "https://www.lactalis.com/en/animal-health-and-welfare",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 29,
+            "label": "Animal health and welfare (CSR page) \u2014 Lactalis",
+            "url": "https://www.lactalis.com/en/our-csr-commitments/for-the-planet/animal-health-and-welfare/",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 30,
+            "label": "Lactalis sees 900 Spanish farms certified with Welfair \u2014 DairyReporter",
+            "url": "https://www.dairyreporter.com/Article/2020/05/12/Lactalis-sees-900-Spanish-farms-certified-with-Welfair/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 31,
+            "label": "Undercover Video Exposes Horrific Animal Abuse at Dairy Factory Farm in Colorado \u2014 PR Newswire / ARM",
+            "url": "https://www.prnewswire.com/news-releases/undercover-video-exposes-horrific-animal-abuse-at-dairy-factory-farm-in-colorado-300097571.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 32,
+            "label": "Kate Mara and the Animal Legal Defense Fund Expose Animal Cruelty at Dairy Farm \u2014 ALDF",
+            "url": "https://aldf.org/article/kate-mara-and-the-animal-legal-defense-fund-expose-animal-cruelty-at-dairy-farm/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 33,
+            "label": "Investigations \u2014 Animal Outlook",
+            "url": "https://animaloutlook.org/investigations/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 34,
+            "label": "The 11 Worst Cottage Cheese Recalls In History \u2014 Yahoo News / Daily Meal",
+            "url": "https://www.yahoo.com/news/11-worst-cottage-cheese-recalls-141900575.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 35,
+            "label": "Kraft Foods Group Voluntarily Recalls Select Cottage Cheese Products \u2014 Kraft Heinz Press Release",
+            "url": "https://news.kraftheinzcompany.com/press-releases-details/2014/Kraft-Foods-Group-Voluntarily-Recalls-Select-Cottage-Cheese-Products-Due-to-Out-of-Standard-Storage-Temperatures/default.aspx",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 36,
+            "label": "The Biggest Recalls In Kraft Heinz History \u2014 Mashed",
+            "url": "https://www.mashed.com/1829463/biggest-kraft-heinz-recalls/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 37,
+            "label": "Cottage Cheese Recall 2019: 9,500 Crates Contaminated \u2014 Newsweek",
+            "url": "https://www.newsweek.com/cottage-cheese-recall-contaminated-plastic-metal-1472618",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 38,
+            "label": "Lactalis \u2014 Wikipedia (infant formula scandal, tax raids, Spain fine)",
+            "url": "https://en.wikipedia.org/wiki/Lactalis",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 39,
+            "label": "11 Milk Recalls That Affected Millions Of People \u2014 Chowhound",
+            "url": "https://www.chowhound.com/1880530/milk-recalls-affected-millions-history/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 40,
+            "label": "Nestl\u00e9 and Lactalis face lawsuit over infant formula scandal \u2014 FoodNavigator-USA",
+            "url": "https://www.foodnavigator-usa.com/Article/2026/01/23/infant-formula-lawsuit-looms-as-foodwatch-targets-nestle-and-lactalis-over-delayed-recalls/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 41,
+            "label": "Infant Formula Lawsuit Looms as Foodwatch Targets Nestl\u00e9 and Lactalis \u2014 DairyReporter",
+            "url": "https://www.dairyreporter.com/Article/2026/01/23/infant-formula-lawsuit-looms-as-foodwatch-targets-nestle-and-lactalis-over-delayed-recalls/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 42,
+            "label": "Salmonella contamination scandal: Lactalis seeks over \u20ac1 Billion from Eurofins \u2014 Affidia Journal",
+            "url": "https://affidiajournal.com/en/salmonella-contamination-scandal-lactalis-seeks-over-eur1-billion-in-compensation-from-eurofins-laboratory",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 43,
+            "label": "Investigation Reveals French Dairy Company Pollution \u2014 Environmental Protection",
+            "url": "https://eponline.com/articles/2020/10/23/investigation-reveals-french-dairy-company-pollution.aspx?admgarea=News&m=1",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 44,
+            "label": "Dairy giant Lactalis accused of polluting French rivers \u2014 Water News Europe",
+            "url": "https://www.waternewseurope.com/dairy-giant-lactalis-accused-of-polluting-french-rivers/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 45,
+            "label": "French Dairy Giant Has Been Polluting Rivers For Over A Decade \u2014 Green Queen",
+            "url": "https://www.greenqueen.com.hk/french-dairy-giant-has-been-polluting-rivers-for-over-a-decade-investigation-finds/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 46,
+            "label": "SEC Charges Kraft Heinz and Two Former Executives \u2014 SEC.gov",
+            "url": "https://www.sec.gov/newsroom/press-releases/2021-174",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 47,
+            "label": "Two Kraft executives charged in accounting scheme \u2014 CNN Business",
+            "url": "https://www.cnn.com/2021/09/03/business/kraft-heinz-sec-settlement",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 48,
+            "label": "Hedick v. Kraft Heinz Co. \u2014 Bernstein Litowitz Berger & Grossmann LLP",
+            "url": "https://www.blbglaw.com/cases-investigations/kraft-heinz-company",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 49,
+            "label": "Kraft Heinz Company and the SEC \u2014 Journal of Forensic & Investigative Accounting (PDF)",
+            "url": "https://s3.us-east-1.amazonaws.com/web.nacva.com/JFIA/Issues/JFIA-2023-No3-4.pdf",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 50,
+            "label": "DFA to pay $158.6 million in antitrust settlement \u2014 Farm and Dairy",
+            "url": "https://www.farmanddairy.com/news/dfa-to-pay-158-6-million-in-antitrust-settlement/47061.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 51,
+            "label": "DFA settles Southeast Milk Antitrust suit \u2014 Dairy Foods",
+            "url": "https://www.dairyfoods.com/articles/89201-dairy-farmers-of-america-settle-with-producers-in-southeast-milk-antitrust-suit",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 52,
+            "label": "Final Settlement in Southeastern Dairy Farmers' Antitrust Class Action \u2014 Daily Reporting Suite",
+            "url": "http://www.dailyreportingsuite.com/antitrust/news/final_settlement_in_southeastern_dairy_farmers_antitrust_class_action_approved",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 53,
+            "label": "Allen et al v. Dairy Farmers of America \u2014 Cohen Milstein",
+            "url": "https://www.cohenmilstein.com/case-study/allen-et-al-v-dairy-farmers-america/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 54,
+            "label": "Dairy Farmers of America agrees $46m CME price fixing settlement \u2014 DairyReporter",
+            "url": "https://www.dairyreporter.com/Article/2013/03/25/Dairy-Farmers-of-America-agrees-46m-CME-price-fixing-settlement/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 55,
+            "label": "Dairy Price-Fixing \u2014 Hagens Berman",
+            "url": "https://www.hbsslaw.com/cases/dairy-price-fixing",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 56,
+            "label": "Price-Fixing: The Dairy Industry's $9.5 Billion Scheme \u2014 Animal Outlook",
+            "url": "https://animaloutlook.org/legal-advocacy/dairy-lawsuit/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 57,
+            "label": "Court approves $34M settlement in Southwest area milk price-fixing case \u2014 Feedstuffs",
+            "url": "https://www.feedstuffs.com/agribusiness-news/settlement-approved-in-southwest-us-milk-price-fixing-case",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 58,
+            "label": "Dean Foods Accepts DFA's $433 Million Offer \u2014 Dairy Herd",
+            "url": "https://www.dairyherd.com/news/dean-foods-accepts-dfas-433-million-offer-majority-assets",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 59,
+            "label": "United States v. Dairy Farmers of America and Dean Foods \u2014 Federal Register",
+            "url": "https://www.federalregister.gov/documents/2020/06/02/2020-11857/united-states-et-al-v-dairy-farmers-of-america-inc-and-dean-foods-company-proposed-final-judgment",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 60,
+            "label": "DOJ Requires Antitrust Divestitures in DFA-Dean Foods Sale \u2014 National Law Review",
+            "url": "https://natlawreview.com/article/doj-requires-antitrust-divestitures-connection-sale-dean-foods-milk-processing",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 61,
+            "label": "Six Colorado Dairy Workers Dead. OSHA's Price: $41,101 a Life \u2014 The Bullvine",
+            "url": "https://www.thebullvine.com/management/six-colorado-dairy-workers-dead-oshas-price-41101-a-life-and-no-jail-time/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 62,
+            "label": "Lactalis Violation Tracker \u2014 Good Jobs First",
+            "url": "https://violationtracker.goodjobsfirst.org/parent/lactalis",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          }
+        ]
+      },
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
+    },
+    {
+      "id": "elf-cosmetics",
+      "name": "e.l.f. Cosmetics",
+      "parentCompany": null,
+      "ownershipType": [
+        "public"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 1,
+      "starRating": 5.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified (2022), PETA certified (Global Animal Test-Free AND Vegan). 100% vegan since founding. Does not sell in mainland China. Independent publicly-traded company (NYSE: ELF) with no non-cruelty-free parent. Fair Trade certified factory."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Gold standard among affordable brands. Founded 2004. 100% vegan including brushes (synthetic since 2016). First beauty brand to use a Fair Trade factory.",
+      "sources": [
+        {
+          "label": "elfcosmetics.com",
+          "url": "https://www.elfcosmetics.com/pages/elf-cares-furry-friends"
+        },
+        {
+          "label": "leapingbunny.org",
+          "url": "https://www.leapingbunny.org/brand/elf-cosmetics-inc"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFully independent, publicly traded (NYSE: ELF). No parent company complications. Founded 2004.\n\n## Animal Welfare\nLeaping Bunny certified (2022) and PETA certified (Global Animal Test-Free AND Vegan). 100% vegan since founding, including synthetic brushes since 2016. Does not sell in mainland China. First beauty brand to use a Fair Trade certified factory.\n\n## Controversies\nNone significant. Minor concern about mica sourcing transparency.\n\n## Assessment\nGold standard among affordable cosmetics brands. Independent public company with the strongest possible combination of cruelty-free certifications and 100% vegan commitment at budget pricing."
+    },
+    {
+      "id": "pacifica",
+      "name": "Pacifica",
+      "parentCompany": null,
+      "ownershipType": [
+        "founder",
+        "venture-backed"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "priceTier": 1,
+      "starRating": 5.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified, PETA certified, Choose Cruelty Free (CCF) certified. 100% vegan since founding (1996). Does not sell in mainland China. Founder-owned with minority stake held by Alliance Consumer Growth."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 1996 in Portland, OR. Originally a candle company, pivoted to beauty in 2007. Available at Target and drugstores. Strong ethical track record across all certification bodies.",
+      "sources": [
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/brands/pacifica/"
+        },
+        {
+          "label": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Pacifica_Beauty"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounder-owned by Brook Harvey-Taylor since 1996. Minority stake held by Alliance Consumer Growth (venture). Based in Portland, OR.\n\n## Animal Welfare\nTriple-certified: Leaping Bunny, PETA, and Choose Cruelty Free (CCF). 100% vegan since founding. Does not sell in mainland China. No major ethical controversies in 25+ year history.\n\n## Controversies\nNone found. Clean record across all certification bodies.\n\n## Assessment\nOne of the longest-running ethical beauty brands with an unblemished 25+ year track record. Available at Target and drugstores, making it accessible despite being founder-owned."
+    },
+    {
+      "id": "rare-beauty",
+      "name": "Rare Beauty",
+      "parentCompany": null,
+      "ownershipType": [
+        "founder"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 2,
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified, PETA certified (cruelty-free AND vegan). 100% vegan. Does not sell in mainland China."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 2019 by Selena Gomez, launched September 2020. Sephora exclusive. Rare Impact Fund donates 1% of all annual sales to mental health services.",
+      "sources": [
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/news/rare-beauty-cruelty-free/"
+        },
+        {
+          "label": "peta.org",
+          "url": "https://www.peta.org/lifestyle/personal-care-fashion/selena-gomez-rare-beauty-cruelty-free/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 2019 by Selena Gomez, launched September 2020. Founder-led and independent. Sephora exclusive distribution.\n\n## Animal Welfare\nLeaping Bunny certified and PETA certified (cruelty-free AND vegan). 100% vegan. Does not sell in mainland China. Minor note: Ethical Elephant lists as 'Grey Area' for not responding to their verification requests, but Leaping Bunny's rigorous audit resolves this.\n\n## Controversies\nNone significant. Rare Impact Fund donates 1% of all annual sales to mental health services in underserved communities (goal: $100M over 10 years).\n\n## Assessment\nA celebrity brand that actually delivers on ethical credentials. Leaping Bunny certification with independent audits, 100% vegan, and a meaningful charitable commitment. The Sephora exclusivity limits accessibility but ensures distribution control."
+    },
+    {
+      "id": "glossier",
+      "name": "Glossier",
+      "parentCompany": null,
+      "ownershipType": [
+        "venture-backed",
+        "founder"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 2,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified (since 2019), PETA certified. Does not sell in mainland China. Not 100% vegan (some products contain beeswax)."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 2014 by Emily Weiss. Raised $266M+; last valued at $1.8B (2021). Deducted from 4.5 for poor environmental transparency. Layoffs in 2022.",
+      "sources": [
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/brands/glossier/"
+        },
+        {
+          "label": "consciousbunny.com",
+          "url": "https://consciousbunny.com/is-glossier-cruelty-free/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 2014 by Emily Weiss. Venture-backed \u2014 raised $266M+ across 6 rounds, last valued at $1.8B (2021). Key investors: Sequoia, IVP, Forerunner Ventures. CEO Kyle Leahy.\n\n## Animal Welfare\nLeaping Bunny certified since 2019 and PETA certified. Does not sell in mainland China. Not 100% vegan (some products contain beeswax; vegan products clearly labeled). Independent company with no non-cruelty-free parent.\n\n## Controversies\nPoor environmental transparency \u2014 no published sustainability targets, carbon data, or impact reports despite $1.8B valuation. Layoffs of ~80 employees in 2022.\n\n## Assessment\nStrong cruelty-free credentials with Leaping Bunny and independence from megacorp parents. Deducted from top tier for poor environmental transparency and lack of sustainability reporting \u2014 a $1.8B company should be doing better on this front."
+    },
+    {
+      "id": "ilia-beauty",
+      "name": "Ilia Beauty",
+      "parentCompany": "Famille C (Courtin-Clarins family)",
+      "ownershipType": [
+        "megacorp",
+        "founder"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 3,
+      "starRating": 4.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified, PETA certified. B Corp. 1% for the Planet. Not 100% vegan (beeswax in 5 products). Acquired 2022 by Famille C (Clarins founding family) \u2014 Clarins Group is NOT cruelty-free."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 2009 by Sasha Plavsic. Clean beauty pioneer. B Corp, 1% for the Planet. Rating reduced from 4.5 to 4.0 due to Clarins family ownership tension.",
+      "sources": [
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/news/ilia-aquired-by-clarins/"
+        },
+        {
+          "label": "support.iliabeauty.com",
+          "url": "https://support.iliabeauty.com/en-US/articles/ingredients-and-products-26873"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 2009 by Sasha Plavsic. Acquired in 2022 by Famille C, the Courtin-Clarins family's investment vehicle \u2014 the founding family behind Clarins Group, which is NOT cruelty-free. ILIA operates independently.\n\n## Animal Welfare\nLeaping Bunny certified, PETA certified, B Corp, 1% for the Planet. Not 100% vegan (beeswax in 5 products). Maintains strict cruelty-free policies under Clarins family ownership, but profits ultimately flow to a family whose main business allows animal testing.\n\n## Controversies\nThe Clarins family ownership creates genuine ethical tension. ILIA's individual certifications remain intact, but the 'follow the money' test leads to a non-cruelty-free parent entity. No refillable packaging despite premium 'clean beauty' positioning.\n\n## Assessment\nClean beauty pioneer with strong certifications, complicated by Clarins family acquisition. The B Corp and Leaping Bunny certifications provide real accountability, but consumers applying corporate-level scrutiny will note the ownership tension. Rating reduced from 4.5 to 4.0 for this reason."
+    },
+    {
+      "id": "covergirl",
+      "name": "CoverGirl",
+      "parentCompany": "Coty Inc. (JAB Holding Company majority-controlled)",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 1,
+      "starRating": 3.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified since 2018 \u2014 largest makeup brand ever to achieve this. PETA certified. Does NOT sell in mainland China. Parent Coty is NOT fully cruelty-free at corporate level."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Was NOT cruelty-free under P&G (sold in China). Became CF after Coty acquired it in 2016 and pulled it from China. Coty is the most progressive major conglomerate on animal testing.",
+      "sources": [
+        {
+          "label": "leapingbunny.org",
+          "url": "https://www.leapingbunny.org/brand/covergirl"
+        },
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/brands/covergirl/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nOwned by Coty Inc. (NYSE: COTY), which is majority-controlled by JAB Holding Company (Reimann family, ~52% stake). Previously owned by P&G.\n\n## Animal Welfare\nLeaping Bunny certified since 2018 \u2014 the largest makeup brand ever to achieve this. PETA certified. Does NOT sell in mainland China (pulled out after Coty acquired it from P&G in 2016). Parent Coty is NOT fully cruelty-free at corporate level, but is actively expanding CF certifications across its portfolio (Rimmel, philosophy also now Leaping Bunny).\n\n## Controversies\nWas NOT cruelty-free under P&G ownership (sold in China). The transformation under Coty is genuine. 'Clean Fresh' line criticized as greenwashing for marketing claims with limited substance.\n\n## Assessment\nThe most significant cruelty-free conversion in mass-market cosmetics history. Coty pulling CoverGirl from China to achieve Leaping Bunny is the opposite of what NARS/Revlon did. Parent Coty is the most progressive major conglomerate on animal testing, even if not fully CF at corporate level."
+    },
+    {
+      "id": "the-body-shop",
+      "name": "The Body Shop",
+      "parentCompany": "Aur\u00e9a Group (Mike Jatania consortium)",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "priceTier": 2,
+      "starRating": 3.0,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Leaping Bunny certified (FIRST brand certified in 1997). PETA certified. Does not sell in China physical retail. Quietly dropped 100% vegan promise in August 2025."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Founded 1976 by Anita Roddick. Ownership: Roddick \u2192 L'Or\u00e9al \u2192 Natura & Co \u2192 Aurelius \u2192 Administration \u2192 Aur\u00e9a Group. US filed Chapter 7. 82 UK stores closed. Fair trade suppliers left unpaid.",
+      "sources": [
+        {
+          "label": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/The_Body_Shop"
+        },
+        {
+          "label": "leapingbunny.org",
+          "url": "https://www.leapingbunny.org/brand/body-shop"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nCurrently owned by Aur\u00e9a Group (Mike Jatania consortium) since September 2024. Ownership history: Founded 1976 by Anita Roddick \u2192 L'Or\u00e9al (2006, \u00a3650M) \u2192 Natura & Co (2017, \u00a3880M) \u2192 Aurelius Group (Nov 2023, \u00a3207M) \u2192 Administration (Feb 2024) \u2192 Aur\u00e9a Group.\n\n## Animal Welfare\nLeaping Bunny certified \u2014 the FIRST brand ever certified in 1997. PETA certified. Does not sell in China physical retail. Collected 8.3M signatures against cosmetic animal testing. However, quietly dropped 100% vegan promise in August 2025, reintroducing beeswax and honey.\n\n## Controversies\nUS arm filed Chapter 7 liquidation. 82 UK stores closed, 800+ jobs lost. Fair trade suppliers left with $1M+ in unpaid invoices \u2014 a betrayal of the brand's founding principles. Serial PE exploitation has hollowed out the brand.\n\n## Assessment\nA tragic case study in PE destruction of an ethical pioneer. The original cruelty-free brand, now severely damaged by financial mismanagement, supply chain betrayal, vegan reversal, and corporate instability. Certifications remain valid but the brand behind them is a shadow of its former self."
+    },
+    {
+      "id": "nars",
+      "name": "NARS Cosmetics",
+      "parentCompany": "Shiseido Group",
+      "ownershipType": [
+        "megacorp",
+        "public"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 3,
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Was CF until June 2017 when Shiseido moved it into China, triggering massive #BoycottNARS campaign (150K+ signatures)."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Founded 1994 by Fran\u00e7ois Nars, acquired by Shiseido 2000. The 2017 China entry is a defining case study in brand trust destruction. Deliberately chose profits over principles.",
+      "sources": [
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-nars-cruelty-free-vegan/"
+        },
+        {
+          "label": "beautymatter.com",
+          "url": "https://beautymatter.com/articles/behind-the-nars-nightmare-from-cruelty-free-to-consumer-outrage"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 1994 by makeup artist Fran\u00e7ois Nars. Acquired by Shiseido Group in 2000. Shiseido is publicly traded (TSE: 4911).\n\n## Animal Welfare\nNOT cruelty-free. No certifications. On PETA's 'Companies That DO Test' list. Was genuinely cruelty-free until June 2017, when Shiseido moved it into mainland China physical retail, triggering a massive #BoycottNARS campaign with 150,000+ petition signatures.\n\n## Controversies\nThe 2017 China entry is the most prominent case of a brand deliberately abandoning cruelty-free status for market access. Sephora US removed NARS from its cruelty-free list. Multiple beauty influencers led boycott campaigns. The betrayal was amplified because other brands (Stila, Marc Jacobs Beauty) had recently pulled OUT of China to maintain CF status.\n\n## Assessment\nA defining case study in brand trust destruction. Deliberately chose China market profits over cruelty-free principles while competitors were doing the opposite. The contrast with brands that withdrew from China makes this decision indefensible."
+    },
+    {
+      "id": "revlon",
+      "name": "Revlon",
+      "parentCompany": "Revlon Group Holdings LLC (lender consortium)",
+      "ownershipType": [
+        "private-equity"
+      ],
+      "categories": [
+        "cosmetics",
+        "personal-care"
+      ],
+      "priceTier": 1,
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Was on PETA's CF list for 20+ years until 2012 when discovered secretly selling in China."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Filed Chapter 11 bankruptcy June 2022, emerged May 2023. The 2012 PETA betrayal \u2014 secretly selling in China while on CF list \u2014 is one of the most significant scandals in beauty history.",
+      "sources": [
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-revlon-cruelty-free-vegan/"
+        },
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/brands/revlon/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nOwned by Revlon Group Holdings LLC (lender consortium: Glendon Capital, King Street, Angelo Gordon, Oak Hill, Cyrus Capital) after Chapter 11 bankruptcy (June 2022, emerged May 2023). Ron Perelman's ownership wiped out.\n\n## Animal Welfare\nNOT cruelty-free. No certifications. On PETA's 'Companies That DO Test' list. Was on PETA's cruelty-free list for 20+ years until 2012, when PETA discovered Revlon had secretly begun selling in China without disclosure. Also owns Elizabeth Arden, Almay, American Crew, CND.\n\n## Controversies\nThe 2012 PETA betrayal \u2014 secretly selling in China while benefiting from cruelty-free endorsement \u2014 is one of the most significant animal testing scandals in beauty history. PETA stated: 'Revlon betrayed that trust.' Also facing hair relaxer lawsuits linked to uterine cancer risks.\n\n## Assessment\nA bankrupt brand with a history of deception. Secretly abandoned cruelty-free principles while still benefiting from the endorsement. The dishonesty is worse than brands that were never cruelty-free \u2014 Revlon actively exploited consumer trust."
+    },
+    {
+      "id": "mac-cosmetics",
+      "name": "MAC Cosmetics",
+      "parentCompany": "Est\u00e9e Lauder Companies Inc.",
+      "ownershipType": [
+        "megacorp",
+        "public",
+        "family"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 3,
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Sells in China. Claims 'does not test' but adds 'some governments conduct animal testing.' Textbook greenwashing."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Founded 1984, acquired by Est\u00e9e Lauder 1998. Claims to be 'working towards a cruelty-free world' while actively selling in China.",
+      "sources": [
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-mac-cruelty-free-vegan/"
+        },
+        {
+          "label": "maccosmetics.com",
+          "url": "https://www.maccosmetics.com/animaltesting"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 1984, acquired by Est\u00e9e Lauder Companies in 1998. Part of ELC (NYSE: EL), controlled by the Lauder family.\n\n## Animal Welfare\nNOT cruelty-free. No certifications. On PETA's 'Companies That DO Test' list. Sells in mainland China physical stores. Claims 'does not test on animals' but adds 'some governments conduct animal testing to prove safety.' Explicitly acknowledges China testing: 'China tests on animals... we never want to exclude them.'\n\n## Controversies\nMultiple cruelty-free watchdogs flag MAC's messaging as deceptive greenwashing. Partners with IIVS (Institute for In Vitro Sciences) to appear ethical while actively selling in markets that require animal testing.\n\n## Assessment\nTextbook greenwashing \u2014 claims to be 'working towards a cruelty-free world' while actively choosing to sell in China. The explicit statement that they 'never want to exclude' China makes the priority clear: market access over animal welfare."
+    },
+    {
+      "id": "clinique",
+      "name": "Clinique",
+      "parentCompany": "Est\u00e9e Lauder Companies Inc.",
+      "ownershipType": [
+        "megacorp",
+        "public",
+        "family"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 3,
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Sells in China. 'We do not conduct animal testing...except where required by law.'"
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Founded 1968 as Est\u00e9e Lauder subsidiary. Dermatologist-driven brand. Misleading cruelty-free-adjacent messaging while allowing China testing.",
+      "sources": [
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-clinique-cruelty-free-vegan/"
+        },
+        {
+          "label": "crueltyfree.peta.org",
+          "url": "https://crueltyfree.peta.org/company/clinique-estee-lauder/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 1968 as a direct Est\u00e9e Lauder subsidiary. Part of Est\u00e9e Lauder Companies (NYSE: EL), controlled by the Lauder family. Positioned as a dermatologist-driven, clinical brand.\n\n## Animal Welfare\nNOT cruelty-free. No certifications. On PETA's 'Companies That DO Test' list (listed as 'Clinique (Estee Lauder)'). Sells in mainland China physical stores. Policy: 'We do not conduct animal testing... except where required by law.'\n\n## Controversies\nCriticized for 'double standard' \u2014 same brand, different ethical treatment depending on country. Misleading cruelty-free-adjacent messaging designed to appear ethical while permitting China testing.\n\n## Assessment\nThe 'except where required by law' caveat is the tell. Clinique's scientific/clinical positioning makes the animal testing allowance particularly ironic \u2014 a brand built on dermatological credibility that permits testing it claims is unnecessary."
+    },
+    {
+      "id": "maybelline",
+      "name": "Maybelline",
+      "parentCompany": "L'Or\u00e9al Group",
+      "ownershipType": [
+        "megacorp",
+        "public",
+        "family"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 1,
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Sells in China. 'Green Edition' line marketed with sustainability claims while not CF \u2014 textbook greenwashing."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Founded 1915, acquired by L'Or\u00e9al in 1996. Specifically called out for 'Green Edition' line greenwashing.",
+      "sources": [
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/brands/maybelline/"
+        },
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-maybelline-cruelty-free-vegan/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 1915, acquired by L'Or\u00e9al in 1996. Part of L'Or\u00e9al Group (Euronext: OR), controlled by the Bettencourt Meyers family (~35% shares, ~53% voting rights).\n\n## Animal Welfare\nNOT cruelty-free. No certifications. On PETA's 'Companies That DO Test' list and Cruelty-Free Kitty's 'Brands to Avoid' list. Sells in mainland China. Inherits L'Or\u00e9al's deceptive animal testing policy.\n\n## Controversies\n'Green Edition' product line marketed with sustainability claims while the brand itself is not cruelty-free \u2014 specifically called out as textbook greenwashing. Inherits all L'Or\u00e9al Group controversies.\n\n## Assessment\nThe 'Green Edition' greenwashing is particularly egregious \u2014 marketing eco-friendly products while the parent brand permits animal testing. At budget pricing, consumers have genuine cruelty-free alternatives (e.l.f., CoverGirl) at comparable or lower prices."
+    },
+    {
+      "id": "estee-lauder",
+      "name": "Est\u00e9e Lauder",
+      "parentCompany": "Est\u00e9e Lauder Companies Inc.",
+      "ownershipType": [
+        "megacorp",
+        "public",
+        "family"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 4,
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Exposed by PETA in 2012 for secretly paying for animal tests in China. Owns 25+ brands."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Flagship brand of Est\u00e9e Lauder Companies Inc. (NYSE: EL). Lauder family retains control. Promotes alternative testing partnerships while continuing China sales.",
+      "sources": [
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-estee-lauder-cruelty-free-vegan/"
+        },
+        {
+          "label": "elcompanies.com",
+          "url": "https://www.elcompanies.com/en/our-impact/viewpoints/animal-testing"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFlagship brand of Est\u00e9e Lauder Companies Inc. (NYSE: EL). Lauder family retains significant ownership and board control. Market cap ~$25B. Owns 25+ brands including MAC, Clinique, La Mer, Tom Ford Beauty, Bobbi Brown.\n\n## Animal Welfare\nNOT cruelty-free at corporate or flagship brand level. On PETA's 'Companies That DO Test' list. Exposed by PETA in 2012 for secretly paying for animal tests in China. One of the top prestige beauty sellers in China. Note: some subsidiaries (Too Faced, Smashbox) ARE individually cruelty-free.\n\n## Controversies\nPETA's 2012 expos\u00e9 revealed Est\u00e9e Lauder, Revlon, Avon, and Mary Kay were all secretly paying for animal tests in China. Promotes 30+ years of investment in alternative testing and partnerships with Cruelty Free International \u2014 criticized as 'having their cake and eating it too.'\n\n## Assessment\nThe parent company behind multiple shitlisted brands (MAC, Clinique). Promotes alternative testing partnerships while continuing to profit from China sales \u2014 the most sophisticated greenwashing operation in prestige beauty. The fact that some subsidiaries maintain CF status proves it's possible; the flagship brand simply chooses not to."
+    },
+    {
+      "id": "lancome",
+      "name": "Lanc\u00f4me",
+      "parentCompany": "L'Or\u00e9al Group",
+      "ownershipType": [
+        "megacorp",
+        "public",
+        "family"
+      ],
+      "categories": [
+        "cosmetics"
+      ],
+      "priceTier": 4,
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Sells extensively in China. Luxury pricing with ethically questionable practices \u2014 widest gap between brand image and reality."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Founded 1935, part of L'Or\u00e9al since 1964. Charging luxury prices while allowing animal testing represents the starkest disconnect among all brands surveyed.",
+      "sources": [
+        {
+          "label": "ethicalelephant.com",
+          "url": "https://ethicalelephant.com/is-lancome-cruelty-free-vegan/"
+        },
+        {
+          "label": "crueltyfreekitty.com",
+          "url": "https://www.crueltyfreekitty.com/brands/lancome/"
+        }
+      ],
+      "report": null,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false,
+      "summary": "## Ownership & Structure\nFounded 1935 in France, part of L'Or\u00e9al since 1964. L'Or\u00e9al Group (Euronext: OR) controlled by the Bettencourt Meyers family. L'Or\u00e9al's flagship luxury beauty brand.\n\n## Animal Welfare\nNOT cruelty-free. No certifications. On PETA's 'Companies That DO Test' list. Sells extensively in mainland China \u2014 one of L'Or\u00e9al's most popular luxury brands in the Chinese market. Animal testing position buried in FAQ under 'product safety.'\n\n## Controversies\nSame L'Or\u00e9al Group deceptive policy applies. Luxury pricing ($$$\u2013$$$$) combined with ethically questionable practices creates the widest gap between brand image and reality among all brands surveyed.\n\n## Assessment\nCharging luxury prices while allowing animal testing represents the starkest disconnect between premium positioning and ethical practice. Consumers paying $$$\u2013$$$$ should expect better. The contrast with sibling brand Garnier (which achieved Leaping Bunny by leaving China) makes the choice explicit."
+    },
+    {
+      "id": "lubriderm",
+      "name": "Lubriderm",
+      "parentCompany": "Kenvue Inc. (NYSE: KVUE) \u2014 pending Kimberly-Clark acquisition",
+      "ownershipType": [
+        "public",
+        "megacorp"
+      ],
+      "categories": [
+        "personal-care",
+        "cosmetics"
+      ],
+      "priceTier": 1,
+      "starRating": 1.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": true,
+        "notes": "NOT cruelty-free. On PETA's 'DO TEST' list. Zero certifications. Policy: 'does not test except where governments or laws require it.' Not vegan \u2014 contains animal-derived ingredients with no disclosure on dual-source ingredients."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Budget moisturizer (1945) now owned by Kenvue (ex-J&J). Not cruelty-free per every watchdog. Some formulations contained DMDM hydantoin; SPF product contains oxybenzone. Pending $48.7B Kimberly-Clark acquisition.",
+      "summary": "## Ownership & Structure\nDeveloped in 1945 by a pharmacist, passed through five owners: Texas Pharmacal \u2192 Warner-Lambert \u2192 Pfizer ($90B acquisition) \u2192 Johnson & Johnson ($16.6B) \u2192 Kenvue Inc. (2023 IPO, $3.8B). Kimberly-Clark is acquiring Kenvue for $48.7B (expected H2 2026). Activist hedge fund Starboard Value took a board seat; CEO terminated July 2025.\n\n## Animal Welfare\nNOT cruelty-free. Every major independent watchdog agrees \u2014 PETA, Leaping Bunny, Cruelty-Free Kitty, Ethical Elephant. Zero certifications of any kind. Brand policy explicitly permits animal testing 'where governments or laws require it.' Parent Kenvue maintains the same stance. Not vegan \u2014 contains animal-derived ingredients and does not disclose sourcing of dual-source ingredients like glycerin and stearic acid.\n\n## Controversies\nSome formulations contained DMDM hydantoin (a formaldehyde releaser J&J itself deemed unacceptable for baby products and pledged to remove by 2015). Multiple current products contain parabens. SPF product contains oxybenzone at 2.2% \u2014 flagged by the EU Scientific Committee, FDA, and AAP. 1992 Class II recall for bacterial contamination (61K bottles). No Lubriderm-specific lawsuits, but sibling brands (OGX, Neutrogena) have faced litigation over similar ingredient concerns.\n\n## Assessment\nAn effective, affordable moisturizer with genuine dermatological roots but clear ethical gaps. The animal welfare picture is unambiguous \u2014 not cruelty-free by any standard. The ingredient situation is mixed: newer reformulations appear cleaner, but the brand sells variants with meaningfully different safety profiles under the same trusted name without clear differentiation. Not shitlisted because the brand has no direct lawsuits, no documented abuse, and the testing is regulatory-compliance-driven rather than proactive \u2014 but consumers with cruelty-free priorities should avoid.",
+      "sources": [
+        {
+          "label": "Cruelty-Free Kitty \u2014 Lubriderm",
+          "url": "https://www.crueltyfreekitty.com/brands/lubriderm/"
+        },
+        {
+          "label": "Ethical Elephant \u2014 Lubriderm",
+          "url": "https://ethicalelephant.com/is-lubriderm-cruelty-free-vegan/"
+        },
+        {
+          "label": "Kenvue \u2014 Animal Testing Position",
+          "url": "https://www.kenvue.com/policies-positions/animal-testing"
+        },
+        {
+          "label": "EWG Skin Deep \u2014 Lubriderm",
+          "url": "https://www.ewg.org/skindeep/products/1021207-Lubriderm_Daily_Moisture_Full_Body_Lotion_FragranceFree/"
+        }
+      ],
+      "report": {
+        "generatedBy": "ai-agent",
+        "generatedDate": "2026-02-27",
+        "verified": false,
+        "promptVersion": "0.2",
+        "model": "Claude Opus 4.6",
+        "content": "## Overview\n\nLubriderm is a mass-market body moisturizer brand currently owned by Kenvue Inc. (NYSE: KVUE), headquartered in Summit, New Jersey [1][2]. The brand was developed in 1945 by pharmacist Louis Schleuse as a lightweight lotion for dermatologists, hospitals, and pharmacists treating dry and itchy skin [1]. The name fuses \"lubri-\" (moisturization) with \"-derm\" (dermatology). For its first three decades the product was unavailable to the general public \u2014 it entered retail shelves only in 1975 [1][3]. The founding narrative carries a caveat: the Louis Schleuse origin story comes exclusively from Lubriderm's corporate website and has not been independently corroborated. The earliest independent documentation is a September 1947 trademark filing with the USPTO by Texas Pharmacal Company of San Antonio, Texas [4].\n\nToday, the product line includes Daily Moisture Lotions (scented and fragrance-free), Advanced Therapy Lotions, Intense Skin Repair Lotion, a Daily Moisture SPF 15 sunscreen lotion, and \u2014 new in 2024\u20132025 \u2014 the brand's first-ever body washes [5][6][7]. Recent reformulations introduced Pro-Ceramide technology across the lineup [6]. The brand competes in the mid-tier drugstore segment against CeraVe, Cetaphil, Eucerin, and Aveeno, typically priced between $4\u2013$10 [3].\n\n## Ownership & Corporate Structure\n\nLubriderm has passed through five corporate owners in eight decades:\n\n- 1945\u2013~1970s: Texas Pharmacal Company (San Antonio, TX) \u2014 original creator [4]\n- ~1970s\u20132000: Warner-Lambert Company (Morris Plains, NJ) \u2014 acquired Texas Pharmacal [4][8]\n- 2000\u20132006: Pfizer Inc. (New York, NY) \u2014 acquired Warner-Lambert for $90 billion [8]\n- 2006\u20132023: Johnson & Johnson (New Brunswick, NJ) \u2014 acquired Pfizer Consumer Healthcare for $16.6 billion [9][10]\n- 2023\u2013present: Kenvue Inc. (Summit, NJ) \u2014 spun off from J&J; IPO in May 2023 raised $3.8 billion, the largest U.S. IPO since Rivian [2][11]\n\nKenvue trades on the NYSE under KVUE. J&J fully divested its remaining Kenvue stake by 2024 [2]. Activist hedge fund Starboard Value took a significant stake in early 2025, and its CEO Jeffrey Smith joined Kenvue's board [2]. Kenvue's CEO was terminated in July 2025 [2].\n\nOn November 3, 2025, Kimberly-Clark Corporation announced the acquisition of Kenvue at an enterprise value of approximately $48.7 billion [12]. Shareholders of both companies voted overwhelmingly to approve the deal on January 29, 2026 [13]. The transaction is expected to close in H2 2026 [13]. Lubriderm sits within Kenvue's Skin Health & Beauty segment alongside Neutrogena, Aveeno, and OGX [2][10].\n\n## Animal Welfare\n\n### Testing Practices\n\nAll major independent cruelty-free organizations classify Lubriderm as not cruelty-free [14][15][16]. PETA explicitly lists Lubriderm on its \"Companies That DO Test on Animals\" list under Johnson & Johnson [15][17].\n\nLubriderm's own policy statement, obtained by the watchdog site Ethical Elephant directly from the brand (since Lubriderm publishes no animal testing policy on its own website), reads: \"Lubriderm does not conduct animal testing of our products anywhere in the world, except in situations where governments or laws require it\" [15]. This \"except when required by law\" carve-out is the critical disqualifying factor \u2014 genuinely cruelty-free brands refuse to sell in markets that mandate animal testing rather than comply [14][15].\n\nParent company Kenvue's formal position on animal testing, last updated June 18, 2024, states: \"We do not conduct animal testing in the research or development of our cosmetic products unless required to do so to meet regulatory requirements\" [18][19]. For medicines and medical devices, Kenvue acknowledges that \"animal testing is more routinely required by regulatory authorities\" [18]. While Kenvue is a member of the Animal-Free Safety Assessment Collaboration (AFSA) and claims a \"30-year commitment\" to advancing non-animal methods, neither the brand nor its parent has committed to an absolute ban on animal testing [18][19].\n\n### Supply Chain\n\nLubriderm is not vegan. The Spoonful App's ingredient analysis of Lubriderm Daily Moisture Lotion identified one definitively animal-derived ingredient and two potentially animal-derived ingredients [20]. Several key ingredients \u2014 glycerin, stearic acid, and lecithin \u2014 can be sourced from either plants or animals, and Lubriderm does not disclose which [15][21]. The brand makes no vegan claims for any product [14][15].\n\nOn palm oil, parent company Kenvue is a Roundtable on Sustainable Palm Oil (RSPO) member targeting 100% sustainable sourcing by 2030, though it currently uses a combination of physical supply chains and Book & Claim credits [22]. No independent audit of Lubriderm's specific ingredient supply chain was found.\n\n### Certifications\n\nLubriderm holds zero third-party animal welfare or cruelty-free certifications \u2014 no Leaping Bunny, no PETA Beauty Without Bunnies, no Choose Cruelty Free, no Vegan Society seal [14][15][16]. The brand is not listed on any cruelty-free certification database. These absences are confirmed by all major watchdog sites including Cruelty-Free Kitty, Ethical Elephant, and PETA [14][15][16].\n\n## Controversies & Legal\n\nLubriderm's direct regulatory and legal record is thin, but several ingredient-level and parent-company-level issues warrant attention.\n\n**DMDM Hydantoin (formaldehyde releaser):** This preservative, which slowly releases formaldehyde over a product's shelf life, was confirmed present in at least one Lubriderm formulation \u2014 the 2019 Sensitive Skin version per the EWG Skin Deep database [23]. Formaldehyde is classified as a known human carcinogen by both the National Toxicology Program and IARC [24][25]. The FDA recognizes DMDM hydantoin as one of the most common allergens in cosmetic products. The ingredient is banned in cosmetics in Japan and Sweden [24]. Johnson & Johnson itself admitted in 2012 that DMDM hydantoin \"does not meet our safety and care standards\" for baby products and pledged to remove it from all consumer products by 2015. J&J did so \u2014 but then continued selling acquired OGX products containing the ingredient through at least 2021, prompting the Whipple v. Johnson & Johnson class action alleging OGX shampoos caused hair loss [26][27][28]. Whether Lubriderm has fully eliminated DMDM hydantoin from all current variants cannot be independently verified.\n\n**Parabens:** Methylparaben, propylparaben, and ethylparaben are present in multiple Lubriderm products including Daily Moisture Lotion formulations, per EWG and INCIDecoder ingredient databases [23][29][30]. Parabens are potential endocrine disruptors that may mimic estrogen, though the FDA considers them safe at typical cosmetic concentrations. Some reformulated Lubriderm products advertise being \"free of parabens, phthalates, dyes, and fragrance\" while older formulations containing parabens may still be on shelves simultaneously [7][30].\n\n**Oxybenzone in SPF product:** Lubriderm Daily Moisture Sunscreen SPF 15 contains oxybenzone at 2.2% concentration [31][32]. The European Commission's Scientific Committee on Consumer Safety concluded in 2021 that oxybenzone is not safe at the concentrations currently used. FDA studies found it absorbs through skin at levels exceeding the agency's own 0.5 ng/mL safety threshold after a single application [33][34]. The American Academy of Pediatrics advises against using oxybenzone-containing sunscreens on children. It is banned in Hawaii, Key West, and several countries for documented harm to coral reefs [35]. A 2023 systematic review of 254 studies found mounting evidence of endocrine-disrupting effects [36].\n\n**1992 bacterial contamination recall:** Warner-Lambert issued a Class II recall of 61,384 bottles of Fragrance-Free Lubriderm Lotion (Lot #911N1Va) after FDA testing found Pseudomonas aeruginosa bacterial contamination traced to the Vega Baja, Puerto Rico manufacturing plant. The FDA had reported quality assurance problems at the facility dating from 1992 [37][38].\n\n**No Lubriderm-specific lawsuits found:** No Lubriderm-specific class actions, product liability lawsuits, or individual lawsuits were identified across extensive searching of court databases, legal news outlets, and consumer advocacy sites [39]. Litigation has targeted sibling brands \u2014 OGX for DMDM hydantoin [26][27], Neutrogena and Aveeno for benzene contamination in aerosol sunscreens [40] \u2014 but not Lubriderm itself.\n\n**Marketing practice of note:** Lubriderm actively promotes its products for tattoo aftercare but includes the disclaimer \"No studies were ever performed on the use of Lubriderm Lotion on tattoos\" [41]. The brand's \"Dermatologist Recommended\" claim does not publicly disclose survey methodology or sample size [42].\n\nScientific nuance is important: the Cosmetic Ingredient Review panel considers DMDM hydantoin safe at concentrations of 0.074% or less [24], and cosmetic-grade mineral oil is not classified as carcinogenic despite IARC's Group 1 classification of untreated mineral oils [29][43]. EWG's hazard ratings are hazard-based, not risk-based \u2014 they flag potential dangers without assessing actual exposure probability at the concentrations used [23].\n\n## Verdict\n\nLubriderm is a well-established, affordable body moisturizer with genuine dermatological roots and decades of consumer use, but its ethical profile is clearly unfavorable on animal welfare. Every independent watchdog \u2014 PETA, Leaping Bunny, Cruelty-Free Kitty, Ethical Elephant \u2014 agrees that Lubriderm is not cruelty-free, and the brand holds zero certifications [14][15][16]. The brand explicitly permits animal testing where legally mandated, is not vegan, and does not disclose whether dual-source ingredients come from animals or plants [15][20]. On ingredient safety, some older formulations contained DMDM hydantoin (a formaldehyde releaser that J&J itself deemed unacceptable for baby products), multiple current products still contain parabens, and the SPF product contains oxybenzone \u2014 all flagged by independent scientific bodies and watchdogs [23][24][32][36]. Newer reformulations appear cleaner, but the brand sells different product variants with meaningfully different ingredient profiles under the same trusted name, placing the burden of label-reading entirely on consumers. Consumers who prioritize cruelty-free products should avoid Lubriderm. Those concerned about specific ingredients should scrutinize individual product labels carefully, as safety profiles vary significantly across the lineup.",
+        "citations": [
+          {
+            "id": 1,
+            "label": "History Of Our Dermatologist Developed Lotions \u2013 Lubriderm",
+            "url": "https://www.lubriderm.com/about-us",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 2,
+            "label": "Kenvue \u2013 Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Kenvue",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 3,
+            "label": "Lubriderm VS Cetaphil 2025 Comparison \u2013 Beautiful With Brains",
+            "url": "https://www.beautifulwithbrains.com/lubriderm-vs-cetaphil/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 4,
+            "label": "LUBRIDERM Trademark of Johnson & Johnson \u2013 Justia Trademarks",
+            "url": "https://trademarks.justia.com/715/35/lubriderm-71535436.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 5,
+            "label": "Lubriderm Introduces Body Washes \u2013 Happi",
+            "url": "https://www.happi.com/breaking-news/lubriderm-introduces-body-washes/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 6,
+            "label": "Lubriderm Advanced Therapy Lotion \u2013 Amazon Product Listing",
+            "url": "https://www.amazon.com/Lubriderm-Moisturizing-Pro-Ceramide-Pro-Vitamin-Non-Greasy/dp/B00UOLA06Y",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 7,
+            "label": "Daily Moisture Fragrance Free Lotion \u2013 Lubriderm",
+            "url": "https://www.lubriderm.com/products/daily-moisture-lotion-fragrance-free",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 8,
+            "label": "Lubriderm Company Profile \u2013 The Company Check",
+            "url": "https://www.thecompanycheck.com/company/b/lubriderm/83fec14e4b4e42719",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 9,
+            "label": "A Complete List of Johnson & Johnson Brands \u2013 Thomasnet",
+            "url": "https://www.thomasnet.com/insights/johnson-and-johnson-brands/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 10,
+            "label": "Kenvue Moves Headquarters to Summit, New Jersey \u2013 MarketScreener",
+            "url": "https://www.marketscreener.com/quote/stock/KENVUE-INC-154055852/news/Kenvue-Moves-Headquarters-to-Summit-New-Jersey-49376154/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 11,
+            "label": "J&J Kenvue IPO: What to Know \u2013 CNBC",
+            "url": "https://www.cnbc.com/2023/05/03/jj-kenvue-ipo-what-to-know.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 12,
+            "label": "Kimberly-Clark to Acquire Kenvue \u2013 PR Newswire",
+            "url": "https://www.prnewswire.com/news-releases/kimberly-clark-to-acquire-kenvue-creating-a-32-billion-global-health-and-wellness-leader-302602379.html",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 13,
+            "label": "Kimberly-Clark and Kenvue Shareholders Approve Acquisition \u2013 Kimberly-Clark Investor Relations",
+            "url": "https://www.investor.kimberly-clark.com/news-releases/news-release-details/kimberly-clark-and-kenvue-shareholders-overwhelmingly-approve",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 14,
+            "label": "Is Lubriderm Cruelty-Free & Vegan in 2026? THE TRUTH \u2013 Cruelty-Free Kitty",
+            "url": "https://www.crueltyfreekitty.com/brands/lubriderm/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 15,
+            "label": "The Reason Why Lubriderm is NOT Cruelty-Free \u2013 Ethical Elephant",
+            "url": "https://ethicalelephant.com/is-lubriderm-cruelty-free-vegan/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 16,
+            "label": "Does Lubriderm Test on Animals and Is It Cruelty-Free? \u2013 Green Glow Vibes",
+            "url": "https://greenglowvibes.com/does-lubriderm-test-on-animals-and-is-it-cruelty-free/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 17,
+            "label": "Cruelty-Free Shopping Guide \u2013 Vegan on the Map",
+            "url": "https://www.veganonthemap.com/news/cruelty-free-shopping",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 18,
+            "label": "Position on Animal Testing \u2013 Kenvue",
+            "url": "https://www.kenvue.com/policies-positions/animal-testing",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 19,
+            "label": "Position on Animal Testing \u2013 Kenvue (search result)",
+            "url": "https://www.kenvue.com/policies-positions/animal-testing",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 20,
+            "label": "Lubriderm Daily Moisture Lotion Ingredient Analysis \u2013 Spoonful App",
+            "url": "https://spoonfulapp.com/products/lubriderm-daily-moisture-lotion-for-normal-to-dry-skin/MDA1MjgwMDQ4ODYyNQ==",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 21,
+            "label": "Is Lubriderm Lotion Vegan? \u2013 Necole Bitchie",
+            "url": "https://necolebitchie.com/is-lubriderm-lotion-vegan/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 22,
+            "label": "Position on Responsible Palm Oil Sourcing \u2013 Kenvue",
+            "url": "https://www.kenvue.com/policies-positions/position-on-responsible-palm-oil-sourcing",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 23,
+            "label": "Lubriderm Daily Moisture Full Body Lotion Fragrance-Free Rating \u2013 EWG Skin Deep",
+            "url": "https://www.ewg.org/skindeep/products/1021207-Lubriderm_Daily_Moisture_Full_Body_Lotion_FragranceFree/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 24,
+            "label": "DMDM Hydantoin \u2013 Chemical Safety Facts",
+            "url": "https://www.chemicalsafetyfacts.org/chemicals/dmdm-hydantoin/",
+            "type": "industry",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 25,
+            "label": "Does DMDM Hydantoin Really Cause Hair Loss? \u2013 Environmental Working Group",
+            "url": "https://www.ewg.org/news-insights/news/2021/08/does-dmdm-hydantoin-really-cause-hair-loss-heres-what-you-need-know",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 26,
+            "label": "Lawsuit Claims Ingredient in Some J&J Shampoos Causes Hair Loss \u2013 KOMO News",
+            "url": "https://komonews.com/news/nation-world/broken-promise-class-action-lawsuit-claims-ingredient-in-ogx-shampoo-causes-hair-loss-allergic-reactions-scalp-irritation-johnson-and-johnson-dmdm-hydantoin-haircare-shampoo-conditioner",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 27,
+            "label": "Lawsuit Claims J&J OGX Shampoos Lead to Hair Loss \u2013 Yahoo News",
+            "url": "https://sports.yahoo.com/lawsuit-claims-johnson-johnson-ogx-183800171.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 28,
+            "label": "OGX Shampoo Hair Loss Lawsuit \u2013 Lawsuit Information Center",
+            "url": "https://www.lawsuit-information-center.com/lawsuits-claim-johnson-johnson-ogx-shampoo-causes-hair-loss.html",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 29,
+            "label": "Ingredients in Lubriderm \u2013 Our Everyday Life",
+            "url": "https://oureverydaylife.com/163594-ingredients-in-lubriderm.html",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 30,
+            "label": "Does Lubriderm Have Parabens? What You Should Know \u2013 Flawliz",
+            "url": "https://flawliz.com/does-lubriderm-have-parabens-what-you-should-know/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 31,
+            "label": "NDC 58232-0753 Lubriderm Daily Moisture Sunscreen SPF 15 \u2013 FDA Report",
+            "url": "https://fda.report/NDC/58232-0753",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 32,
+            "label": "EWG Rating for Lubriderm Daily Moisture Sunscreen Lotion SPF 15 \u2013 EWG Sunscreen Guide",
+            "url": "https://www.ewg.org/sunscreen/about-the-sunscreens/861333/Lubriderm_Daily_Moisture_Sunscreen_Lotion_2019_formulation_SPF_15/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 33,
+            "label": "New Study Raises Safety Concerns About Sunscreens \u2013 Consumer Reports",
+            "url": "https://www.consumerreports.org/health/sunscreens/safety-concerns-about-sunscreens-a1188384578/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 34,
+            "label": "The Trouble with Sunscreen Chemicals \u2013 EWG Sunscreen Guide",
+            "url": "https://www.ewg.org/sunscreen/report/the-trouble-with-sunscreen-chemicals/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 35,
+            "label": "DMDM Hydantoin: What to Know \u2013 WebMD",
+            "url": "https://www.webmd.com/beauty/dmdm-hydantoin-what-to-know",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 36,
+            "label": "The Banned Sunscreen Ingredients and Their Impact on Human Health: A Systematic Review \u2013 PubMed Central",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7648445/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 37,
+            "label": "Warner-Lambert Class II Recall of Fragrance-Free Lubriderm Lotion \u2013 Scrip/Citeline",
+            "url": "https://insights.citeline.com/PS081310/WARNER-LAMBERT-CLASS-II-RECALL-OF-FRAGRANCE-FREE-LUBRIDERM-LOTION/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 38,
+            "label": "Lubriderm Information, Side Effects, Warnings and Recalls \u2013 Recall Guide",
+            "url": "https://www.recallguide.org/drug/lubriderm/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 39,
+            "label": "Do These Johnson & Johnson Products Cause Hair Loss? \u2013 Snopes",
+            "url": "https://www.snopes.com/fact-check/johnson-and-johnson-hair-loss/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 40,
+            "label": "J&J Voluntary Recall of Neutrogena and Aveeno Aerosol Sunscreens \u2013 Johnson & Johnson",
+            "url": "https://www.jnj.com/media-center/press-releases/johnson-johnson-consumer-inc-issues-voluntary-recall-of-specific-neutrogena-and-aveeno-aerosol-sunscreen-products-due-to-the-presence-of-benzene",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 41,
+            "label": "FAQ's For Our Moisturizing Body Lotions \u2013 Lubriderm",
+            "url": "https://www.lubriderm.com/frequently-asked-questions",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 42,
+            "label": "Contact Us & Frequently Asked Questions \u2013 Lubriderm",
+            "url": "https://www.lubriderm.com/contact-us",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 43,
+            "label": "Mineral Oils: Untreated and Mildly Treated \u2013 National Cancer Institute",
+            "url": "https://www.cancer.gov/about-cancer/causes-prevention/risk/substances/mineral-oils",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          }
+        ]
+      },
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "sample": false
     }
   ]
 }

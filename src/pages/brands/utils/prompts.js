@@ -15,11 +15,22 @@ CRITICAL RULES:
 - Flag recommended: true ONLY for brands with strong, independently verified ethical practices
 - Aim for 8-15 brands covering the range from best to worst
 
-OWNERSHIP TYPES (pick ALL that apply as an array): "family", "founder", "cooperative", "public", "venture-backed", "private-equity", "megacorp"
+OWNERSHIP TYPES — use ONLY these 7 values (pick all that apply as an array):
+  "family"          — family-owned or family-controlled
+  "founder"         — founder-owned or founder-led (use this, NOT "founder-led" or "independent")
+  "cooperative"     — co-op or member-owned structure
+  "public"          — publicly traded on a stock exchange
+  "venture-backed"  — venture capital funded
+  "private-equity"  — private equity owned or controlled (use this, NOT "PE-influenced")
+  "megacorp"        — massive conglomerate by scale/market power
 - A brand can have multiple: e.g. Cargill is ["family", "megacorp"], Tyson is ["public", "megacorp"]
-- "public" = publicly traded. "megacorp" = massive conglomerate (by scale/market power). These overlap.
+- "public" and "megacorp" often overlap — use both when applicable
+- Do NOT invent new ownership types. No "independent", "private", "subsidiary", "foreign-owned", etc.
+- If a brand is a subsidiary, capture the parent in "parentCompany" — do NOT add "subsidiary" as an ownership type
+- If none of the 7 types fit, use the closest match or leave the array empty
 WELFARE RATINGS (pick one): "good", "moderate", "poor", "unknown"
-CATEGORIES (pick all that apply): "food", "cosmetics", "household", "clothing", "tech", "beverage", "pet-care", "personal-care"
+CATEGORIES (pick all that apply): "food", "beef", "chicken", "dairy", "pork", "cosmetics", "household", "clothing", "tech", "beverage", "pet-care", "personal-care", "shampoo", "soap"
+- Use broad + specific together: e.g. ["personal-care", "shampoo"] or ["food", "beef", "chicken"]
 
 JSON SCHEMA (array of objects):
 [
@@ -40,6 +51,7 @@ JSON SCHEMA (array of objects):
     "shitList": true/false,
     "recommended": true/false,
     "notes": "One-sentence summary for the table view",
+    "summary": "Markdown string with 4 sections: ## Ownership & Structure, ## Animal Welfare, ## Controversies, ## Assessment. Write 2-4 sentences per section. No citations needed — this is a condensed overview for the detail panel, not the full report.",
     "sources": [{"label": "...", "url": "..."}],
     "report": null,
     "dateAdded": "${today}",
@@ -85,7 +97,7 @@ JSON SCHEMA (report object only):
   "generatedBy": "ai-agent",
   "generatedDate": "${today}",
   "verified": false,
-  "promptVersion": "0.1",
+  "promptVersion": "0.2",
   "model": "YOUR_MODEL_NAME (e.g. Claude Opus 4.6, GPT-4o, etc.)",
   "content": "## Overview\\n\\n...[1][2]...\\n\\n## Ownership & Corporate Structure\\n\\n...",
   "citations": [
