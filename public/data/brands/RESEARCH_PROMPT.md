@@ -21,13 +21,14 @@ Use when you want to buy something (e.g., "shampoo") and need to map the landsca
 | `name` | string | Display name |
 | `parentCompany` | string \| null | Ultimate parent |
 | `ownershipType` | string[] | **Only** these 7 values: `family`, `founder`, `cooperative`, `public`, `venture-backed`, `private-equity`, `megacorp`. No "independent", "private", "subsidiary", etc. Use `parentCompany` for subsidiary relationships. |
-| `categories` | string[] | Broad + specific: `food`, `beef`, `chicken`, `dairy`, `pork`, `cosmetics`, `household`, `clothing`, `tech`, `beverage`, `pet-care`, `personal-care`, `shampoo`, `soap` |
+| `categories` | string[] | Broad + specific: `food`, `beef`, `chicken`, `dairy`, `eggs`, `pork`, `cosmetics`, `household`, `clothing`, `tech`, `beverage`, `pet-care`, `personal-care`, `shampoo`, `soap` |
 | `priceTier` | 1-4 \| null | 1=$ budget, 4=$$$$ luxury |
 | `starRating` | 0.5-5 | Half-star increments |
 | `animalWelfare` | object | `rating` (good/moderate/poor/unknown), `supplyChainAbuse`, `testingOnAnimals`, `notes` |
 | `shitList` | boolean | Documented abuse/testing |
 | `recommended` | boolean | Independently verified ethical practices only |
 | `notes` | string | One-sentence table view summary |
+| `tldr` | string | 1-2 sentence verdict: "should I buy this?" Direct recommendation or warning |
 | `summary` | string | Markdown with 4 sections: `## Ownership & Structure`, `## Animal Welfare`, `## Controversies`, `## Assessment`. 2-4 sentences each |
 | `sources` | array | `[{label, url}]` |
 | `report` | null | Set to null at discovery; populated by deep research |
@@ -54,7 +55,7 @@ Use to generate a full cited report for a single brand. The output replaces an e
 
 - `## Overview` — What the company makes, founding date, HQ
 - `## Ownership & Corporate Structure` — Who owns them, acquisition history
-- `## Animal Welfare` — Testing practices, supply chain, certifications (with ### subsections)
+- `## Animal Welfare` — Category-aware subsections (food: farm conditions, certifications; cosmetics: testing, ingredient sourcing; clothing: material sourcing)
 - `## Controversies & Legal` — Lawsuits, regulatory actions, NGO investigations
 - `## Verdict` — One-paragraph rating justification
 
@@ -65,7 +66,7 @@ Use to generate a full cited report for a single brand. The output replaces an e
 | `generatedBy` | string | `"ai-agent"` |
 | `generatedDate` | string | YYYY-MM-DD |
 | `verified` | boolean | Set `false`; flip to `true` after manual review |
-| `promptVersion` | string | Current: `"0.2"` |
+| `promptVersion` | string | Current: `"0.3"` |
 | `model` | string | e.g. `"Claude Opus 4.6"` |
 | `content` | string | Full markdown report with `[N]` inline citations |
 | `citations` | array | `[{id, label, url, type, accessed}]` — types: `primary`, `secondary`, `corporate`, `industry` |

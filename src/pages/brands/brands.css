@@ -738,6 +738,14 @@
   line-height: 1.5;
 }
 
+.brand-detail-tldr {
+  margin: var(--space-xs) 0 0 0;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
 .brand-welfare-flags {
   display: flex;
   flex-wrap: wrap;
@@ -944,6 +952,15 @@
 }
 
 /* Scrollable content area */
+.report-tldr {
+  padding: var(--space-md) var(--space-lg);
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+  border-bottom: 1px solid var(--border);
+}
+
 .report-content {
   flex: 1;
   overflow-y: auto;

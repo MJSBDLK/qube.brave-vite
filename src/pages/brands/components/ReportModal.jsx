@@ -247,6 +247,14 @@ export default function ReportModal({ brand, onClose }) {
             )}
           </div>
 
+          {/* TL;DR */}
+          {(brand.tldr || report.tldr) && (
+            <div className="report-tldr">
+              <h3 className="report-section-title">tl;dr</h3>
+              <p>{brand.tldr || report.tldr}</p>
+            </div>
+          )}
+
           {/* Content */}
           <div className="report-content">
             {renderContent(report.content, report.citations)}
@@ -323,6 +331,14 @@ export default function ReportModal({ brand, onClose }) {
             {copied ? <><Check size={13} /> Copied</> : <><ClipboardCopy size={13} /> Research prompt</>}
           </button>
         </div>
+
+        {/* TL;DR */}
+        {brand.tldr && (
+          <div className="report-tldr">
+            <h3 className="report-section-title">tl;dr</h3>
+            <p>{brand.tldr}</p>
+          </div>
+        )}
 
         {/* Content — reuse the same markdown renderer */}
         <div className="report-content">

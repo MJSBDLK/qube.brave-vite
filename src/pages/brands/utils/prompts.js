@@ -29,7 +29,7 @@ OWNERSHIP TYPES — use ONLY these 7 values (pick all that apply as an array):
 - If a brand is a subsidiary, capture the parent in "parentCompany" — do NOT add "subsidiary" as an ownership type
 - If none of the 7 types fit, use the closest match or leave the array empty
 WELFARE RATINGS (pick one): "good", "moderate", "poor", "unknown"
-CATEGORIES (pick all that apply): "food", "beef", "chicken", "dairy", "pork", "cosmetics", "household", "clothing", "tech", "beverage", "pet-care", "personal-care", "shampoo", "soap"
+CATEGORIES (pick all that apply): "food", "beef", "chicken", "dairy", "eggs", "pork", "cosmetics", "household", "clothing", "tech", "beverage", "pet-care", "personal-care", "shampoo", "soap"
 - Use broad + specific together: e.g. ["personal-care", "shampoo"] or ["food", "beef", "chicken"]
 
 JSON SCHEMA (array of objects):
@@ -51,6 +51,7 @@ JSON SCHEMA (array of objects):
     "shitList": true/false,
     "recommended": true/false,
     "notes": "One-sentence summary for the table view",
+    "tldr": "1-2 sentence verdict answering 'should I buy this?' — include the key reason why or why not. Not a summary of ownership — a direct recommendation or warning.",
     "summary": "Markdown string with 4 sections: ## Ownership & Structure, ## Animal Welfare, ## Controversies, ## Assessment. Write 2-4 sentences per section. No citations needed — this is a condensed overview for the detail panel, not the full report.",
     "sources": [{"label": "...", "url": "..."}],
     "report": null,
@@ -65,7 +66,7 @@ Output ONLY the JSON array. No markdown fences, no commentary.`
 export function getDeepResearchPrompt(brandName) {
   return `Research the brand ${brandName} and produce a structured report. Your output must be a single valid JSON "report" object matching the schema below — no commentary outside the JSON.
 
-IMPORTANT: You MUST use web search extensively for this research. Search for the brand name alongside terms like "animal testing", "cruelty free", "controversy", "lawsuit", "ownership", "acquired by", "parent company". Do NOT rely on training data — verify every claim against live sources. All citation URLs must be real, working links you found during research.
+IMPORTANT: You MUST use web search extensively for this research. Search for the brand name alongside terms like "controversy", "lawsuit", "ownership", "acquired by", "parent company", and welfare-related terms appropriate to what the brand sells. Do NOT rely on training data — verify every claim against live sources. All citation URLs must be real, working links you found during research.
 
 CRITICAL RULES:
 - Prioritize adversarial and independent sources (investigative journalism, NGO reports, court documents, government filings) over corporate self-reporting
@@ -76,15 +77,20 @@ CRITICAL RULES:
 - Use [N] inline citation markers in the report content. Multiple citations per claim are encouraged — e.g., [1][2][3]
 - Every factual claim must have at least one citation
 
+CATEGORY-AWARE ANALYSIS: First determine what this brand sells, then tailor your Animal Welfare section accordingly:
+- FOOD brands (meat, dairy, eggs): Focus on farm conditions, stocking density, slaughter practices, antibiotic use, supply chain audits. Relevant certifications: Certified Humane, GAP (Global Animal Partnership), AGA (American Grassfed), USDA Organic. Do NOT discuss animal testing — it is not relevant to food products.
+- COSMETICS / PERSONAL-CARE / HOUSEHOLD brands: Focus on animal testing policies, China market sales (which may require testing), ingredient sourcing (carmine, tallow, lanolin, etc.). Relevant certifications: Leaping Bunny, PETA cruelty-free, B Corp, EWG Verified.
+- CLOTHING brands: Focus on material sourcing (leather, wool, down, fur), labor practices, supply chain transparency. Relevant certifications: Fair Trade, GOTS, OEKO-TEX, RDS (Responsible Down Standard).
+- Other categories: Use your judgment — cover animal welfare concerns specific to that industry.
+
 REPORT SECTIONS (use these exact ## headings):
 ## Overview — What the company makes, founding date, HQ, brief history
 ## Ownership & Corporate Structure — Who owns them, acquisition history, investor structure, executive compensation if notable
-## Animal Welfare
-### Testing Practices — Do they test on animals? In which markets? Commitments to alternatives?
-### Supply Chain — Documented conditions, factory farming ties, audits
-### Certifications — Third-party certifications and whether they're meaningful
+## Animal Welfare — Use subsections (### headings) appropriate to the brand's category as described above. Do NOT include subsections for concerns that are irrelevant to the product type.
 ## Controversies & Legal — Lawsuits, regulatory actions, investigative journalism, NGO exposés
 ## Verdict — One paragraph summarizing the rating justification
+
+Also include a top-level "tldr" field in the JSON output (sibling of "content") — 1-2 sentences answering "should I buy this?" with the key reason why or why not.
 
 CITATION TYPES:
 - "primary" — independent journalism, academic research, court documents, government data
@@ -97,8 +103,9 @@ JSON SCHEMA (report object only):
   "generatedBy": "ai-agent",
   "generatedDate": "${today}",
   "verified": false,
-  "promptVersion": "0.2",
+  "promptVersion": "0.3",
   "model": "YOUR_MODEL_NAME (e.g. Claude Opus 4.6, GPT-4o, etc.)",
+  "tldr": "1-2 sentence verdict: should you buy this? Key reason why or why not.",
   "content": "## Overview\\n\\n...[1][2]...\\n\\n## Ownership & Corporate Structure\\n\\n...",
   "citations": [
     {"id": 1, "label": "Source Title", "url": "https://...", "type": "primary|secondary|corporate|industry", "accessed": "${today}"}

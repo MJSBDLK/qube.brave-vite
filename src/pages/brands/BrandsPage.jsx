@@ -104,6 +104,7 @@ export default function BrandsPage() {
         b.name.toLowerCase().includes(q) ||
         (b.parentCompany && b.parentCompany.toLowerCase().includes(q)) ||
         (b.notes && b.notes.toLowerCase().includes(q)) ||
+        (b.tldr && b.tldr.toLowerCase().includes(q)) ||
         b.categories.some(c => c.toLowerCase().includes(q))
       )
     }

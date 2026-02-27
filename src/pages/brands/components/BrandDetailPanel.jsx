@@ -8,11 +8,21 @@ const WELFARE_LABELS = {
 }
 
 export default function BrandDetailPanel({ brand }) {
-  const { animalWelfare, sources, notes, dateAdded, lastUpdated } = brand
+  const { animalWelfare, sources, notes, tldr, dateAdded, lastUpdated } = brand
 
   return (
     <div className="brand-detail-panel">
       <div className="brand-detail-grid">
+        {/* TL;DR */}
+        {tldr && (
+          <div className="brand-detail-section">
+            <div className="brand-detail-label">tl;dr</div>
+            <div className="brand-detail-value">
+              <p className="brand-detail-tldr">{tldr}</p>
+            </div>
+          </div>
+        )}
+
         {/* Animal Welfare Details */}
         <div className="brand-detail-section">
           <div className="brand-detail-label">Animal Welfare</div>
