@@ -36,7 +36,8 @@
 - Styling: Custom CSS (2,146 lines) + ramps.css (3,385 lines)
 - Container: Docker + nginx:alpine
 - IPFS: Kubo v0.37.0 (full DHT mode)
-- Domain: qube.brave (Unstoppable Domains)
+- Domain (Web2): mjsbdlk.com (Njalla)
+- Domain (Web3): qube.brave (Unstoppable Domains)
 
 ## File Organization Patterns
 
@@ -256,6 +257,40 @@ npm run build  // on Ubuntu host
 // ✅ Custom CSS classes
 <div className="u-p-lg u-m-md">  // custom utilities
 ```
+
+## Brands Research Prompts
+
+The brands page includes a two-tier AI research workflow with copy-to-clipboard prompts.
+
+- **Source of truth**: `src/pages/brands/utils/prompts.js` — `getDiscoveryPrompt()` and `getDeepResearchPrompt()`
+- **Documentation**: `public/data/brands/RESEARCH_PROMPT.md`
+- **Data file**: `public/data/brands/brands.json`
+
+### Workflow
+1. **Discovery**: "I want to buy [product]" — generates shallow brand list (JSON array, `report: null`)
+2. **Deep research**: Per-brand deep dive — generates a `report` object with inline `[N]` citations
+
+### Updating prompts
+- Edit `prompts.js` (the JS is what clipboard buttons use)
+- Bump `promptVersion` in the JSON schema inside the prompt (e.g. `"0.1"` → `"0.2"`)
+- Update `RESEARCH_PROMPT.md` to match
+- Reports track which prompt version and model generated them via `promptVersion` and `model` fields
+
+### Adding a new column (IMPORTANT)
+When adding a new data field to the brands schema:
+1. Add the field to the JSON schema in **both** `prompts.js` (discovery prompt) and `RESEARCH_PROMPT.md`
+2. Add a column in `BrandsTable.jsx` — render `null` as `<span className="text-subtle">—</span>`
+3. Add `fieldName: null` to all existing brands in `brands.json` (use a Node script)
+4. Add filter UI in `FilterBar.jsx` if the field is filterable
+5. Data availability convention:
+   - **Field omitted** (key not in JSON object) = "not yet researched" — UI shows `—`
+   - **`null`** (key present, value null) = "researched, no data found" — UI shows `N/A` (italic)
+   - Use the `NoDataCell` helper in `BrandsTable.jsx` for consistent rendering
+
+### Adding researched brands
+- Paste discovery output into the `brands` array in `brands.json`
+- For deep research, replace the brand's `"report": null` with the generated report object
+- Set `"sample": false` (or omit) for real researched brands; seed data has `"sample": true`
 
 ## Key Files Reference
 
