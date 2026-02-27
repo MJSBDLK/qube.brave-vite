@@ -144,3 +144,4 @@
 - [ ] Backend API expansion (qube-api) for features needing persistence beyond localStorage
 - [ ] Auth system for admin and user-submitted content features
 - [ ] Fitness app lives separately at /var/www/fit.mjsbdlk (fit.mjsbdlk.com) — see that project's todo
+- [ ] The scrollbar is awkward to have in the center section - this is requied in the Ramps page, because the center div must scroll separately, but in all other pages it's awkward where it is.
