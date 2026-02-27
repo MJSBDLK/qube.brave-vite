@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
-import { ShieldCheck, AlertTriangle, Star, Sparkles, Check } from 'lucide-react'
+import { ShieldCheck, AlertTriangle, Star, Sparkles, Check, Search } from 'lucide-react'
 import FilterBar from './components/FilterBar'
 import BrandsTable from './components/BrandsTable'
 import ReportModal from './components/ReportModal'
 import { getDiscoveryPrompt, getDeepResearchPrompt } from './utils/prompts'
+import { useBrandFeedback } from '../../contexts/BrandFeedbackContext'
 
 export default function BrandsPage() {
   const [brands, setBrands] = useState([])
@@ -22,6 +23,8 @@ export default function BrandsPage() {
   const [reportBrand, setReportBrand] = useState(null)
   const handleViewReport = useCallback((brand) => setReportBrand(brand), [])
   const handleCloseReport = useCallback(() => setReportBrand(null), [])
+
+  const { openRequestResearch } = useBrandFeedback()
 
   // Discovery prompt state
   const [discoverInput, setDiscoverInput] = useState('')
@@ -217,6 +220,13 @@ export default function BrandsPage() {
               </div>
             </div>
           </div>
+          <button
+            className="brands-suggest-btn"
+            onClick={() => openRequestResearch(null)}
+            title="Suggest a brand for us to research"
+          >
+            <Search size={14} /> Suggest a brand
+          </button>
         </div>
       </div>
 

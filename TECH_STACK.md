@@ -1,17 +1,24 @@
-# Current Tech Stack - qube.brave (Vite Migration)
+# Current Tech Stack - qube.brave
 
-**Updated:** September 2025  
-**Status:** Production Ready — Vite-only (Next.js removed)
+**Updated:** February 2026
+**Status:** Production — Vite SPA + Express API
 
 ## Architecture Overview
 
 ```
-Internet/LAN → nginx (reverse proxy) → Docker Container → Vite App
+Internet/LAN → nginx (reverse proxy) ─┬─► Vite App container (:3001)
+                                       └─► qube-api container  (:3010)
                 ↓
          Dell OptiPlex 7070 Ubuntu Server 24.04 LTS
                 ↓
          IPFS Node (Kubo) → Distributed Web3 Network
 ```
+
+### Application Modules
+- **Gradient Ramps** — CSS gradient tool (`/#/ramps/`)
+- **Inflation Tracker** — 50+ economic time series vs labor-hour purchasing power (`/#/inflation/`)
+- **Brands Tracker** — Corporate ownership, animal welfare, and supply chain ethics (`/#/brands/`)
+- **qube-api** — Express.js backend for data fetching and user feedback (port 3010)
 
 ## Core Technology Stack
 
@@ -24,7 +31,17 @@ Internet/LAN → nginx (reverse proxy) → Docker Container → Vite App
 - **Web3 Deployment**: IPFS static export (base: './' for gateway compatibility)
 - **Domain Strategy**: Unstoppable Domains (.brave TLD) with IPFS CID updates
 
-### **Backend Infrastructure** 
+### **Backend API** (`/var/www/qube-api/`)
+- **Framework**: Express.js 4.x (ES modules)
+- **Runtime**: Node.js 22 (Docker: `node:22-alpine`)
+- **Port**: 3010
+- **Roles**:
+  - Fetch inflation data from 8+ external APIs (FRED, USDA, World Bank, CoinGecko, etc.)
+  - Create GitHub Issues from user feedback (bug reports, dataset suggestions, brand research requests, inaccuracy reports)
+  - Send push notifications via ntfy
+- **Dependencies**: express, cors, xlsx
+
+### **Backend Infrastructure**
 - **Server OS**: Ubuntu Server 24.04 LTS
 - **Web Server**: nginx (reverse proxy + SSL termination)
 - **Container Runtime**: Docker + Docker Compose
@@ -81,34 +98,55 @@ Internet/LAN → nginx (reverse proxy) → Docker Container → Vite App
 
 ## File Structure
 
+### Frontend (`/var/www/qube.brave-vite/`)
 ```
-/var/www/qube.brave-vite/
-├── src/                    # Vite application source
-│   ├── App.jsx            # Main application with HashRouter
-│   ├── main.jsx           # Application entry point
-│   ├── components/        # Shared React components
-│   │   ├── Header.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Sidebar.jsx
-│   │   └── Update.jsx
-│   ├── pages/             # Page components
-│   │   ├── Home.jsx       # Homepage
-│   │   └── Ramps.jsx      # Gradient ramps tool entry
-│   └── pages/ramps/       # Gradient ramps tool
-│       ├── components/    # Tool-specific components
-│       ├── hooks/         # Custom hooks
-│       └── utils/         # Utility functions
-├── public/                # Static assets
-├── out/                   # Static export output (IPFS-ready)
-├── node_modules/          # Dependencies (host-installed)
-├── latest-cid.txt         # Current IPFS CID (auto-generated)
-├── update-ipfs.sh         # IPFS publishing script
-├── get-cid.sh            # CID retrieval helper
-├── Dockerfile             # Container configuration
-├── vite.config.js         # Vite configuration (IPFS-optimized)
-├── package.json           # Project dependencies
-├── tailwind.config.js     # Tailwind configuration (currently disabled)
-└── postcss.config.mjs     # PostCSS configuration
+src/
+├── App.jsx                    # HashRouter, context providers
+├── main.jsx                   # Entry point
+├── components/                # Shared components
+│   ├── Header.jsx, Footer.jsx, Sidebar.jsx
+│   ├── BugReportModal.jsx     # Bug report form
+│   ├── DatasetSuggestionModal.jsx
+│   └── BrandFeedbackModal.jsx # Brand research/inaccuracy forms
+├── contexts/                  # React contexts (global state)
+│   ├── BugReportContext.jsx
+│   ├── DatasetSuggestionContext.jsx
+│   ├── BrandFeedbackContext.jsx
+│   └── SpicyModeContext.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── ramps/                 # Gradient Ramps tool
+│   │   ├── components/, hooks/, utils/
+│   ├── inflation/             # Inflation Tracker
+│   │   ├── InflationPage.jsx  # Main page + DATA_SERIES config
+│   │   ├── components/        # Chart, controls, sidebar
+│   │   └── utils/             # Formatting, calculations
+│   └── brands/                # Brands Tracker
+│       ├── BrandsPage.jsx     # Main page + filters
+│       ├── components/        # Table, detail panel, report modal, filter bar
+│       └── utils/             # Research prompts
+public/
+├── data/
+│   ├── inflation/*.json       # 50+ time series (written by qube-api)
+│   └── brands/brands.json     # Brand entries + research reports
+```
+
+### Backend API (`/var/www/qube-api/`)
+```
+server.js                      # Express entry point (port 3010)
+config/
+└── dataSeries.js              # 50+ data series definitions
+routes/
+├── index.js                   # Main router
+├── health.js                  # GET /health
+├── bugReport.js               # POST /api/bug-report
+├── inflation/
+│   ├── fetch.js               # POST /api/inflation/fetch-all, fetch/:id
+│   ├── status.js              # GET /api/inflation/status
+│   └── suggestion.js          # POST /api/inflation/suggest
+└── brands/
+    ├── requestResearch.js     # POST /api/brands/request-research
+    └── reportInaccuracy.js    # POST /api/brands/report-inaccuracy
 ```
 
 ## Development Workflow
@@ -180,29 +218,20 @@ npm run ipfs:cid     # Get CID from latest-cid.txt
 
 ## Current Status
 
-### **Migration Completed**
-- ✅ Vite 7.1.4 application successfully deployed
-- ✅ React Router 6 with HashRouter implemented
-- ✅ All components migrated (Header, Footer, Sidebar, Ramps tool)
-- ✅ IPFS publishing workflow preserved
-- ✅ Docker containerization updated
-- ✅ Development server operational (port 3000)
-- ✅ Build system producing 277KB optimized bundle
+### **Application Features**
+- ✅ **Gradient Ramps** — CSS gradient generation tool
+- ✅ **Inflation Tracker** — 50+ economic time series charted against labor hours
+- ✅ **Brands Tracker** — 100+ brands with ownership, welfare, and ethics data
+- ✅ **Bug Reporting** — In-app bug/crash reports → GitHub Issues
+- ✅ **User Feedback** — Dataset suggestions, brand research requests, inaccuracy reports
 
-### **Current Build Performance**
-- **Build Time**: ~1.84s (Vite optimization)
-- **Bundle Size**: 
-  - CSS: 55.67 kB (gzipped: 10.46 kB)
-  - JS: 277.26 kB (gzipped: 87.90 kB)
-- **Dev Server Startup**: ~171ms
-
-### **Functional Features**
-- ✅ Single Page Application with hash routing
-- ✅ Gradient Ramps tool fully functional
-- ✅ IPFS static export working
-- ✅ Docker containerization operational
-- ✅ nginx reverse proxy ready
-- ✅ Web3 domain strategy preserved
+### **Infrastructure**
+- ✅ Vite 7.1.4 SPA with HashRouter (IPFS-compatible)
+- ✅ Express.js API (qube-api) with 8+ data source integrations
+- ✅ Docker containerization for both frontend and API
+- ✅ IPFS publishing workflow (full DHT mode)
+- ✅ ntfy push notifications for all user submissions
+- ✅ nginx reverse proxy operational
 
 ### **Current IPFS Status**
 - **Node ID**: 12D3KooWENjh9U4a4eRkD7uVeEFPBswiLrDdPqSBffraSuzMPc8V
@@ -258,15 +287,13 @@ npm run ipfs:cid     # Get CID from latest-cid.txt
 
 ### **Immediate Priorities**
 - **Tailwind Re-integration**: Resolve PostCSS v4 compatibility issues
-- **CSS Optimization**: Further bundle size reduction
-- **Performance Testing**: IPFS gateway load testing
 - **Error Boundaries**: Add React error handling for production
+- **Brands 1.0 launch**: Final polish on brand feedback features
 
 ### **Scaling Options**
-- Docker Compose ready for additional services
 - PostgreSQL configured for future data persistence
 - nginx ready for SSL and advanced routing
-- **Component Library**: Extract reusable components for future tools
+- **Component Library**: Extract reusable components across tools
 
 ### **IPFS Infrastructure Scaling**
 - **Pinning Services**: Consider Pinata, NFT.Storage for redundancy
@@ -360,32 +387,6 @@ npm run build
 - **Alpine npm issues**: Avoid running npm commands inside Alpine containers
 - **Container won't start**: Check port mapping (3001:80 for nginx, 3001:3000 for node)
 
-### Operational notes & cleanup (Sept 2025)
-- The legacy Next.js container (`qube-brave-app`) was stopped/removed during migration; it no longer listens on host port 3000.
-- A search for the old Next.js image name found no matching images to remove — there is nothing left to delete for that image on this host.
-- nginx has been updated to proxy qube.brave -> Vite container on `127.0.0.1:3001`. If you prefer Docker-name-based upstreams, see the note below.
-
-### nginx upstream note
-Using an nginx "upstream" pointing at a container name is more robust than hard-coding host ports. Instead of proxying to `127.0.0.1:3001`, you can define an upstream using the container's DNS name on the docker network and proxy to that. Example (nginx config):
-
-```nginx
-upstream qube_vite {
-  server qube-brave-vite-app:80; # container name on the docker network
-}
-
-server {
-  listen 80;
-  server_name qube.brave;
-
-  location / {
-    proxy_pass http://qube_vite;
-    # ...other proxy headers...
-  }
-}
-```
-
-This avoids binding to host ports and lets Docker handle routing. It requires nginx to be able to resolve container names (either run nginx in the same Docker network or use a service discovery mechanism). For the current setup (system nginx on host), proxying to `127.0.0.1:3001` is fine and is what we use.
-
 ### **Development Workflow**
 ```bash
 # Start development
@@ -424,13 +425,23 @@ echo "Local: http://localhost:8080/ipfs/$(cat latest-cid.txt)/"
 echo "External: https://dweb.link/ipfs/$(cat latest-cid.txt)/"
 ```
 
-## Migration Success Metrics
+## Services Summary
 
-- ✅ **Build Performance**: 60% faster build times (1.84s vs ~4.4s)
-- ✅ **Bundle Size**: Optimized 277KB total bundle
-- ✅ **Development Speed**: Sub-second hot reload
-- ✅ **IPFS Compatibility**: Native static export support
-- ✅ **Code Maintainability**: Cleaner separation of concerns
-- ✅ **Future Scalability**: Vite ecosystem and plugin support
+| Service | Container | Port | Role |
+|---------|-----------|------|------|
+| Frontend | `qube-brave-vite-app` | 3001 → nginx:80 | Static SPA serving |
+| API | `qube-api` | 3010 | Data fetching, feedback → GitHub |
+| IPFS | systemd (host) | 8080 (gateway), 4001 (swarm) | Web3 content hosting |
+| nginx | systemd (host) | 80/443 | Reverse proxy, SSL |
 
-The migration successfully addresses the original CSS/routing issues with IPFS while maintaining all existing functionality and improving development experience.
+### Restarting Services
+```bash
+# Frontend container (after build)
+cd /var/www/qube.brave-vite && docker compose up -d --build
+
+# API container (after code/env changes)
+cd /var/www/qube-api && docker compose up -d --build
+
+# Full deployment (frontend build + IPFS + Docker)
+cd /var/www/qube.brave-vite && npm run publish:all
+```

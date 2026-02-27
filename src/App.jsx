@@ -15,6 +15,8 @@ import { updatePageMetadata, getDisplayUrl, getCanonicalDomain } from './utils/u
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
 import { BugReportProvider } from './contexts/BugReportContext'
 import { DatasetSuggestionProvider } from './contexts/DatasetSuggestionContext'
+import { BrandFeedbackProvider } from './contexts/BrandFeedbackContext'
+import BrandFeedbackModal from './components/BrandFeedbackModal'
 
 function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -164,9 +166,12 @@ function App() {
       <BugReportProvider>
         <DatasetSuggestionProvider>
           <SpicyModeProvider>
-            <AppLayout />
-            <BugReportModal />
-            <DatasetSuggestionModal />
+            <BrandFeedbackProvider>
+              <AppLayout />
+              <BugReportModal />
+              <DatasetSuggestionModal />
+              <BrandFeedbackModal />
+            </BrandFeedbackProvider>
           </SpicyModeProvider>
         </DatasetSuggestionProvider>
       </BugReportProvider>

@@ -8,7 +8,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: var(--space-lg);
-  overflow-y: auto;
 }
 
 /* Loading / Error */
@@ -220,9 +219,42 @@
   margin-bottom: var(--space-lg);
 }
 
+.brands-search-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
 .brands-search-wrapper {
   position: relative;
   max-width: 400px;
+  flex: 1;
+}
+
+.brands-filter-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.brands-filter-toggle-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.brands-filter-toggle-btn--active {
+  background: rgba(107, 115, 163, 0.1);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .brands-search-icon {
@@ -257,10 +289,14 @@
 }
 
 .brands-filter-groups {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: var(--space-lg);
   align-items: flex-start;
+}
+
+.brands-filter-groups--expanded {
+  display: flex;
 }
 
 .brands-filter-group {
@@ -441,7 +477,8 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border-primary);
   border-radius: var(--radius-md);
-  overflow-x: auto;
+  overflow: auto;
+  max-height: 70vh;
 }
 
 .brands-table {
@@ -1172,4 +1209,118 @@
   .filter-toggle {
     justify-content: center;
   }
+}
+
+/* =====================================================
+   BRAND FEEDBACK (Suggest / Report Inaccuracy)
+   ===================================================== */
+
+/* Suggest a Brand button in header */
+.brands-suggest-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  align-self: flex-start;
+}
+
+.brands-suggest-btn:hover {
+  background: rgba(107, 115, 163, 0.15);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Action links in detail panel dates row */
+.brand-detail-actions {
+  margin-left: var(--space-md);
+}
+
+.brand-detail-action-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-subtle);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.brand-detail-action-link:hover {
+  color: var(--color-primary);
+}
+
+.brand-detail-action-link + .brand-detail-action-link {
+  margin-left: var(--space-sm);
+}
+
+/* Request Research button in report meta bar */
+.report-meta-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  background: none;
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.report-meta-action-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Feedback bar at bottom of report modal */
+.report-feedback-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-sm) var(--space-md);
+  border-top: 1px solid var(--border-primary);
+}
+
+.report-feedback-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.report-feedback-btn:hover {
+  color: var(--color-primary);
+}
+
+/* Category pills in feedback modal */
+.brand-feedback-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: var(--space-sm);
+}
+
+.brand-feedback-category-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.6875rem;
 }

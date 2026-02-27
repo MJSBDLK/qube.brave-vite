@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
-import { X, ExternalLink, FileText, User, Bot, ShieldCheck, ShieldAlert, Info, ClipboardCopy, Check } from 'lucide-react'
+import { X, ExternalLink, FileText, User, Bot, ShieldCheck, ShieldAlert, Info, ClipboardCopy, Check, Search, AlertTriangle } from 'lucide-react'
 import { getDeepResearchPrompt } from '../utils/prompts'
+import { useBrandFeedback } from '../../../contexts/BrandFeedbackContext'
 
 const CITATION_TYPE_LABELS = {
   primary: 'Independent',
@@ -164,6 +165,7 @@ function CitationIcon({ citation, id }) {
 export default function ReportModal({ brand, onClose }) {
   const overlayRef = useRef(null)
   const [copied, setCopied] = useState(false)
+  const { openRequestResearch, openReportInaccuracy } = useBrandFeedback()
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -286,6 +288,16 @@ export default function ReportModal({ brand, onClose }) {
               </ol>
             </div>
           )}
+
+          {/* Feedback actions */}
+          <div className="report-feedback-bar">
+            <button
+              className="report-feedback-btn"
+              onClick={() => openReportInaccuracy(brand)}
+            >
+              <AlertTriangle size={13} /> Report inaccuracy
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -324,11 +336,11 @@ export default function ReportModal({ brand, onClose }) {
             </span>
           )}
           <button
-            className={`report-meta-copy-btn ${copied ? 'report-meta-copy-btn--copied' : ''}`}
-            onClick={handleCopyResearchPrompt}
-            title={copied ? 'Copied!' : 'Copy deep research prompt to clipboard'}
+            className="report-meta-action-btn"
+            onClick={() => openRequestResearch(brand)}
+            title="Request a full research report for this brand"
           >
-            {copied ? <><Check size={13} /> Copied</> : <><ClipboardCopy size={13} /> Research prompt</>}
+            <Search size={13} /> Request research
           </button>
         </div>
 
@@ -365,6 +377,16 @@ export default function ReportModal({ brand, onClose }) {
             </ol>
           </div>
         )}
+
+        {/* Feedback actions */}
+        <div className="report-feedback-bar">
+          <button
+            className="report-feedback-btn"
+            onClick={() => openReportInaccuracy(brand)}
+          >
+            <AlertTriangle size={13} /> Report inaccuracy
+          </button>
+        </div>
       </div>
     </div>
   )

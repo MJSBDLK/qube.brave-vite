@@ -1,4 +1,5 @@
-import { ExternalLink, AlertTriangle, FlaskConical, ShieldCheck, ShieldX } from 'lucide-react'
+import { ExternalLink, AlertTriangle, FlaskConical, ShieldCheck, ShieldX, Search } from 'lucide-react'
+import { useBrandFeedback } from '../../../contexts/BrandFeedbackContext'
 
 const WELFARE_LABELS = {
   good: 'Good',
@@ -9,6 +10,7 @@ const WELFARE_LABELS = {
 
 export default function BrandDetailPanel({ brand }) {
   const { animalWelfare, sources, notes, tldr, dateAdded, lastUpdated } = brand
+  const { openRequestResearch, openReportInaccuracy } = useBrandFeedback()
 
   return (
     <div className="brand-detail-panel">
@@ -90,10 +92,26 @@ export default function BrandDetailPanel({ brand }) {
           </div>
         )}
 
-        {/* Dates */}
+        {/* Dates + Actions */}
         <div className="brand-detail-section">
           <div className="brand-detail-dates">
             Added {dateAdded}{lastUpdated !== dateAdded && ` · Updated ${lastUpdated}`}
+            <span className="brand-detail-actions">
+              {!brand.report && (
+                <button
+                  className="brand-detail-action-link"
+                  onClick={() => openRequestResearch(brand)}
+                >
+                  <Search size={11} /> Request research
+                </button>
+              )}
+              <button
+                className="brand-detail-action-link"
+                onClick={() => openReportInaccuracy(brand)}
+              >
+                <AlertTriangle size={11} /> Report inaccuracy
+              </button>
+            </span>
           </div>
         </div>
       </div>

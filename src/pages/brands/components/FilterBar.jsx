@@ -1,4 +1,5 @@
-import { Search, AlertTriangle, ThumbsUp } from 'lucide-react'
+import { useState } from 'react'
+import { Search, AlertTriangle, ThumbsUp, SlidersHorizontal, ChevronUp } from 'lucide-react'
 
 const OWNERSHIP_LABELS = {
   family: 'Family',
@@ -34,26 +35,40 @@ export default function FilterBar({
   showRecommendedOnly,
   setShowRecommendedOnly,
 }) {
+  const [filtersExpanded, setFiltersExpanded] = useState(false)
+
+  const activeFilterCount = selectedCategories.length + selectedOwnership.length + selectedWelfare.length + (showShitListOnly ? 1 : 0) + (showRecommendedOnly ? 1 : 0)
+
   const toggleInArray = (arr, setArr, value) => {
     setArr(prev => prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value])
   }
 
   return (
     <div className="brands-filter-bar">
-      {/* Search */}
-      <div className="brands-search-wrapper">
-        <Search size={16} className="brands-search-icon" />
-        <input
-          type="text"
-          className="brands-search"
-          placeholder="Search brands, companies, categories..."
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-        />
+      {/* Search + toggle row */}
+      <div className="brands-search-row">
+        <div className="brands-search-wrapper">
+          <Search size={16} className="brands-search-icon" />
+          <input
+            type="text"
+            className="brands-search"
+            placeholder="Search brands, companies, categories..."
+            value={searchQuery}
+            onChange={e => setSearchQuery(e.target.value)}
+          />
+        </div>
+        <button
+          className={`brands-filter-toggle-btn ${filtersExpanded ? 'brands-filter-toggle-btn--active' : ''}`}
+          onClick={() => setFiltersExpanded(prev => !prev)}
+          title={filtersExpanded ? 'Collapse filters' : 'Expand filters'}
+        >
+          {filtersExpanded ? <ChevronUp size={14} /> : <SlidersHorizontal size={14} />}
+          Filters{activeFilterCount > 0 ? ` (${activeFilterCount})` : ''}
+        </button>
       </div>
 
-      {/* Filter groups */}
-      <div className="brands-filter-groups">
+      {/* Collapsible filter groups */}
+      <div className={`brands-filter-groups ${filtersExpanded ? 'brands-filter-groups--expanded' : ''}`}>
         {/* Categories */}
         {allCategories.length > 0 && (
           <div className="brands-filter-group">
