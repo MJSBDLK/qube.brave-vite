@@ -60,7 +60,7 @@ export default function BrandsPage() {
         const res = await fetch('./data/brands/brands.json')
         if (!res.ok) throw new Error('Failed to load brands data')
         const json = await res.json()
-        setBrands(json.brands)
+        setBrands(json.brands.filter(b => !b.sample))
       } catch (err) {
         console.error('Error loading brands:', err)
         setError(err.message)

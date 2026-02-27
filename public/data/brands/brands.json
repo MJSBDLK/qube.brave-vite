@@ -2,7 +2,7 @@
   "meta": {
     "version": 1,
     "lastUpdated": "2026-02-27",
-    "count": 31
+    "count": 40
   },
   "brands": [
     {
@@ -556,14 +556,15 @@
       ],
       "categories": [
         "food",
-        "beef"
+        "beef",
+        "pork"
       ],
       "starRating": 5,
       "animalWelfare": {
         "rating": "good",
         "supplyChainAbuse": false,
         "testingOnAnimals": false,
-        "notes": "Certified Humane, AGA Certified Grassfed, GAP Step 4, Savory Institute EOV certified. Regenerative multi-species grazing on 3,200 acres in Bluffton, Georgia."
+        "notes": "Gold standard: AWA, Certified Humane, GAP Step 5+ (highest possible), USDA Organic, Non-GMO Project Verified, Savory Institute EOV, ASPCA Shop With Your Heart. 100% pasture-raised with rotational multi-species grazing. On-farm USDA-inspected slaughter eliminates transport stress. No confinement systems of any kind."
       },
       "shitList": false,
       "recommended": true,
@@ -835,7 +836,8 @@
       ],
       "categories": [
         "food",
-        "beef"
+        "beef",
+        "pork"
       ],
       "starRating": 1,
       "animalWelfare": {
@@ -865,7 +867,296 @@
           "url": "https://violationtracker.goodjobsfirst.org/parent/tyson-foods"
         }
       ],
-      "report": null,
+      "report": {
+        "generatedBy": "ai-agent",
+        "generatedDate": "2026-02-27",
+        "verified": false,
+        "promptVersion": "0.1",
+        "model": "Claude Opus 4.6",
+        "content": "## Overview\n\nTyson Foods, Inc. is an American multinational food corporation headquartered in Springdale, Arkansas. Founded in 1935 by John W. Tyson as a small chicken delivery service during the Great Depression, the company was incorporated as Tyson Feed and Hatchery, Inc. in 1947 and went public in 1963 [1][2]. Today, Tyson is the largest meat company in the United States and the second-largest processor of chicken, beef, and pork globally after JBS S.A. [1]. The company operates major consumer brands including Tyson, Jimmy Dean, Hillshire Farm, Ball Park, Wright Brand, Aidells, ibp, and State Fair [1][2]. In fiscal year 2024, Tyson reported annual revenue of approximately $53.3 billion with roughly 138,000 employees [1]. The company was ranked 85th on the 2025 Fortune 500 [1].\n\nTyson slaughters approximately 2.4 billion animals per year, making it one of the largest animal-killing operations on the planet [3].\n\n## Ownership & Corporate Structure\n\nTyson Foods (NYSE: TSN) operates a dual-class share structure that concentrates power in the founding family. Class A shares, available to the public, carry one vote each, while Class B shares — nearly 100% held by the Tyson family through Tyson Limited Partnership (TLP) — control approximately 71.74% of total voting power as of September 2023 [4][5]. This means the Tyson family maintains effective control over the company despite holding a minority of total shares.\n\nOverall ownership breaks down to approximately 68.65% institutional shareholders, 16.26% insiders, and 15.10% retail investors [5]. Major institutional holders include Vanguard Group, BlackRock, and State Street Corp [5][6]. Donald J. Tyson is the largest individual shareholder, owning 39.83 million shares (11.28%) [5]. John H. Tyson serves as Board Chairman.\n\n### Executive Compensation\n\nCEO Donnie King received $34.5 million in total compensation in fiscal 2025 — a 51% increase from the prior year — despite the company's beef segment posting a $1 billion loss [7][8]. Board Chairman John H. Tyson received $17.5 million [7]. This compensation level has drawn scrutiny given simultaneous mass layoffs affecting thousands of workers [9].\n\n## Animal Welfare\n\n### Testing Practices\n\nAs a meat processor rather than a consumer products or pharmaceutical company, Tyson Foods does not conduct cosmetic or pharmaceutical animal testing. However, the company's core business is the industrial-scale slaughter of approximately 2.4 billion animals annually [3], primarily chickens, along with cattle and hogs. The animal welfare concerns relate entirely to the conditions of raising, transporting, and killing these animals.\n\n### Supply Chain\n\nMultiple undercover investigations have documented systemic cruelty throughout Tyson's supply chain:\n\n**2022 Jannat Farm Investigation:** From August to November 2022, an Animal Outlook investigator worked undercover at Jannat Farm in Virginia, a Tyson-contracted facility raising 150,000 birds per flock. The investigation documented birds denied access to water (water lines kept out of reach), food running out for an estimated 52 hours because Tyson failed to replenish feed, and evidence that Tyson was aware of the cruel conditions [10]. The farm owner pleaded guilty to two counts of animal cruelty in November 2024 [10].\n\n**2016 Virginia Investigation:** An Animal Outlook undercover investigation inside multiple Tyson Foods broiler breeder factories revealed workers punching, kicking, and throwing live birds, and birds crushed by forklifts. The evidence led to the first-ever court trials for cruelty to chickens raised for meat, resulting in nine former Tyson employees being convicted of 24 counts of animal cruelty [11].\n\n**Multiple Mercy For Animals Investigations:** Repeated undercover investigations have exposed birds bred to grow so fast they collapse under their own weight, workers violently beating and stabbing animals, and birds having their heads ripped off while still alive and conscious [12].\n\nTyson has not signed the Better Chicken Commitment, a set of welfare standards adopted by many major food companies. In 2017, Tyson announced it would \"research\" the standards rather than commit to them, a position criticized by animal welfare organizations as a delay tactic since the scientific basis for the standards was already well-established [3][13].\n\n### Certifications\n\nTyson operates its own FarmCheck® Animal Welfare Program, which received certification from the Professional Animal Auditor Certification Organization (PAACO) [14][15]. However, this is the company's own audit program being certified — not an independent third-party welfare certification like Global Animal Partnership. PAACO certification means the auditors are qualified, not that the welfare standards themselves are high. Critics note that Tyson's internal program allows the company to define its own standards while claiming third-party validation [14]. The company does not carry meaningful independent animal welfare certifications such as Certified Humane, Animal Welfare Approved, or Global Animal Partnership ratings on its conventional products.\n\n## Controversies & Legal\n\n### Price-Fixing (Chicken, Beef, and Pork)\n\nTyson has been implicated in price-fixing conspiracies across all three of its major protein categories:\n\n- **Beef:** Tyson and Cargill agreed to a combined $87.5 million settlement ($55M from Tyson) to resolve allegations they conspired to limit beef supply and inflate prices in violation of the Sherman Antitrust Act [16][17].\n- **Pork:** Tyson agreed to pay $85 million — the largest payout in the case — to settle allegations of conspiring with JBS and other meatpackers to artificially raise pork prices [18].\n- **Chicken:** A former Tyson sales representative admitted to colluding with employees from three other chicken producers to coordinate pricing increases down to the tenth of a penny per pound for products sold to KFC, Popeye's, and Boston Market. Washington state alone recovered $10.5 million from Tyson [19].\n\n### COVID-19 Worker Deaths and Betting Scandal\n\nDuring the COVID-19 pandemic, more than 1,000 employees at Tyson's Waterloo, Iowa pork plant were infected and at least six died [20][21]. A lawsuit revealed that plant manager Tom Hart organized a \"winner-take-all\" cash betting pool for supervisors and managers to wager on how many employees would test positive [20][21]. Company supervisors were also instructed to falsely deny the existence of confirmed COVID cases at the facility, and managers transferred employees between plants after positive tests without requiring quarantine [20]. Tyson fired seven managers after an independent investigation led by former Attorney General Eric Holder [22]. The Iowa Supreme Court ruled that families of deceased workers could sue the individual supervisors [23].\n\n### Child Labor\n\nThe U.S. Department of Labor investigated Tyson Foods after reports that migrant children as young as 13 were working overnight shifts cleaning slaughterhouses [24][25]. A September 2023 New York Times Magazine investigation detailed children cleaning blood, grease, and feathers from equipment with acid and pressure hoses. The DOL found seven cases of illegal child labor in Tyson's Arkansas and Tennessee facilities, where children worked overnight in hazardous conditions including the use of caustic chemicals and cleaning meat processing equipment such as back saws, brisket saws, and head splitters [24][26]. While the children were technically employed by subcontractors, this case was notable for holding the parent company liable [26].\n\n### Environmental Pollution\n\nA Union of Concerned Scientists report found that 41 Tyson slaughterhouses and processing plants released approximately 371 million pounds of pollutants — including nitrogen, phosphorus, chloride, oil, and cyanide — into U.S. rivers and lakes between 2018 and 2022 [27][28]. More than half was concentrated in Nebraska, Illinois, and Missouri. Specific penalties include a $2 million criminal fine for Clean Water Act violations in Missouri that killed approximately 108,000 fish [29], and a $3 million settlement in 2021 over illegal wastewater discharge that killed hundreds of thousands of fish in Alabama [27]. In December 2025, a federal judge ordered a 30-year pollution abatement plan for poultry operations in Northwest Arkansas including Tyson [30].\n\n### Greenwashing\n\nThe Environmental Working Group filed a lawsuit in September 2024 alleging Tyson's claims of reaching \"net-zero by 2050\" and selling \"climate-smart beef\" were deceptive. In a 2025 settlement, Tyson agreed to stop making these environmental claims and is barred from making similar claims for five years unless independently verified by an expert [31][32].\n\n### Worker Safety\n\nTyson Foods has a long history of OSHA violations. According to Good Jobs First's Violation Tracker, Tyson has accumulated $465.5 million in total penalties across 358 records since 2000 [33]. Specific incidents include a worker killed by hydrogen sulfide gas at the Texarkana facility ($500,000 fine) [34], two workers who fell into a pit of chicken parts and died at the Robards facility [35], a worker fatally crushed by a crane at the Dakota City plant [36], and a worker whose hand was severed at the Hutchinson, Kansas plant ($147,000 fine) [37]. Poultry plant workers experience repetitive strain injuries at 10 times the rate of the overall workforce [35].\n\n### Mass Layoffs and Community Devastation\n\nTyson has closed multiple plants in 2024-2025, devastating small communities dependent on the company as a primary employer. The closure of its Lexington, Nebraska beef plant eliminated approximately 3,200 jobs in a town of 11,000, with total regional job losses estimated at 7,000 and an annual pay/benefits loss of $241 million [9][38]. Other closures include Perry, Iowa (1,200 jobs in a town of 8,000), Emporia, Kansas (800 jobs, local unemployment nearly doubled), and four chicken plants cutting 3,000 jobs combined [9][39]. These closures occurred while CEO compensation surged 51% [7].\n\n### Contract Farmer Retaliation\n\nSeveral poultry farmers sued Tyson in December 2023 for breaking its contracts. Documents show Tyson attempted to prevent former contract farmers from seeking legal remedies and possibly discouraged farmers from speaking with federal officials and journalists [40].\n\n## Verdict\n\nTyson Foods represents one of the most extensively documented cases of systemic corporate harm across multiple domains simultaneously. The company has been implicated in price-fixing conspiracies across chicken, beef, and pork — effectively rigging food prices for American consumers. Its supply chain has been the subject of repeated undercover investigations revealing severe animal cruelty, resulting in criminal convictions. Managers wagered on the lives of their own workers during a pandemic. Migrant children were found cleaning slaughterhouse equipment on overnight shifts. The company has dumped hundreds of millions of pounds of pollutants into American waterways and was forced to abandon its \"climate-smart\" marketing as deceptive. It has accumulated nearly half a billion dollars in regulatory penalties. And while closing plants that devastated small communities and their workers, CEO compensation surged to $34.5 million. The company's internal FarmCheck audit program and PAACO certifications serve primarily as reputation management rather than meaningful welfare reform, as evidenced by its refusal to adopt the Better Chicken Commitment and the ongoing pattern of cruelty documented by independent investigators. The totality of evidence — drawn from federal investigations, court convictions, DOJ filings, independent journalism, and NGO exposés — paints a picture of a company that has systematically externalized costs onto animals, workers, communities, and the environment while concentrating profits among executives and the founding family.",
+        "citations": [
+          {
+            "id": 1,
+            "label": "Tyson Foods - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Tyson_Foods",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 2,
+            "label": "Tyson Foods - About Us (Investor Relations)",
+            "url": "https://ir.tyson.com/about-tyson/about-us/default.aspx",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 3,
+            "label": "Tyson Foods Kills 2.4 Billion Animals Every Year. Can It Do Good, Too? - Sentient Media",
+            "url": "https://sentientmedia.org/tyson-foods-kills-2-4-billion-animals-every-year-can-it-do-good-too/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 4,
+            "label": "Who Owns Tyson Foods Company? - MatrixBCG",
+            "url": "https://matrixbcg.com/blogs/owners/tysonfoods",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 5,
+            "label": "Tyson Foods Stock Ownership - WallStreetZen",
+            "url": "https://www.wallstreetzen.com/stocks/us/nyse/tsn/ownership",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 6,
+            "label": "Tyson Foods (TSN) Major Holders - Yahoo Finance",
+            "url": "https://finance.yahoo.com/quote/TSN/holders/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 7,
+            "label": "Tyson Foods CEO Donnie King Sees Compensation Jump to $34M in 2025 - Arkansas Business",
+            "url": "https://www.arkansasbusiness.com/article/tyson-foods-ceo-pay-proxy-2025/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 8,
+            "label": "Tyson CEO's pay rises 51% despite $1B beef loss - Yahoo Finance",
+            "url": "https://www.nwahomepage.com/northwest-arkansas-news/tyson-ceos-pay-rises-51-despite-1b-beef-loss/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 9,
+            "label": "Brutal Tyson Foods restructuring leaves nearly 5,000 jobless - World Socialist Web Site",
+            "url": "https://www.wsws.org/en/articles/2026/01/24/qdaa-j24.html",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 10,
+            "label": "Investigation of Tyson Grower Reveals Mass Systemic Cruelty - Animal Outlook",
+            "url": "https://animaloutlook.org/investigations/investigation-of-tyson-grower-reveals-mass-systemic-cruelty/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 11,
+            "label": "Tyson Exposed: A Tradition of Torture - Animal Outlook",
+            "url": "https://animaloutlook.org/tyson-exposed-a-tradition-of-torture/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 12,
+            "label": "Tell Tyson Foods to Stop Torturing Chickens - Mercy For Animals",
+            "url": "https://tysontorturesanimals.com/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 13,
+            "label": "Tyson Foods Takes Steps To Improve Chicken Welfare Practices, But More Action Is Needed - PR Newswire/Mercy For Animals",
+            "url": "https://www.prnewswire.com/news-releases/tyson-foods-takes-steps-to-improve-chicken-welfare-practices-but-more-action-is-needed-300477793.html",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 14,
+            "label": "Animal Welfare Audits Across Tyson Foods' Poultry Business are Now Certified - Tyson Foods",
+            "url": "https://www.tysonfoods.com/news/news-releases/2020/7/animal-welfare-audits-across-tyson-foods-poultry-business-are-now",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 15,
+            "label": "FarmCheck Broiler Auditing Program Receives PAACO Certification - Tyson Foods",
+            "url": "https://www.tysonfoods.com/news/news-releases/2019/7/tyson-foods-farmcheck-broiler-auditing-program-receives-professional",
+            "type": "corporate",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 16,
+            "label": "$87.5M Tyson, Cargill beef price-fixing class action settlement - Top Class Actions",
+            "url": "https://topclassactions.com/lawsuit-settlements/open-lawsuit-settlements/87-5m-tyson-cargill-beef-price-fixing-class-action-settlement/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 17,
+            "label": "Tyson agrees to $82.5M settlement in beef price-fixing lawsuit - Food Dive",
+            "url": "https://www.fooddive.com/news/tyson-82-million-class-action-settlement-price-fixing-lawsuit/808836/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 18,
+            "label": "Tyson agrees to record $85M settlement in pork price-fixing lawsuit - Supply Chain Dive",
+            "url": "https://www.supplychaindive.com/news/tyson-price-fixing-pork-lawsuit-settlement-85m/802256/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 19,
+            "label": "AG Ferguson's price-fixing lawsuit nets $10.5 million from Tyson Foods - Washington State AG",
+            "url": "https://www.atg.wa.gov/news/news-releases/ag-ferguson-s-price-fixing-lawsuit-nets-105-million-washingtonians-tyson-foods",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 20,
+            "label": "Tyson Managers Suspended After Allegedly Betting If Workers Would Contract COVID - NPR",
+            "url": "https://www.npr.org/2020/11/19/936905707/tyson-managers-suspended-after-allegedly-betting-if-workers-would-contract-covid",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 21,
+            "label": "Tyson Foods managers had a 'winner-take-all' bet on how many workers would get covid-19 - Washington Post",
+            "url": "https://www.washingtonpost.com/nation/2020/11/19/tyson-foods-waterloo-bets-covid/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 22,
+            "label": "Tyson Foods Fires 7 Plant Managers Over Betting Ring On Workers Getting COVID-19 - NPR",
+            "url": "https://www.npr.org/sections/coronavirus-live-updates/2020/12/16/947275866/tyson-foods-fires-7-plant-managers-over-betting-ring-on-workers-getting-covid-19",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 23,
+            "label": "Families of Tyson workers who died of COVID-19 can sue supervisors - The Gazette",
+            "url": "https://www.thegazette.com/crime-courts/families-of-tyson-workers-who-died-of-covid-19-can-sue-supervisors-not-company-iowa-supreme-court/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 24,
+            "label": "Perdue Farms and Tyson Foods under federal inquiry over reports of illegal child labor - NPR",
+            "url": "https://www.npr.org/2023/09/25/1201524399/child-labor-perdue-farms-tyson-foods-investigation",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 25,
+            "label": "Tyson Foods and Perdue Farms face federal probe over possible child labor violations - CBS News",
+            "url": "https://www.cbsnews.com/news/child-labor-tyson-foods-perdue-farms-labor-department-investigation/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 26,
+            "label": "Child Labor Investigation at Tyson Foods: Is Supply Chain Due Diligence the Next Step? - JURIST",
+            "url": "https://www.jurist.org/commentary/2023/12/child-labor-investigation-at-tyson-foods-inc-is-supply-chain-due-diligence-the-next-step/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 27,
+            "label": "Tyson Foods released 371 million pounds of pollution into U.S. waterways - Investigate Midwest",
+            "url": "https://investigatemidwest.org/2024/05/07/tyson-foods-released-371-million-pounds-of-pollution-into-u-s-waterways-report/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 28,
+            "label": "Tyson Foods released 371 million pounds of pollution into U.S. waterways - Nebraska Public Media",
+            "url": "https://nebraskapublicmedia.org/en/news/news-articles/report-tyson-foods-released-371-million-pounds-of-pollution-into-us-waterways-including-nebraska/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 29,
+            "label": "Tyson Poultry Fined $2 Million for Violating the Clean Water Act - U.S. DOJ",
+            "url": "https://www.justice.gov/archives/opa/pr/tyson-poultry-fined-2-million-violating-clean-water-act",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 30,
+            "label": "Judge orders 30-year pollution abatement plan for poultry operations including Tyson - Arkansas Times",
+            "url": "https://arktimes.com/arkansas-blog/2025/12/19/judge-orders-30-year-pollution-abatement-plan-for-poultry-operations-in-nwa-including-tyson",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 31,
+            "label": "Tyson Foods Agrees to Stop Making 'Net-zero' and 'Climate-smart Beef' Claims - Earthjustice",
+            "url": "https://earthjustice.org/press/2025/tyson-foods-agrees-to-stop-making-net-zero-and-climate-smart-beef-claims",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 32,
+            "label": "Tyson to stop selling 'climate-smart' beef as part of lawsuit settlement - Food Dive",
+            "url": "https://www.fooddive.com/news/tyson-climate-smart-sustainability-claims-settlement-beef/806055/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 33,
+            "label": "Tyson Foods - Violation Tracker (Good Jobs First)",
+            "url": "https://violationtracker.goodjobsfirst.org/parent/tyson-foods",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 34,
+            "label": "Tyson Foods Sentenced to Pay Fine for OSHA Violation That Led to Worker Death - U.S. DOJ",
+            "url": "https://www.justice.gov/archives/opa/pr/tyson-foods-sentenced-pay-fine-osha-violation-led-worker-death",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 35,
+            "label": "Tyson Foods Faces Significant OSHA Fines for Plant Hazards - NELP",
+            "url": "https://www.nelp.org/tyson-foods-faces-significant-osha-fines-for-plant-hazards/",
+            "type": "secondary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 36,
+            "label": "OSHA issues fines to the Dakota City Tyson plant - KTIV",
+            "url": "https://www.ktiv.com/2025/06/03/osha-issues-fines-dakota-city-tyson-plant/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 37,
+            "label": "OSHA Cites Tyson Foods After Worker's Hand Severed in Accident - EHS Today",
+            "url": "https://www.ehstoday.com/standards/osha/article/21918058/osha-cites-tyson-foods-after-workers-hand-severed-in-accident",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 38,
+            "label": "Economic Impacts of the Tyson Beef Plant Closure in Lexington, Nebraska - UNL Center for Agricultural Profitability",
+            "url": "https://cap.unl.edu/news/economic-impacts-tyson-beef-plant-closure-lexington-nebraska/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 39,
+            "label": "Tyson Foods will close Emporia meat processing plant and lay off 800 workers - KCUR",
+            "url": "https://www.kcur.org/news/2024-12-03/tyson-foods-will-close-emporia-meat-processing-plant-and-lay-off-800-workers",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          },
+          {
+            "id": 40,
+            "label": "Tyson Foods cut contracts with poultry farmers, working to silence their legal fight - Investigate Midwest",
+            "url": "https://investigatemidwest.org/2024/12/17/tyson-foods-cut-contracts-with-poultry-farmers-now-the-company-is-working-to-silence-their-legal-fight/",
+            "type": "primary",
+            "accessed": "2026-02-27"
+          }
+        ]
+      },
       "dateAdded": "2026-02-27",
       "lastUpdated": "2026-02-27",
       "sample": false,
@@ -917,7 +1208,7 @@
     },
     {
       "id": "jbs",
-      "name": "JBS (Swift, 1855 Black Angus)",
+      "name": "JBS / Swift Pork",
       "parentCompany": "JBS S.A.",
       "ownershipType": [
         "family",
@@ -926,7 +1217,8 @@
       ],
       "categories": [
         "food",
-        "beef"
+        "beef",
+        "pork"
       ],
       "starRating": 0.5,
       "animalWelfare": {
@@ -999,21 +1291,25 @@
       "name": "Niman Ranch",
       "parentCompany": "Perdue Farms",
       "ownershipType": [
-        "megacorp"
+        "private-parent",
+        "family-owned-parent",
+        "subsidiary"
       ],
       "categories": [
-        "food"
+        "food",
+        "beef",
+        "pork"
       ],
-      "starRating": 3.5,
+      "starRating": 4.0,
       "animalWelfare": {
         "rating": "good",
         "supplyChainAbuse": false,
         "testingOnAnimals": false,
-        "notes": "100% Certified Humane (HFAC) since Sept 2016 — beef, pork, lamb, processed. Largest multi-protein Certified Humane brand in U.S. Endorsed by HSUS, ASPCA, Compassion in World Farming."
+        "notes": "100% Certified Humane (since 2016), Global Animal Partnership certified, Compassion in World Farming Good Sow Commendation (Nov 2024). No gestation or farrowing crates ever. No antibiotics ever. No tail docking or teeth clipping. Heritage breed crosses. Raised outdoors or in deeply bedded pens. Endorsed by HSUS, ASPCA, and CIWF."
       },
       "shitList": false,
-      "recommended": false,
-      "notes": "Founded 1969 by Bill Niman. Network of 750+ independent U.S. family farmers. Acquired by Perdue 2015. Largest multi-protein Certified Humane brand. Dinged for megacorp parent.",
+      "recommended": true,
+      "notes": "Founded 1969 by Bill Niman. Network of 600+ independent family farmers across 12+ states. Acquired by Perdue 2015. Strongest certified-humane pork at mainstream retail scale. Perdue ownership has been positive — Niman Ranch influencing Perdue's broader practices upward.",
       "summary": "## Ownership & Structure\n\nFounded 1969 by Bill Niman in Bolinas, California. Acquired by Perdue Farms in September 2015 via Natural Food Holdings. Bill Niman left the company in 2007. Network of 750+ independent U.S. family farmers and ranchers. Perdue is a fourth-generation family-owned company.\n\n## Animal Welfare\n\n100% Certified Humane across all products since September 2016 — beef, pork, lamb, and processed items. This makes Niman Ranch the largest multi-protein Certified Humane brand in the United States. Endorsed by HSUS, ASPCA, and Compassion in World Farming. Beef is grain-finished, not grass-fed — accurately represented.\n\n## Controversies\n\nInitial skepticism at the 2015 Perdue acquisition was well-founded given Perdue's troubled chicken welfare history (2014-2015 MFA/CIWF undercover videos). However, multiple independent assessments confirm standards have been maintained. Perdue created an Animal Care Steering Committee, installed windows in chicken houses, and eliminated antibiotics. Perdue filed an amicus brief supporting California Prop 12 (2022). Harvard Business Review documented the cultural compatibility of the Perdue-Niman integration.\n\n## Assessment\n\nA case where corporate acquisition hasn't (yet) diluted standards. The Certified Humane certification is legitimate and independently audited. The Perdue parent is the main risk factor, but the company appears to have genuinely invested in improving its welfare practices across the board since the acquisition.",
       "sources": [
         {
@@ -1021,9 +1317,48 @@
           "url": "https://certifiedhumane.org/whos-certified-2/"
         }
       ],
-      "report": null,
+      "report": {
+        "generatedBy": "ai-agent",
+        "generatedDate": "2026-02-27",
+        "verified": false,
+        "promptVersion": "0.1",
+        "model": "Claude Opus 4.6",
+        "content": "## Overview\n\nNiman Ranch is a premium meat brand producing beef, pork, lamb, and processed products (bacon, sausages, hot dogs, ham, prosciutto) sourced from a network of over 600 independent family farmers and ranchers across 22 states [1][2]. The company was founded in 1969 by Bill Niman, a former elementary school teacher from Minnesota who purchased an 11-acre ranch in Bolinas, California for $18,000 [1][3]. The company is headquartered in Alameda, California [4]. In 1978, Niman partnered with journalist and industrial agriculture critic Orville Schell, forming Niman-Schell Meats [1]. By 1994, demand exceeded production capacity, leading Niman to partner with Iowa pork farmer Paul Willis, who became a co-founder of the pork program [1][3]. The company grew from $3 million in revenue in 1997 to approximately $28 million annually, though it historically struggled with profitability — reporting a $4 million net loss in 2006 [3][5]. Niman Ranch built its reputation as a key supplier to Chipotle Mexican Grill, Whole Foods, Chez Panisse, the Ritz Carlton hotel chain, and the Google campus [6][7].\n\n## Ownership & Corporate Structure\n\nNiman Ranch has undergone significant ownership changes since its founding. In 1997, investors Rob Hurlbut and Mike McConnell became owner-partners, with the company renamed Niman-McConnell while retaining the consumer brand [1]. In July 2006, Chicago-based Natural Food Holdings, backed by Hilco Equity Partners, acquired a controlling stake in the company [1][8]. This triggered the departure of founder Bill Niman in August 2007 after prolonged disputes with new management over animal protocols, outsourcing of butchering and transport, and financial direction [5][9]. Niman left with a modest severance check and was contractually forbidden from using his own surname commercially [5]. He subsequently founded BN Ranch with his wife, Nicolette Hahn Niman [5].\n\nIn 2010, former treasurer Gary Steven Gross was indicted by a federal grand jury for embezzling more than $1.6 million from the company [10]. In 2011, private equity firm LNK Partners recapitalized Natural Food Holdings [8]. In September 2015, Perdue Farms — one of the largest poultry producers in the United States — acquired Natural Food Holdings, including Niman Ranch [8][11][12]. This acquisition was controversial: it occurred just months after Perdue had faced a rash of negative press from animal rights organizations documenting abuse on its contract chicken farms [6][13]. The Center for Food Safety publicly criticized the deal, warning that large corporations like Perdue emphasize 'pumping out as much product as possible as quickly as possible' — a mentality 'antithetical to the values of companies like Niman Ranch' [14]. Perdue Farms is a privately held, family-owned company, meaning Niman Ranch's financial details are not publicly disclosed.\n\n## Animal Welfare\n\n### Testing Practices\n\nNiman Ranch is a meat production company, not a consumer products or cosmetics company. Animal testing in the cosmetics/pharmaceutical sense is not applicable. However, all of Niman Ranch's operations inherently involve raising animals for slaughter. The company's welfare claims center on the conditions under which animals are raised and killed, not on laboratory testing.\n\n### Supply Chain\n\nNiman Ranch markets itself as working exclusively with small, independent family farmers who follow strict protocols: animals must be raised outdoors or in deeply bedded pens, never given antibiotics or added hormones, never fed animal by-products, and never confined in gestation or farrowing crates [2][15]. Pigs treated with antibiotics must be tagged and removed from the Niman Ranch program [16]. The company states that farms are inspected before acceptance and regularly visited by field agents [16].\n\nHowever, these claims warrant scrutiny. Independent journalism has noted that antibiotic-free claims across the industry are 'based on little more than producer affidavits' [17]. Bill Niman himself recognized this problem and launched a separate startup, Food In-Depth (FoodID), specifically to bring scientific test-based validity to such label claims — implicitly acknowledging the verification gap in the system his former company uses [17]. Additionally, some industry observers have speculated that to bridge supply-demand gaps, Niman may have supplemented its responsibly sourced meat with product from larger-scale, more industrial producers, though the company vehemently denies this [18].\n\nThe acquisition by Perdue Farms raised significant supply chain concerns. Perdue's own chicken operations have been documented by Mercy for Animals, Compassion in World Farming, and Direct Action Everywhere showing employees slamming chickens into the ground, stomping and kicking them, and birds being boiled alive at the slaughterhouse [6][13][19]. In 2010, the Humane Society sued Perdue for labeling products as 'humanely raised' when conditions did not warrant the claim [13]. While Perdue and Niman Ranch operate as separate supply chains, the parent company's documented record creates a credibility tension with Niman Ranch's 'Raised with Care' branding.\n\n### Certifications\n\nNiman Ranch holds two primary third-party certifications:\n\n**Certified Humane (Humane Farm Animal Care):** Since September 2016, all Niman Ranch pork, beef, lamb and processed products have been Certified Humane, making them the largest multi-protein company in the U.S. to hold this certification [15][20]. However, Certified Humane is a producer-funded certification (producers pay for certification), and critics argue there is no legal definition of 'humane' — interpretations can flex as far as industrial producers can convince their certifiers to accept [6][21].\n\n**Global Animal Partnership (GAP):** Niman Ranch farms are also certified under GAP's 5-Step rating system. However, co-founder Paul Willis has acknowledged that most Niman farms fall into Steps 1, 2, and 3 — not the higher Steps 4 or 5, which require practices like non-castration and on-farm slaughter. Willis stated these higher steps 'wouldn't happen' because 'it's not practical' [6][21]. Critics characterize GAP as a food industry organization funded primarily by Whole Foods that 'routinely certifies factory farms' and 'empowers big agriculture to capture niche markets once supplied by sustainable farms' [18][21].\n\n**Lost Certification — Animal Welfare Approved (AWA):** Notably, Niman Ranch previously held certification from the Animal Welfare Institute, which maintains stricter standards. The company lost this certification, in part due to its practice of nose ringing — inserting rings through sows' septums without anesthesia — which AWA prohibits [18][21][22]. AWA-certified pork comes from pigs that are never affixed with nose rings, making this a meaningful welfare distinction [21]. The loss of this more rigorous certification and the switch to GAP represents what critics describe as a downgrade in welfare oversight [18].\n\nNiman Ranch is fully compliant with California's Proposition 12 and Massachusetts' Question 3, which set minimum space requirements and ban products from farms using gestation crates [23][24].\n\n## Controversies & Legal\n\n**Founder's Departure (2007):** Bill Niman's exit from the company he founded remains the most symbolically damaging controversy. He left after Natural Food Holdings changed animal protocols and outsourced processes he considered integral to the brand's integrity. Niman publicly stated he could no longer 'sign off on certain practices' [5][9]. He was reportedly forbidden from using his own name commercially after departure [5]. The fact that the company's founder and namesake walked away — and later launched a competing venture — raises fundamental questions about whether the brand's identity survived its corporate transitions.\n\n**Perdue Acquisition Backlash (2015):** The sale to Perdue Farms drew sharp criticism from food safety advocates and sustainable agriculture organizations. The Center for Food Safety warned that Perdue's manufacturing mentality posed 'significant harm to the animals, workers, and public health' [14]. One of Perdue's own contract farmers had come forward describing how the company 'supplies farmers with sick birds and keeps farmers in crippling debt' [14]. Perdue claims the acquisition has been mutually beneficial, with Niman Ranch influencing Perdue to install windows in chicken houses and give birds more space [6][25].\n\n**Embezzlement (2010):** Former treasurer Gary Steven Gross was indicted by a federal grand jury for defrauding the company of more than $1.6 million [10].\n\n**Humanewashing Criticism:** Academic researchers have specifically identified Niman Ranch as a case study in 'humanewashing' — the practice of using humane-sounding labels to obscure the realities of animal agriculture. Associate Professor Vasile Stanescu has highlighted Niman Ranch in presentations on greenwashing by animal agribusiness [26]. Animal rights organizations argue that 'humane meat' is inherently contradictory, and that premium brands like Niman Ranch serve to make consumers comfortable with animal slaughter rather than meaningfully improving welfare [22][26].\n\n**Point Reyes Lawsuit (2025):** Bill and Nicolette Hahn Niman (acting personally, not on behalf of the Niman Ranch company) filed suit against the National Park Service in February 2025, challenging the prohibition of agricultural operations on 28,000 acres of Point Reyes National Seashore. The lawsuit alleges violations of the National Environmental Policy Act and claims the NPS conspired with The Nature Conservancy to push ranchers off the land [27][28]. Environmental organizations including the Center for Biological Diversity and Western Watersheds had previously sued to end all agricultural activities in the park [29].\n\n## Verdict\n\nNiman Ranch occupies an uncomfortable middle ground in the ethical meat landscape. Its protocols — no gestation crates, no routine antibiotics, pasture or deep-bedding requirements — represent genuinely better conditions than conventional industrial agriculture, and its Proposition 12 compliance and Certified Humane status put it ahead of the vast majority of U.S. meat producers. However, the brand's credibility has been progressively eroded: its founder left over compromised standards, it downgraded from stricter AWA certification to the less rigorous GAP system (where most farms sit at middling Steps 1-3), it continues the painful practice of nose ringing without anesthesia, its antibiotic-free claims rely largely on affidavits rather than scientific testing, and its parent company Perdue Farms has a documented history of animal cruelty in its chicken operations. The brand is meaningfully better than conventional meat, but its premium positioning and 'Raised with Care' marketing overstates the degree of welfare assurance it actually provides. Consumers paying premium prices should understand they are buying a moderately improved product within an inherently lethal system, not the pastoral ideal the branding suggests.",
+        "citations": [
+          {"id": 1, "label": "Niman Ranch - Wikipedia", "url": "https://en.wikipedia.org/wiki/Niman_Ranch", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 2, "label": "Niman Ranch - About Us (Official)", "url": "https://nimanranch.com/about-niman-ranch/", "type": "corporate", "accessed": "2026-02-27"},
+          {"id": 3, "label": "History of Niman Ranch, Inc. - FundingUniverse", "url": "https://www.fundinguniverse.com/company-histories/niman-ranch-inc-history/", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 4, "label": "Niman Ranch - Yelp Business Listing", "url": "https://www.yelp.com/biz/niman-ranch-alameda", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 5, "label": "Why The Godfather Of Natural Beef Cut Ties With Niman Ranch - Yahoo Finance", "url": "https://finance.yahoo.com/news/why-godfather-natural-beef-cut-201332040.html", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 6, "label": "When a Big Ag conglomerate buys an iconic niche meat company, who has to change? - The Counter", "url": "https://thecounter.org/niman-ranch-perdue-farms-livestock-meat-animal-husbandry/", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 7, "label": "Humanely Raised Claims Challenged at a Berkeley Butcher Shop - The Daily Pitchfork", "url": "https://www.dailypitchfork.org/?p=891", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 8, "label": "LNK Partners To Sell Niman Ranch To Perdue Farms", "url": "https://www.lnkpartners.com/lnk-partners-to-sell-niman-ranch-to-perdue-farms/", "type": "corporate", "accessed": "2026-02-27"},
+          {"id": 9, "label": "For Niman Ranch, two definitions of sustainable - Marketplace", "url": "https://www.marketplace.org/story/2011/10/27/niman-ranch-two-definitions-sustainable", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 10, "label": "Niman Ranch manager charged with embezzling $1.6M - San Diego Union-Tribune", "url": "https://www.sandiegouniontribune.com/sdut-niman-ranch-manager-charged-with-embezzling-16m-2010apr23-story.html", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 11, "label": "Perdue to Acquire Natural Food Holdings, including Niman Ranch - GlobeNewsWire", "url": "https://www.globenewswire.com/news-release/2015/09/08/766868/10148642/en/Perdue-to-Acquire-Natural-Food-Holdings-including-Niman-Ranch-R-Brand.html", "type": "corporate", "accessed": "2026-02-27"},
+          {"id": 12, "label": "Niman Ranch parent company Natural Food Holdings acquired by Perdue - New Hope", "url": "https://www.newhope.com/industry-insights/niman-ranch-parent-company-natural-food-holdings-acquired-by-perdue", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 13, "label": "Perdue's Animal Care Standards Exposed - Animal Welfare Institute", "url": "https://awionline.org/awi-quarterly/2015-winter/perdues-animal-care-standards-exposed", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 14, "label": "Perdue Gobbles Up Niman Ranch - Center for Food Safety", "url": "https://www.centerforfoodsafety.org/issues/307/animal-factories/blog/4044/perdue-gobbles-up-niman-ranch", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 15, "label": "Niman Ranch Joins Certified Humane - Certified Humane", "url": "https://certifiedhumane.org/niman-ranch-joins-certified-humane/", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 16, "label": "What Does Certified Humane Really Mean at Niman Ranch? - SwinWeb", "url": "https://www.swineweb.com/what-does-certified-humane-really-mean-at-niman-ranch/", "type": "industry", "accessed": "2026-02-27"},
+          {"id": 17, "label": "Bill Niman launches startup to take antibiotic-free meat labeling to task - AgFunderNews", "url": "https://agfundernews.com/bill-niman-launches-foodtech-startup-to-bring-test-based-validity-to-antibiotic-claims-on-meat", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 18, "label": "Animal Welfare Labeling: What They're Not Telling You - Free From Harm", "url": "https://freefromharm.org/farm-animal-welfare/animal-welfare-labeling-what-theyre-not-telling-you/", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 19, "label": "Dangerous Pathogens and Cruelty Law Violations at Perdue Subsidiary - The Intercept", "url": "https://theintercept.com/2023/06/13/perdue-chicken-slaughterhouse-animal-cruelty-dxe/", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 20, "label": "Certified Humane: Our Commitment to Animal Welfare - Niman Ranch", "url": "https://nimanranch.com/raised-with-care/certified-humane-animal-care/", "type": "corporate", "accessed": "2026-02-27"},
+          {"id": 21, "label": "Labels & Loopholes - HumaneFacts.org", "url": "https://humanefacts.org/labels-loopholes/", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 22, "label": "Face-to-Face with a Pig Killer - Direct Action Everywhere", "url": "https://www.directactioneverywhere.com/theliberationist/2015-9-11-face-to-face-with-a-pig-killer-part-i", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 23, "label": "Niman Ranch Reaffirms Compliance with California's Proposition 12", "url": "https://nimanranch.com/press-releases/proposition-12-compliance/", "type": "corporate", "accessed": "2026-02-27"},
+          {"id": 24, "label": "Niman Ranch Statement on U.S. Supreme Court Decision to Uphold Proposition 12 - BusinessWire", "url": "https://www.businesswire.com/news/home/20230511005858/en/Niman-Ranch-Statement-on-U.S.-Supreme-Court-Decision-to-Uphold-Proposition-12", "type": "corporate", "accessed": "2026-02-27"},
+          {"id": 25, "label": "Perdue Farms, Niman Ranch have been good for each other - WATTAgNet", "url": "https://www.wattagnet.com/broilers-turkeys/article/15529763/perdue-farms-niman-ranch-have-been-good-for-each-other-wattagnet", "type": "industry", "accessed": "2026-02-27"},
+          {"id": 26, "label": "The 5th Annual Humane Hoax Online Conference - United Poultry Concerns", "url": "https://www.upc-online.org/alerts/240216_the_5th_annual_humane_hoax_online_conference.html", "type": "secondary", "accessed": "2026-02-27"},
+          {"id": 27, "label": "Niman Ranch Challenges Point Reyes Seashore Settlement in Lawsuit Over Ranching - KQED", "url": "https://www.kqed.org/news/12029675/niman-ranch-challenges-point-reyes-seashore-settlement-in-lawsuit-over-ranching", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 28, "label": "Niman Ranch founders sue US over Point Reyes land deal - Mercury News", "url": "https://www.mercurynews.com/2025/03/04/marin-ranchers-sue-us-over-point-reyes-land-deal/", "type": "primary", "accessed": "2026-02-27"},
+          {"id": 29, "label": "What the Sale of Niman Ranch Could Mean for Farmers - Civil Eats", "url": "https://civileats.com/2015/09/11/what-the-sale-of-niman-ranch-really-means-for-farmers/", "type": "primary", "accessed": "2026-02-27"}
+        ]
+      },
       "dateAdded": "2026-02-27",
-      "lastUpdated": "2026-02-27"
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
     },
     {
       "id": "grass-roots-cooperative",
@@ -1154,6 +1489,367 @@
       "report": null,
       "dateAdded": "2026-02-27",
       "lastUpdated": "2026-02-27"
+    },
+    {
+      "id": "smithfield-foods",
+      "name": "Smithfield Foods",
+      "parentCompany": "WH Group Limited",
+      "ownershipType": [
+        "public",
+        "megacorp",
+        "foreign-owned"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "World's largest pork producer killing 114,300+ pigs/day. Multiple undercover investigations (DxE 2017, 2019, 2022; HSUS 2010; PETA 2007). CO2 gas chamber footage showing pigs screaming. Broken gestation crate promises exposed by HSUS lawsuit. BBFAW 2024: F rating. No third-party welfare certifications."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "World's largest pork producer. WH Group (Hong Kong) acquired for $7.1B in 2013. Smithfield IPO'd Jan 2025; WH Group retains ~88%. $12.6M Clean Water Act fine for 5,000+ violations. $200M+ pork price-fixing settlements. ~$550M jury verdicts from NC neighbors for hog waste lagoon environmental racism. Human trafficking at Circle Four Farms. COVID outbreak killed 4 workers (OSHA fine: $13,494).",
+      "summary": "## Ownership & Structure\n\nWH Group (founded by Wan Long) acquired Smithfield in 2013 for $7.1B including debt — largest-ever Chinese acquisition of US company. Smithfield IPO'd on Nasdaq (SFD) in Jan 2025; WH Group retains ~88% ownership.\n\n## Animal Welfare\n\nMultiple undercover investigations documenting abuse (DxE 2017, 2019, 2022; HSUS 2010; PETA 2007). CO2 gas chamber footage showing pigs screaming and thrashing. Pledged gestation crate elimination in 2007, claimed completion in 2018 — DxE investigations proved crates still in widespread use. HSUS lawsuit for false advertising settled. Routine antibiotic use; DxE found use of Carbadox (carcinogenic, banned in most countries). BBFAW 2024: F rating. No third-party welfare certifications.\n\n## Controversies\n\n$12.6M Clean Water Act fine for 5,000+ violations and falsified records. $200M+ in pork price-fixing settlements. ~$550M in jury verdicts from NC neighbors for environmental racism from hog waste lagoons. Human trafficking at Circle Four Farms. COVID outbreak killing 4 workers with a $13,494 OSHA fine.\n\n## Assessment\n\nThe worst of the worst in pork production. Every category of harm — animal cruelty, environmental destruction, worker exploitation, consumer deception — documented extensively by independent sources.",
+      "sources": [
+        {
+          "label": "DOJ — Clean Water Act Violations",
+          "url": "https://www.justice.gov/archive/opa/pr/1997/August97/331enr.htm"
+        },
+        {
+          "label": "The Intercept — Smithfield Investigations",
+          "url": "https://theintercept.com/2022/10/08/smithfield-animal-rights-piglets-trial/"
+        },
+        {
+          "label": "DxE Campaigns",
+          "url": "https://www.directactioneverywhere.com/campaigns/exposing-smithfield-foods"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "hormel-foods",
+      "name": "Hormel Foods",
+      "parentCompany": null,
+      "ownershipType": [
+        "public",
+        "foundation-controlled"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 1.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Animal Outlook (2015) filmed workers beating, shocking, and dragging pigs at QPP (exclusive Hormel supplier processing 1,300 pigs/hour), with pigs potentially entering scalding tanks alive. MFA/ALDF documented abuse at Maschhoffs supplier (2017). PETA filmed a supervisor shoving a cane into a pig's vagina. No third-party certifications on core brands."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "The Hormel Foundation (nonprofit) holds ~46.8% of shares. Also owns Applegate (separate entry), Jennie-O, Planters. Revenue ~$9B+. Sold last company-owned hog farm in 2024. Multiple damning investigations at dedicated suppliers. ALDF sued for false 'Natural Choice' advertising. Eliminated gestation crates at own farms (now sold) but NOT across supplier network. Stopped reporting antibiotic data in 2024. Gets slight credit for owning Applegate.",
+      "summary": "## Ownership & Structure\n\nThe Hormel Foundation (nonprofit 501(c)(3)) holds ~46.8% of shares. Founded 1891 by George A. Hormel. Also owns Applegate (see separate entry), Jennie-O, Planters. Revenue ~$9B+. Sold last company-owned hog farm in 2024.\n\n## Animal Welfare\n\nMultiple damning investigations at dedicated suppliers: Animal Outlook (2015) filmed workers beating, shocking, and dragging pigs at QPP, with pigs potentially entering scalding tanks alive and a supervisor sleeping during stunning. MFA/ALDF documented abuse at Maschhoffs supplier (2017). PETA filmed a supervisor shoving a cane into a pig's vagina. ALDF sued for false 'Natural Choice' advertising — court allowed trial to proceed. Eliminated gestation crates at own farms (now sold), but NOT across 775+ supplier farms. Stopped reporting antibiotic data in 2024.\n\n## Assessment\n\nGets slight credit for owning Applegate, which operates autonomously with real certifications. But core Hormel brands have documented abuse and zero third-party welfare certifications.",
+      "sources": [
+        {
+          "label": "Animal Outlook — Hormel Investigation",
+          "url": "https://animaloutlook.org/investigations/hormel/"
+        },
+        {
+          "label": "Cruelty Free Investing — Hormel",
+          "url": "https://crueltyfreeinvesting.org/hormel-foods/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "farmland-foods",
+      "name": "Farmland Foods",
+      "parentCompany": "Smithfield Foods / WH Group Limited",
+      "ownershipType": [
+        "subsidiary",
+        "megacorp",
+        "foreign-owned"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 0.5,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "100% Smithfield product under a different label — all of Smithfield's documented abuses apply directly. No independent certifications whatsoever."
+      },
+      "shitList": true,
+      "recommended": false,
+      "notes": "Originally the pork division of Farmland Industries (farmer cooperative). Bankrupt 2002; Smithfield acquired for $367M in 2003. Now fully integrated into Smithfield's operations — Smithfield under a misleading 'heartland' label. Named as Smithfield subsidiary in pork antitrust litigation.",
+      "summary": "## Ownership & Structure\n\nOriginally the pork processing division of Farmland Industries (a farmer cooperative of 600,000+ families). Farmland Industries went bankrupt in 2002; Smithfield acquired Farmland Foods in 2003 for $367M. Now fully integrated into Smithfield's operations.\n\n## Animal Welfare\n\nA budget brand that is 100% Smithfield product under a different label — all of Smithfield's documented abuses, environmental violations, broken gestation crate promises, and price-fixing settlements apply directly. Gestation crate policy identical to Smithfield. Routine industrial antibiotic use.\n\n## Assessment\n\nThe former cooperative identity is now purely marketing legacy. No independent certifications whatsoever.",
+      "sources": [
+        {
+          "label": "DxE — Exposing Smithfield Foods",
+          "url": "https://www.directactioneverywhere.com/campaigns/exposing-smithfield-foods"
+        },
+        {
+          "label": "Farmland Industries — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Farmland_Industries"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "oscar-mayer",
+      "name": "Oscar Mayer",
+      "parentCompany": "Kraft Heinz Company",
+      "ownershipType": [
+        "public",
+        "private-equity-influenced",
+        "megacorp"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 1.0,
+      "animalWelfare": {
+        "rating": "poor",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "No direct undercover investigations documented. Pledged gestation crate elimination by 2022 but achieved only ~25% as of 2023 (per HSUS). No third-party welfare certifications. Factory-farmed pork from large Midwest CAFOs."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Owned by Kraft Heinz (Berkshire Hathaway ~26.9%, 3G Capital ~22%). Has passed through Philip Morris → Kraft → Altria → Kraft Heinz since 1981. Reportedly being considered for sale (~$3B) with JBS among potential bidders. Broken gestation crate promise. 367,812-lb turkey bacon recall for Listeria (2025). Kraft Heinz $15.4B brand writedown (2019).",
+      "summary": "## Ownership & Structure\n\nOwned by Kraft Heinz, controlled by Berkshire Hathaway (~26.9%) and 3G Capital (~22%, Brazilian PE firm known for aggressive cost-cutting). Has passed through Philip Morris → Kraft → Altria → Kraft Heinz since 1981. Reportedly being considered for sale (~$3B) with JBS among potential bidders.\n\n## Animal Welfare\n\nNo direct undercover investigations. But a clear record of broken promises: pledged gestation crate elimination by 2022, achieved only ~25% as of 2023 (HSUS). No third-party welfare certifications. Factory-farmed pork from Midwest CAFOs. 367,812-lb turkey bacon Listeria recall (2025).\n\n## Assessment\n\nThe pork inside Oscar Mayer products comes from the same industrial system as Smithfield and Tyson — Oscar Mayer just doesn't own the farms.",
+      "sources": [
+        {
+          "label": "HSUS — Gestation Crate Campaign",
+          "url": "https://www.rfdtv.com/humane-society-of-united-states-wants-oscar-mayer-to-stick-to-timeline-on-gestation-crates"
+        },
+        {
+          "label": "FSIS — Turkey Bacon Recall",
+          "url": "https://www.fsis.usda.gov/recalls-alerts/kraft-heinz-foods-company-recalls-turkey-bacon-products-due-possible-listeria"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 1
+    },
+    {
+      "id": "hatfield-quality-meats",
+      "name": "Hatfield Quality Meats",
+      "parentCompany": "Clemens Family Corporation",
+      "ownershipType": [
+        "private",
+        "family"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 2.5,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": true,
+        "testingOnAnimals": false,
+        "notes": "Proactively transitioning to gestation crate-free for Prop 12/Q3 compliance. USDA-verified ractopamine-free. But USDA cited both plants for inhumane treatment during slaughter and sanitation violations (2019). NAD ordered them to stop claiming 'Ethically Raised' — first such ruling for a meat company."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Privately held, family-owned since 1895 by the Clemens family (Mennonite heritage). 5th/6th-generation. Revenue over $2B, 5th-largest US fresh pork producer. Vertically integrated. $10.1M in cumulative penalties. Better than the big four, but 'ethical' claims officially found overstated.",
+      "summary": "## Ownership & Structure\n\nPrivately held, family-owned since 1895 by the Clemens family (Mennonite heritage). Currently led by 5th/6th-generation Brad Clemens. Revenue over $2B, 5th-largest US fresh pork producer. Vertically integrated: feed mills, farms, processing, logistics. Acquired Kunzler in May 2024.\n\n## Animal Welfare\n\nProactively transitioning to gestation crate-free production for Prop 12/Q3 compliance (doubling market share while competitors resisted). USDA-verified ractopamine-free, no growth promotants. However, USDA cited both plants for inhumane treatment during slaughter and sanitation violations (2019). NAD ordered them to stop claiming 'Ethically Raised' — first such ruling for a meat company. 'Farm Promise' sub-brand is NAE.\n\n## Assessment\n\nBetter than the big four, but 'ethical' claims were officially found to be overstated. $10.1M in cumulative penalties.",
+      "sources": [
+        {
+          "label": "USDA Process Verified — Clemens",
+          "url": "https://www.ams.usda.gov/content/clemens-food-group-llc-process-verified-program"
+        },
+        {
+          "label": "Violation Tracker — Clemens",
+          "url": "https://violationtracker.goodjobsfirst.org/parent/clemens-food-group"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 2
+    },
+    {
+      "id": "applegate-farms",
+      "name": "Applegate Farms",
+      "parentCompany": "Hormel Foods Corporation",
+      "ownershipType": [
+        "public-parent",
+        "subsidiary"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 3.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "100% of pork is GAP Step 1+ or Certified Humane. No gestation crates. No antibiotics ever. Vegetarian diet. Listed on ASPCA Shop With Your Heart. Expanding into regenerative organic certification. However, GAP Step 1 baseline means indoor housing with enrichments — not pasture-raised."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 1987 by Stephen McDonnell. Acquired by Hormel in 2015 for ~$775M. Operates as standalone subsidiary. Genuinely certified pork within a problematic parent company. The fundamental tension: Applegate profits subsidize Hormel, whose core brands have documented abuse.",
+      "summary": "## Ownership & Structure\n\nFounded 1987 by Stephen McDonnell. Acquired by Hormel Foods in July 2015 for ~$775M (Hormel's largest acquisition at the time). Operates as standalone subsidiary within Hormel's Refrigerated Foods segment. Hormel's other brands (SPAM, Black Label) do NOT share Applegate's certifications.\n\n## Animal Welfare\n\n100% of pork is GAP Step 1+ or Certified Humane, no gestation crates, no antibiotics ever, vegetarian diet, listed on ASPCA Shop With Your Heart. Expanding into regenerative organic certification. However, GAP Step 1 baseline means indoor housing with enrichments — not pasture-raised (organic line has outdoor access). Cornucopia Institute noted limited direct farm oversight.\n\n## Assessment\n\nRated half a star below Niman Ranch because GAP Step 1 is a lower welfare floor. The fundamental tension: Applegate profits subsidize Hormel, whose core brands have documented abuse in their supply chains.",
+      "sources": [
+        {
+          "label": "Applegate — Animal Welfare",
+          "url": "https://applegate.com/mission/animal-welfare"
+        },
+        {
+          "label": "Cornucopia — Applegate Scorecard",
+          "url": "https://www.cornucopia.org/scorecard/organic-poultry-scorecard/applegate-farms-hormel-foods/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "coleman-natural-foods",
+      "name": "Coleman Natural Foods",
+      "parentCompany": "Perdue Farms",
+      "ownershipType": [
+        "private-parent",
+        "family-owned-parent",
+        "subsidiary"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 3.0,
+      "animalWelfare": {
+        "rating": "moderate",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "American Humane Certified (since 2018). 100% crate-free (gestation and farrowing — first national retail brand with third-party verification). No antibiotics ever. However, ASPCA does NOT recognize American Humane Certified as one of its three recommended programs. Not pasture-raised."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Founded 1875. Acquired by Perdue Farms in May 2011. Sister brand to Niman Ranch under Perdue's premium meats portfolio. HSUS VP Josh Balk publicly praised the crate-free achievement. Not recommended due to weaker certification tier, but reasonable for mainstream shoppers wanting better-than-industrial pork.",
+      "summary": "## Ownership & Structure\n\nFounded 1875 by the Coleman family in Colorado. Acquired by Perdue Farms in May 2011. Mel Coleman Jr. (5th generation) remains involved. Sister brand to Niman Ranch under Perdue's premium meats portfolio.\n\n## Animal Welfare\n\nAmerican Humane Certified (since 2018), 100% crate-free (both gestation and farrowing — first national retail brand to achieve this with third-party verification), no antibiotics ever. However, the ASPCA does NOT recognize American Humane Certified as one of its three recommended welfare programs (AWA, Certified Humane, GAP). Not pasture-raised — indoor housing with improved standards. Prop 12 and MA Q3 compliant.\n\n## Assessment\n\nSolid mid-tier option with real certifications but a weaker certification tier. Reasonable for mainstream shoppers wanting better-than-industrial pork.",
+      "sources": [
+        {
+          "label": "Perdue — Coleman Crate-Free Announcement",
+          "url": "https://corporate.perduefarms.com/news/press-releases/coleman-crate-free/"
+        },
+        {
+          "label": "Coleman Natural — Our Story",
+          "url": "https://colemannatural.com/coleman-story/"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
+    },
+    {
+      "id": "heritage-foods-usa",
+      "name": "Heritage Foods USA",
+      "parentCompany": null,
+      "ownershipType": [
+        "private",
+        "founder-led",
+        "independent"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 4.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "100% heritage breeds only (Red Wattle, Tamworth, Gloucestershire Old Spot, Duroc, Berkshire, Large Black). 100% pasture-raised. No antibiotics or hormones ever. Natural reproduction (no artificial insemination). Some partner farms carry AWA. No brand-level third-party certification."
+      },
+      "shitList": false,
+      "recommended": true,
+      "notes": "Founded 2001 by Patrick Martins as sales arm of Slow Food USA. Brooklyn, NY-based. Revenue ~$5-6M/year. ~50+ partner family farms. Not PE-backed. Sells to ~250 top restaurants (70%) and DTC (30%). Luxury pricing limits accessibility.",
+      "summary": "## Ownership & Structure\n\nFounded 2001 by Patrick Martins as sales arm of Slow Food USA; became independent for-profit in 2004. Co-founded with Todd Wickstrom. Brooklyn, NY-based. Revenue ~$5-6M/year. ~50+ partner family farms. Entirely mission-driven.\n\n## Animal Welfare\n\n100% heritage breeds only, 100% pasture-raised, no antibiotics or hormones ever, natural reproduction (no AI), nose-to-tail whole-herd purchasing from ~50 family farms. Some partner farms carry AWA individually.\n\n## Assessment\n\nThe purest expression of ethical pork production at commercial scale. Deducted half a star because Heritage Foods itself does not carry a consistent brand-level third-party certification — verification relies on farm-level partnerships rather than systematic independent auditing. Luxury pricing limits accessibility.",
+      "sources": [
+        {
+          "label": "Heritage Foods — Who We Are",
+          "url": "https://heritagefoods.com/pages/who-we-are-1"
+        },
+        {
+          "label": "Heritage Foods USA — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Heritage_Foods_USA"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 4
+    },
+    {
+      "id": "polyface-farm",
+      "name": "Polyface Farm",
+      "parentCompany": null,
+      "ownershipType": [
+        "private",
+        "family",
+        "independent"
+      ],
+      "categories": [
+        "food",
+        "pork"
+      ],
+      "starRating": 3.5,
+      "animalWelfare": {
+        "rating": "good",
+        "supplyChainAbuse": false,
+        "testingOnAnimals": false,
+        "notes": "Pastured pork with innovative Pigaerator composting system. No antibiotics, no hormones, rotational multi-species grazing, open-door transparency policy. However, deliberately refuses ALL third-party certifications (views as government overreach). Uses industrial Cornish Cross for meat birds. Some visitor reports of overcrowded chicken conditions."
+      },
+      "shitList": false,
+      "recommended": false,
+      "notes": "Founded 1961. Joel Salatin operates 550-acre farm in Swoope, Virginia plus ~900 leased acres. Revenue ~$1.8-2M/year. Entirely debt-free. Featured in Michael Pollan's 'The Omnivore's Dilemma.' Not recommended due to zero independent verification despite excellent stated practices. Salatin spread COVID conspiracy theories including 5G claims.",
+      "summary": "## Ownership & Structure\n\nFounded by Joel Salatin's parents (1961); Joel operates the 550-acre farm in Swoope, Virginia plus ~900 leased acres. Revenue ~$1.8-2M/year. ~20 employees. Entirely debt-free. Multi-generational family operation.\n\n## Animal Welfare\n\nJoel Salatin's 'Pigaerator' system (pigs rooting through cattle bedding to create compost) is a landmark of sustainable agriculture. Pastured pork, no antibiotics, no hormones, rotational multi-species grazing, open-door transparency policy. However, deliberately refuses ALL third-party certifications (viewing them as government overreach), making welfare claims unverifiable for remote customers. Uses industrial Cornish Cross for meat birds.\n\n## Controversies\n\nSalatin spread COVID conspiracy theories (including 5G claims) and held large maskless gatherings throughout 2020. Some visitor reports of overcrowded chicken conditions.\n\n## Assessment\n\nPhilosophically one of the most committed regenerative farms in America. Not recommended due to zero independent verification despite excellent stated practices.",
+      "sources": [
+        {
+          "label": "Polyface Farm — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Polyface_Farm"
+        },
+        {
+          "label": "Joel Salatin — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Joel_Salatin"
+        }
+      ],
+      "report": null,
+      "sample": false,
+      "dateAdded": "2026-02-27",
+      "lastUpdated": "2026-02-27",
+      "priceTier": 3
     }
   ]
 }
