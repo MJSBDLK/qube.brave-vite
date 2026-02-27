@@ -7,6 +7,22 @@ import SpicyWord from '../components/SpicyWord'
 const HomePage = () => {
 	const updates = [
 		{
+			date: 'Feb 26, 2026',
+			title: 'Brands Spreadsheet',
+			badge: 'New Tool',
+			badgeType: 'teal',
+			content: (
+				<>
+					<p className="text-body text-secondary u-m-sm">
+						Track brands by corporate ownership, animal welfare practices, and supply chain ethics
+					</p>
+					<div className="u-flex u-gap-sm">
+						<Link to="/brands" className="c-button c-button--primary">View Brands</Link>
+					</div>
+				</>
+			)
+		},
+		{
 			date: 'Jan 8, 2026',
 			title: 'Inflation™',
 			badge: 'New Tool',

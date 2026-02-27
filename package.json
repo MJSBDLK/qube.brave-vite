@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tanstack/react-table": "^8.21.3",
     "@vitejs/plugin-react": "^5.0.2",
     "html2canvas-pro": "^1.6.2",
     "lucide-react": "^0.542.0",

@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Ramps from './pages/Ramps'
 import SecretSanta from './pages/SecretSanta'
 import Inflation from './pages/Inflation'
+import Brands from './pages/Brands'
 import { updatePageMetadata, getDisplayUrl, getCanonicalDomain } from './utils/urlUtils'
 import { SpicyModeProvider } from './contexts/SpicyModeContext'
 import { BugReportProvider } from './contexts/BugReportContext'
@@ -75,6 +76,11 @@ function AppLayout() {
             title: `${baseDomain}/inflation`,
             description: 'Visualize asset prices using alternative measuring sticks'
           }
+        case '/brands':
+          return {
+            title: `${baseDomain}/brands`,
+            description: 'Tracking corporate ownership, animal welfare, and supply chain ethics'
+          }
         default:
           return {
             title: getDisplayUrl(location.pathname),
@@ -131,6 +137,16 @@ function AppLayout() {
           <Route path="/inflation/" element={
             <ErrorBoundary>
               <Inflation />
+            </ErrorBoundary>
+          } />
+          <Route path="/brands" element={
+            <ErrorBoundary>
+              <Brands />
+            </ErrorBoundary>
+          } />
+          <Route path="/brands/" element={
+            <ErrorBoundary>
+              <Brands />
             </ErrorBoundary>
           } />
         </Routes>

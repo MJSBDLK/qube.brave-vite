@@ -93,13 +93,15 @@ export default function Sidebar({ isOpen, onClose }) {
 								</Link>
 							</li>
 							<li className='nav-item'>
-								<a
-									href='#'
-									className='nav-link nav-link--coming-soon'
-									title='Coming soon, hopefully'
+								<Link
+									to='/brands'
+									className={`nav-link ${
+										location.pathname === '/brands' ? 'nav-link--active' : ''
+									}`}
+									onClick={onClose}
 								>
-									Brands Master Spreadsheet
-								</a>
+									Brands Spreadsheet
+								</Link>
 							</li>
 						</ul>
 					</div>
