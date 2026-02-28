@@ -2,7 +2,7 @@
 
 ---
 
-## Current Branch: `rqd--inflation`
+## Branch: `rqd--inflation`
 
 ### Inflation Page — Completed
 - [x] Scaffold inflation page with chart UI, data source cards, moving average, regression
@@ -141,6 +141,7 @@
 ---
 
 ## General / Cross-Cutting
+- [ ] Brands: Replace native `title` tooltip on citation icons with instant custom tooltip (CSS `::after` approach still had delay; consider a lightweight JS tooltip library like Tippy.js or a React state-based solution)
 - [ ] Backend API expansion (qube-api) for features needing persistence beyond localStorage
 - [ ] Auth system for admin and user-submitted content features
 - [ ] Fitness app lives separately at /var/www/fit.mjsbdlk (fit.mjsbdlk.com) — see that project's todo
