@@ -18,6 +18,13 @@ const WELFARE_LABELS = {
   unknown: 'Unknown',
 }
 
+const PRICE_TIER_LABELS = {
+  1: '$',
+  2: '$$',
+  3: '$$$',
+  4: '$$$$',
+}
+
 export default function FilterBar({
   searchQuery,
   setSearchQuery,
@@ -30,6 +37,9 @@ export default function FilterBar({
   allWelfareRatings,
   selectedWelfare,
   setSelectedWelfare,
+  allPriceTiers,
+  selectedPriceTiers,
+  setSelectedPriceTiers,
   showShitListOnly,
   setShowShitListOnly,
   showRecommendedOnly,
@@ -37,7 +47,7 @@ export default function FilterBar({
 }) {
   const [filtersExpanded, setFiltersExpanded] = useState(false)
 
-  const activeFilterCount = selectedCategories.length + selectedOwnership.length + selectedWelfare.length + (showShitListOnly ? 1 : 0) + (showRecommendedOnly ? 1 : 0)
+  const activeFilterCount = selectedCategories.length + selectedOwnership.length + selectedWelfare.length + selectedPriceTiers.length + (showShitListOnly ? 1 : 0) + (showRecommendedOnly ? 1 : 0)
 
   const toggleInArray = (arr, setArr, value) => {
     setArr(prev => prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value])
@@ -117,6 +127,24 @@ export default function FilterBar({
                   onClick={() => toggleInArray(selectedWelfare, setSelectedWelfare, rating)}
                 >
                   {WELFARE_LABELS[rating] || rating}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Price Tier */}
+        {allPriceTiers.length > 0 && (
+          <div className="brands-filter-group">
+            <span className="filter-group-label">Price</span>
+            <div className="filter-pills">
+              {allPriceTiers.map(tier => (
+                <button
+                  key={tier}
+                  className={`filter-pill ${selectedPriceTiers.includes(tier) ? 'active' : ''}`}
+                  onClick={() => toggleInArray(selectedPriceTiers, setSelectedPriceTiers, tier)}
+                >
+                  {PRICE_TIER_LABELS[tier] || `Tier ${tier}`}
                 </button>
               ))}
             </div>

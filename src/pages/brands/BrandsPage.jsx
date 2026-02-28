@@ -16,6 +16,7 @@ export default function BrandsPage() {
   const [selectedCategories, setSelectedCategories] = useState([])
   const [selectedOwnership, setSelectedOwnership] = useState([])
   const [selectedWelfare, setSelectedWelfare] = useState([])
+  const [selectedPriceTiers, setSelectedPriceTiers] = useState([])
   const [showShitListOnly, setShowShitListOnly] = useState(false)
   const [showRecommendedOnly, setShowRecommendedOnly] = useState(false)
 
@@ -97,6 +98,12 @@ export default function BrandsPage() {
     return order.filter(r => set.has(r))
   }, [brands])
 
+  const allPriceTiers = useMemo(() => {
+    const set = new Set()
+    brands.forEach(b => { if (b.priceTier) set.add(b.priceTier) })
+    return [...set].sort((a, b) => a - b)
+  }, [brands])
+
   // Filtered data
   const filteredBrands = useMemo(() => {
     let result = brands
@@ -129,11 +136,15 @@ export default function BrandsPage() {
       result = result.filter(b => selectedWelfare.includes(b.animalWelfare.rating))
     }
 
+    if (selectedPriceTiers.length > 0) {
+      result = result.filter(b => b.priceTier && selectedPriceTiers.includes(b.priceTier))
+    }
+
     if (showShitListOnly) result = result.filter(b => b.shitList)
     if (showRecommendedOnly) result = result.filter(b => b.recommended)
 
     return result
-  }, [brands, searchQuery, selectedCategories, selectedOwnership, selectedWelfare, showShitListOnly, showRecommendedOnly])
+  }, [brands, searchQuery, selectedCategories, selectedOwnership, selectedWelfare, selectedPriceTiers, showShitListOnly, showRecommendedOnly])
 
   // Summary stats
   const stats = useMemo(() => ({
@@ -269,6 +280,9 @@ export default function BrandsPage() {
         allWelfareRatings={allWelfareRatings}
         selectedWelfare={selectedWelfare}
         setSelectedWelfare={setSelectedWelfare}
+        allPriceTiers={allPriceTiers}
+        selectedPriceTiers={selectedPriceTiers}
+        setSelectedPriceTiers={setSelectedPriceTiers}
         showShitListOnly={showShitListOnly}
         setShowShitListOnly={setShowShitListOnly}
         showRecommendedOnly={showRecommendedOnly}
