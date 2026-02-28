@@ -305,7 +305,7 @@ When adding a new data field to the brands schema:
 
 ### Tweaks
 - [x] Reduce size of brands-header and brands-stats divs
-- [ ] In report inaccuracy feature, require one minimum source, and allow ten maximum
+- [x] In report inaccuracy feature, require one minimum source, and allow ten maximum
 
 ### Priority Research
 - [x] A2 milk

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { X, Send, Check, Loader2, AlertCircle, Search, AlertTriangle } from 'lucide-react'
+import { X, Send, Check, Loader2, AlertCircle, Search, AlertTriangle, Plus, Trash2 } from 'lucide-react'
 import { useBrandFeedback } from '../contexts/BrandFeedbackContext'
 
 const REQUEST_API = import.meta.env.VITE_BRAND_REQUEST_API || '/api/brands/request-research'
@@ -28,7 +28,7 @@ export default function BrandFeedbackModal() {
   const [field, setField] = useState('')
   const [description, setDescription] = useState('')
   const [correction, setCorrection] = useState('')
-  const [sourceUrl, setSourceUrl] = useState('')
+  const [sources, setSources] = useState([''])
 
   // UI state
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -44,7 +44,7 @@ export default function BrandFeedbackModal() {
       setField('')
       setDescription('')
       setCorrection('')
-      setSourceUrl('')
+      setSources([''])
       setSubmitStatus(null)
       setErrorMessage('')
     }
@@ -64,7 +64,7 @@ export default function BrandFeedbackModal() {
 
   const canSubmit = isRequestMode
     ? (brand ? true : brandName.trim().length > 0)
-    : (field.trim().length > 0 && description.trim().length > 0)
+    : (field.trim().length > 0 && description.trim().length > 0 && sources.some(s => s.trim().length > 0))
 
   const handleSubmit = async () => {
     if (!canSubmit) return
@@ -89,7 +89,7 @@ export default function BrandFeedbackModal() {
           field: field.trim(),
           description: description.trim(),
           correction: correction.trim() || null,
-          sourceUrl: sourceUrl.trim() || null,
+          sources: sources.map(s => s.trim()).filter(Boolean),
           contact: contact.trim() || null,
         }
 
@@ -161,8 +161,8 @@ export default function BrandFeedbackModal() {
                   setDescription={setDescription}
                   correction={correction}
                   setCorrection={setCorrection}
-                  sourceUrl={sourceUrl}
-                  setSourceUrl={setSourceUrl}
+                  sources={sources}
+                  setSources={setSources}
                   contact={contact}
                   setContact={setContact}
                 />
@@ -259,7 +259,21 @@ function RequestResearchForm({ brand, brandName, setBrandName, notes, setNotes, 
   )
 }
 
-function ReportInaccuracyForm({ brand, field, setField, description, setDescription, correction, setCorrection, sourceUrl, setSourceUrl, contact, setContact }) {
+function ReportInaccuracyForm({ brand, field, setField, description, setDescription, correction, setCorrection, sources, setSources, contact, setContact }) {
+  const updateSource = (index, value) => {
+    const next = [...sources]
+    next[index] = value
+    setSources(next)
+  }
+
+  const addSource = () => {
+    if (sources.length < 10) setSources([...sources, ''])
+  }
+
+  const removeSource = (index) => {
+    if (sources.length > 1) setSources(sources.filter((_, i) => i !== index))
+  }
+
   return (
     <>
       <p className="suggestion-intro">
@@ -297,13 +311,27 @@ function ReportInaccuracyForm({ brand, field, setField, description, setDescript
       </div>
 
       <div className="bug-report-field">
-        <label>Source URL (optional)</label>
-        <input
-          type="text"
-          value={sourceUrl}
-          onChange={(e) => setSourceUrl(e.target.value)}
-          placeholder="https://... Link supporting the correction"
-        />
+        <label>Sources <span className="required">*</span> <span className="field-hint">(at least 1 required)</span></label>
+        {sources.map((src, i) => (
+          <div key={i} className="source-input-row">
+            <input
+              type="url"
+              value={src}
+              onChange={(e) => updateSource(i, e.target.value)}
+              placeholder="https://..."
+            />
+            {sources.length > 1 && (
+              <button type="button" className="source-remove-btn" onClick={() => removeSource(i)} aria-label="Remove source">
+                <Trash2 size={14} />
+              </button>
+            )}
+          </div>
+        ))}
+        {sources.length < 10 && (
+          <button type="button" className="source-add-btn" onClick={addSource}>
+            <Plus size={14} /> Add source
+          </button>
+        )}
       </div>
 
       <div className="bug-report-field contact-field">

@@ -2334,6 +2334,81 @@ body {
 	color: var(--text-subtle);
 }
 
+.bug-report-field input[type="url"] {
+	width: 100%;
+	padding: var(--space-md);
+	background: var(--bg-tertiary);
+	border: 1px solid var(--border-primary);
+	border-radius: var(--radius-md);
+	color: var(--text-primary);
+	font-family: inherit;
+	font-size: 0.875rem;
+	transition: border-color var(--transition-fast);
+}
+
+.bug-report-field input[type="url"]:focus {
+	outline: none;
+	border-color: var(--color-primary);
+}
+
+.bug-report-field input[type="url"]::placeholder {
+	color: var(--text-subtle);
+}
+
+.bug-report-field .field-hint {
+	font-weight: 400;
+	color: var(--text-muted);
+	font-size: 0.8rem;
+}
+
+.source-input-row {
+	display: flex;
+	gap: var(--space-sm);
+	align-items: center;
+	margin-bottom: var(--space-sm);
+}
+
+.source-input-row input {
+	flex: 1;
+}
+
+.source-remove-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-sm);
+	background: none;
+	border: 1px solid var(--border-primary);
+	border-radius: var(--radius-md);
+	color: var(--text-muted);
+	cursor: pointer;
+	transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.source-remove-btn:hover {
+	color: #ef4444;
+	border-color: #ef4444;
+}
+
+.source-add-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-xs);
+	padding: var(--space-xs) var(--space-sm);
+	background: none;
+	border: 1px dashed var(--border-primary);
+	border-radius: var(--radius-md);
+	color: var(--text-muted);
+	font-size: 0.8rem;
+	cursor: pointer;
+	transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.source-add-btn:hover {
+	color: var(--color-primary);
+	border-color: var(--color-primary);
+}
+
 .bug-report-auto-data {
 	margin-bottom: var(--space-lg);
 	padding: var(--space-md);
