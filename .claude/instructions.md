@@ -288,9 +288,32 @@ When adding a new data field to the brands schema:
    - Use the `NoDataCell` helper in `BrandsTable.jsx` for consistent rendering
 
 ### Adding researched brands
+- Check the JSON output for missing fields or data
 - Paste discovery output into the `brands` array in `brands.json`
 - For deep research, replace the brand's `"report": null` with the generated report object
 - Set `"sample": false` (or omit) for real researched brands; seed data has `"sample": true`
+
+### Features
+- [x] Reports need a tl;dr section
+- [x] Request research feature (both products and brands) — via GitHub Issues
+- [x] Report inaccuracy feature — via GitHub Issues
+- [ ] Tune the research prompt to catch bad incentives and methodological nuances
+- [ ] Tune the research prompt to care less about stuff that doesn't matter
+- [ ] When the time is right, migrate brands.json to SQLite or something like that
+- [x] Filter by price range (price tier pills: $ $$ $$$ $$$$)
+- [ ] Add available at [retailer] functionality for non-shit-listed products
+
+### Tweaks
+- [x] Reduce size of brands-header and brands-stats divs
+- [ ] In report inaccuracy feature, require one minimum source, and allow ten maximum
+
+### Priority Research
+- [x] A2 milk
+- [x] Knudsen
+- [ ] Crystal
+- [ ] Sunnyside Farms
+- [ ] Costco butcher
+- [x] Eggs
 
 ## Key Files Reference
 
