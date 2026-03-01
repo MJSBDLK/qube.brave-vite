@@ -216,21 +216,37 @@ function buildColumns(onViewReport) {
   ]
 }
 
-export default function BrandsTable({ data, onViewReport }) {
+const MOBILE_HIDDEN_COLUMNS = {
+  parentCompany: false,
+  ownershipType: false,
+  categories: false,
+  priceTier: false,
+  animalWelfare: false,
+  shitList: false,
+  recommended: false,
+}
+
+export default function BrandsTable({ data, onViewReport, isMobile }) {
   const [sorting, setSorting] = useState([])
   const [expanded, setExpanded] = useState({})
   const [columnVisibility, setColumnVisibility] = useState({})
   const [showColumnToggle, setShowColumnToggle] = useState(false)
+
+  // Force column visibility on mobile
+  const effectiveColumnVisibility = isMobile
+    ? { ...columnVisibility, ...MOBILE_HIDDEN_COLUMNS }
+    : columnVisibility
 
   const columns = useMemo(() => buildColumns(onViewReport), [onViewReport])
 
   const table = useReactTable({
     data,
     columns,
-    state: { sorting, expanded, columnVisibility },
+    state: { sorting, expanded, columnVisibility: effectiveColumnVisibility },
     onSortingChange: setSorting,
     onExpandedChange: setExpanded,
     onColumnVisibilityChange: setColumnVisibility,
+    getRowCanExpand: () => true,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
@@ -247,7 +263,7 @@ export default function BrandsTable({ data, onViewReport }) {
         <span className="brands-result-count">
           {data.length} brand{data.length !== 1 ? 's' : ''}
         </span>
-        <div className="column-toggle-container">
+        {!isMobile && <div className="column-toggle-container">
           <button
             className="column-toggle-btn"
             onClick={() => setShowColumnToggle(prev => !prev)}
@@ -269,7 +285,7 @@ export default function BrandsTable({ data, onViewReport }) {
               ))}
             </div>
           )}
-        </div>
+        </div>}
       </div>
 
       {/* Table */}

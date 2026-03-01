@@ -8,8 +8,20 @@ const WELFARE_LABELS = {
   unknown: 'Unknown',
 }
 
+const OWNERSHIP_LABELS = {
+  family: 'Family',
+  founder: 'Founder',
+  cooperative: 'Co-op',
+  public: 'Public',
+  'venture-backed': 'VC-backed',
+  'private-equity': 'PE-owned',
+  megacorp: 'Megacorp',
+}
+
+const PRICE_LABELS = { 1: '$', 2: '$$', 3: '$$$', 4: '$$$$' }
+
 export default function BrandDetailPanel({ brand }) {
-  const { animalWelfare, sources, notes, tldr, dateAdded, lastUpdated } = brand
+  const { animalWelfare, sources, notes, tldr, dateAdded, lastUpdated, parentCompany, ownershipType, categories, priceTier } = brand
   const { openRequestResearch, openReportInaccuracy } = useBrandFeedback()
 
   return (
@@ -24,6 +36,39 @@ export default function BrandDetailPanel({ brand }) {
             </div>
           </div>
         )}
+
+        {/* Quick info row: parent, ownership, categories, price */}
+        <div className="brand-detail-section">
+          <div className="brand-detail-label">Details</div>
+          <div className="brand-detail-quick-info">
+            {parentCompany && (
+              <span className="brand-detail-meta">
+                <span className="brand-detail-meta-key">Parent:</span> {parentCompany}
+              </span>
+            )}
+            {Array.isArray(ownershipType) && ownershipType.length > 0 && (
+              <span className="brand-detail-meta">
+                {ownershipType.map(t => (
+                  <span key={t} className={`ownership-badge ownership-badge--${t}`}>
+                    {OWNERSHIP_LABELS[t] || t}
+                  </span>
+                ))}
+              </span>
+            )}
+            {categories && categories.length > 0 && (
+              <span className="brand-detail-meta">
+                {categories.map(c => (
+                  <span key={c} className="category-pill">{c}</span>
+                ))}
+              </span>
+            )}
+            {priceTier && (
+              <span className="brand-detail-meta">
+                <span className="price-tier">{PRICE_LABELS[priceTier]}</span>
+              </span>
+            )}
+          </div>
+        </div>
 
         {/* Animal Welfare Details */}
         <div className="brand-detail-section">

@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo, useCallback } from 'react'
-import { ShieldCheck, AlertTriangle, Star, Sparkles, Check, Search } from 'lucide-react'
+import { ShieldCheck, AlertTriangle, Star, Sparkles, Check, Search, ChevronDown, ChevronUp } from 'lucide-react'
 import FilterBar from './components/FilterBar'
 import BrandsTable from './components/BrandsTable'
 import ReportModal from './components/ReportModal'
 import { getDiscoveryPrompt, getDeepResearchPrompt } from './utils/prompts'
 import { useBrandFeedback } from '../../contexts/BrandFeedbackContext'
+import useIsMobile from './hooks/useIsMobile'
 
 export default function BrandsPage() {
   const [brands, setBrands] = useState([])
@@ -19,6 +20,9 @@ export default function BrandsPage() {
   const [selectedPriceTiers, setSelectedPriceTiers] = useState([])
   const [showShitListOnly, setShowShitListOnly] = useState(false)
   const [showRecommendedOnly, setShowRecommendedOnly] = useState(false)
+
+  const isMobile = useIsMobile()
+  const [mobileHeaderOpen, setMobileHeaderOpen] = useState(false)
 
   // Report modal state
   const [reportBrand, setReportBrand] = useState(null)
@@ -176,11 +180,25 @@ export default function BrandsPage() {
 
   return (
     <div className="brands-page">
-      {/* Header */}
-      <div className="brands-header">
+      {/* Mobile: compact header bar with expand toggle */}
+      {isMobile && (
+        <div className="brands-mobile-bar">
+          <h1 className="brands-mobile-bar-title">Brands</h1>
+          <button
+            className="brands-mobile-bar-toggle"
+            onClick={() => setMobileHeaderOpen(prev => !prev)}
+            aria-label={mobileHeaderOpen ? 'Collapse header' : 'Expand header'}
+          >
+            {mobileHeaderOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+          </button>
+        </div>
+      )}
+
+      {/* Header — hidden on mobile unless expanded */}
+      <div className={`brands-header ${isMobile && !mobileHeaderOpen ? 'brands-header--mobile-hidden' : ''}`}>
         <div className="brands-header-top">
           <div>
-            <h1 className="brands-title">Brands Spreadsheet</h1>
+            {!isMobile && <h1 className="brands-title">Brands Spreadsheet</h1>}
             <p className="brands-subtitle">
               Tracking corporate ownership, animal welfare practices, and supply chain ethics
             </p>
@@ -241,8 +259,8 @@ export default function BrandsPage() {
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="brands-stats">
+      {/* Stats — hidden on mobile unless header expanded */}
+      <div className={`brands-stats ${isMobile && !mobileHeaderOpen ? 'brands-header--mobile-hidden' : ''}`}>
         <div className="brands-stat-card">
           <div className="brands-stat-value">{stats.total}</div>
           <div className="brands-stat-label">Brands Tracked</div>
@@ -290,7 +308,7 @@ export default function BrandsPage() {
       />
 
       {/* Table */}
-      <BrandsTable data={filteredBrands} onViewReport={handleViewReport} />
+      <BrandsTable data={filteredBrands} onViewReport={handleViewReport} isMobile={isMobile} />
 
       {/* Report Modal */}
       {reportBrand && (

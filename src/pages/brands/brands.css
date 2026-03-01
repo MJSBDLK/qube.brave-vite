@@ -1138,16 +1138,86 @@
 }
 
 /* =====================================================
+   MOBILE HEADER BAR
+   ===================================================== */
+
+.brands-mobile-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xs) 0;
+  margin-bottom: var(--space-sm);
+}
+
+.brands-mobile-bar-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.brands-mobile-bar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--space-xs);
+  transition: all var(--transition-fast);
+}
+
+.brands-mobile-bar-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--color-primary);
+}
+
+.brands-header--mobile-hidden {
+  display: none;
+}
+
+/* =====================================================
+   DETAIL PANEL – QUICK INFO ROW
+   ===================================================== */
+
+.brand-detail-quick-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.brand-detail-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.brand-detail-meta-key {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+/* =====================================================
    RESPONSIVE
    ===================================================== */
 
 @media (max-width: 768px) {
+  /* Report modal — near full-screen */
   .report-overlay {
-    padding: var(--space-sm);
+    padding: 0;
   }
 
   .report-modal {
-    max-height: 90vh;
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    height: 100vh;
   }
 
   .report-modal-title {
@@ -1155,7 +1225,7 @@
   }
 
   .brands-page {
-    padding: var(--space-md);
+    padding: var(--space-sm);
   }
 
   .brands-header-top {
@@ -1180,15 +1250,39 @@
     max-width: 100%;
   }
 
+  .brands-search-row {
+    flex-wrap: wrap;
+  }
+
   .brands-table-container {
-    margin: 0 calc(-1 * var(--space-md));
+    margin: 0 calc(-1 * var(--space-sm));
     border-radius: 0;
     border-left: none;
     border-right: none;
+    max-height: 80vh;
+  }
+
+  /* Touch-friendly row height */
+  .brands-table tbody td {
+    padding: var(--space-sm) var(--space-sm);
+    min-height: 44px;
+  }
+
+  .brands-table thead th {
+    padding: var(--space-sm) var(--space-sm);
   }
 
   .brand-detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .brand-detail-panel {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Pagination */
+  .brands-page-info {
+    font-size: 0.75rem;
   }
 }
 
@@ -1208,6 +1302,10 @@
 
   .filter-toggle {
     justify-content: center;
+  }
+
+  .brands-table {
+    font-size: 0.8125rem;
   }
 }
 
